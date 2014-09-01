@@ -22,6 +22,9 @@ namespace ConsoleApplication
             CookieEnabledWebClient client = ContentExtraction.SetUpCookieEnabledWebClientForLogIn();
             DownloadWriteOpenHtmlData(client, GVar.MenuUrl, "ConfirmLogIn.html");
 
+            CookieEnabledWebClient searchClient = SetUpCookieEnabledWebClientForJobSearch(client);
+            DownloadWriteOpenHtmlData(searchClient, GVar.JobSearchUrl, "ConfirmJobSearch.html");
+
             GetJobsFromWeb(client);
             Console.Write("Application Finished Execution");
             Console.ReadKey();
@@ -33,6 +36,51 @@ namespace ConsoleApplication
             data = client.DownloadString(downloadUrl);
             File.WriteAllText(GVar.LocationFilePath + htmlFileName, data);
             Process.Start(GVar.LocationFilePath + htmlFileName);
+        }
+
+
+        public static CookieEnabledWebClient SetUpCookieEnabledWebClientForJobSearch(CookieEnabledWebClient oldClient)
+        {
+            CookieEnabledWebClient client = new CookieEnabledWebClient();
+            client.setcookie(oldClient.getcookie());
+            client.BaseAddress = GVar.JobInquiryUrl;
+            NameValueCollection searchData = SetJobSearchData();
+            client.UploadValues(GVar.JobInquiryUrl, "POST", searchData);
+            client.Headers.Add("user-agent", GVar.UserAgent);
+            return client;
+        }
+
+        public static NameValueCollection SetJobSearchData()
+        {
+            NameValueCollection searchData = new NameValueCollection();
+            searchData.Add("ICAJAX", "1");
+            searchData.Add("ICAction", "UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN");
+            searchData.Add("ICActionPrompt", "false");
+            searchData.Add("ICAddCount", "");
+            searchData.Add("ICChanged", "-1");
+            searchData.Add("ICElementNum", "0");
+            searchData.Add("ICFind", "");
+            searchData.Add("ICFocus", "");
+            searchData.Add("ICModalLongClosed", "");
+            searchData.Add("ICModalWidget", "0");
+            searchData.Add("ICNAVTYPEDROPDOWN", "1");
+            searchData.Add("ICResubmit", "0");
+            searchData.Add("ICSID", "IFqDm7vwVA8WwyH25e3/XDSBemEAM4e1lLbMx96hq48=");
+            searchData.Add("ICSaveWarningFilter", "0");
+            searchData.Add("ICStateNum", "2");
+            searchData.Add("ICType", "Panel");
+            searchData.Add("ICXPos", "0");
+            searchData.Add("ICYPos", "0");
+            searchData.Add("ICZoomGrid", "0");
+            searchData.Add("ICZoomGridRt", "0");
+            searchData.Add("ResponsetoDiffFrame", "-1");
+            searchData.Add("TargetFrameName", "None");
+            //searchData.Add("UW_CO_JOBSRCH_UW_CO_ADV_DISCP1", "");
+            //searchData.Add("UW_CO_JOBSRCH_UW_CO_ADV_DISCP2", "");
+            //searchData.Add("UW_CO_JOBSRCH_UW_CO_ADV_DISCP3", "");
+            //searchData.Add("UW_CO_JOBSRCH_UW_CO_LOCATION", "");
+            searchData.Add("UW_CO_JOBSRCH_UW_CO_WT_SESSION", "1149");
+            return searchData;
         }
 
         private static void GetJobsFromWeb(CookieEnabledWebClient client)
