@@ -7,7 +7,7 @@ using System.Net;
 
 namespace WebClientExtension 
 {
-    public class WebClientCookieEnabled : WebClient 
+    public class CookieEnabledWebClient : WebClient 
     {
         private CookieContainer cookie = new CookieContainer();
 

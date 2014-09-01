@@ -14,9 +14,9 @@ namespace ContentProcess
 {
     public static class ContentExtraction
     {
-        public static WebClientCookieEnabled SetUpWebClientCookieEnabled()
+        public static CookieEnabledWebClient SetUpCookieEnabledWebClientForLogIn()
         {
-            WebClientCookieEnabled client = new WebClientCookieEnabled();
+            CookieEnabledWebClient client = new CookieEnabledWebClient();
             client.Headers.Add("user-agent", GVar.UserAgent);
             client.BaseAddress = GVar.LogInUrl;
             NameValueCollection loginData = SetLoginData();
@@ -26,7 +26,7 @@ namespace ContentProcess
 
         public static NameValueCollection SetLoginData()
         {
-            var loginData = new NameValueCollection();
+            NameValueCollection loginData = new NameValueCollection();
             loginData.Add("userid", GVar.UserID);
             loginData.Add("pwd", GVar.UserPW);
             loginData.Add("submit", "Submit");
@@ -67,6 +67,7 @@ namespace ContentProcess
         {
             return htmlSource.IndexOf(level) > -1;
         }
+
         public static string returninfo(Job newJob)
         {
             string[] fieldNames = { "Employer", "Job Title", "Location", "Discriplines", "Levels", "Comment", "Description" };
@@ -89,7 +90,16 @@ namespace ContentProcess
         {
             int start = data.IndexOf(front) + front.Length;
             int end = data.IndexOf(back, start);
-            return data.Substring(start, end - start);
+            string extractedString = string.Empty;
+            try
+            {
+                extractedString = data.Substring(start, end - start);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("!Error-ArgumentOutOfRangeException_In_ExtractField: {0}\n", e);
+            }
+            return extractedString;
         }
         public static Disciplines ExtractDisciplines(string data)
         {

@@ -13,8 +13,8 @@ namespace WebClientExtension.Test
     [TestClass]
     public class WebClientCookieEnabledTest
     {
-        WebClientCookieEnabled webclient = new WebClientCookieEnabled();
-        WebClientCookieEnabled baseclient = new WebClientCookieEnabled();
+        CookieEnabledWebClient webclient = new CookieEnabledWebClient();
+        CookieEnabledWebClient baseclient = new CookieEnabledWebClient();
 
         [TestMethod]
         public void WebClientCookieEnabled_ShouldRun_WhenExecute() 

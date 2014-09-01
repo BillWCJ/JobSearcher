@@ -22,7 +22,5 @@ namespace ContentProcess.Test
             Disciplines testDisciplines =  ContentExtraction.ExtractDisciplines(testData);
             Assert.IsTrue(testDisciplines.ToString() == baseDisciplines.ToString(), "ExtractDisciplines did not extract correctly");
         }
-
-
     }
 }
