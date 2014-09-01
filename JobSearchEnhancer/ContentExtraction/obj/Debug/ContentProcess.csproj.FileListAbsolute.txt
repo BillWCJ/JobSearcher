@@ -1,0 +1,11 @@
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\ContentExtraction.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\ContentExtraction.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\GlobalVar.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\Job.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\WebClientExtension.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\GlobalVar.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\Job.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\bin\Debug\WebClientExtension.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\obj\Debug\ContentProcess.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\obj\Debug\ContentExtraction.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentExtraction\obj\Debug\ContentExtraction.pdb

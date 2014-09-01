@@ -10,3 +10,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console\bin\Debug\Job.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console\bin\Debug\GlobalVar.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console\bin\Debug\GlobalVar.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console\bin\Debug\ContentExtraction.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console\bin\Debug\ContentExtraction.pdb

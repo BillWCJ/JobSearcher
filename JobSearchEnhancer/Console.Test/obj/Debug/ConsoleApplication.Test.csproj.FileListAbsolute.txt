@@ -11,3 +11,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console.Test\obj\Debug\ConsoleApplication.Test.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console.Test\bin\Debug\GlobalVar.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console.Test\bin\Debug\GlobalVar.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console.Test\bin\Debug\ContentExtraction.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Console.Test\bin\Debug\ContentExtraction.pdb
