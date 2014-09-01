@@ -49,7 +49,7 @@ namespace GlobalVariable
         public const string UserPW = "Ss332640747:)";
         public const string LogInUrl = @"https://jobmine.ccol.uwaterloo.ca/psp/SS/?cmd=login&languageCd=ENG&sessionId=";
         public const string JobDetailBaseUrl = @"https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS?UW_CO_JOB_ID=";
-        public const string LocationFilePath = @"C:\Users\BillWenChao\Desktop\";
+        public const string LocationFilePath = @"C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer";
         public const string JobSearchUrl = @"https://jobmine.ccol.uwaterloo.ca/psp/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBSRCH.GBL?pslnkid=UW_CO_JOBSRCH_LINK&FolderPath=PORTAL_ROOT_OBJECT.UW_CO_JOBSRCH_LINK&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder";
 
     }

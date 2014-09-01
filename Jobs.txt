@@ -1,4 +1,4 @@
-Extract Time:7:40:54 PM
+Extract Time:11:55:09 PM
 
 -------------------------------------------------------------------------
 Employer:
@@ -11,7 +11,7 @@ Location:
 Mississauga ON
 
 Discriplines:
-ENG-Electrical, ENG-Mechatronics, ENG-Mechanical
+ENG-Electrical, ENG-Mechanical, ENG-Mechatronics, ENG-Software
 
 Levels:
 Junior
@@ -58,7 +58,7 @@ Location:
 Mississauga
 
 Discriplines:
-MATH-Computer Science, ENG-Computer, ENG-Software
+All Info Tech (unspecified), ENG-Computer, ENG-Software, ENG-Systems Design, MATH-Computer Science
 
 Levels:
 Junior, Intermediate, Senior
