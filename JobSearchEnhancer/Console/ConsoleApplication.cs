@@ -19,15 +19,36 @@ namespace ConsoleApplication
     {
         static void Main(string[] args) {
 
-            CookieEnabledWebClient client = ContentExtraction.SetUpCookieEnabledWebClientForLogIn();
-            DownloadWriteOpenHtmlData(client, GVar.MenuUrl, "ConfirmLogIn.html");
-
-            CookieEnabledWebClient searchClient = SetUpCookieEnabledWebClientForJobSearch(client);
-            DownloadWriteOpenHtmlData(searchClient, GVar.JobSearchUrl, "ConfirmJobSearch.html");
+            CookieEnabledWebClient client = ContentExtraction.SetUpClient(GVar.LogInUrl, ContentExtraction.LoginData());
+            DownloadWriteOpenHtmlData(client, GVar.JobInquiryUrl, "ConfirmLogIn.html");
+            DownloadWriteOpenHtmlData(client, GVar.TestJobDetailUrl, "ConfirmJobDetail.html");
 
             GetJobsFromWeb(client);
-            Console.Write("Application Finished Execution");
-            Console.ReadKey();
+
+            Console.ReadLine();
+        }
+
+        private static void PrintCookies(CookieEnabledWebClient client, string url)
+        {
+            Console.WriteLine(Environment.NewLine);
+            foreach (Cookie cook in client.CookieContainer.GetCookies(new Uri(url)))
+            {
+                Console.WriteLine("{0}: {1}", cook.Name, cook.Value);
+            }
+            Console.WriteLine(Environment.NewLine);
+        }
+
+        private static string ConfirmLogin(CookieEnabledWebClient client)
+        {
+            string url = GVar.JobDetailBaseUrl + GVar.TestJobID;
+            string data = client.DownloadString(url);
+            string processedData = ContentExtraction.returninfo(ContentExtraction.ExtractJobInfo(data, url));
+            StreamReader reader = new StreamReader(GVar.LocationFilePath + "JobDetailForConfirmLogIn.txt");
+            string baseData = reader.ReadToEnd();
+            if (baseData.Length == processedData.Length)
+                return "LoggedIn";
+            else return processedData.Substring(100,20)+"\n\n! Not Logged In";
+
         }
 
         private static void DownloadWriteOpenHtmlData(CookieEnabledWebClient client, string downloadUrl, string htmlFileName)
@@ -35,22 +56,11 @@ namespace ConsoleApplication
             string data = string.Empty;
             data = client.DownloadString(downloadUrl);
             File.WriteAllText(GVar.LocationFilePath + htmlFileName, data);
+            Console.WriteLine("{0} - Opening: {1}", ConfirmLogin(client), htmlFileName);
             Process.Start(GVar.LocationFilePath + htmlFileName);
         }
 
-
-        public static CookieEnabledWebClient SetUpCookieEnabledWebClientForJobSearch(CookieEnabledWebClient oldClient)
-        {
-            CookieEnabledWebClient client = new CookieEnabledWebClient();
-            client.setcookie(oldClient.getcookie());
-            client.BaseAddress = GVar.JobInquiryUrl;
-            NameValueCollection searchData = SetJobSearchData();
-            client.UploadValues(GVar.JobInquiryUrl, "POST", searchData);
-            client.Headers.Add("user-agent", GVar.UserAgent);
-            return client;
-        }
-
-        public static NameValueCollection SetJobSearchData()
+        public static NameValueCollection JobSearchData()
         {
             NameValueCollection searchData = new NameValueCollection();
             searchData.Add("ICAJAX", "1");
@@ -65,7 +75,7 @@ namespace ConsoleApplication
             searchData.Add("ICModalWidget", "0");
             searchData.Add("ICNAVTYPEDROPDOWN", "1");
             searchData.Add("ICResubmit", "0");
-            searchData.Add("ICSID", "IFqDm7vwVA8WwyH25e3/XDSBemEAM4e1lLbMx96hq48=");
+            searchData.Add("ICSID", GetICSID());
             searchData.Add("ICSaveWarningFilter", "0");
             searchData.Add("ICStateNum", "2");
             searchData.Add("ICType", "Panel");
@@ -81,6 +91,11 @@ namespace ConsoleApplication
             //searchData.Add("UW_CO_JOBSRCH_UW_CO_LOCATION", "");
             searchData.Add("UW_CO_JOBSRCH_UW_CO_WT_SESSION", "1149");
             return searchData;
+        }
+
+        private static string GetICSID()
+        {
+            return "vmm1e4Ya3QVteEx8I0IrqxlXpR5ZcsE5mvd2UQmCcCc=";
         }
 
         private static void GetJobsFromWeb(CookieEnabledWebClient client)

@@ -14,17 +14,14 @@ namespace ContentProcess
 {
     public static class ContentExtraction
     {
-        public static CookieEnabledWebClient SetUpCookieEnabledWebClientForLogIn()
+        public static CookieEnabledWebClient SetUpClient(string url, NameValueCollection postData)
         {
             CookieEnabledWebClient client = new CookieEnabledWebClient();
-            client.Headers.Add("user-agent", GVar.UserAgent);
-            client.BaseAddress = GVar.LogInUrl;
-            NameValueCollection loginData = SetLoginData();
-            client.UploadValues(GVar.LogInUrl, "POST", loginData);
+            client.UploadValues(url, "POST", postData);
             return client;
         }
 
-        public static NameValueCollection SetLoginData()
+        public static NameValueCollection LoginData()
         {
             NameValueCollection loginData = new NameValueCollection();
             loginData.Add("userid", GVar.UserID);

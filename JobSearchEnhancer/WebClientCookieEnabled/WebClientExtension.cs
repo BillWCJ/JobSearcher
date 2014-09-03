@@ -1,25 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using GlobalVariable;
 
 namespace WebClientExtension 
 {
     public class CookieEnabledWebClient : WebClient 
     {
-        private CookieContainer cookie = new CookieContainer();
-
-        public CookieContainer getcookie()
+        private System.Net.CookieContainer cookiecontainer;
+        private System.String userAgent;
+        public System.Net.CookieContainer CookieContainer
         {
-            return cookie;
+            get { return cookiecontainer; }
+            set { cookiecontainer = value; }
         }
 
-        public bool setcookie (CookieContainer newcookie) 
+        public System.String UserAgent
         {
-            cookie = newcookie;
-            return true;
+            get { return userAgent; }
+            set { userAgent = value; }
+        }
+
+        public CookieEnabledWebClient ()
+        {
+            userAgent = GVar.UserAgent;
+            cookiecontainer = new System.Net.CookieContainer();
         }
 
         protected override WebRequest GetWebRequest(Uri address) 
@@ -28,10 +37,13 @@ namespace WebClientExtension
 
             if (request is HttpWebRequest) 
             {
-                (request as HttpWebRequest).CookieContainer = cookie;
+                (request as HttpWebRequest).CookieContainer = CookieContainer;
+                (request as HttpWebRequest).UserAgent = userAgent;
             }
 
             return request;
         }
+
+
     }
 }
