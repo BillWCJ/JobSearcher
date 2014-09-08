@@ -37,9 +37,11 @@
             this.PreviousJobButton = new System.Windows.Forms.Button();
             this.NextJobButton = new System.Windows.Forms.Button();
             this.JobDetailRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.CommonWebBrowser = new System.Windows.Forms.WebBrowser();
             this.MainLayoutPanel.SuspendLayout();
             this.SectionTabControl.SuspendLayout();
             this.JobDetailTab.SuspendLayout();
+            this.WebBrowser.SuspendLayout();
             this.ControlMenuLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +98,7 @@
             // 
             // WebBrowser
             // 
+            this.WebBrowser.Controls.Add(this.CommonWebBrowser);
             this.WebBrowser.Location = new System.Drawing.Point(4, 4);
             this.WebBrowser.Name = "WebBrowser";
             this.WebBrowser.Padding = new System.Windows.Forms.Padding(3);
@@ -145,6 +148,15 @@
             this.JobDetailRichTextBox.Text = "";
             this.JobDetailRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.JobDetailRichTextBox_LinkClicked);
             // 
+            // CommonWebBrowser
+            // 
+            this.CommonWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommonWebBrowser.Location = new System.Drawing.Point(3, 3);
+            this.CommonWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.CommonWebBrowser.Name = "CommonWebBrowser";
+            this.CommonWebBrowser.Size = new System.Drawing.Size(775, 472);
+            this.CommonWebBrowser.TabIndex = 0;
+            // 
             // JobDetailBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -157,6 +169,7 @@
             this.MainLayoutPanel.ResumeLayout(false);
             this.SectionTabControl.ResumeLayout(false);
             this.JobDetailTab.ResumeLayout(false);
+            this.WebBrowser.ResumeLayout(false);
             this.ControlMenuLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -173,6 +186,7 @@
         private System.Windows.Forms.Button PreviousJobButton;
         private System.Windows.Forms.Button NextJobButton;
         private System.Windows.Forms.RichTextBox JobDetailRichTextBox;
+        private System.Windows.Forms.WebBrowser CommonWebBrowser;
 
     }
 }

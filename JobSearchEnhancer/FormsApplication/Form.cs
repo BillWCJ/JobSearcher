@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GlobalVariable;
 
 namespace FormsApplication
 {
@@ -17,6 +18,8 @@ namespace FormsApplication
 
         private void DisplayCurrentJobDetail()
         {
+
+            SectionTabControl.SelectedIndex = 0;
             JobDetailRichTextBox.Text = jobs[current].ToString("f");
         }
 
@@ -25,6 +28,7 @@ namespace FormsApplication
             InitializeComponent();
             jobs = ContentProcess.ContentExtraction.ReadInJobFromLocal();
             DisplayCurrentJobDetail();
+            CommonWebBrowser.Url = new Uri(GVar.LogInUrl);
         }
 
         private void PreviousJobButton_Click(object sender, EventArgs e)
@@ -43,7 +47,11 @@ namespace FormsApplication
 
         private void JobDetailRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(e.LinkText);
+            string url = e.LinkText;
+            if (url.IndexOf(@"http://") != 0 && url.IndexOf(@"https://") !=0)
+                url = @"http://" + url;
+            CommonWebBrowser.Url = new Uri(url);
+            SectionTabControl.SelectedIndex = 2;
         }
     }
 }
