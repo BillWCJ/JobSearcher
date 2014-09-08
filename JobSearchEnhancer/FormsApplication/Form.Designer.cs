@@ -89,7 +89,7 @@
             this.EmployerTab.Location = new System.Drawing.Point(4, 4);
             this.EmployerTab.Name = "EmployerTab";
             this.EmployerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.EmployerTab.Size = new System.Drawing.Size(751, 350);
+            this.EmployerTab.Size = new System.Drawing.Size(781, 478);
             this.EmployerTab.TabIndex = 1;
             this.EmployerTab.Text = "EmployerTab";
             this.EmployerTab.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             this.WebBrowser.Location = new System.Drawing.Point(4, 4);
             this.WebBrowser.Name = "WebBrowser";
             this.WebBrowser.Padding = new System.Windows.Forms.Padding(3);
-            this.WebBrowser.Size = new System.Drawing.Size(751, 350);
+            this.WebBrowser.Size = new System.Drawing.Size(781, 478);
             this.WebBrowser.TabIndex = 2;
             this.WebBrowser.Text = "WebBrowser";
             this.WebBrowser.UseVisualStyleBackColor = true;
@@ -139,9 +139,11 @@
             this.JobDetailRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.JobDetailRichTextBox.Location = new System.Drawing.Point(3, 3);
             this.JobDetailRichTextBox.Name = "JobDetailRichTextBox";
+            this.JobDetailRichTextBox.ReadOnly = true;
             this.JobDetailRichTextBox.Size = new System.Drawing.Size(775, 472);
             this.JobDetailRichTextBox.TabIndex = 0;
             this.JobDetailRichTextBox.Text = "";
+            this.JobDetailRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.JobDetailRichTextBox_LinkClicked);
             // 
             // JobDetailBrowser
             // 

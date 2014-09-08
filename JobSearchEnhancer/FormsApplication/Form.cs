@@ -40,5 +40,10 @@ namespace FormsApplication
                 current = jobs.Length - 1;
             DisplayCurrentJobDetail();
         }
+
+        private void JobDetailRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
     }
 }
