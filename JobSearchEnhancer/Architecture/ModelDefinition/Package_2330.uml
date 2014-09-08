@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="4e5da5f5-ee5e-49f0-a05a-f75b628454c1"
   name="ConsoleApplication"
@@ -461,7 +461,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="eaaa94de-45d7-4c99-ac06-94c326eddccc"
+            Id="834f06d2-c4bc-41e4-9434-8e91ba784253"
             name="ConsoleApplication"
             isLeaf="false"
             isStatic="false"
@@ -470,54 +470,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="328f3ae7-f7c6-4ce8-a145-20b9d55e7c29"
+                Id="ee7b5fd9-cff7-4fd7-846c-58e641f37ecc"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FConsoleApplication%2Fbin%2FDebug%2FConsole.exe&quot; Namespace%3DConsoleApplication Type%3DConsoleApplication Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="88d27dc9-c849-4260-a0da-47848e47a99f"
+                Id="00eeea08-82e4-4dd6-a95d-b725ab04c310"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="19a5cfab-03d1-4402-a72a-dc61fd93d8ac">
+                    Id="4f038a49-8fdc-4b17-a304-22f954d11efc">
                     <propertyInstance
-                      Id="1cbc72f5-ef8b-4e13-a32a-a33db34c6290"
+                      Id="59518e43-4d76-4d15-9cd1-be3d3a944c34"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="5e7bc6a0-1ed8-42d1-923f-67d8e3b8098c">
+                    Id="50884938-e443-4685-8782-147709814eba">
                     <propertyInstance
-                      Id="786e9f40-904b-486b-a298-03e521c6f044"
+                      Id="0bcc7a78-075c-4bb8-a015-d9f5d15a0c16"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="39e38f56-14ff-4b03-8ca3-2eff40fc1dfc">
+                    Id="23d0b371-19de-452a-9e1d-c2a3a0257ef5">
                     <propertyInstance
-                      Id="f4fa8adc-6363-4d8e-91f0-423499f75d1b"
+                      Id="d687fac5-43db-4234-92f8-a6f1ee0c3da3"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e353964c-5bf6-434e-9b15-661dbfafe7b1">
+                    Id="55816486-1111-49e5-8224-7b086ba851db">
                     <propertyInstance
-                      Id="eb426717-5224-4ead-93d9-ba5444550cc2"
+                      Id="1cfa39d5-f9ba-4e3d-af81-eb0ab42398d7"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="31c44c46-398e-484d-8abb-697425d08b19">
+                    Id="edaf722e-dcdd-496c-bfe3-d18a14b77df1">
                     <propertyInstance
-                      Id="2d2ed13c-cd51-4ef0-9096-59d873bff531"
+                      Id="f0af50e2-eddf-46d9-84c7-cdafd61b6e85"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="7705c3f8-718a-46a5-915f-98a3ec0f7e3f">
+                    Id="ef0c4cad-cb50-450e-837c-adce2c11787a">
                     <propertyInstance
-                      Id="886bc15f-d505-4855-a653-7c806a5811ea"
+                      Id="4b184c8d-2a5c-4472-b24f-874fb44758fc"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
