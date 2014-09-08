@@ -1,10 +1,19 @@
 ﻿using System;
+using System.IO;
+using System.Web;
+using System.Net;
 using System.Linq;
+using System.Text;
+using System.Collections;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ContentProcess;
 using GlobalVariable;
 using Jobs;
+using ContentProcess;
 using WebClientExtension;
 
 namespace ContentProcess.Test
@@ -13,22 +22,54 @@ namespace ContentProcess.Test
     public class ContentProcessTest
     {
         [TestMethod]
-        public void ExtractDisciplines_ShouldContainALLDisciplines_WhenPassedAllDisciplines()
+        public void ConfirmLogin_ShouldReturnTrue_WhenExecute()
         {
-            bool [] baseDisciplineArgument = Enumerable.Repeat(true,GVar.DisciplinesNames.Length).ToArray();
-            Disciplines baseDisciplines = new Disciplines (baseDisciplineArgument);
-            string testData = string.Empty;
-            foreach (string discipline in GVar.DisciplinesNames)
-                testData += discipline;
-            Disciplines testDisciplines =  ContentExtraction.ExtractDisciplines(testData);
-            Assert.IsTrue(testDisciplines.ToString() == baseDisciplines.ToString(), "ExtractDisciplines did not extract correctly");
+            Assert.IsTrue(ContentExtraction.ConfirmLogin() == "LoggedIn");
         }
+
         [TestMethod]
-        public void PrinterString()
+        public void IsCorrectJobID_ShouldReturnTrue_WhenPassedCorrectID1()
         {
-            Trace.WriteLine("id=\"UW_CO_JOBDTL_DW_UW_CO_EMPUNITDIV\">");
-            Assert.IsTrue(true);
+            Assert.IsTrue(ContentExtraction.IsCorrectJobID(GVar.TestJobID));
         }
+
+        [TestMethod]
+        public void IsCorrectJobID_ShouldReturnTrue_WhenPassedCorrectID2()
+        {
+            Assert.IsTrue(ContentExtraction.IsCorrectJobID("12345678"));
+        }
+
+        [TestMethod]
+        public void IsCorrectJobID_ShouldReturnTrue_WhenPassedInccorrectformatID()
+        {
+            Assert.IsFalse(ContentExtraction.IsCorrectJobID("1234567e"));
+        }
+
+        [TestMethod , Ignore]
+        public void IsCorrectJobID_ShouldReturnTrue_WhenPassedInccorrectLongID1()
+        {
+            Assert.IsFalse(ContentExtraction.IsCorrectJobID("0" + GVar.TestJobID));
+        }
+
+        [TestMethod, Ignore]
+        public void IsCorrectJobID_ShouldReturnTrue_WhenPassedInccorrectLongID2()
+        {
+            Assert.IsFalse(ContentExtraction.IsCorrectJobID(GVar.TestJobID + "0"));
+        }
+
+        [TestMethod, Ignore]
+        public void IsCorrectJobID_ShouldReturnTrue_WhenPassedInccorrectLongID3()
+        {
+            Assert.IsFalse(ContentExtraction.IsCorrectJobID("123456789"));
+        }
+
+        [TestMethod]
+        public void IsCorrectJobID_ShouldReturnTrue_WhenPassedIccorrectShortID()
+        {
+            Assert.IsFalse(ContentExtraction.IsCorrectJobID(GVar.TestJobID.Substring(GVar.TestJobID.Length - 1)));
+        }
+
+
 
     }
 }

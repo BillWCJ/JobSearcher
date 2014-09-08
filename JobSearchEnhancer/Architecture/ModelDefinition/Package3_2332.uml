@@ -1,0 +1,1482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="ed10cde3-baa1-4737-9e66-98d108436771"
+  name="GlobalVariable"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="29815b3d-34fa-4726-b0c2-b95573c3f5c6"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGlobalVariable"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="0596e280-e4a1-433a-9885-cba5bc3431d3"
+        name="GVar"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="0625c662-0d69-437d-bb32-9794b299d7d3"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="75b82271-7162-44b6-be09-f348958d56f2"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="badb04cf-78e4-43d5-9b7f-b931072667d5">
+                <propertyInstance
+                  Id="653fa74e-951b-4666-89e5-425731e39cd7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a53ce8ca-7e20-427e-a21f-3e343f7b2ba6">
+                <propertyInstance
+                  Id="b82d4b1f-3780-4a88-8498-e99b9d4a0ee2"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dc2a824a-a155-471c-b28a-dffe035333d4">
+                <propertyInstance
+                  Id="e5f1c7e6-7892-478a-b218-c1a2863f6f3d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f2686c95-967a-4cce-8361-f8a01dade385">
+                <propertyInstance
+                  Id="ea41a283-336b-4a29-9071-e87fa9745521"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="84ce6d10-3321-4915-ac19-f5a7c84e3019">
+                <propertyInstance
+                  Id="ad7791e1-8313-4e6f-be3f-316129fc03c3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="5c97160c-c8c3-4db1-a268-28749f284264"
+            name="SeperationBar"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="74704faf-24e4-4581-8feb-9aae2a335f9a"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DSeperationBar"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="72780658-717b-4e25-8763-a082dc3733ad"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fcceff6f-148e-47c7-8d68-806410b480a2">
+                    <propertyInstance
+                      Id="dbc4cb7e-fc8a-47dd-b0fb-a0e6c8a66dc7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2a698ee-718e-439b-98da-6cdd7f2cc38f">
+                    <propertyInstance
+                      Id="8e67a589-16c7-4259-8bd0-6bce8d4d4556"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e5349ed-7e22-41b5-bd71-92b944a10b2a">
+                    <propertyInstance
+                      Id="66ca83ca-9275-4dbb-865b-4546fc24e55b"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2c9e02cc-cec0-47f8-bb44-e0fdb14e2252">
+                    <propertyInstance
+                      Id="bbb74671-1121-495d-89ad-ae1f9699aa22"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c457aadb-958c-4df0-9955-c77fea9cb7dc">
+                    <propertyInstance
+                      Id="544d4749-3749-4067-94d5-0c2c6dee4b97"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="36fb6d55-5ef1-41cf-809d-067080c519dd"
+            name="UserAgent"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2d369602-564e-4846-b8ea-f5357a318aa9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DUserAgent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fa897c84-6c17-4d45-8135-590a9b80811d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="927598c9-96b4-4679-a257-95902ba7ee40">
+                    <propertyInstance
+                      Id="5ca7afa6-6f98-4f07-89b1-9c33949d77c5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3f35e84-abc9-41ce-b07e-38877d4ef97f">
+                    <propertyInstance
+                      Id="345396a3-5ed8-4863-ac07-98f532149767"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="59b06c38-ca2c-43e2-b396-3386e6f4b698">
+                    <propertyInstance
+                      Id="9122b380-c158-4afe-9c6c-b7616fdc8e17"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ec75e301-efb2-4efe-85c4-2df9aaaf273b">
+                    <propertyInstance
+                      Id="38fc5b10-7be8-42b8-a158-9eca3aa3eb64"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7baa9094-57fb-47a7-869d-909e74aa2b80">
+                    <propertyInstance
+                      Id="01827028-66d2-42e7-80f8-f36a2383935a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="65c2e0f4-83f2-4a9b-941f-8c1059061d06"
+            name="UserID"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="5984c0ee-30a5-4fae-93b3-bc47316dc9cd"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DUserID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="daa2564c-293f-4669-a3ad-e8b6e01c5c97"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d8b910c2-8a41-4976-aff8-f491edc1248f">
+                    <propertyInstance
+                      Id="3a474dba-a248-467f-b893-39afec9cf186"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89daa4df-fb34-4d53-baf4-5c93955764b2">
+                    <propertyInstance
+                      Id="64875686-acb9-4efe-8fdd-59fcf28e30dc"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83e35444-ff97-46d8-83df-d3962a8103ab">
+                    <propertyInstance
+                      Id="3810290a-b205-4f74-a2ae-91c88b0feb96"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78ee1e9c-e513-4ac7-9684-8258733b7a3c">
+                    <propertyInstance
+                      Id="23333cca-ff39-4c38-b60a-409df8953032"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5b85e8a-2c8b-4e23-bc0a-0795d9447952">
+                    <propertyInstance
+                      Id="e20833d8-c31a-4b24-b60a-2641febc0c78"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="ea334285-8f6f-4383-a87f-3a8b025efcad"
+            name="UserPW"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="95a2fc1f-178a-4222-8bba-de8f15fda397"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DUserPW"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a227340a-a024-4f49-8c41-e13910ebd5d7"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f63f4834-e7db-4683-836a-4d2c35110183">
+                    <propertyInstance
+                      Id="7a2f9a71-7322-47bd-8fad-97b594037e69"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5dfd470-0bf1-4aa6-8f08-a8bf8bc924cb">
+                    <propertyInstance
+                      Id="d66bab79-c525-4976-827e-d40fc5d7b9f2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d4d000a6-4a77-4985-a621-5b7b8c1f7ff1">
+                    <propertyInstance
+                      Id="f33d957e-ed5d-4bea-bfb7-829289b91333"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1d1a8f5-0a4e-421c-9998-06d5dc4ea0bb">
+                    <propertyInstance
+                      Id="4d03ee05-5c5b-4cf7-8af4-206ffc617341"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a7f9277-3ebb-4021-93e8-3e6f1fa6bb7e">
+                    <propertyInstance
+                      Id="d3338a46-5175-46b3-aada-96f7d3caef8d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="98c19a2e-b176-4668-befb-b38ef7381312"
+            name="LocationFilePath"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="91e6fda6-9222-458c-ac37-1a21874b757b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DLocationFilePath"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="80c62584-3573-4f23-8a04-52d6272db230"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6dd15d5-2a5f-459d-9ef5-617083f0f1bd">
+                    <propertyInstance
+                      Id="aabfdad1-bb0e-47ce-a0ea-694ab4d1ee29"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb69ffba-9de6-486d-b92f-45f6ccb4b734">
+                    <propertyInstance
+                      Id="742a3651-f6eb-4325-be15-cedaae37b9b1"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b1bcbe5-5bda-402b-b2df-731990e2ffa8">
+                    <propertyInstance
+                      Id="6381da15-7c03-4386-a06c-ae5c3503d0d6"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22610b6b-fb75-4ad1-ab9a-9c433107727d">
+                    <propertyInstance
+                      Id="9a3c0c18-a56c-4290-9dd7-a479cd643c24"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4051ba0f-bb64-4e7b-84d9-52f3b26265ff">
+                    <propertyInstance
+                      Id="2b407633-d6a2-400e-af98-adddf1370768"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="d7c803c9-b3a6-4ce9-a6f4-fd2e134bc79f"
+            name="JobMineBaseUrl"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="95977107-abe1-4e7e-97eb-2e3230a0e670"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DJobMineBaseUrl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7c99d9c5-fcc8-4059-8c4b-781e7fce2a28"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c3ada39-e1aa-4651-a25d-4d2046604d2a">
+                    <propertyInstance
+                      Id="238b2b12-b163-4b88-a722-83041fdd7230"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8483f97b-2373-48bc-ba70-385ac34c1fd7">
+                    <propertyInstance
+                      Id="1f124508-7037-43f2-8095-47d3d6f73a38"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fea8af3a-4847-4360-bff1-58d20271e2ea">
+                    <propertyInstance
+                      Id="178262aa-7848-44f1-abb1-182d43787172"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49f1fc4c-d1ce-4fc4-8c60-cd2442a64fa0">
+                    <propertyInstance
+                      Id="e45c2c30-5777-48c0-b164-17a1148a0bbd"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a3978e2-58be-40be-87c0-6892fb7ea9a9">
+                    <propertyInstance
+                      Id="33371644-84f5-4e53-8d4c-8910a8e3a96c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="cce9fea0-bc63-458d-bbfa-9bfd6dea42bf"
+            name="LogInUrl"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7099bc78-614a-46c8-add4-e3a1f808c5f2"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DLogInUrl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a445cd8b-b2ae-40c5-a99b-5839bcf09dbf"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34b86cff-37e5-49d4-80e5-99c133c42497">
+                    <propertyInstance
+                      Id="204a6bbf-0e79-4c4e-bb8c-8fb4ef4c6d68"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef04d1d1-851f-4d98-b6d4-c9f8f99072ff">
+                    <propertyInstance
+                      Id="1262bfb5-f9ff-4083-bab4-50e28bec54ea"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9387236a-3494-4e82-acf8-c190aed5ff05">
+                    <propertyInstance
+                      Id="9890d9fc-2a89-438d-ad41-5a0a0f9a1ac0"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1bbfd45e-3c19-4ac7-bbc2-4b33bd8c6656">
+                    <propertyInstance
+                      Id="6cf18cef-f2e1-44d2-bcb8-fa2b966704d3"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ba159e46-9ce7-463c-808e-ad60da4136d0">
+                    <propertyInstance
+                      Id="30e5e8e4-ad3e-4ecc-b607-45dc3cc44a79"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="35fff324-0f63-4657-9787-dc6162b74d5e"
+            name="JobDetailBaseUrl"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fbe4228a-1794-4658-a62b-23c16f72a29d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DJobDetailBaseUrl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="df86088f-6127-4bc0-bb46-1cedd4612c13"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="574b5e99-10f1-4eb5-bc48-71a6c8975841">
+                    <propertyInstance
+                      Id="337cacf6-5ecb-4aa9-b469-d0eedef8a139"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b2ad97d-007c-43fb-acb7-5dbf75da502c">
+                    <propertyInstance
+                      Id="2d10fa61-b375-420b-9ee7-ae63da465e7a"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="63636cf5-530b-4a03-8660-8bc26158ef48">
+                    <propertyInstance
+                      Id="cbf5ac29-6bc8-4020-bee8-eb1557f6605c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1a1ca8c-99c9-4d96-adc1-3085f5ddc397">
+                    <propertyInstance
+                      Id="63d7b714-e2c6-4ddb-96a4-8943fd487dce"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6079268f-1d0c-4e63-8ee1-acee246cfd09">
+                    <propertyInstance
+                      Id="b3cbfe75-0c32-43c9-8acc-5a0497e17dc1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="0a3bea0f-a872-461f-ac6f-293cdf706ddf"
+            name="MenuUrl"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f79aa62b-6726-4dc8-bc2e-e46c2752ef64"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DMenuUrl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4c606ac6-ec17-43af-84f9-03b22db4187a"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="682bfd62-6fab-4c24-86b4-275e195b1de7">
+                    <propertyInstance
+                      Id="052e791f-aa44-4428-b1ae-bb23f6a4c0c1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c2b3483f-7f09-4c26-8ca1-54d958d89743">
+                    <propertyInstance
+                      Id="bf99be91-aa78-4e2c-afcd-f59a732c3fcb"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49ce43ba-c7ea-4e66-9e2b-bbb9d3127916">
+                    <propertyInstance
+                      Id="e424d613-6155-4426-97a0-cd7c3de100c1"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01134455-3d9c-40de-ae07-718faa1fb118">
+                    <propertyInstance
+                      Id="b3df16d0-d857-40b0-80b4-c8636c4efefe"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9376660-e9a9-4158-8a7f-582b88cfb61c">
+                    <propertyInstance
+                      Id="49d0d513-7a28-4098-85b9-f48225b91e98"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="a427ae5e-7432-4481-988b-3cfb2da9e422"
+            name="JobInquiryUrlShort"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2eec3f88-a4f8-41e3-9892-d265040b1820"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DJobInquiryUrlShort"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="78cb4ce0-7832-46e7-a889-ca92d0f43f01"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2c5b6f8-f605-47fc-b766-1cb54f91ca0b">
+                    <propertyInstance
+                      Id="26b0c94a-86fe-4552-a316-266643cead82"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="33d7ba6f-fede-41c7-9e29-900b4f34f90e">
+                    <propertyInstance
+                      Id="bb1dd0ec-d179-496b-9660-e0567f3bbc52"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a3fcc74-9a0a-4452-a353-34877af9c521">
+                    <propertyInstance
+                      Id="9c5b46b6-6b34-49ae-9063-5aeaf4721785"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04247d75-f008-421a-a6ae-26d1ff3b993f">
+                    <propertyInstance
+                      Id="71744f7c-9861-452b-97fc-446b8139cdfc"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f50121ff-a067-4395-8232-2a33e5b0c15a">
+                    <propertyInstance
+                      Id="78f63217-bac9-4e47-93f0-0bbff5b6559b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="e35c4c0a-e750-4437-af2c-d88e93e81ca9"
+            name="JobInquiryUrlpsc"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e6824a20-20ed-42db-9e74-6d1c2ebcb52d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DJobInquiryUrlpsc"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ae1da18e-0023-4360-bd35-a7f80d6ae419"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef015862-b7c6-47b1-bdfd-454c785f621a">
+                    <propertyInstance
+                      Id="a51da56e-277d-49d0-b4e1-9e610d16f3b2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94c3271f-772f-4777-8a8b-2de08b5f8b8e">
+                    <propertyInstance
+                      Id="0727b2f3-2c05-4f8c-98ed-6e3e5929d1bd"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9d52cd2-a165-4783-83b8-56609cce5f3c">
+                    <propertyInstance
+                      Id="e084506b-2129-49fa-96c7-1cc555778828"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56b1f20b-85bf-4dcf-be98-db08521439b6">
+                    <propertyInstance
+                      Id="e42362a2-d8ee-4d77-8ba9-5c4c4b72431d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66cc832b-ab4a-4e2f-84b0-627734924690">
+                    <propertyInstance
+                      Id="848a5bc1-4a0d-44d7-9d8f-57a007f90080"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="a163942a-6770-4d49-b536-7391994d7eae"
+            name="StudentProfileUrl"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="8dfb55d2-13fd-416f-81d4-62e726c65f1a"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DStudentProfileUrl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a7ed0c05-484d-40da-9180-a825004299e7"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="347c7a0e-21bf-45a6-a42f-486c48e5437b">
+                    <propertyInstance
+                      Id="c3b60d04-6fdf-48f7-8963-1d12557b927f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="602a1456-002c-4c27-9fe2-320b39f457d2">
+                    <propertyInstance
+                      Id="49c7232a-8797-49f9-bcca-ca5d6d4978cc"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e6a52a96-3b55-4bf5-ba7b-c446e83a4532">
+                    <propertyInstance
+                      Id="f37444d8-f5f6-4677-9971-ac56dcf385df"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b10a0e84-701c-4660-bcdd-c716c24a6019">
+                    <propertyInstance
+                      Id="13e408b5-f5ed-4d20-bdb1-92f694c72ee6"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a26042b-104a-4abd-b057-d168df9a7d74">
+                    <propertyInstance
+                      Id="fa59dd99-75f8-48ff-951c-696a971a6e34"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="d04bbf0a-cf2c-4a44-ae92-3556536ff6d8"
+            name="TestJobID"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3c5af39b-06a6-4417-9e4f-5bc8a844e7f3"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DTestJobID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8248e03f-fd75-4139-99f1-34f5185bee89"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a272d7ec-200e-4993-8eac-2c8137aaef3f">
+                    <propertyInstance
+                      Id="2564d085-7c1e-49a4-a77d-fc44111d7381"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91735a0d-72d2-4370-9f32-b7ebd67ac1e6">
+                    <propertyInstance
+                      Id="99772153-5fcb-42ac-814b-07dc096a0852"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e9696d6d-f362-4641-90b0-9c55adae4b81">
+                    <propertyInstance
+                      Id="756ca763-9bd5-4899-bdd1-2fff6b4d0f48"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ffa8d058-5513-46bc-b531-1a0f7a7668ac">
+                    <propertyInstance
+                      Id="5f842281-d32e-4a68-96b0-6deb975d0fee"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2fde2e06-b3ec-4ad9-8396-c029e68aca3d">
+                    <propertyInstance
+                      Id="42896daf-bdef-42bd-aa26-95d989d3a044"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="f21187ca-99a8-469a-800a-1494035ab880"
+            name="TestJobDetailUrl"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7b6b8002-039c-4e8b-bccc-d917b1beea29"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DTestJobDetailUrl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4d1b0cd2-5d52-4c2e-8de1-2c10877ae77b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83907ade-9721-4874-9347-2857c4f690aa">
+                    <propertyInstance
+                      Id="cc8ff08f-da47-4580-aa72-73857c471538"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b497c25d-3bd7-441f-a000-19e91bf7c18e">
+                    <propertyInstance
+                      Id="22bcae4e-7cfe-4e96-a1a5-56da7a19413b"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="18700a28-9288-40c1-8fd1-7ebbe4e695e4">
+                    <propertyInstance
+                      Id="3ff1f41c-338c-4be8-b0c5-fccb78555157"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57a6392e-a3ce-4e9b-989f-8392cb0dc16f">
+                    <propertyInstance
+                      Id="ae15b2b2-a074-40f0-82a4-d4071c34c566"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b7aa2fa3-3935-4e1f-92dc-4c7f3fd0ca2b">
+                    <propertyInstance
+                      Id="adf4ef2b-096f-4e0f-98b7-5edaf8a09ee2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="54e44f6a-9c2e-4d86-9484-e5a99dc61051"
+            name="LevelNames"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f2492cbd-2188-486e-a192-b9b572d01509"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DLevelNames"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7830b5d7-c8c3-4125-9489-31ebd2b61d0d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d75aacc0-8ef0-4123-a482-80d84192911b">
+                    <propertyInstance
+                      Id="e86d2d64-8498-45d7-96b6-a990f7092a3e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4afb3ab0-e00c-42c4-ad91-638666722255">
+                    <propertyInstance
+                      Id="22db8f81-7c2c-4823-a6df-376fdd8a6b0a"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eef39ff4-143a-4e4d-a18f-82e4292a306b">
+                    <propertyInstance
+                      Id="84537c1c-442e-4e15-beb1-655ae1dcac3a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3398f071-49be-4e70-a6ae-0e6684a89168">
+                    <propertyInstance
+                      Id="6d487c35-801b-4e06-83ea-d065395a0386"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc15e300-befc-4b49-ac04-c54494b9722b">
+                    <propertyInstance
+                      Id="6b5d7ec8-6619-4a63-963b-1e7fea1eea54"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="21d19140-d2e9-4187-b30c-feecb57524e5"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="3e17e237-c4e2-49bd-aa95-2dc09e11e967"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="32971030-1136-48fc-a72d-9f30cf6778d9"
+            name="JobDetailPageFieldNames"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a8894029-3dd1-4947-9c4a-14ec99614dfb"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DJobDetailPageFieldNames"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8c03dcfd-8098-4397-9006-5b91bf9ca8a6"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37d34f1a-68c5-4664-b228-31dc24eaa52d">
+                    <propertyInstance
+                      Id="8212c4e6-23a3-4496-953d-ba3b506e337e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7bd67d2e-ac42-4f47-81f6-5e483a41fe89">
+                    <propertyInstance
+                      Id="ed07e86d-0bb5-4652-9227-4880776b67c8"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="344c76b2-4059-4150-a356-b2a2883abbaa">
+                    <propertyInstance
+                      Id="29c7c9d9-eb6f-40e2-afe9-dea6bd275ee1"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7fa3838c-35d9-4cc6-be06-277cccafd5ce">
+                    <propertyInstance
+                      Id="d218a876-5001-45a7-a637-2c405f38e09d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21f17608-80ea-4f9b-a899-f8be5e64e657">
+                    <propertyInstance
+                      Id="9801fc12-d31d-4f1a-b40e-188013d9ae4b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="800efea6-983d-4fbf-b4c3-669cff4910bb"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="6f406623-5cdc-4119-84ee-cb3b0b903253"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="81070d9c-1514-49a8-b7c5-3204de748ef5"
+            name="JobDetailPageFieldNameTitles"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2a6f56c0-e7aa-4cf5-89da-5f3f20653c02"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DJobDetailPageFieldNameTitles"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0564766c-86db-4d9d-b2a2-59d1d6862c47"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07180105-2f9c-4729-9efe-354b7c80d64d">
+                    <propertyInstance
+                      Id="c95a0d91-36a3-4a6d-a510-d28487f7d9e5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a743f62b-4952-4505-89f6-65a85b0f2d3f">
+                    <propertyInstance
+                      Id="ae876d10-d0c7-45b5-95bf-70572b21fe09"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="451477b0-780f-4258-adb7-e0b15d6aacf1">
+                    <propertyInstance
+                      Id="7866ba67-fca5-4387-9fd5-c84c1cafdd84"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0a30e06-51a8-41c6-91fb-e49013aa5ea9">
+                    <propertyInstance
+                      Id="2a576d29-5bf9-41b2-a6da-ebe7c235fb13"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c025340-84c2-43e2-84f3-daea9229a490">
+                    <propertyInstance
+                      Id="58ca6e28-6153-4e9e-a399-a660f7dc524e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="3dcb5c22-9872-44d7-aceb-5f8ce46cc62b"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="f1b9b85c-3812-408f-a507-0b167cbd072b"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="047ac199-a862-4e0e-9071-1151e5163ba3"
+            name="FieldSearchString"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="326b843a-6303-43ee-a402-0b76c4364e5b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DFieldSearchString"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2ac67574-7e27-4b14-b5c5-c9fecc620a7d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7edeb677-4b80-4d1a-8fa4-51b513133542">
+                    <propertyInstance
+                      Id="ff2a89d7-f431-4df4-ba20-7e769ddb20b6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7162275c-d4cb-427f-9586-e097695420e5">
+                    <propertyInstance
+                      Id="7d7cc23e-43b4-416e-ab0d-a055f6dacb7a"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e3e2dfa-fbaa-406f-b5e5-3397f233835b">
+                    <propertyInstance
+                      Id="95b5188d-9d7c-480d-bb50-02020cc14473"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68555f92-9697-4295-ae67-775319631241">
+                    <propertyInstance
+                      Id="a4f448cd-87a2-48dd-b74c-a977ad6419fa"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="681bef39-7f50-4f6e-9032-3a01847584b4">
+                    <propertyInstance
+                      Id="2f25201d-e291-4ed8-9faf-19cf38f3d2ae"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="63377005-e0cc-46c5-b940-6bd82bf06233"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="380de281-17a5-4b91-aa01-f75902294968"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6b0c8fe5-dec1-4a88-bec8-cc758694ee8c"
+            name="DisciplinesNames"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e2e8f564-5124-4a7d-bab8-302c886291a9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3DDisciplinesNames"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="159e5230-c14a-4047-bf15-b7ffa75d0725"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20476bd1-cbb4-4659-92b6-fcf7dee78706">
+                    <propertyInstance
+                      Id="af384395-a581-43f0-a99b-fc6bd0c7311b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d08e920e-19d0-411a-80c3-b88a76e4a5f4">
+                    <propertyInstance
+                      Id="fb31124b-96b8-4f3c-bd79-25d5abdc7277"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a407fedf-beb7-4c83-b968-10b57c192eeb">
+                    <propertyInstance
+                      Id="071c8680-d3a3-4105-bf89-296006a9d6e1"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34b4250d-a136-4fc1-a5f6-28c7e07e2f17">
+                    <propertyInstance
+                      Id="759dc03b-ac44-409d-8b39-5b125a094914"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ef4a364-3159-42a1-a920-53ae15d4ebe9">
+                    <propertyInstance
+                      Id="68b6553b-c4a8-4a53-9001-0ae4fbe32ec7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="ae299186-d916-4717-b7dc-38e56bde3fae"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="f59fb8f4-b27e-4fea-b7ae-698fc594fd6e"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="0b81047d-bd47-41ea-af07-b4f0e2c41869"
+            name="GVar"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="bdcd3fef-f122-41f5-8268-e4af1af65c31"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3DGVar Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2fbe7f27-f524-4261-bb11-782519845f68"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1789f70-9e08-43a6-ab06-634b8f8ad02e">
+                    <propertyInstance
+                      Id="a01470e1-6e5f-4f09-ac61-1307c07a6f64"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb192d51-b62d-4591-ae1b-d6eb2f4dcb6d">
+                    <propertyInstance
+                      Id="a9016530-7ffd-4ed0-ad71-5b5847b38931"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ed3396f-dabb-40a8-9f17-61359600c713">
+                    <propertyInstance
+                      Id="ad755fce-54cc-456c-9e97-250ccd84abca"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a183bf9d-d393-42a8-8095-bbf16a324f79">
+                    <propertyInstance
+                      Id="d2ab09da-f454-44ae-9acb-4050ad8ebf41"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd640394-bc43-47b1-864f-830ed974133b">
+                    <propertyInstance
+                      Id="a7c94351-93c2-4916-92d6-84e318f720e2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef9639dc-fc8a-47fc-8bda-bd276937f267">
+                    <propertyInstance
+                      Id="f67fd2ed-e592-4677-856f-1af11437a370"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="8ad53d36-4059-4f93-b6b4-ccda76a32e09"
+        name="Level"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="8b5979fe-4849-4b4c-95a0-9513d1995f44"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3D(Name%3DLevel ParentType%3DGVar)"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="68d44894-25de-4872-988d-59c80fee4f06"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8bd6327e-7705-4844-b7e0-ec625112d155">
+                <propertyInstance
+                  Id="e1b2e594-c9f9-42aa-a2e7-26227cc51b86"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9252b442-c9c3-46a2-91d0-1ab40a502390">
+                <propertyInstance
+                  Id="3b431f57-ba9e-41fb-9cc0-b8f508b098eb"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7d61419d-39d9-46d7-8798-8f70b4cd0e93">
+                <propertyInstance
+                  Id="b28cda6e-d709-41d4-8fb2-bd7d9597c35a"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="97bb99e0-e28f-416a-b437-062348ff665a"
+            name="Junior">
+            <referencesInternal>
+              <reference
+                Id="7b91fcbe-8d1c-4b60-bf70-83d70d8f0900"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3D(Name%3DLevel ParentType%3DGVar) Member%3DJunior"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="bf9a9f7e-6d23-4714-a24c-d26f1238c1c8"
+            name="Intermediate">
+            <referencesInternal>
+              <reference
+                Id="0f4fd1dc-7019-4c52-941b-1bce5795d5d0"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3D(Name%3DLevel ParentType%3DGVar) Member%3DIntermediate"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="7653a95a-5095-42c7-a363-2a1a56617fdf"
+            name="Senior">
+            <referencesInternal>
+              <reference
+                Id="1cdb9aba-cc63-492e-a6e2-6ea75e14f8c0"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3D(Name%3DLevel ParentType%3DGVar) Member%3DSenior"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="6aafd25e-43c0-452b-8697-697eef2bdd95"
+            name="Bachelor">
+            <referencesInternal>
+              <reference
+                Id="89c440fb-f923-4e96-99fd-8087ab338e8e"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3D(Name%3DLevel ParentType%3DGVar) Member%3DBachelor"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="c234e88e-08e4-4e13-b122-318fa3e08800"
+            name="Master">
+            <referencesInternal>
+              <reference
+                Id="85cb59a1-13e5-4741-a2ef-ececf708e56d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3D(Name%3DLevel ParentType%3DGVar) Member%3DMaster"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="8af36974-cb2f-4094-b1d3-3cff486656b7"
+            name="PhD">
+            <referencesInternal>
+              <reference
+                Id="8711de82-1754-4047-ba1c-55e7177de28e"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FGlobalVariable%2Fbin%2FDebug%2FGlobalVar.dll&quot; Namespace%3DGlobalVariable Type%3D(Name%3DLevel ParentType%3DGVar) Member%3DPhD"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

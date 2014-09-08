@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2014-09-06T23:35:53" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs' -  (Package)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Medium" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines' -  (Class)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines::Discipline' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines::Disciplines' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines::Disciplines::data' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines::Disciplines::newDisciplines' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines::Get' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines::Get::index' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Disciplines::ToString' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Medium" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer' -  (Class)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::Employer' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::Employer::employer' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::Employer::id' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::Employer::name' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::Employer::websiteurl' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::EmployerDescription' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::EmployerID' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::EmployerIDString' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::EmployerName' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::EmployerWebSite' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::UnitName1' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Employer::UnitName2' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Medium" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job' -  (Class)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::AlreadyApplied' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::Comment' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::Disciplines' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::GradesRequired' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::HiringProcessSupport' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::Job' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::Job::fields' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::Job::newEmployer' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::JobDescription' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::JobID' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::JobTitle' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::JobUrl' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::LastDateToApply' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::Levels' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::Location' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::NumberOfApplied' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::NumberOfOpening' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::OnShortList' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::PostingOpenDate' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::ToString' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::UnitName' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Job::WorkTermSupport' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Medium" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels' -  (Class)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::IsAtLevel' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::IsAtLevel::level' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::IsAtLevel::levelString' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::IsLevel' -  (Property)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::Levels' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::Levels::isIntermediate' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::Levels::isJunior' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::Levels::isSenior' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::Levels::levelString' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::Levels::newLevels' -  (Parameter)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::Jobs::Levels::ToString' -  (Operation)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::System' -  (Package)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::System::DateTime' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Architecture::System::UInt32' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::System::UInt32 (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::System::UInt32 (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::System::UInt32 (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::System::DateTime (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::System::DateTime (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::Jobs::Disciplines (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::Jobs::Levels (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Job to Architecture::Jobs::Employer (Generalization)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Architecture::Jobs::Employer to Architecture::System::UInt32 (Association)" />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="High" Text="(4) type(s) fully reverse engineered." />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="High" Text="(2) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2014-09-06T23:35:57" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>
