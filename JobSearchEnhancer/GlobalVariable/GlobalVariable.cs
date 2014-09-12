@@ -12,7 +12,7 @@ namespace GlobalVariable
         public const string SeperationBar = "\n\n-------------------------------------------------------------------------\n";
         public const string UserAgent = @"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0";
         public const string UserID = "w52jiang";
-        public const string UserPW = "Ss332640747:)";
+        public const string UserPW = "";
         public const string LocationFilePath = @"C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\";
         public const string JobMineBaseUrl =   @"https://jobmine.ccol.uwaterloo.ca/";
         public const string LogInUrl = JobMineBaseUrl + @"psp/SS/?cmd=login&languageCd=ENG&sessionId=";
