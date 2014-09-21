@@ -1,6 +1,7 @@
-Extract Time:2:59:00 PM
+Extract Time:10:19:31 PM
 
 -------------------------------------------------------------------------
+
 
 Employer:
 416 Automation Inc.
@@ -51,6 +52,7 @@ https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JO
 
 
 -------------------------------------------------------------------------
+
 
 Employer:
 AMEL Group
@@ -113,6 +115,7 @@ https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JO
 
 
 -------------------------------------------------------------------------
+
 
 Employer:
 Aecon Group Inc, Aecon Construction and Materials Limited, Head Office

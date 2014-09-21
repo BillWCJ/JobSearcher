@@ -167,35 +167,11 @@ namespace Jobs
 
         public override string ToString()
         {
-            string toString = GVar.SeperationBar;
-            for (int i = 0; i < GVar.JobDetailPageFieldNameTitles.Length; i++)
-            {
-                string fieldValue = string.Empty;
-                switch (i)
-                {
-                    case 0: fieldValue = EmployerName;
-                        break;
-                    case 1: fieldValue = JobTitle;
-                        break;
-                    case 2: fieldValue = Location;
-                        break;
-                    case 3: fieldValue = Disciplines.ToString();
-                        break;
-                    case 4: fieldValue = Levels.ToString();
-                        break;
-                    case 5: fieldValue = Comment;
-                        break;
-                    case 6: fieldValue = JobDescription;
-                        break;
-                    case 7: fieldValue = JobUrl;
-                        break;
-                    default:;
-                        break;
-                }
-                toString += Environment.NewLine + GVar.JobDetailPageFieldNameTitles[i] + fieldValue + Environment.NewLine;
-            }
-            return toString;
+            return GVar.SeperationBar + System.Environment.NewLine + ToString("F");
         }
+        /// <summary>
+        /// Convert into formatted string for displaying and file storing
+        /// </summary>
         public string ToString(string format)
         {
             string toString = string.Empty;

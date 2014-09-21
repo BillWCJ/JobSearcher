@@ -24,7 +24,7 @@ namespace ContentProcess.Test
         [TestMethod]
         public void ConfirmLogin_ShouldReturnTrue_WhenExecute()
         {
-            Assert.IsTrue(ContentExtraction.ConfirmLogin() == "LoggedIn");
+            Assert.IsTrue(ContentExtraction.LoginToJobmine(new CookieEnabledWebClient()));
         }
 
         [TestMethod]

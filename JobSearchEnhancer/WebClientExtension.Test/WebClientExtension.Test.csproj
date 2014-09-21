@@ -50,9 +50,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="WebClientExtension.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="WebClientExtension.Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

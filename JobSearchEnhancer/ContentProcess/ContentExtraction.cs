@@ -18,50 +18,43 @@ namespace ContentProcess
 {
     public static class ContentExtraction
     {
-        public static NameValueCollection LoginData()
+        public static bool LoginToJobmine(CookieEnabledWebClient client)
         {
-            NameValueCollection loginData = new NameValueCollection();
-            loginData.Add("userid", GVar.UserID);
-            loginData.Add("pwd", GVar.UserPW);
-            loginData.Add("submit", "Submit");
-            loginData.Add("timezoneOffset", "240");
-            return loginData;
+            string result = client.UploadValues(GVar.LogInUrl, "POST", GVar.LoginData()).ToString();
+            return !String.IsNullOrEmpty(result) || IsLoggedInToJobmine(client);
         }
 
-        public static CookieEnabledWebClient SetUpClient(string url, NameValueCollection postData)
+        public static bool IsLoggedInToJobmine(CookieEnabledWebClient client)
+        {
+            if (client.CookieContainer != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static CookieEnabledWebClient NewJobMineLoggedInWebClient()
         {
             CookieEnabledWebClient client = new CookieEnabledWebClient();
-            client.UploadValues(url, "POST", postData);
-            return client;
-        }
+            bool isLoggedIn = LoginToJobmine(client);
+            if (isLoggedIn)
+            {
+                return client;
+            }
+            else
+            {
+                throw new Exception("Cannot LogIn");
+            }
+        } 
 
-        public static string ConfirmLogin()
+        public static void GenerateIsLoggedInFile()
         {
-            CookieEnabledWebClient client = ContentExtraction.SetUpClient(GVar.LogInUrl, ContentExtraction.LoginData());
-            return ConfirmLogin(client);
-        }
-            
-        public static string ConfirmLogin(CookieEnabledWebClient client)
-        {
+            CookieEnabledWebClient client = NewJobMineLoggedInWebClient();
             string url = GVar.TestJobDetailUrl;
-            string data = client.DownloadString(url);
-            string processedData = ContentExtraction.ExtractHtmlJobInfo(data, url).ToString();
-            StreamReader reader = new StreamReader(GVar.LocationFilePath + "JobDetailForConfirmLogIn.txt");
-            string baseData = reader.ReadToEnd();
-            if (baseData.Length == processedData.Length)
-                return "LoggedIn";
-            else return processedData.Substring(100, 20) + "\n\n! Not Logged In";
-        }
-
-        public static void GenerateConfirmLoginFile()
-        {
-            CookieEnabledWebClient client = ContentExtraction.SetUpClient(GVar.LogInUrl, ContentExtraction.LoginData());
-            string url = GVar.TestJobDetailUrl;
-            string data = ContentExtraction.ExtractHtmlJobInfo(client.DownloadString(url), url).ToString();
-            StreamWriter writer = new StreamWriter(GVar.LocationFilePath + "JobDetailForConfirmLogIn.txt");
+            string data = ExtractHtmlJobInfo(client.DownloadString(url), url).ToString();
+            StreamWriter writer = new StreamWriter(GVar.FilePath + "JobDetailForConfirmLogIn.txt");
             writer.Write(data);
             writer.Close();
-            Process.Start(GVar.LocationFilePath + "JobDetailForConfirmLogIn.txt");
+            Process.Start(GVar.FilePath + "JobDetailForConfirmLogIn.txt");
         }
 
         public static Job ExtractHtmlJobInfo(string htmlSource, string url) //todo: improve
@@ -95,7 +88,7 @@ namespace ContentProcess
         {
             int start = data.IndexOf(front) + front.Length;
             int end = data.IndexOf(back, start);
-            string extractedString = string.Empty;
+            string extractedString = String.Empty;
             try
             {
                 extractedString = data.Substring(start, end - start);
@@ -114,12 +107,12 @@ namespace ContentProcess
             Queue<string> jobID = GetJobIDFromLocal();
             int numberOfJob = jobID.Count;
             Job[] jobs = new Job[numberOfJob];
-            string data = string.Empty;
+            string data = String.Empty;
             StreamReader reader = StreamReader.Null;
 
             try
             {
-                reader = new StreamReader(GVar.LocationFilePath + "Jobs.txt");
+                reader = new StreamReader(GVar.FilePath + "Jobs.txt");
                 data = reader.ReadToEnd();
             }
             catch (Exception e)
@@ -153,11 +146,11 @@ namespace ContentProcess
         public static Queue<string> GetJobIDFromLocal()
         {
             Queue<string> jobID = new Queue<string>();
-            string temp = string.Empty;
+            string temp = String.Empty;
             StreamReader reader = StreamReader.Null;
             try
             {
-                reader = new StreamReader(GVar.LocationFilePath + "JobList.txt");
+                reader = new StreamReader(GVar.FilePath + "JobList.txt");
             }
             catch (Exception e)
             {
@@ -186,22 +179,22 @@ namespace ContentProcess
             return regex.IsMatch(temp);
         }
 
-        public static void GetJobsFromWeb()
+        public static void DownLoadJobsFromWebToLocal()
         {
-            CookieEnabledWebClient client = ContentExtraction.SetUpClient(GVar.LogInUrl, ContentExtraction.LoginData());
-            GetJobsFromWeb(client);
+            CookieEnabledWebClient client = NewJobMineLoggedInWebClient();
+            DownLoadJobsFromWebToLocal(client);
         }
 
-        public static void GetJobsFromWeb(CookieEnabledWebClient client)
+        public static void DownLoadJobsFromWebToLocal(CookieEnabledWebClient client)
         {
-            string info = string.Empty;
+            string info = String.Empty;
             StreamReader reader = StreamReader.Null;
             StreamWriter writer = StreamWriter.Null;
 
             try
             {
-                reader = new StreamReader(GVar.LocationFilePath + "JobList.txt");
-                writer = new StreamWriter(GVar.LocationFilePath + "Jobs.txt");
+                reader = new StreamReader(GVar.FilePath + "JobList.txt");
+                writer = new StreamWriter(GVar.FilePath + "Jobs.txt");
             }
             catch (FileNotFoundException e)
             {
@@ -224,7 +217,7 @@ namespace ContentProcess
                     string jobnum = reader.ReadLine();
                     string url = GVar.JobDetailBaseUrl + jobnum;
                     info = client.DownloadString(url);
-                    writer.Write(ContentExtraction.ExtractHtmlJobInfo(info, url).ToString());
+                    writer.Write(ExtractHtmlJobInfo(info, url).ToString());
                 }
             }
             catch (Exception e)
@@ -240,7 +233,44 @@ namespace ContentProcess
             if (writer != StreamWriter.Null)
             {
                 writer.Close();
-                Process.Start(GVar.LocationFilePath + "Jobs.txt");
+                Process.Start(GVar.FilePath + "Jobs.txt");
+            }
+        }
+        public static void DownLoadJobsFromWebToLocal(CookieEnabledWebClient client, Queue<string> jobIDs)
+        {
+            string info = String.Empty;
+            StreamWriter writer = StreamWriter.Null;
+
+            try
+            {
+                writer = new StreamWriter(GVar.FilePath + "Jobs.txt");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("!Error-{0}_In_GetJobsFromWeb: {1}\n", e.ToString(), e);
+            }
+
+            try
+            {
+                writer.Write("Extract Time:" + DateTime.Now.ToString("h:mm:ss tt"));
+                while (jobIDs.Count > 0)
+                {
+                    string jobnum = jobIDs.Dequeue();
+                    string url = GVar.JobDetailBaseUrl + jobnum;
+                    info = client.DownloadString(url);
+                    writer.Write(ExtractHtmlJobInfo(info, url).ToString());
+                    
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("!Error-{0}_In_GetJobsFromWeb: {1}\n", e.ToString(), e);
+            }
+            if (writer != StreamWriter.Null)
+            {
+                writer.Close();
+                Process.Start(GVar.FilePath + "Jobs.txt");
             }
         }
     }
