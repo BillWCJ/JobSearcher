@@ -5,3 +5,7 @@ JobSearchEnhancer provides additional functionality to University of Waterloo's 
 
 External Dependencies:
 -HttpAgilePack : http://www.nuget.org/packages/HtmlAgilityPack
+
+Usage:
+Run JobMineJobDownloader
+or Install Console
