@@ -1,5 +1,0 @@
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\GlobalVar\bin\Debug\GlobalVar.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\GlobalVar\bin\Debug\GlobalVar.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\GlobalVar\obj\Debug\GlobalVar.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\GlobalVar\obj\Debug\GlobalVar.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\GlobalVar\obj\Debug\GlobalVariable.csprojResolveAssemblyReference.cache

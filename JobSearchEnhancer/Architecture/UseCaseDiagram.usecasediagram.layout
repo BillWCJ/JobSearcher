@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UseCaseDiagram">
+  <useCaseModelRootMoniker Id="07acf3db-6f0d-4fa3-ad66-306697a835c6" />
+  <nestedChildShapes>
+    <actorShape Id="afca20ae-e4b7-45c4-88a9-8cb9ae8eadaf" absoluteBounds="4.375, 0.75, 1.25, 1.125" isReference="false" heightOffset="0">
+      <actorMoniker Id="5bcc7688-32cb-474d-a017-a0bddc2c6d80" LastKnownName="Waterloo Coop Student" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="35f68d84-dc3a-48c1-94fb-f47e10774d5c" absoluteBounds="6.5, 1, 1.25, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="53db6b68-6905-445e-bb7f-1ab33a1f3b93" LastKnownName="Find Coop Job" />
+      <relativeChildShapes />
+    </useCaseShape>
+  </nestedChildShapes>
+</useCaseDiagram>

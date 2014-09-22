@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm13="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="07acf3db-6f0d-4fa3-ad66-306697a835c6" name="UseCaseDiagram" linkedPackageId="01385d56-c672-4d27-ab1d-53e5148d0ebb" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="168c7395-8d3a-449b-85c5-d77a66e8f89b">
+      <profileInstance Id="208a1885-83c2-4071-ba8b-c2fb2a6df187" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7bdceefa-12ea-44d3-abf6-0fe4e6905f73">
+      <profileInstance Id="a7aae0fd-83e5-48d3-898f-62483bc5eadf" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="1d680285-0740-4f5e-b395-4e20979b85c6">
+      <profileInstance Id="8171e6ef-30d8-42e3-8d7c-f89e524b9697" name="CSharpProfile">
+        <elementDefinition Id="c3fb3dde-c34b-4835-bf90-3c2067eb27a7" />
+      </profileInstance>
+      <elementDefinition Id="46a7d603-9d42-41b5-b14a-2bf9df0e745c" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="5bcc7688-32cb-474d-a017-a0bddc2c6d80" name="Waterloo Coop Student" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4a6d3833-08b6-47f1-bff0-137dc32a50a4" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="53db6b68-6905-445e-bb7f-1ab33a1f3b93" name="Find Coop Job" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="710eff0d-7349-464c-9ccd-a3786b4c0a53" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="01385d56-c672-4d27-ab1d-53e5148d0ebb" name="Architecture">
+    <elementDefinition Id="a3dae78f-1528-49c4-b83a-3350530105ab" />
+  </package>
+</useCaseModelRoot>

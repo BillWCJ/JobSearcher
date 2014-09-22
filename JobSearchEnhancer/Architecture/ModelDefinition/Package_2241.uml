@@ -1,0 +1,1714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="32913484-3f55-46eb-a0ec-7e4c46b3e333"
+  name="FormsApplication"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="7623eb37-8040-408d-afd7-8c91e4d65f80"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DFormsApplication"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="210c6020-259e-429e-bc1d-816a186f5e9a"
+        name="JobDetailBrowser"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="5d935a0e-1388-4132-9945-de28affdc582"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="8547dd5f-a480-4fb7-9d1c-3bf4aa376812"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="37e6dc2f-e4e3-4f0d-b882-5a091c0f949d">
+                <propertyInstance
+                  Id="ee33eee4-b841-4c1a-a4e5-cf4308af8b9c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b735e972-a8a8-4df0-8333-43d087763db2">
+                <propertyInstance
+                  Id="e49385a8-daff-4868-ba93-a6f70d0dd5d0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6125fb94-3488-4a5a-a75f-a82b2ce9f4d8">
+                <propertyInstance
+                  Id="cebe746d-1486-4116-b488-6351d1ee7f80"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b65c87de-9c04-4f59-a7af-256b83f37ec0">
+                <propertyInstance
+                  Id="7da8ec5a-c5b4-498b-ba51-b9287aee2e3f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="00ee27e9-95fe-4930-b566-ad7b3a4e172f">
+                <propertyInstance
+                  Id="37cf77d2-0704-4c75-bf54-8261cfa8b0d7"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="eae05536-ba30-4ce8-a47d-bb61e4e44bae"
+            isSubstitutable="false">
+            <classMoniker
+              Id="e7a14457-103c-4b8e-a4a4-8e87ff01e4fd"
+              LastKnownName="Form"
+              LastKnownLocation="Package2_2241.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="47a4439d-059e-47f6-8f20-80e0f23c531a"
+            name="jobs"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a2bb92c4-0f42-48a7-8af7-0b453ad41d35"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3Djobs"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2bc538a3-8d6f-4c65-be07-8670b1a169a7"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51713525-8bac-4f1b-ba59-e262d4488098">
+                    <propertyInstance
+                      Id="b83d1b35-44ff-4e61-b92a-dc9a22159f7d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="18861659-7760-426c-85d3-2d1ba12db042">
+                    <propertyInstance
+                      Id="04f89ed0-67b0-4e72-a9f6-5a14e974f222"
+                      name="Get"
+                      value="private" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e292b4ee-52b8-4bb0-95a9-73b0d7b3fa17">
+                    <propertyInstance
+                      Id="71fc8f4d-3146-4a5b-a505-ec2f8db2899d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60f12d26-42d2-4e21-9752-6fa55a8048a2">
+                    <propertyInstance
+                      Id="1fff225b-77f1-453b-8d6d-8d9711a54cac"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="018fc8c1-7201-47ec-a71f-cde485834396">
+                    <propertyInstance
+                      Id="39fbca02-4900-4349-8521-6a39f47efe7a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cad91c8d-933e-44b8-8728-49fd421addd6">
+                    <propertyInstance
+                      Id="84969842-2522-4b62-a9c6-7007d649e0a0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="39ea1521-7531-4e07-bc29-14b5962b3dfe">
+                    <propertyInstance
+                      Id="65f38f0e-a594-4c95-9ff5-96d1d22682bb"
+                      name="Set"
+                      value="private" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="bd59c0d5-ee94-4d8a-b056-6479f86b1459"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="91b0ec4c-b097-4d67-99a6-e882b86976b0"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8ee538ae-cd1f-486f-ae7e-cdc183973e4d"
+                LastKnownName="Job"
+                LastKnownLocation="Package1_2332.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d0d9b610-d023-4f63-b25d-51ab8ad8f29f"
+            name="current"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9995b2ed-9af0-480b-945a-38946eb44b15"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3Dcurrent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5c11aa95-7438-450d-af84-2eb9dc291f6d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0859a514-c62e-4df5-a2a9-639d2ae3e28c">
+                    <propertyInstance
+                      Id="7501acd3-2560-4fcb-aaeb-2d58eb15d161"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8e00dab0-94e2-4f88-997d-c5378b556b91">
+                    <propertyInstance
+                      Id="e02ca0a3-3cb8-4695-941a-965659880705"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b746fc0-b64f-4a75-aefe-a9f03c76fe0a">
+                    <propertyInstance
+                      Id="89ead314-d740-46c0-b07d-7887022dfa64"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f2cd79b-0f13-400c-bbee-38ee2e7cbbea">
+                    <propertyInstance
+                      Id="fb5a29f7-5dd2-4c76-b552-e5b6f9ba0c44"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5fc470dc-a4b0-458b-9cbf-937f2c700b26">
+                    <propertyInstance
+                      Id="3b793bf5-03f5-4e4e-9fa6-ab7fc7d8b4e9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5d106f70-3d66-49f9-ae62-aa9283414d79"
+            name="components"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="1c97cbea-92ef-4182-9632-93f66cd531f0"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3Dcomponents"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f6b6a5bc-091a-48d6-97f6-30f06bc34be3"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="13ff53ef-9375-40a3-b2ed-b2258e820d91">
+                    <propertyInstance
+                      Id="8f67ba45-4ed0-41d1-80dd-7666b32dc502"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="394a3bc7-59f4-4f57-b5a3-8f87bc0fcab1">
+                    <propertyInstance
+                      Id="2989bf99-51ba-40d6-9856-d3574cc2fb57"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f639a705-ad25-40f2-b09d-287f0016698b">
+                    <propertyInstance
+                      Id="5576e5d8-3133-4c09-bff2-05b616e2afe6"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3222e66d-d9fb-4f58-b87d-f1350987b515">
+                    <propertyInstance
+                      Id="52df4bf2-e48c-4bd1-9778-b60aaa0c788f"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="661146ee-7186-4c3d-b46c-4b6e2f6d85f3">
+                    <propertyInstance
+                      Id="119d9672-9168-487f-b05a-9ab50d244dd4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="183404c5-647c-4ac5-acad-08a279dd2677"
+                LastKnownName="IContainer"
+                LastKnownLocation="Package3_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ad8c8cc7-d875-4031-afaa-84df33d7693e"
+            name="MainLayoutPanel"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f649f1b0-fa80-47e9-ab1c-1d8c776db8df"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DMainLayoutPanel"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="446d8cc5-cd84-43e5-86fd-b1d28e41b636"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4fcc3c77-69f7-46f7-95d5-7b9ba5c18c6e">
+                    <propertyInstance
+                      Id="ee48ece1-eba6-484e-8b86-dff24456db4e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="825d3ddf-f832-4f34-85ec-a85734333167">
+                    <propertyInstance
+                      Id="be20015e-eaad-4af7-ab73-aafa11660748"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="611dfd24-3b2e-4683-9dcf-0bfa7087ec2f">
+                    <propertyInstance
+                      Id="8044dc7b-8cbc-47cb-b64d-0f42d9c6c7c9"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c508906d-9983-4d72-b5b0-04d16e8ac52b">
+                    <propertyInstance
+                      Id="c38b328c-e91a-45f1-a9a1-c55cd8e21178"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="25771f5c-c994-4e1b-b93c-333866d3baae">
+                    <propertyInstance
+                      Id="4a483c3b-3a2a-482f-bb5d-c786553819bb"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b3a4a51f-8ff5-44f9-9fd5-a70328a19f63"
+                LastKnownName="TableLayoutPanel"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7b1dae2a-4e92-4ee5-9c32-9d39b4325497"
+            name="SectionTabControl"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e55e271b-e993-4d59-a261-c49f7a9fe258"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DSectionTabControl"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="da81d83a-dfc7-4a7c-adb9-26986b1fa4e2"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="584e9974-7fb5-4ae8-99be-31d2381e93b9">
+                    <propertyInstance
+                      Id="f54e84b9-d891-4197-8366-b72902b6fd65"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d532234a-e1ef-4849-913d-302945ec5f89">
+                    <propertyInstance
+                      Id="7c4aa0f2-5139-4483-818c-70d47535bc06"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60683a69-2216-427a-b9fe-c882fd707e38">
+                    <propertyInstance
+                      Id="a175a393-a0cf-4906-988a-f5da9668d3d7"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa25022d-8f2e-43df-9ca5-0d74962f145d">
+                    <propertyInstance
+                      Id="a8737c16-04a7-4b49-991b-82130a0ab95d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="866d8d7b-8956-48b8-bdcb-5e55fff29854">
+                    <propertyInstance
+                      Id="29c14dd6-a9ce-419b-8fb2-0a7466154413"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="84279001-8f31-47ea-9592-b93a8941da5c"
+                LastKnownName="TabControl"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="19dd0ac7-a87b-4432-89f7-f741848e788e"
+            name="JobDetailTab"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9f7b69ed-d74b-468b-9219-c56fec7ba4ba"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DJobDetailTab"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1c93ee31-bbcc-49c2-80dd-ce565e262fcc"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7c2373d-c8e0-4053-921a-32fb5058c095">
+                    <propertyInstance
+                      Id="e4e2c2f6-9773-40e7-9ca1-14807fb51eab"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4baf23c4-7148-43c4-8e3b-af0cceb858d0">
+                    <propertyInstance
+                      Id="244ed035-f87d-4236-b35d-cc071c4d4a91"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d80d0081-cd6c-454d-9ac0-f54e3f81375e">
+                    <propertyInstance
+                      Id="f2a43d58-6c48-44ea-88a7-f5529f310e27"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6375680e-e2be-40c6-8dc3-875d5573721c">
+                    <propertyInstance
+                      Id="b3326111-1171-4bd2-b3a0-7d5485bd909f"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca7af9b3-4d2c-42f6-ab74-10fde532c63d">
+                    <propertyInstance
+                      Id="e9fd3b19-3612-4956-a6ea-27d929852cbd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="69cac6d8-6966-4827-86c0-45bd5c87d0b3"
+                LastKnownName="TabPage"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d02c494f-af33-4667-9079-caad9578c4ad"
+            name="EmployerTab"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3e324754-5277-412e-b26c-05ba1da88c42"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DEmployerTab"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8bba6a19-7567-4a70-ad85-8f1a649dc88b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="281ebbf5-812a-4101-8d34-cbdb29216710">
+                    <propertyInstance
+                      Id="46049fc8-f096-4965-8ba9-18e8e54fce40"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09b67612-9232-4e4a-a9c0-f4a07177dcfa">
+                    <propertyInstance
+                      Id="d8c3694d-36dc-4dae-a534-c945cad16bef"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5a8cb233-cec1-46bb-b266-f389710fafff">
+                    <propertyInstance
+                      Id="6049678e-5d25-4d27-b918-a796d26fd093"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5234774b-c636-4a45-87f9-a4bde649bfdd">
+                    <propertyInstance
+                      Id="9be02014-d27c-461a-a2d5-9ee15782a333"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69a74297-88af-4a20-96ef-23d6fa56bdeb">
+                    <propertyInstance
+                      Id="d6e3f4b3-f954-4f72-9cdd-128d67922c73"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="69cac6d8-6966-4827-86c0-45bd5c87d0b3"
+                LastKnownName="TabPage"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="96f86f4c-6a85-44b9-bd17-b61254a2f224"
+            name="WebBrowser"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ebb8710a-13f7-4e59-b1f3-6a0205256448"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DWebBrowser"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9e64c03d-0543-4955-871f-e04c4695fa8a"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6fd822f6-7f29-45d8-b4bc-4caa73f016b2">
+                    <propertyInstance
+                      Id="1e9a3617-c29c-4d68-ac99-09f50fe2b04a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1afdcb5e-1c26-42cd-b4ea-048ff8b43214">
+                    <propertyInstance
+                      Id="38ca1c50-9dfc-47bb-a73b-8b4aa694d15e"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ca0b0db-ffda-402c-9527-039ce0e81f5e">
+                    <propertyInstance
+                      Id="6c2b0397-9004-42f7-aa80-75375148a8ad"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e236294-4593-458f-82b1-e9f178bf0e8d">
+                    <propertyInstance
+                      Id="197b0d3b-63d5-4184-9523-a901477e875b"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a2fc2b7-5adf-46c0-af71-ff7ca59d1c92">
+                    <propertyInstance
+                      Id="f7b5f74c-ae68-4f18-9842-b10bcd705434"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="69cac6d8-6966-4827-86c0-45bd5c87d0b3"
+                LastKnownName="TabPage"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="afac2d4c-b05b-4e68-ab6d-f6e06ed474ef"
+            name="ControlMenuLayoutPanel"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="33d78349-5ac1-4692-b3be-17bc9abbc534"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DControlMenuLayoutPanel"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e4f97776-f13d-47d2-a33a-ddf0510dfd0f"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0630e10c-93da-45b2-b015-53df876959e1">
+                    <propertyInstance
+                      Id="95a6ce54-c1a8-47e8-a406-c03e726b1788"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b79f4e1-5a39-4922-b41f-5a8645c69826">
+                    <propertyInstance
+                      Id="8b4cdb53-a84d-4363-b3ec-0e0f3dc67acc"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9585f83d-a1fa-4ca4-95d6-4b2607c5843f">
+                    <propertyInstance
+                      Id="12fbd2e2-d0ec-4e67-ae6d-fd32a98f767a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb185aef-65d1-4761-9593-64a7488ba07b">
+                    <propertyInstance
+                      Id="93b78de9-eba5-4f5c-ae54-f2639f818afa"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1610c309-e8f3-4fc8-8ce4-660420e5982f">
+                    <propertyInstance
+                      Id="bbbbb8fd-5357-4691-b9a3-d79991d46ec8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="2ad9c4b9-93bc-4a13-8477-cfb7ae4572ee"
+                LastKnownName="FlowLayoutPanel"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3287e520-3cef-4faa-a31a-f57effd82bc7"
+            name="PreviousJobButton"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="971b5ef8-b5ea-437e-b507-ad24a538edcb"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DPreviousJobButton"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="20809281-2da4-4856-9b06-c1a0cf068f8f"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a82e30e-5b30-4a2d-b1aa-2f5584baec45">
+                    <propertyInstance
+                      Id="28134e78-3c0f-4a93-9171-c7531798089e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e631a8ec-3470-40c9-9ec6-15e4f756c3e4">
+                    <propertyInstance
+                      Id="f91b16e5-b401-4d2f-9e24-80875e628c0c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61b07ad8-d796-458e-b0ad-1e4b9324606d">
+                    <propertyInstance
+                      Id="1a2e800a-8ecf-4901-98a6-6d528888b568"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15dcff9a-369d-4dfc-8a0c-82413fcf800b">
+                    <propertyInstance
+                      Id="db7f228f-a6bf-4899-abcd-94c12cb8356c"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b76446ef-9391-40bb-b4d2-100814022913">
+                    <propertyInstance
+                      Id="36a3ccfe-7943-4f87-a181-2e4496aa7802"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="6dcbf055-4e52-4177-9668-a094944bef08"
+                LastKnownName="Button"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="19450ac9-88a3-4aa3-b489-02c447e5a83a"
+            name="NextJobButton"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="808316c5-246d-4495-b5a6-543d7d191e50"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DNextJobButton"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="74126566-df26-4373-8cd1-b2c17867d5cb"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83c5a5e9-4b2f-4d01-833c-8ef9449e9d6e">
+                    <propertyInstance
+                      Id="6d6f49bd-46ca-4286-9988-231eeaa9f548"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf80033f-b380-4e48-bdee-aaf0976c6dad">
+                    <propertyInstance
+                      Id="64015e65-4ebe-4b1e-956e-fe9a9270082c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="100a5dfe-8f73-4815-ab11-18fb50d721df">
+                    <propertyInstance
+                      Id="6b58343c-0ebf-4bbb-b7df-09905d729763"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="144afccd-8dd0-4762-9f75-37918ad5c5a1">
+                    <propertyInstance
+                      Id="cc058b2b-4f9f-40f5-b024-c21a50aeec88"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17c05d0b-9d87-48da-b023-e6fd3e89cdd8">
+                    <propertyInstance
+                      Id="34312667-a2a7-460f-b973-b974a7a8320e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="6dcbf055-4e52-4177-9668-a094944bef08"
+                LastKnownName="Button"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="530d18b8-6be9-4014-951c-8f3ec9d8c812"
+            name="JobDetailRichTextBox"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="89d348e6-3266-4079-a01f-3fce6008b8fc"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DJobDetailRichTextBox"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="378f11cb-07ef-42a3-b487-ec7743050494"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb2f7fc1-aa00-4664-9c7e-fb265f7fff3d">
+                    <propertyInstance
+                      Id="7de8ce85-8679-46c2-99f9-d7abb09d9a3c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7cecfc41-0cdf-4532-9f2a-540ea89a1ccb">
+                    <propertyInstance
+                      Id="7d9119a0-5e43-4db7-a493-8a0b74629419"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9c784b1d-810c-458f-8f21-32b5d2217e8c">
+                    <propertyInstance
+                      Id="36bb4de7-14c1-4e1c-8425-f680611c4f6c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3fd4168-8721-4be9-ba84-a0be32c0d6a8">
+                    <propertyInstance
+                      Id="650814dd-2a83-4f33-97ca-e61afd4b44ef"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="875376c9-784d-4d87-aaa2-af85ac3e62c1">
+                    <propertyInstance
+                      Id="3b2f4f2c-574e-4d8d-a632-440b230e619a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="f67bb80f-beb0-44c7-8e93-eaededf7131e"
+                LastKnownName="RichTextBox"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e9774175-0bba-46f7-9f6c-80d3bee56bb6"
+            name="CommonWebBrowser"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b0d5ba73-01e7-4a0b-884e-25048141a7f7"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DCommonWebBrowser"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cd1a2e2b-da9f-453e-8472-734d41845b41"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d22ed4e4-5ded-4d93-8854-99b58a2ca02e">
+                    <propertyInstance
+                      Id="4fb85ae1-9a61-4fa0-a7d2-bec794c05075"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbc5f895-1bbb-46e2-913c-452c58cd4656">
+                    <propertyInstance
+                      Id="eae7f9e4-2314-453f-a3aa-665cbed18c8c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="de1b516e-66e3-4e9f-9529-5c80c4d9f392">
+                    <propertyInstance
+                      Id="0e4fde5a-4d11-4bab-9db8-8372ff7623ca"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd7b1ffd-00ea-4e60-ba90-da4277cd9172">
+                    <propertyInstance
+                      Id="de45bb2c-0dbf-41f8-be2c-96826c1aa7e2"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c48dde0f-ee11-49b7-b4cb-eed9d7ea51f7">
+                    <propertyInstance
+                      Id="58a3b1d4-055e-4557-99f4-20c3c1955c67"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8d290713-3bcf-4bc7-9e51-979fdf299c88"
+                LastKnownName="WebBrowser"
+                LastKnownLocation="Package2_2241.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="175a36c4-26a1-42e0-b238-d4b87539502f"
+            name="DisplayCurrentJobDetail"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="37fdb486-270c-4f5c-8e47-5f922c458ec6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DDisplayCurrentJobDetail"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="420e519d-c918-4ef5-96cd-15af6834093d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b4994a4-750e-49c8-b774-b1dc30e3e05c">
+                    <propertyInstance
+                      Id="d3b4c195-c7f9-4dba-8798-6fbd32cf33eb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ab2e7e7-6dc4-405f-8757-f67443257a03">
+                    <propertyInstance
+                      Id="9c0ae690-9f06-41ee-b49d-2b19145f70b5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="883e0a08-10bc-43c4-b1bf-3655d3fd8f5f">
+                    <propertyInstance
+                      Id="7528502e-9a08-4eb8-86cd-ac28a0eb990f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4130f26-d369-499a-a416-60479dc488b4">
+                    <propertyInstance
+                      Id="81c58963-06b9-4070-a833-d2e0fe6b2d66"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d7eec90-3f05-41d7-b8ad-ccdd990c1c86">
+                    <propertyInstance
+                      Id="43998745-733b-4d19-adf2-984b40298eb7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5874ee2b-d661-45ce-bebd-f7258f164a61">
+                    <propertyInstance
+                      Id="17582459-09db-414a-99e6-b6d515f1d458"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="cb5f9e65-d0aa-4705-a075-c6c962edbf02"
+            name="PreviousJobButton_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1c9bb146-0ba0-4855-b32f-664b71f02389"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DPreviousJobButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="63baea10-36ce-4d98-8e17-5353ac44c816"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ed3b240-2f82-46ac-9486-f1d4a11b3428">
+                    <propertyInstance
+                      Id="9c59cacd-3bff-40af-adea-25c7bd48097b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4852b22f-e5aa-4538-8e84-b6fade3ecd2c">
+                    <propertyInstance
+                      Id="984d3220-36bf-44f2-a38f-1fbd7d2ca14a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="400e4f96-cf8b-4cf4-834e-54c44e40af45">
+                    <propertyInstance
+                      Id="831c9e6a-83c2-42b7-ae3f-1d45c31cd85a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f94880f-127c-413f-99ab-dcabfb7d6abb">
+                    <propertyInstance
+                      Id="2738c7a9-fec7-4e74-91a0-26c8e65e949e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9c29770-cb2b-40cc-b30c-56cee914a576">
+                    <propertyInstance
+                      Id="a2e4941b-84c0-4ec8-aeff-2132f90ae338"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5181f42b-e510-4ce4-ac40-88d3f0499535">
+                    <propertyInstance
+                      Id="d7fe8f94-f39a-49cf-988e-f4d5cfb4c4cd"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="33a181cb-5fb1-4143-9a60-a83607100b04"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ce641b58-2ace-42da-b740-0928ae1db35b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DPreviousJobButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4d762d87-3cbf-41b2-a21f-b01d05b5477d"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_2330.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="513720ed-ff5e-46d1-9111-17dd845d62c6"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c4fe2438-0e6c-48f6-8dab-40fbb38c3504"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DPreviousJobButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="99ebc905-a3c8-4daa-854e-d53b0804577e"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package2_2330.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="59ff4068-7f1c-4716-9c9d-f81d9f90b9b6"
+            name="NextJobButton_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="430ceab7-53f1-4f64-9cc6-ac36c0c91e1d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DNextJobButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c6ab7713-7847-4d9c-be3b-cbb0d3902351"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="064a5971-45fb-45ea-b178-79fbcc9155b9">
+                    <propertyInstance
+                      Id="ff7fd06c-882d-4745-ac1c-3874e3c0b07a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cbac2826-1f1b-4fdf-b41b-87b69097198b">
+                    <propertyInstance
+                      Id="c50a4930-0273-4658-86d4-f2305ac6f983"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae60ed42-a310-4b5d-9dac-f76ddf34a2ce">
+                    <propertyInstance
+                      Id="4429562a-7cb8-42c4-8ac4-83b81f634903"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b036859-7fe0-40b9-a7bb-c2b7c60a44c6">
+                    <propertyInstance
+                      Id="df5ded08-ff2c-4aba-9ad6-3ca25ba7419b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ba3b2e85-ec4b-4ef2-a83e-c387b3e0909b">
+                    <propertyInstance
+                      Id="97e38e54-9d57-4d25-a112-e4f177b27cc6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b6d7ea4c-f8b9-4684-a92c-ce9b9155f786">
+                    <propertyInstance
+                      Id="68a1e20c-9b28-41a1-924e-cce3c16ac680"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6f81dcbd-2242-4129-a1a5-86aeeabe3cab"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1d47385e-7f6b-4627-b79a-f21ccfc72341"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DNextJobButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4d762d87-3cbf-41b2-a21f-b01d05b5477d"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_2330.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1bee80dd-6b84-43cf-8b55-b8a4f358ef28"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="9e2628c1-cf20-4395-a0e4-e14ad26d4b5b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DNextJobButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="99ebc905-a3c8-4daa-854e-d53b0804577e"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package2_2330.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8fed5c83-31a1-4c10-91a0-eaa6a7755661"
+            name="JobDetailRichTextBox_LinkClicked"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="746b6eab-9a84-4de8-ac92-f5f3dbd936f8"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DJobDetailRichTextBox_LinkClicked OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DLinkClickedEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fbdd51ee-ffaa-4b16-a59f-dc033031ce3d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1211cdc-1ff6-4b6f-89ae-1e013e66cda5">
+                    <propertyInstance
+                      Id="2229ccbf-97f4-4ce7-802f-6f2c93e91080"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e05f736d-7e7d-4a02-aa83-1231e2f484e3">
+                    <propertyInstance
+                      Id="434fe1c3-c554-48b0-991c-b808f42fd6f2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15fac0bf-a57d-4c0f-a90f-134cebab0d7a">
+                    <propertyInstance
+                      Id="0b8269e5-af7c-49d0-9e19-00757c1c782a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1243f9a1-7ce8-49d2-aa12-456b66d04c6e">
+                    <propertyInstance
+                      Id="9b68e5c5-0c13-49b1-88e8-70fcc8e4f99d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32bc31f8-1c2a-44eb-9cde-9d11462d553f">
+                    <propertyInstance
+                      Id="2b1d1d49-8cf6-4336-aa39-aeda4ad9ad62"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5520b963-eb98-4091-94b3-ccaf97f6838a">
+                    <propertyInstance
+                      Id="337d01c1-9a43-4223-ab14-48a59327014f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6f282d2f-4643-47f5-aed9-519404b9db53"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="00c3bb57-7c18-4c07-9e35-38c418616d8b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DJobDetailRichTextBox_LinkClicked OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DLinkClickedEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4d762d87-3cbf-41b2-a21f-b01d05b5477d"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_2330.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4c0ffeb6-3a62-4359-af74-06f7cbdc226c"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d0902d1d-2f34-427f-9af8-56216ac3cba8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DJobDetailRichTextBox_LinkClicked OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DLinkClickedEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="08c4da4c-9bfe-4b7a-9680-8f882b31912e"
+                      LastKnownName="LinkClickedEventArgs"
+                      LastKnownLocation="Package2_2241.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4ede0297-a515-46dc-ba52-1d16439b1832"
+            name="Dispose"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a3f6beb9-fd6a-4948-b69e-ab2969b12162"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a1694de6-2a94-4ee2-816a-792d115c55a3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="62fa220e-422b-45e0-b8d2-fb091345e10d">
+                    <propertyInstance
+                      Id="b13e39bc-7726-4042-9331-5b2af99da354"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d5ea8a2-0680-499c-83d6-b515c2a22cf6">
+                    <propertyInstance
+                      Id="3083b361-92ae-4729-a20c-dcd4fbcffe4e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a425973f-05b0-4593-a5ba-af4f963f5f65">
+                    <propertyInstance
+                      Id="dcc90bc9-0cd3-4213-9a63-e6f552b001dc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad85f8a9-60ac-4d17-ac6b-9304d0059236">
+                    <propertyInstance
+                      Id="b5782b7a-d15a-41dc-aa50-5fecb4e20b46"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d36e5a78-5047-421b-9bb6-e85f591abc84">
+                    <propertyInstance
+                      Id="aa87fbb0-7a93-4875-b92a-0f6bb6784b50"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b6761a2-a921-46a9-a668-9f4f05dcf88d">
+                    <propertyInstance
+                      Id="e0c46197-2791-41f8-96f0-7b9182b301b3"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="165ac6fa-ae62-467e-b626-682bedd64959"
+                  name="disposing"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7fd68425-80c4-4927-95af-d264b6238ac8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Ddisposing"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Architecture.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5fcade5f-10db-4163-8a74-d7d118752c2c"
+            name="InitializeComponent"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="15f859d0-4668-4fa2-8914-c38d14019c2f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3DInitializeComponent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="db8410b2-8748-4b67-a9f1-cc67cd1d50f4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="25ec0891-465d-46b1-8329-69edb8351b46">
+                    <propertyInstance
+                      Id="15620504-ec1c-4df0-b5d7-0b3b1b9f20ef"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3cc6bb79-0c93-445a-b79b-0e8675d620b4">
+                    <propertyInstance
+                      Id="e5f5e5c6-c5fc-4fb1-99d7-3862b5439129"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e89281b-4445-41d1-933a-a77ece482b62">
+                    <propertyInstance
+                      Id="5c573f80-b14c-4672-82ba-137baaa7c7c8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24e8cdaa-c9b7-4bbe-9df4-248ebcc3f0eb">
+                    <propertyInstance
+                      Id="928b0704-4ca8-4652-8af1-4997f4706f79"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="33e92061-1fc6-4d31-8fa5-bd724c0944f3">
+                    <propertyInstance
+                      Id="d867cfdc-b459-4a31-b9ba-97855056a6a3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7844b82-5787-4cc4-93b7-2368b9143156">
+                    <propertyInstance
+                      Id="c2c9c6ea-79ff-4076-b448-23344e219ba2"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="516c8bf2-a480-41a4-87c2-15c96f717940"
+            name="JobDetailBrowser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9835333a-8b0c-4edb-aef9-413715503ba2"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DJobDetailBrowser Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6e15d7b5-7fa8-4ac7-8280-326db296fff6"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fe375033-38ec-4ba8-81f4-ae29a227c4d5">
+                    <propertyInstance
+                      Id="bb18cbcd-3dbc-4c72-8286-5d39c4dd884f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="26c64dda-525f-405d-88f0-65ea70285f9e">
+                    <propertyInstance
+                      Id="0749e00b-6904-45a3-99ea-52bc96eb3745"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="73eaa818-eedb-4e82-b098-b563c5a6e6ec">
+                    <propertyInstance
+                      Id="842dea1e-a12c-4d27-a5a4-ab16793baf58"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="226d50ed-c86d-4ed2-9bac-f7b9cb9e47fd">
+                    <propertyInstance
+                      Id="4bd661a7-cfc6-437c-9390-238a52420a32"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ad63cee-e926-42b3-a06c-7f9bdf610070">
+                    <propertyInstance
+                      Id="2e2ee8e5-5f6a-4911-a4ec-daa409c8b699"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ff9b57a-116f-412f-877e-45d5134647e5">
+                    <propertyInstance
+                      Id="0d9d8d1b-8713-43d2-809c-ea6f4865e489"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4dd95c1a-dae0-4ca4-8846-3958353f3e03"
+        name="Program"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8ee36582-d214-44c8-94b4-f4d19c384b50"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DProgram"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c3dedcbf-ec9b-4c26-8469-f3a48eccd404"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2cdfbcee-1578-49c6-b06e-8647deed239e">
+                <propertyInstance
+                  Id="b85d7f05-8e02-43db-b07f-b2de36e2dfb6"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7f7216c1-9c8f-48aa-89a6-f8b53eae40cf">
+                <propertyInstance
+                  Id="bc70dc2f-6e42-4e8a-be4f-a375bff6ffc6"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="709a8dbd-e46d-4d88-b952-f03952c3dcb1">
+                <propertyInstance
+                  Id="7ebdfe47-d14c-4ebc-84bc-54904fc11ae3"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="86f4bb28-6233-4c1e-b138-0a916be11a98">
+                <propertyInstance
+                  Id="123415a4-b56c-42f4-9dbc-7ba6b938bd67"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9271a501-bae2-45cb-a520-40a938544cfe">
+                <propertyInstance
+                  Id="5f3c1b99-96b2-4ced-9523-6a70f59dd1c1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1b166b98-1ffd-46c4-acc1-2c39232ac97f"
+            name="Main"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c96fe96e-49f3-48f6-8062-a6a7b2db276d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FFormsApplication.exe&quot; Namespace%3DFormsApplication Type%3DProgram Member%3DMain"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a6e73328-f8ee-4bfe-87d3-2c8736fad869"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb162d7f-a1ea-4405-9133-6b1406d6a184">
+                    <propertyInstance
+                      Id="6f311a9b-e958-4835-9594-617f1d77b824"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2efbe505-91d4-48c0-8a58-8444f30f5838">
+                    <propertyInstance
+                      Id="6a465062-31f6-4365-a7fe-8be907333f30"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ab3923ff-6f81-49d0-b2da-0a9162d8d3ce">
+                    <propertyInstance
+                      Id="71d93036-3b77-40fd-8a50-377f7a6d9ca6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1a6e3d3-643d-4f7b-a2aa-d25ff63ecb34">
+                    <propertyInstance
+                      Id="12746773-43f6-4b99-8ddb-ee60c3e34f55"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="62d79171-b683-4656-bf1f-bafacfabef64">
+                    <propertyInstance
+                      Id="f9d824d9-887e-432f-bcea-7f5f9c2a1300"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="481c34da-2d70-4ac0-933b-aee9df5da191">
+                    <propertyInstance
+                      Id="1be3e975-8a8d-4185-ae2d-1ff58a486099"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

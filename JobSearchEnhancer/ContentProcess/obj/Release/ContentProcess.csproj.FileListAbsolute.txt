@@ -1,0 +1,11 @@
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\ContentExtraction.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\ContentExtraction.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\GlobalVar.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\Job.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\WebClientExtension.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\GlobalVar.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\Job.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\bin\Release\WebClientExtension.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\obj\Release\ContentProcess.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\obj\Release\ContentExtraction.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ContentProcess\obj\Release\ContentExtraction.pdb

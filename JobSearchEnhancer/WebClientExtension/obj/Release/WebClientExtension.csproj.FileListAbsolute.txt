@@ -1,0 +1,9 @@
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\bin\Release\WebClientExtension.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\bin\Release\WebClientExtension.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\bin\Release\GlobalVar.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\bin\Release\WebClientExtension.Test.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\bin\Release\GlobalVar.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\bin\Release\WebClientExtension.Test.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\obj\Release\WebClientExtension.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\obj\Release\WebClientExtension.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension\obj\Release\WebClientExtension.pdb

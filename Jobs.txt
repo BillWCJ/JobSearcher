@@ -1,6 +1,8 @@
-Extract Time:3:37:38 PM
+Extract Time:10:19:31 PM
 
 -------------------------------------------------------------------------
+
+
 Employer:
 416 Automation Inc.
 
@@ -10,7 +12,7 @@ Engineering Student
 Location:
 Mississauga ON
 
-Discriplines:
+Disciplines:
 ENG-Electrical, ENG-Mechanical, ENG-Mechatronics, ENG-Software
 
 Levels:
@@ -45,9 +47,13 @@ ESSENTIAL SKILLS AND QUALIFICATIONS
  
 We offer an exciting and challenging work environment that rewards excellence.
 
+UrlLink:
 https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS?UW_CO_JOB_ID=00241053
 
+
 -------------------------------------------------------------------------
+
+
 Employer:
 AMEL Group
 
@@ -57,7 +63,7 @@ SOFTWARE DEVELOPER (CO-OP)
 Location:
 Mississauga
 
-Discriplines:
+Disciplines:
 All Info Tech (unspecified), ENG-Computer, ENG-Software, ENG-Systems Design, MATH-Computer Science
 
 Levels:
@@ -104,9 +110,13 @@ Successful candidates will also be required to fulfill requirements for the Cana
 
 Please submit your applications to careers@amel.ca and JobMine.
 
+UrlLink:
 https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS?UW_CO_JOB_ID=00240986
 
+
 -------------------------------------------------------------------------
+
+
 Employer:
 Aecon Group Inc, Aecon Construction and Materials Limited, Head Office
 
@@ -116,7 +126,7 @@ Project Coordinator (Co-op)
 Location:
 Waterloo
 
-Discriplines:
+Disciplines:
 ENG-Civil, ENG-Geological
 
 Levels:
@@ -162,4 +172,5 @@ Required Skills
 Career Development And Training	
 On-the-job training along with performance evaluations will be provided to the students.
 
+UrlLink:
 https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS?UW_CO_JOB_ID=00240059

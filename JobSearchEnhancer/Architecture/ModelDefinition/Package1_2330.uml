@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="d68a7c40-7427-48b7-a69a-6b77975f6acd"
+  name="WebClientExtension"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="03b4f726-774c-48fc-80c7-c322511bf114"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DWebClientExtension"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="b4784e12-0ea9-4f97-b6d1-677394f5f93e">
+      <profileInstance
+        Id="3b6b9907-9313-4e00-bfc4-1752829a39a4"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="312f4431-327b-4be9-a580-753d7b8ba7f0"
+        name="CookieEnabledWebClient"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8c270669-0b41-41d7-975f-290ef46b2e7a"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FWebClientExtension%2Fbin%2FDebug%2FWebClientExtension.dll&quot; Namespace%3DWebClientExtension Type%3DCookieEnabledWebClient"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f731e936-5778-4b06-a1b0-bf732f214509"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="79d8dfae-b63a-4101-b1b6-5993a544a2af">
+                <propertyInstance
+                  Id="26e07c5f-8d5e-4fdb-9253-3abef62352d0"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e40794bb-1a89-495a-bdf3-96ffe6f3e5f3">
+                <propertyInstance
+                  Id="90117ef9-ceaa-44f8-8c5c-21ce601363ca"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c8154467-fb48-4ca3-8a54-74f64f0f887d">
+                <propertyInstance
+                  Id="bba4a944-a8b6-4255-9190-8ce65a721126"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="570cf611-286a-45fa-a25f-53de20bc046b">
+                <propertyInstance
+                  Id="2fd7fc77-da26-45c8-a41f-0d07f2ffe0ce"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="841c8dae-1ca9-4a56-a09e-625bb5ded30d">
+                <propertyInstance
+                  Id="4570e9c5-3af0-492b-8bdb-feeec6d0ad7b"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="19b1f465-c76b-4dd3-845c-84fa61dcbb38"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d2635ad5-6fbb-42b9-89df-829335c1a27a"
+              LastKnownName="WebClient"
+              LastKnownLocation="Package_2335.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="8796a02b-5066-49bb-bf9f-184e999ccdf4"
+            isDerived="false"
+            sourceEndRoleName="CookieEnabledWebClient"
+            targetEndRoleName="CookieContainer"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8e6d33a7-568d-476e-94ae-d9e56e43850f"
+              LastKnownName="CookieContainer"
+              LastKnownLocation="Package_2335.uml" />
+            <description>Property CookieContainer references type CookieContainer.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6137cc78-2b73-47f4-a666-338b7ef376b1"
+                  name="CookieEnabledWebClient"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="febffa16-e3a5-440b-82ad-88c89d47fdeb"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="061fc774-89a3-4242-b2f8-9886804a4c54"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3a5653cd-b087-4a20-a6e8-fe9f07a7b484"
+                  name="CookieContainer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b3a1d336-8403-4c3e-b804-196e771d1544"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="abf0722a-2eda-4832-b529-1bb4b4f59873"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="5fa50a25-9ba6-425d-bb73-40710e7262e6"
+            name="CookieContainer"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="097aa2d4-caa7-4282-a26c-514e4f612ed4"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FWebClientExtension.dll&quot; Namespace%3DWebClientExtension Type%3DCookieEnabledWebClient Member%3DCookieContainer"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0cea5de3-9758-4255-8307-7edaf8090f30"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="65b68023-a8db-43ba-9af4-395f5808ed45">
+                    <propertyInstance
+                      Id="f0947d57-0a3e-45d9-a64f-07722969f7cf"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d4796fa-8e58-49ca-bbdb-2380aeb884e2">
+                    <propertyInstance
+                      Id="2e0aa4c8-3fdb-4f24-aeac-7ef608ca2774"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f82494da-fcb5-46d0-bb0c-1a90a98f4f45">
+                    <propertyInstance
+                      Id="0da05946-117a-4c1e-a444-a5a38322a7eb"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="caa3d028-a487-4a9a-ba93-721609d0e500">
+                    <propertyInstance
+                      Id="83bd0f52-052a-4594-a4ab-3c8e67002b77"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37665668-9dc1-484f-a922-7505f8fad01a">
+                    <propertyInstance
+                      Id="61d0384f-1f1d-4797-96af-3b141417fefa"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bed43af6-a215-42a7-a4d8-b57bff5b2c38">
+                    <propertyInstance
+                      Id="72df80a1-11eb-4e80-95ef-4f8675d5a694"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="957dea25-516e-4aa5-ae85-19a0f17497b6">
+                    <propertyInstance
+                      Id="d3705486-dd24-44d1-aec3-4e7375632668"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8e6d33a7-568d-476e-94ae-d9e56e43850f"
+                LastKnownName="CookieContainer"
+                LastKnownLocation="Package_2335.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="eb80aae5-2416-4bf5-8c96-c9a7375c2ec8"
+            name="UserAgent"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="00a612f8-705c-4e79-ab1d-382728e54c95"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FWebClientExtension.dll&quot; Namespace%3DWebClientExtension Type%3DCookieEnabledWebClient Member%3DUserAgent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="db5a42ee-8084-4599-813b-a7711cc77966"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d7f2386-2bc3-4c6e-a079-e211d95772d6">
+                    <propertyInstance
+                      Id="bb2695fe-654e-4c40-8417-ff00ded8c2ab"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b3fdcc1-e7fa-48f9-bfd2-3fa91453bbfd">
+                    <propertyInstance
+                      Id="8e014471-a7b0-4df4-b576-c351c379d150"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8edd7d0-3e6e-464d-991d-9ee0e35a3bb0">
+                    <propertyInstance
+                      Id="1251e288-4470-4696-8ee1-1fd3a569bcb5"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c2640936-485e-420b-a35f-a86ff067f1f7">
+                    <propertyInstance
+                      Id="22f96869-1c93-479c-ac05-7fc114d6ce06"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dacd8c46-0da1-4eee-94b1-f908bf86639e">
+                    <propertyInstance
+                      Id="fca993bb-2d0c-4cdd-9d0e-2c8f5b25cc42"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7b1d4792-834e-4f36-b77d-62abe76c8831">
+                    <propertyInstance
+                      Id="7e5686f1-ffc8-4e86-9b6c-9dbcd7e91151"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b80601b1-64d4-4063-af1d-1f6ec1add311">
+                    <propertyInstance
+                      Id="04aff90d-6bab-4d9c-bc40-007f1516990a"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="158df206-0ac7-42a3-b588-c7e20789181e"
+            name="GetWebRequest"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="934ff256-433e-4664-ba9e-61bdb5fa0551"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FWebClientExtension.dll&quot; Namespace%3DWebClientExtension Type%3DCookieEnabledWebClient Member%3D(Name%3DGetWebRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.dll&quot; Namespace%3DSystem Type%3DUri)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0797985c-a87f-4898-93f7-c79feadbaf24"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d1b2184-02f6-4385-a2a2-188e29ae89f3">
+                    <propertyInstance
+                      Id="70cf2052-2215-4094-b097-db08eb002924"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="05a6f816-5dc2-4632-b00b-48a55adf73fc">
+                    <propertyInstance
+                      Id="7fa1f273-55c8-4124-a5fb-299f9f8db218"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c17c1fdb-e50c-4c0f-b643-f467964cae33">
+                    <propertyInstance
+                      Id="3ee5a50f-565b-4daa-9820-838f30dfb478"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ba1966b-c393-4201-82e3-7343b5d06346">
+                    <propertyInstance
+                      Id="0a279f2c-827e-40e8-b4e5-3d9ac19dac59"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c2fee0a-9cba-429c-a7b4-14090a4225f1">
+                    <propertyInstance
+                      Id="68fd4d15-ceea-4487-9a0a-b148a25de550"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09bc0455-7923-4f48-b25f-c3cf6b3a24b8">
+                    <propertyInstance
+                      Id="b8f2540c-2bdb-4e65-915b-479f0f0fd9ee"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6a10d7b-b598-45d6-8606-af6d964f5e91"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="2856b0b5-a676-4d9b-a814-14ca144546ee"
+                      LastKnownName="WebRequest"
+                      LastKnownLocation="Package_2335.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="003f1657-52ab-4fea-a6c4-391b9c5af160"
+                  name="address"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f75ef167-4ce8-4195-b670-995d5d25dd08"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FWebClientExtension.dll&quot; Namespace%3DWebClientExtension Type%3DCookieEnabledWebClient Member%3D(Name%3DGetWebRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.dll&quot; Namespace%3DSystem Type%3DUri)]) ParameterIdentifier%3Daddress"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e1b99ad1-2c16-4b30-9565-18da82b29d89"
+                      LastKnownName="Uri"
+                      LastKnownLocation="Package2_2330.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1f838064-a58a-44cf-8f8d-51fd3cf0496d"
+            name="CookieEnabledWebClient"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="facf7ec0-a25c-44b2-8066-712df9919efc"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FBillWenChao%2FDropbox%2FSoftware Projects%2FJobSearchEnhancer%2FJobSearchEnhancer%2FFormsApplication%2Fbin%2FDebug%2FWebClientExtension.dll&quot; Namespace%3DWebClientExtension Type%3DCookieEnabledWebClient Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="228b37a9-080c-47db-9f8f-8c874cd9aebc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2891d60-d29e-46cd-bfa9-9e187ad4c47a">
+                    <propertyInstance
+                      Id="2f63b4b1-5830-4487-a259-d6adde97303f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2baed2f4-1afa-4c6e-9025-ce5b4c9825d9">
+                    <propertyInstance
+                      Id="94b4af4b-44d1-4e0a-87a6-18eb235ef4d5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f02b578-2dfe-4bb3-ba09-77a955d2485e">
+                    <propertyInstance
+                      Id="b6e8ae0a-f292-460e-b1fb-e82f6244991c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d562c610-94d5-4287-b5a9-a0fa7efb637d">
+                    <propertyInstance
+                      Id="05938d4a-25c7-4872-962a-c7680e9d14fa"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f4cd533-4632-4e0c-b767-7715a7a1ad6c">
+                    <propertyInstance
+                      Id="3727aeae-f50e-41e4-9750-26379adb1683"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="451dee77-0daf-49f1-b0a4-976f12b99bd2">
+                    <propertyInstance
+                      Id="362e7d2e-d2c4-47bf-9819-1bbbb4c23d63"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
