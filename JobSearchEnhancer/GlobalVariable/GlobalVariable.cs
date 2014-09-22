@@ -36,19 +36,24 @@ namespace GlobalVariable
 
     public partial class GVar
     {
-        public static readonly string[] ICAction = new string[]
+        public struct ICAction
         {
-            "UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN",
-            "UW_CO_JOBRES_VW$htop$0",
-            "UW_CO_JOBRES_VW$hup$0",
-            "UW_CO_JOBRES_VW$hdown$0",
-            "UW_CO_JOBRES_VW$hend$0",
-            "UW_CO_JOBRES_VW$hviewall$0"
-        };
-        public enum ICActionEnum : int { Search, Top, Up, Down, End, ViewAll };
+            public const string Search = "UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN";
+            public const string Top = "UW_CO_JOBRES_VW$htop$0";
+            public const string Up = "UW_CO_JOBRES_VW$hup$0";
+            public const string Down = "UW_CO_JOBRES_VW$hdown$0";
+            public const string End = "UW_CO_JOBRES_VW$hend$0";
+            public const string ViewAll = "UW_CO_JOBRES_VW$hviewall$0";
+            
+        }
 
-        public static readonly string[] JobStatus = new string[] {"APPR", "APPA", "CANC", "POST"};
-        public enum JobStatusEnum : int { Approved, AppsAvail, Cancelled, Posted};
+        public struct JobStatus
+        {
+            public const string Approved = "APPR";
+            public const string AppsAvail = "APPA";
+            public const string Cancelled = "CANC";
+            public const string Posted = "POST";
+        }
 
         public static readonly string[] LevelNames = { "Junior", "Intermediate", "Senior", "Bachelor", "Master", "PhD" };
         public static readonly string[] JobDetailPageFieldNames = 
@@ -126,6 +131,11 @@ namespace GlobalVariable
     public class AccountInfo
     {
         public System.Net.NetworkCredential User { get; set; }
+
+        public AccountInfo(string username, string password)
+        {
+            User = new System.Net.NetworkCredential(username, password);
+        }
         public AccountInfo()
         {
             System.IO.StreamReader reader = System.IO.StreamReader.Null;
@@ -146,6 +156,10 @@ namespace GlobalVariable
             catch (Exception e)
             {
                 Console.WriteLine("!Error-{0}_In_{1}: {2}\n", e.GetType().ToString(), "Gvar", e.Message);
+            }
+            if (reader != null)
+            {
+                reader.Close();
             }
         }
 

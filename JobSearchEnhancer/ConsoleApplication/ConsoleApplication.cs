@@ -27,58 +27,132 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            Initalize();
-            var client = new CookieEnabledWebClient();
-            const string term = "1149";
-
-            if (!ContentExtraction.LoginToJobmine(client))
-                Console.WriteLine("NotLoggedIn");
-
-            string iCStateNum, iCSID;
-            Queue<string> jobIDs = GetJobIDs((int)GVar.ICActionEnum.Search, client, term, iCSID, iCStateNum);
-            for (int i = 0; i < 2; i++)
-            {
-                jobIDs.Concat(GetJobIDs((int)GVar.ICActionEnum.Down, client, term, iCSID, iCStateNum));
-            }
+            //Initalize();
+            DownloadJobsDetailsForAllUser();
         }
 
-        private static Queue<string> GetJobIDs(int iCAction, CookieEnabledWebClient client, string term, string ICSID, string iCStateNum)
+        private static void DownloadJobsDetailsForAllUser()
         {
-            Queue<string> jobIDs = new Queue<string>();
-            HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            string srcUrl = GetIframeSrcUrl(client);
-            doc.LoadHtml(client.DownloadString(srcUrl));
-            var s = GetJobinfo(client, doc, iCAction, term);
-            doc.LoadHtml(s);
-            HtmlNode thisTableNode = doc.DocumentNode.SelectSingleNode("/page[1]/field[1]/tr[29]/td[2]/div[1]/table[1]/tr[2]/td[1]/table[1]/tr[1]/td[1]/table[1]");
-            for (int i = 3, count = 0; (i < thisTableNode.ChildNodes.Count); i++)
+            Console.WriteLine("Enter JobMine UserName");
+            string username = Console.ReadLine();
+            Console.WriteLine("Enter Password");
+            string password = Console.ReadLine();
+            GVar.Account = new AccountInfo(username, password);
+
+            var client = new CookieEnabledWebClient();
+            Console.WriteLine("Enter The Term (eg 1149)");
+            string term = Console.ReadLine();
+            Console.WriteLine("Enter JobStatus (one of the following option: {0},{1},{2},{3})", GVar.JobStatus.Approved,
+                GVar.JobStatus.AppsAvail, GVar.JobStatus.Cancelled, GVar.JobStatus.Posted);
+            Console.WriteLine("They are Approved, AppsAvail, Cancelled, and Posted respectively");
+            string jobStatus = Console.ReadLine();
+            Console.WriteLine(@"Please Enter the File Path (eg. C:\Users\BillWenChao\Desktop\  - have to end with '\')");
+            string filePath = @"C:\Users\BillWenChao\Desktop\";
+            filePath = Console.ReadLine();
+
+            Queue<string> jobIDs;
+
+            Console.WriteLine("Loggedin : {0}", ContentExtraction.LoginToJobmine(client).ToString());
+            jobIDs = GetJobIDs(client, term, jobStatus);
+            int numjob = jobIDs.Count;
+            Console.WriteLine("Total Number of Jobs Found: {0}", numjob);
+            ContentExtraction.DownLoadJobsFromWebToLocal(client, jobIDs, filePath, 100);
+        }
+
+        private static Queue<string> GetJobIDs(CookieEnabledWebClient client, string term, string jobStatus)
+        {
+            const int firstSearch = -1;
+            int numPages = firstSearch;
+            string iCAction = GVar.ICAction.Search;
+            string iCsid = "";
+            int iCStateNum = 1;
+            Queue<string> jobIDs= new Queue<string>();
+            
+
+            for (int currentPageNum = 1; currentPageNum <= numPages || numPages == firstSearch ; currentPageNum++)
             {
-                HtmlNode row = thisTableNode.ChildNodes[i];
-                if (row.Name == "tr")
+                var doc = new HtmlAgilityPack.HtmlDocument();
+
+                if (iCAction != GVar.ICAction.Down && numPages != firstSearch)
+                    iCAction = GVar.ICAction.Down;
+
+                if (iCAction == GVar.ICAction.Search)
                 {
-                    string thisJobID = row.SelectSingleNode("//span[@id='UW_CO_JOBRES_VW_UW_CO_JOB_ID$" + count + "']").InnerHtml;
-                    if (ContentExtraction.IsCorrectJobID(thisJobID))
-                    {
-                        jobIDs.Enqueue(thisJobID);
-                        count++;
-                    }
+                    string srcUrl = GetIframeSrcUrl(client);
+                    doc.LoadHtml(client.DownloadString(srcUrl));
+                    iCsid = GetICSID(doc);
+                    iCStateNum = GetICStateNum(doc);
                 }
+                else
+                {
+                    iCStateNum++;
+                }
+
+                var s = GetJobinfo(client, iCAction, term, iCsid, iCStateNum, jobStatus);
+                doc.LoadHtml(s);
+
+                if (iCAction == GVar.ICAction.Search)
+                {
+                    numPages = NumPages(doc);
+                }
+
+                ConCatJobID(GetCurrentPageJobIDs(doc), jobIDs);
             }
             return jobIDs;
         }
 
-        private static string GetJobinfo(CookieEnabledWebClient client, HtmlDocument doc, int iCAction, string term)
+        private static Queue<string> GetCurrentPageJobIDs(HtmlDocument doc)
+        {
+            Queue<string> jobIdOfCurrentPage = new Queue<string>();
+            HtmlNode thisTableNode =
+                doc.DocumentNode.SelectSingleNode(
+                    "/page[1]/field[1]/tr[29]/td[2]/div[1]/table[1]/tr[2]/td[1]/table[1]/tr[1]/td[1]/table[1]");
+            for (int childIndex = 3, count = 0; (childIndex < thisTableNode.ChildNodes.Count); childIndex++)
+            {
+                HtmlNode row = thisTableNode.ChildNodes[childIndex];
+                if (row.Name == "tr")
+                {
+                    string thisJobId =
+                        row.SelectSingleNode("//span[@id='UW_CO_JOBRES_VW_UW_CO_JOB_ID$" + count + "']").InnerHtml;
+                    if (ContentExtraction.IsCorrectJobID(thisJobId))
+                    {
+                        jobIdOfCurrentPage.Enqueue(thisJobId);
+                        count++;
+                    }
+                }
+            }
+            return jobIdOfCurrentPage;
+        }
+
+        private static int NumPages(HtmlDocument doc)
+        {
+            var currentJobsDisplayString = doc.DocumentNode.SelectNodes("//span[@class='PSGRIDCOUNTER']")[1].InnerHtml;
+            //var currentJobsDisplayString = doc.DocumentNode.SelectSingleNode("/page[1]/field[1]/tr[29]/td[2]/div[1]/table[1]/tr[2]/td[1]/table[1]/tr[2]/td[1]/div[1]/span[2]").InnerHtml;
+            const string seperator = "of ";
+            int numberOfJobs = Convert.ToInt32(currentJobsDisplayString.Substring(currentJobsDisplayString.IndexOf(seperator) + seperator.Length));
+
+
+            return numberOfJobs/25 + ((numberOfJobs%25 == 0) ? 0 : 1);
+        }
+
+        private static void ConCatJobID(Queue<string> temp, Queue<string> jobIDs)
+        {
+            foreach (string jobId in temp)
+            {
+                jobIDs.Enqueue(jobId);
+            }
+        }
+        private static string GetJobinfo(CookieEnabledWebClient client, string iCAction, string term, string iCSID, int iCStateNum, string jobStatus)
         {
             const string url = GVar.JobInquiryUrlShortpsc, method = "POST";
-            string iCSID = GetICSID(doc), iCStateNum = GetICStateNum(doc);
-            return Encoding.UTF8.GetString(client.UploadValues(url, method, JobSearchData(iCStateNum, iCAction, iCSID, term)));
+            return Encoding.UTF8.GetString(client.UploadValues(url, method, JobSearchData(iCStateNum.ToString(), iCAction, iCSID, term, jobStatus)));
         }
-        private static string GetICStateNum(HtmlDocument doc)
+        private static int GetICStateNum(HtmlDocument doc)
         {
             string iCStateNum;
             iCStateNum = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[3]").Attributes["value"].Value;
             //iCStateNum = doc.DocumentNode.SelectSingleNode("//input[@id='ICStateNum']").Attributes["value"].Value;
-            return iCStateNum;
+            return Convert.ToInt32( iCStateNum);
         }
         private static string GetICSID(HtmlDocument doc)
         {
@@ -90,6 +164,9 @@ namespace ConsoleApplication
 
         private static string GetIframeSrcUrl(CookieEnabledWebClient client)
         {
+            return
+                @"https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBSRCH.GBL?pslnkid=UW_CO_JOBSRCH_LINK&amp;FolderPath=PORTAL_ROOT_OBJECT.UW_CO_JOBSRCH_LINK&amp;IsFolder=false&amp;IgnoreParamTempl=FolderPath%2cIsFolder&amp;PortalActualURL=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsc%2fSS%2fEMPLOYEE%2fWORK%2fc%2fUW_CO_STUDENTS.UW_CO_JOBSRCH.GBL%3fpslnkid%3dUW_CO_JOBSRCH_LINK&amp;PortalContentURL=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsc%2fSS%2fEMPLOYEE%2fWORK%2fc%2fUW_CO_STUDENTS.UW_CO_JOBSRCH.GBL%3fpslnkid%3dUW_CO_JOBSRCH_LINK&amp;PortalContentProvider=WORK&amp;PortalCRefLabel=Job%20Inquiry&amp;PortalRegistryName=EMPLOYEE&amp;PortalServletURI=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsp%2fSS%2f&amp;PortalURI=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsc%2fSS%2f&amp;PortalHostNode=WORK&amp;NoCrumbs=yes&amp;PortalKeyStruct=yes";
+
             HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(client.DownloadString(GVar.JobInquiryUrlpsp));
             string src;
@@ -113,11 +190,11 @@ namespace ConsoleApplication
             Console.WriteLine("{0} - Opening: {1}", ContentExtraction.IsLoggedInToJobmine(client), htmlFileName);
             Process.Start(GVar.FilePath + htmlFileName);
         }
-        public static NameValueCollection JobSearchData(string iCStateNum, int iCAction, string iCSID, string term)
+        public static NameValueCollection JobSearchData(string iCStateNum, string iCAction, string iCSID, string term, string jobStatus)
         {
-            return JobSearchData(iCStateNum, iCAction, iCSID, term, null, null);
+            return JobSearchData(iCStateNum, iCAction, iCSID, term, jobStatus, null, null);
         }
-        public static NameValueCollection JobSearchData(string iCStateNum, int iCAction, string iCSID, string term, string[] disciplines, string location)
+        public static NameValueCollection JobSearchData(string iCStateNum, string iCAction, string iCSID, string term, string jobStatus, string location, string[] disciplines)
         {
             var searchData = new NameValueCollection
             {
@@ -126,7 +203,7 @@ namespace ConsoleApplication
                 {"ICType","Panel"},
                 {"ICElementNum","0"},
                 {"ICStateNum",iCStateNum},
-                {"ICAction",GVar.ICAction[iCAction]},
+                {"ICAction", iCAction},
                 {"ICXPos","0"},
                 {"ICYPos","110"},
                 {"ResponsetoDiffFrame","-1"},
@@ -145,6 +222,8 @@ namespace ConsoleApplication
                 {"ICAddCount",""},
                 {"UW_CO_JOBSRCH_UW_CO_WT_SESSION",term},
             };
+            if (!string.IsNullOrEmpty(jobStatus))
+                searchData.Add("UW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS", jobStatus);
             if (!string.IsNullOrEmpty(location))
                 searchData.Add("UW_CO_JOBSRCH_UW_CO_LOCATION", location);
             if (disciplines != null)
