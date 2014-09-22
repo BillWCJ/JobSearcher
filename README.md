@@ -7,5 +7,5 @@ External Dependencies:
 -HttpAgilePack : http://www.nuget.org/packages/HtmlAgilityPack
 
 Usage:
-Run JobMineJobDownloader
+Run JobMineJobDetailDownLoader
 or Install Console
