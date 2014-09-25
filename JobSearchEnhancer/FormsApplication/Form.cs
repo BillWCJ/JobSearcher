@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalVariable;
+using JobMine;
 
 namespace FormsApplication
 {
@@ -26,7 +27,7 @@ namespace FormsApplication
         public JobDetailBrowser()
         {
             InitializeComponent();
-            jobs = ContentProcess.ContentExtraction.ReadInJobFromLocal();
+            jobs = JobMine.TextParser.ReadInJobFromLocal();
             DisplayCurrentJobDetail();
             CommonWebBrowser.Url = new Uri(GVar.LogInUrl);
         }

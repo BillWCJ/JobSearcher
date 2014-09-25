@@ -97,9 +97,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContentProcess\ContentProcess.csproj">
-      <Project>{4f894d08-b24a-4423-a9b5-fa6b165d8931}</Project>
-      <Name>ContentProcess</Name>
+    <ProjectReference Include="..\Business.JobMine\JobMine.csproj">
+      <Project>{f5955f0e-9cf7-4ad9-810c-056969eb6541}</Project>
+      <Name>JobMine</Name>
     </ProjectReference>
     <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">
       <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>

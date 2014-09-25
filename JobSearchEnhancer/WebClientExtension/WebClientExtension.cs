@@ -2,6 +2,8 @@
 {
     public class CookieEnabledWebClient : System.Net.WebClient
     {
+
+        public string DefaultUserAgent { get { return @"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0"; } } 
         /// <summary>
         /// Get the System.Net.CookieContainer CookieContainer that contains cookies for the current object
         /// </summary>
@@ -18,11 +20,7 @@
         public CookieEnabledWebClient()
         {
             CookieContainer = new System.Net.CookieContainer();
-            UserAgent = GlobalVariable.GVar.UserAgent;
-            if ( string.IsNullOrEmpty(UserAgent) || string.IsNullOrWhiteSpace(UserAgent) )
-            {
-                UserAgent = @"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0"; //Default User Agent
-            }
+            UserAgent = DefaultUserAgent;
         }
 
         public string DownloadString(System.String address, string method, System.Collections.Specialized.NameValueCollection data)

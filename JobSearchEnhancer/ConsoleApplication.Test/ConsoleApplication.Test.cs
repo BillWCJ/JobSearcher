@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Collections.Specialized;
 using GlobalVariable;
 using ConsoleApplication;
-using ContentProcess;
 using WebClientExtension;
 using Jobs;
 

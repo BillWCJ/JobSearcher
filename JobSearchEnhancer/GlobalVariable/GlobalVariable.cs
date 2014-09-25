@@ -7,7 +7,6 @@ namespace GlobalVariable
         public static AccountInfo Account { get; set; }
         public enum Level : int { Junior, Intermediate, Senior, Bachelor, Master, PhD };
         public const string SeperationBar = "\n\n-------------------------------------------------------------------------\n";
-        public const string UserAgent = @"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0";
         public const string MasterFilePath = @"C:\Users\BillWenChao\Dropbox\Software Projects\";
         public const string FilePath =  MasterFilePath + @"JobSearchEnhancer\";
         public const string UserInfoFile = MasterFilePath + @"JobMineLogIn.txt";
@@ -23,15 +22,6 @@ namespace GlobalVariable
         public const string TestJobID = "00240986";
         public const string TestJobDetailUrl = JobDetailBaseUrl + TestJobID;
 
-        public static System.Collections.Specialized.NameValueCollection LoginData()
-        {
-            System.Collections.Specialized.NameValueCollection loginData = new System.Collections.Specialized.NameValueCollection();
-            loginData.Add("userid", GVar.Account.User.UserName);
-            loginData.Add("pwd", GVar.Account.User.Password);
-            loginData.Add("submit", "Submit");
-            loginData.Add("timezoneOffset", "240");
-            return loginData;
-        }
     }
 
     public partial class GVar

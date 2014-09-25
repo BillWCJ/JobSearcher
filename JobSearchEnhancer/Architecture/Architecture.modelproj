@@ -127,6 +127,10 @@
     </Validate>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.JobMine\JobMine.csproj">
+      <Name>JobMine</Name>
+      <Project>{f5955f0e-9cf7-4ad9-810c-056969eb6541}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\ConsoleApplication.Test\ConsoleApplication.Test.csproj">
       <Name>ConsoleApplication.Test</Name>
       <Project>{c2358c74-dd95-4cd0-969c-c98b99ff35f9}</Project>
@@ -134,14 +138,6 @@
     <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj">
       <Name>ConsoleApplication</Name>
       <Project>{525cd1e6-1ec4-4569-b3b0-501c9e466396}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\ContentProcess.Test\ContentProcess.Test.csproj">
-      <Name>ContentProcess.Test</Name>
-      <Project>{cdf435e1-2b12-4f06-aa35-307a75576e34}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\ContentProcess\ContentProcess.csproj">
-      <Name>ContentProcess</Name>
-      <Project>{4f894d08-b24a-4423-a9b5-fa6b165d8931}</Project>
     </ProjectReference>
     <ProjectReference Include="..\FormsApplication\FormsApplication.csproj">
       <Name>FormsApplication</Name>

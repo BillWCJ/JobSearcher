@@ -53,6 +53,14 @@
             <LinkCategory Ref="Represents" />
           </ExpandedNode>
         </reference>
+        <reference Id="93ff0ed2-b5f3-4060-b908-b4016beee165" name="JobMine">
+          <ArtifactNode Label="JobMine" Category="CodeSchema_Project" Id="(Assembly=../Business.JobMine/JobMine.csproj)" />
+          <ExpandedNode Id="(Assembly=JobMine)" Label="JobMine.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
       </references>
     </layer>
   </layers>

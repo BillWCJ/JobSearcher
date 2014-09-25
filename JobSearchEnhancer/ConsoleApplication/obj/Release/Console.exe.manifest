@@ -42,38 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Console.exe" size="12800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Console.exe" size="6656">
       <assemblyIdentity name="Console" version="0.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e8FI1/yjBYcJEUHWPPxGKSGcpRX8LsQU6jvP/y8QKXE=</dsig:DigestValue>
+        <dsig:DigestValue>dJpjjZJRZFf10kIBX/b1AfqpzDcurE2SSgmo7HSWRWk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContentExtraction.dll" size="10240">
-      <assemblyIdentity name="ContentExtraction" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8qgbPCfoA1l1jmGKQ0KjXu81VpcyxqQny9ASE43kxLY=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GlobalVar.dll" size="17920">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GlobalVar.dll" size="17408">
       <assemblyIdentity name="GlobalVar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>X2RJRyR02MsxcPRPDbShIImM+JLFtqoQDfPpezeKS2A=</dsig:DigestValue>
+        <dsig:DigestValue>MNWvRCHQ9+F7QPT0vKvflLJBznLuhsX8Z4fuTp/N/uE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EN/W+F3ZjlVQlVAsVU6vi1SWry0qpGNYLfJ3K5z6Qa4=</dsig:DigestValue>
+        <dsig:DigestValue>/hJUbwM9/9Ukt/WfbmcADqfPWZQXnCLcQ7TfaSHmQoY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JobMine.dll" size="16896">
+      <assemblyIdentity name="JobMine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>VxFiusW5B2i4UZbrPbd3OaVSw9bkVQHE9ors63Me//M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yIenFJMbh5JqOoQ8ZVnhVEfLpaal7qHdaH12/Kqa9WA=</dsig:DigestValue>
+        <dsig:DigestValue>RMXBfFGHxC+UD/UOkpWbEkPIQBr5IHBECuNDHOzVrEU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
