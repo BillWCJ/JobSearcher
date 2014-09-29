@@ -24,3 +24,7 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ConsoleApplication.Test\bin\Release\EntityFramework.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ConsoleApplication.Test\bin\Release\Data.Web.JobMine.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ConsoleApplication.Test\bin\Release\Data.Web.JobMine.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ConsoleApplication.Test\bin\Release\Data.IO.Local.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ConsoleApplication.Test\bin\Release\Data.Web.GoogleApis.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ConsoleApplication.Test\bin\Release\Data.IO.Local.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\ConsoleApplication.Test\bin\Release\Data.Web.GoogleApis.pdb

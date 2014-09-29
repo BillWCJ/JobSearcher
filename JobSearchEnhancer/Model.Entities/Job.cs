@@ -22,17 +22,9 @@ namespace Model.Entities
 
         [Column(Order = 2)]
         public string JobTitle { get; set; }
-
-        //[Column(Order = 3)]
-        //[Key, ForeignKey("Employer")]
-        //public int EmployerId { get; set; }
-
+        [Column(Order = 3)]
         public virtual Employer Employer { get; set; }
-
-        //[Column(Order = 4)]
-        //[Key, ForeignKey("Location")]
-        //public int LocationId { get; set; }
-
+        [Column(Order = 4)]
         public virtual Location Location { get; set; }
         //public uint NumberOfOpening { get; set; }
         //public uint NumberOfApplied { get; set; }

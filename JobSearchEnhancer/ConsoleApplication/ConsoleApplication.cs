@@ -32,11 +32,10 @@ namespace ConsoleApplication
             var client = new CookieEnabledWebClient();
             using (var db = new ClusterRepository())
             {
-                foreach (Job job in db.Jobs)
+                foreach (Job job in db.Jobs.Include("Employer").Include("Location"))
                 {
-                    db.Entry(job).Reference(j => j.Employer).Load();
-                    db.Entry(job).Reference(j => j.Location).Load();
                     PlaceTextSearch.SetLocationIfIncomplete(client, job.Employer, job.Location);
+                    db.SaveChanges();
                 }
             }
             //JobMineInitalSeeder.SeedDb(GVar.Account.Username, GVar.Account.Password, term, appsAvail);
