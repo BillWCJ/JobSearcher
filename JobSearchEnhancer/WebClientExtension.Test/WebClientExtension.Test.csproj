@@ -58,10 +58,13 @@
       <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>
       <Name>GlobalVariable</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebClientExtension\WebClientExtension.csproj">
-      <Project>{2937d847-4423-48b6-8e04-e7837c4dd94e}</Project>
-      <Name>WebClientExtension</Name>
+    <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
+      <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
+      <Name>Model.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

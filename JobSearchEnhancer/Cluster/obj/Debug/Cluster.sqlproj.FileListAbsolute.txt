@@ -1,5 +1,0 @@
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Cluster\bin\Debug\Cluster.dacpac
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Cluster\bin\Debug\Cluster.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Cluster\bin\Debug\Cluster.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Cluster\obj\Debug\Cluster.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Cluster\obj\Debug\Cluster.pdb

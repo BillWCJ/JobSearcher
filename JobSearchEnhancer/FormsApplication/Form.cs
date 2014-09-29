@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalVariable;
-using JobMine;
+using Model.Entities;
+using Data.Web.JobMine;
 
 namespace FormsApplication
 {
     public partial class JobDetailBrowser : Form
     {
-        Jobs.Job[] jobs { get; set; }
+        Job[] jobs { get; set; }
         int current = 0;
 
         private void DisplayCurrentJobDetail()
@@ -27,7 +28,7 @@ namespace FormsApplication
         public JobDetailBrowser()
         {
             InitializeComponent();
-            jobs = JobMine.TextParser.ReadInJobFromLocal();
+            jobs = TextParser.ReadInJobFromLocal();
             DisplayCurrentJobDetail();
             CommonWebBrowser.Url = new Uri(GVar.LogInUrl);
         }

@@ -127,10 +127,6 @@
     </Validate>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.JobMine\JobMine.csproj">
-      <Name>JobMine</Name>
-      <Project>{f5955f0e-9cf7-4ad9-810c-056969eb6541}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\ConsoleApplication.Test\ConsoleApplication.Test.csproj">
       <Name>ConsoleApplication.Test</Name>
       <Project>{c2358c74-dd95-4cd0-969c-c98b99ff35f9}</Project>
@@ -151,17 +147,9 @@
       <Name>Jobs.Test</Name>
       <Project>{cbaf769f-e9a6-49d9-ad74-07da5822bcb1}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\Jobs\Jobs.csproj">
-      <Name>Jobs</Name>
-      <Project>{65a6b79f-c870-4c77-bbdb-29f4ed083187}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\WebClientExtension.Test\WebClientExtension.Test.csproj">
       <Name>WebClientExtension.Test</Name>
       <Project>{1711c167-d8f8-4d26-8ca4-ba6cc5e09450}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\WebClientExtension\WebClientExtension.csproj">
-      <Name>WebClientExtension</Name>
-      <Project>{2937d847-4423-48b6-8e04-e7837c4dd94e}</Project>
     </ProjectReference>
   </ItemGroup>
 </Project>

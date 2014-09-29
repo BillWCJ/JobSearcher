@@ -1,5 +1,0 @@
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientCookieEnabled\bin\Debug\JobSearchEnhancer.CookieEnabled.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientCookieEnabled\bin\Debug\JobSearchEnhancer.CookieEnabled.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientCookieEnabled\obj\Debug\JobSearchEnhancer.CookieEnabled.csprojResolveAssemblyReference.cache
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientCookieEnabled\obj\Debug\JobSearchEnhancer.CookieEnabled.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientCookieEnabled\obj\Debug\JobSearchEnhancer.CookieEnabled.pdb

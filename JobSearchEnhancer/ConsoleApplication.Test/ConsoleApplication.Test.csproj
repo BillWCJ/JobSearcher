@@ -66,17 +66,13 @@
       <Project>{cbaf769f-e9a6-49d9-ad74-07da5822bcb1}</Project>
       <Name>Jobs.Test</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jobs\Jobs.csproj">
-      <Project>{65a6b79f-c870-4c77-bbdb-29f4ed083187}</Project>
-      <Name>Jobs</Name>
+    <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
+      <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
+      <Name>Model.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebClientExtension.Test\WebClientExtension.Test.csproj">
       <Project>{1711c167-d8f8-4d26-8ca4-ba6cc5e09450}</Project>
       <Name>WebClientExtension.Test</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebClientExtension\WebClientExtension.csproj">
-      <Project>{2937d847-4423-48b6-8e04-e7837c4dd94e}</Project>
-      <Name>WebClientExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

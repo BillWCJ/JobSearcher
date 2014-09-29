@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using GlobalVariable;
 using ConsoleApplication;
 using WebClientExtension;
-using Jobs;
+using Model.Entities;
 
 
 namespace ConsoleApplication.Test {

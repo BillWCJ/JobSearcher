@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using Model.Entities;
 using WebClientExtension;
 using System.Diagnostics;
 
@@ -13,8 +14,8 @@ namespace WebClientExtension.Test
     [TestClass]
     public class WebClientCookieEnabledTest
     {
-        WebClientExtension.CookieEnabledWebClient webclient = new CookieEnabledWebClient();
-        WebClientExtension.CookieEnabledWebClient baseclient = new CookieEnabledWebClient();
+        CookieEnabledWebClient webclient = new CookieEnabledWebClient();
+        CookieEnabledWebClient baseclient = new CookieEnabledWebClient();
 
         [TestMethod]
         public void WebClientCookieEnabled_ShouldRun_WhenExecute() 

@@ -65,6 +65,13 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="CustomMarshalers" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -77,6 +84,7 @@
     <Reference Include="Microsoft.Build.Tasks.v4.0" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows" />
@@ -97,21 +105,33 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.JobMine\JobMine.csproj">
-      <Project>{f5955f0e-9cf7-4ad9-810c-056969eb6541}</Project>
-      <Name>JobMine</Name>
+    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.ClusterDB.csproj">
+      <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
+      <Name>Data.EF.ClusterDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
+      <Project>{8bf3f9bb-8ea9-4eef-ba16-f89fb067e7ef}</Project>
+      <Name>Data.IO.Local</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Web.GoogleApis\Data.Web.GoogleApis.csproj">
+      <Project>{b0313a60-81f0-4eb1-b423-8052989dbfc7}</Project>
+      <Name>Data.Web.GoogleApis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
+      <Project>{07d1aea5-7872-4b29-93d6-73f8fdc63d33}</Project>
+      <Name>Data.Web.JobMine</Name>
     </ProjectReference>
     <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">
       <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>
       <Name>GlobalVariable</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jobs\Jobs.csproj">
-      <Project>{65a6b79f-c870-4c77-bbdb-29f4ed083187}</Project>
-      <Name>Jobs</Name>
+    <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
+      <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
+      <Name>Model.Definition</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebClientExtension\WebClientExtension.csproj">
-      <Project>{2937d847-4423-48b6-8e04-e7837c4dd94e}</Project>
-      <Name>WebClientExtension</Name>
+    <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
+      <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
+      <Name>Model.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
