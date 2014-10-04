@@ -3,21 +3,28 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Model.Entities
 {
-    //[Table("Locations")]
+    /// <summary>
+    ///     Entity that contains the location information
+    /// </summary>
     public class Location
     {
+        public Location()
+        {
+            Jobs = new List<Job>();
+        }
+
         [Key]
         public int Id { get; set; }
 
         public string FullAddress { get; set; }
         public string Region { get; set; }
-        public decimal Longitude { get; set; }
-        public decimal Latitude { get; set; }
+        public decimal? Longitude { get; set; }
+        public decimal? Latitude { get; set; }
         public virtual List<Job> Jobs { get; set; }
 
-        public Location()
+        public bool AlreadySet
         {
-            Jobs = new List<Job>();
+            get { return !string.IsNullOrEmpty(FullAddress) && Longitude != null && Latitude != null; }
         }
     }
 }

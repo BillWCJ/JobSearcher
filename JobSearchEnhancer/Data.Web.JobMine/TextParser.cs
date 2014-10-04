@@ -1,35 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using GlobalVariable;
 using Model.Entities;
 
 namespace Data.Web.JobMine
 {
+    // todo: Use Html parser instead of string operation
     public class TextParser
     {
-        public static Job ExtractTextFileJobInfo(string sourceString, string url) //todo: improve
+        public static Job GetJobFromTextFile(string sourceString, string jobId)
         {
-            string[] fields = new string[GVar.JobDetailPageFieldNameTitles.Length];
+            var fields = new string[GVar.JobDetailPageFieldNameTitles.Length - 1];
             int indexStart = 0;
-            int indexEnd = 0;
             for (int i = 0; i < GVar.JobDetailPageFieldNameTitles.Length - 1; i++)
             {
-                indexStart = sourceString.IndexOf(GVar.JobDetailPageFieldNameTitles[i], indexStart) + GVar.JobDetailPageFieldNameTitles[i].Length;
-                indexEnd = sourceString.IndexOf(GVar.JobDetailPageFieldNameTitles[i + 1], indexStart);
+                indexStart =
+                    sourceString.IndexOf(GVar.JobDetailPageFieldNameTitles[i], indexStart,
+                        StringComparison.InvariantCulture) +
+                    GVar.JobDetailPageFieldNameTitles[i].Length;
+                int indexEnd = sourceString.IndexOf(GVar.JobDetailPageFieldNameTitles[i + 1], indexStart,
+                    StringComparison.InvariantCulture);
                 fields[i] = sourceString.Substring(indexStart, indexEnd - indexStart).TrimEnd('\n');
             }
-            fields[7] = url;
 
-            return new Job(fields);
+            return new Job
+            {
+                Employer = new Employer {Name = fields[0]},
+                JobTitle = fields[1],
+                Location = new Location {Region = fields[2]},
+                Disciplines = new Disciplines(fields[3]),
+                Levels = new Levels(fields[4]),
+                Comment = fields[5],
+                JobDescription = fields[6],
+                JobMineId = Convert.ToInt32(jobId),
+            };
         }
+
         public static Job[] ReadInJobFromLocal()
         {
             int indexStart = 0;
-            int indexEnd = 0;
-            Queue<string> jobID = GetJobIDFromLocal();
-            int numberOfJob = jobID.Count;
-            Job[] jobs = new Job[numberOfJob];
+            Queue<string> jobId = GetJobIdsFromLocal();
+            int numberOfJobs = jobId.Count;
+            var jobs = new Job[numberOfJobs];
             string data = String.Empty;
             StreamReader reader = StreamReader.Null;
 
@@ -40,22 +54,16 @@ namespace Data.Web.JobMine
             }
             catch (Exception e)
             {
-                Console.WriteLine("!Error-{0}_In_ReadInJobFromLocal: {1}\n", e.ToString(), e);
+                Console.WriteLine("!Error-{0}_In_ReadInJobFromLocal: {1}\n", e, e);
             }
             try
             {
-                for (int i = 0; i < numberOfJob; i++)
+                for (int i = 0; i < numberOfJobs; i++)
                 {
-                    indexStart = data.IndexOf(GVar.SeperationBar, indexStart) + GVar.SeperationBar.Length;
-                    if (i != numberOfJob - 1)
-                    {
-                        indexEnd = data.IndexOf(GVar.SeperationBar, indexStart);
-                    }
-                    else
-                    {
-                        indexEnd = data.Length;
-                    }
-                    jobs[i] = ExtractTextFileJobInfo(data.Substring(indexStart, indexEnd - indexStart), GVar.JobDetailBaseUrl + jobID.Dequeue());
+                    indexStart = data.IndexOf(GVar.SeperationBar, indexStart,StringComparison.InvariantCulture) + GVar.SeperationBar.Length;
+                    int indexEnd = 0;
+                    indexEnd = i != numberOfJobs - 1 ? data.IndexOf(GVar.SeperationBar, indexStart, StringComparison.InvariantCulture) : data.Length;
+                    jobs[i] = GetJobFromTextFile(data.Substring(indexStart, indexEnd - indexStart), jobId.Dequeue());
                 }
             }
             finally
@@ -66,58 +74,58 @@ namespace Data.Web.JobMine
             return jobs;
         }
 
-        public static Queue<string> GetJobIDFromLocal()
+        public static Queue<string> GetJobIdsFromLocal()
         {
-            Queue<string> jobID = new Queue<string>();
+            var jobID = new Queue<string>();
             StreamReader reader = OpenFileForStreamReader(GVar.FilePath, "JobList.txt");
             if (reader != null)
             {
                 while (!reader.EndOfStream)
                 {
                     string jobIdString = reader.ReadLine();
-                    if (JobInquiry.IsCorrectJobID(jobIdString))
+                    if (JobInquiry.IsCorrectJobId(jobIdString))
                         jobID.Enqueue(jobIdString);
                 }
                 reader.Close();
             }
             return jobID;
         }
+
         public static StreamWriter OpenFileForStreamWriter(string fileLocation, string fileName)
         {
-            StreamWriter writer = StreamWriter.Null;
-            if (fileName.IndexOf(".txt") == -1)
-            {
-                fileName += ".txt";
-            }
+            fileName = ConvertAndValidateFileName(fileName);
             try
             {
-                writer = new StreamWriter(fileLocation + fileName);
+                return new StreamWriter(fileLocation + fileName);
             }
             catch (Exception e)
             {
-                Console.WriteLine("{0}-{1}:{2}-{3}:{4}", System.Reflection.MethodBase.GetCurrentMethod().Name, e.ToString(),
+                Console.WriteLine("{0}-{1}:{2}-{3}:{4}", MethodBase.GetCurrentMethod().Name, e,
                     e.Message, e.StackTrace, e.Data);
+                return null;
             }
-            return writer;
-        }
-        public static StreamReader OpenFileForStreamReader(string fileLocation, string fileName)
-        {
-            StreamReader reader = StreamReader.Null;
-            if (fileName.IndexOf(".txt") == -1)
-            {
-                fileName += ".txt";
-            }
-            try
-            {
-                reader = new StreamReader(fileLocation + fileName);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("{0}-{1}:{2}-{3}:{4}", System.Reflection.MethodBase.GetCurrentMethod().Name, e.ToString(),
-                    e.Message, e.StackTrace, e.Data);
-            }
-            return reader;
         }
 
+        public static StreamReader OpenFileForStreamReader(string fileLocation, string fileName)
+        {
+            fileName = ConvertAndValidateFileName(fileName);
+            try
+            {
+                return new StreamReader(fileLocation + fileName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("{0}-{1}:{2}-{3}:{4}", MethodBase.GetCurrentMethod().Name, e,
+                    e.Message, e.StackTrace, e.Data);
+                return null;
+            }
+        }
+
+        private static string ConvertAndValidateFileName(string fileName)
+        {
+            if (!fileName.Contains(".txt"))
+                fileName += ".txt";
+            return fileName;
+        }
     }
 }

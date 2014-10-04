@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model.Definition
 {
+    /// <summary>
+    /// Enum of different discipline name matching their JobMine discipline number
+    /// </summary>
     public enum DisciplineEnum : byte
     {
         UnAssigned = 0,
@@ -110,10 +113,27 @@ namespace Model.Definition
     }
     public partial class GlobalDef
     {
+        /// <summary>
+        /// Maximum number of discipline a single job can have (may change according to JobMine or expansion)
+        /// </summary>
         public const int MaxNumberOfDisciplinesPerJob = 5;
-        public const int NumberOfDisciplines = 98;
+
+        /// <summary>
+        /// Total Number of Disciplines (may change according to JobMine)
+        /// </summary>
+        public int NumberOfDisciplines
+        {
+            get { return DisciplinesNames.Count; }    
+        }
+
+        /// <summary>
+        /// Highest JobMine discipline number represented in the DisciplineEnum
+        /// </summary>
         public const int HighestDisciplineEnumNumber = 113;
 
+        /// <summary>
+        /// List of discipline names using their JobMine discipline number as key. Value is the name show on JobMine Job Inquiry
+        /// </summary>
         public static Dictionary<byte, string> DisciplinesNames = new Dictionary<byte, string>
         {
             {4,"AHS-(unspecified)"},

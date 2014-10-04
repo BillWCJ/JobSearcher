@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GlobalVariable;
 
 namespace Model.Entities
 {
-    public class JobOverView
+    public class JobOverView : System.Collections.IEnumerable
     {
         public JobOverView()
         {
@@ -35,6 +36,11 @@ namespace Model.Entities
         {
             get { return JobMineId.ToString("D8"); }
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     //[Table("Jobs")]
@@ -47,21 +53,10 @@ namespace Model.Entities
 
         public Job()
         {
-            Levels = new Levels();
-            Disciplines = new Disciplines();
-            SetRelationship();
-        }
-
-        public Job(string[] fields)
-        {
-            Employer.Name = fields[0];
-            JobTitle = fields[1];
-            Location.Region = fields[2];
-            Disciplines = new Disciplines(fields[3]);
-            Levels = new Levels(fields[4]);
-            Comment = fields[5];
-            JobDescription = fields[6];
-            JobMineId = Convert.ToInt32(fields[7]);
+            if (Levels == null)
+                Levels = new Levels();
+            if( Disciplines == null)
+                Disciplines = new Disciplines();
             SetRelationship();
         }
 
@@ -78,10 +73,12 @@ namespace Model.Entities
 
         private void SetRelationship()
         {
-            Employer.Jobs.Add(this);
-            Location.Jobs.Add(this);
-            Levels.Job = this;
-            Disciplines.Job = this;
+            if (Employer == null || Location == null || Levels == null || Disciplines == null)
+                throw new Exception("One of more of Job's related Entity is null and cannot set relationship");
+                Employer.Jobs.Add(this);
+                Location.Jobs.Add(this);
+                Levels.Job = this;
+                Disciplines.Job = this;
         }
 
         public override string ToString()

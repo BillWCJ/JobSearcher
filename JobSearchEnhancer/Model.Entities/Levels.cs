@@ -6,22 +6,20 @@ using Model.Definition;
 namespace Model.Entities
 {
     /// <summary>
-    ///     Specify the level(s) the job is target for
+    ///     Entity that specify the level(s) the job is target for
     /// </summary>
     public class Levels
     {
-        public Levels()
-        {
-        }
-
-        public Levels(string levelString) : this()
+        /// <summary>
+        ///     Initalize a new instance of level entity
+        /// </summary>
+        /// <param name="levelString"></param>
+        public Levels(string levelString = " ")
         {
             try
             {
                 for (int i = 0; i < GlobalDef.MaxNumberOfLevels; i++)
-                {
-                    this[i] = IsLevel(GlobalDef.LevelNames[i], levelString);
-                }
+                    this[i] = levelString.Contains(GlobalDef.LevelNames[i]);
             }
             catch (Exception e)
             {
@@ -29,31 +27,34 @@ namespace Model.Entities
             }
         }
 
+        /// <summary>
+        ///     Id of the Job that contain this level entity
+        /// </summary>
         [Key, ForeignKey("Job")]
         public int Id { get; set; }
+
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }
         public bool IsSenior { get; set; }
-
         //public bool IsBachelor { get; set; }
         //public bool IsMaster { get; set; }
         //public bool IsPhD { get; set; }
+
+        /// <summary>
+        ///     Instance of Job entity that contain this level entity
+        /// </summary>
         public virtual Job Job { get; set; }
 
-        //public Dictionary<int, bool> Level = new Dictionary<int, bool>
-        //{
-        //    {0, IsJunior},
-        //    {1, IsIntermediate},
-        //    {2, IsSenior},
-        //    //{3, IsBachelor},
-        //    //{4, IsMaster},
-        //    //{5, IsPhD}
-        //};
-        public bool this[int i]
+        /// <summary>
+        ///     Get or Set the level with the given index
+        /// </summary>
+        /// <param name="index">index that indicate level #1 to #(max)</param>
+        /// <returns>Get: discipline number in byte | Set: void</returns>
+        public bool this[int index]
         {
             get
             {
-                switch (i)
+                switch (index)
                 {
                     case 0:
                         return IsJunior;
@@ -67,7 +68,7 @@ namespace Model.Entities
             }
             set
             {
-                switch (i)
+                switch (index)
                 {
                     case 0:
                         IsJunior = value;
@@ -82,23 +83,31 @@ namespace Model.Entities
             }
         }
 
+        /// <summary>
+        ///     Get if the Job contain this Level instance is at the level with the given index
+        /// </summary>
+        /// <param name="levelEnum">index as LevelEnum</param>
         public bool IsLevel(LevelEnum levelEnum)
         {
             return IsLevel((int) levelEnum);
         }
 
-        public bool IsLevel(int levelIndex)
+        /// <summary>
+        ///     Get if the Job contain this Level instance is at the level with the given index
+        /// </summary>
+        /// <param name="index">index of the level from Junior to Intermediate to ...</param>
+        /// <exception cref="ArgumentOutOfRangeException"> Thrown when the index is out of the ranges</exception>
+        public bool IsLevel(int index)
         {
-            if (levelIndex < 0 || levelIndex >= GlobalDef.MaxNumberOfLevels)
+            if (index < 0 || index >= GlobalDef.MaxNumberOfLevels)
                 throw new ArgumentOutOfRangeException();
-            return this[levelIndex];
+            return this[index];
         }
 
-        public static bool IsLevel(string level, string levelString)
-        {
-            return levelString.IndexOf(level, StringComparison.InvariantCulture) > -1;
-        }
-
+        /// <summary>
+        ///     Overriden ToString method that convert the levels into reader friendly string
+        /// </summary>
+        /// <returns>Reader friendly string</returns>
         public override string ToString()
         {
             string toString = string.Empty;
@@ -106,7 +115,7 @@ namespace Model.Entities
             for (int i = 0; i < GlobalDef.MaxNumberOfLevels; i++)
                 if (this[i])
                     toString += GlobalDef.LevelNames[i] + ", ";
-            return toString.TrimEnd(',', ' ');
+            return UtilityMethods.UtilityMethods.TrimEndCommaAndSpace(toString);
         }
     }
 }

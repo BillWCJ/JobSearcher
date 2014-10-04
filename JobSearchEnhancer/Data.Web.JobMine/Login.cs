@@ -8,55 +8,48 @@ namespace Data.Web.JobMine
 {
     public static class Login
     {
-        public static System.Collections.Specialized.NameValueCollection LoginData()
+        /// <summary>
+        /// Get the JobMine login data collection
+        /// </summary>
+        /// <param name="userName">Optional Username</param>
+        /// <param name="password">Optional Password</param>
+        /// <returns>login date NameValueCollection</returns>
+        /// <exception cref="Exception">Thrown when Account not initalized</exception>
+        public static System.Collections.Specialized.NameValueCollection LoginData(string userName = "", string password ="")
         {
-            var loginData = new System.Collections.Specialized.NameValueCollection
+            if (GVar.Account == null)
+                throw new Exception("User Account not initalized");
+            return new System.Collections.Specialized.NameValueCollection
             {
-                {"userid", GVar.Account.Username},
-                {"pwd", GVar.Account.Password},
+                {"userid", string.IsNullOrEmpty(userName)? GVar.Account.Username : userName},
+                {"pwd", string.IsNullOrEmpty(password)? GVar.Account.Password : password},
                 {"submit", "Submit"},
                 {"timezoneOffset", "240"}
             };
-            return loginData;
         }
 
-        public static bool LoginToJobmine(CookieEnabledWebClient client)
+        /// <summary>
+        /// Check wether the CookieEnabledWebClient is loggined into JobMine
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        public static bool IsLoggedInToJobMine(CookieEnabledWebClient client)
         {
             string result = client.UploadValues(GVar.LogInUrl, "POST", LoginData()).ToString();
-            return !String.IsNullOrEmpty(result) || IsLoggedInToJobmine(client);
+            return !String.IsNullOrEmpty(result) && client.CookieContainer != null;
         }
 
-        public static bool IsLoggedInToJobmine(CookieEnabledWebClient client)
-        {
-            if (client.CookieContainer != null)
-            {
-                return true;
-            }
-            return false;
-        }
-
+        /// <summary>
+        /// Get a new CookieEnabledWebClient that has logged into JobMine
+        /// </summary>
+        /// <returns>CookieEnabledWebClient</returns>
         public static CookieEnabledWebClient NewJobMineLoggedInWebClient()
         {
-            CookieEnabledWebClient client = new CookieEnabledWebClient();
-            bool isLoggedIn = LoginToJobmine(client);
-            if (isLoggedIn)
-            {
+            var client = new CookieEnabledWebClient();
+            if (IsLoggedInToJobMine(client))
                 return client;
-            }
             else
-            {
                 throw new Exception("Cannot LogIn");
-            }
-        }
-
-        public static void GenerateIsLoggedInFile(string userName, string password)
-        {
-            CookieEnabledWebClient client = NewJobMineLoggedInWebClient();
-            string data = JobDetail.GetJob(client.DownloadString(GVar.TestJobDetailUrl), GVar.TestJobId).ToString();
-            StreamWriter writer = new StreamWriter(GVar.FilePath + "JobDetailForConfirmLogIn.txt");
-            writer.Write(data);
-            writer.Close();
-            Process.Start(GVar.FilePath + "JobDetailForConfirmLogIn.txt");
         }
     }
 }

@@ -3,37 +3,53 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using GlobalVariable;
-using System.Globalization;
 using Model.Definition;
 
 namespace Model.Entities
 {
+    /// <summary>
+    ///     Entity that specify the siscipline(s) the job is target for
+    /// </summary>
     public class Disciplines
     {
+        /// <summary>
+        ///     Initalize a instance of Disciplines using a string that contains all the disciplines
+        /// </summary>
+        /// <param name="data">Optional Jobmine Disciplines section string in job detail</param>
+        public Disciplines(string data = " ")
+        {
+            byte currentDisciplineIndex = 0;
+            foreach (KeyValuePair<byte, string> name in GlobalDef.DisciplinesNames.Where(name => name.Value != null && data.Contains(name.Value)))
+                this[currentDisciplineIndex++] = name.Key;
+        }
+
+        /// <summary>
+        ///     Key of the Job that contain this discipline
+        /// </summary>
         [Key, ForeignKey("Job")]
         public int Id { get; set; }
+
         public byte Discipline1 { get; set; }
         public byte Discipline2 { get; set; }
         public byte Discipline3 { get; set; }
         public byte Discipline4 { get; set; }
         public byte Discipline5 { get; set; }
+
+        /// <summary>
+        ///     Instance of Job entity that contain this discipline
+        /// </summary>
         public virtual Job Job { get; set; }
 
-        //public Dictionary<int, byte> Discipline = new Dictionary<int, byte>
-        //{
-        //    {0,Discipline1},
-        //    {1,Discipline2},
-        //    {2,Discipline3},
-        //    {3,Discipline4},
-        //    {4,Discipline5}
-        //};
-
-        public byte this[int i]
+        /// <summary>
+        ///     Get or Set the discipline with the given index
+        /// </summary>
+        /// <param name="index">index that indicate discipline #1 to #(max)</param>
+        /// <returns>Get: discipline number in byte | Set: void</returns>
+        public byte this[int index]
         {
             get
             {
-                switch (i)
+                switch (index)
                 {
                     case 0:
                         return Discipline1;
@@ -51,7 +67,7 @@ namespace Model.Entities
             }
             set
             {
-                switch (i)
+                switch (index)
                 {
                     case 0:
                         Discipline1 = value;
@@ -72,18 +88,10 @@ namespace Model.Entities
             }
         }
 
-        public Disciplines()
-        {
-        }
-        public Disciplines(string data) : this()
-        {
-            byte disciplineCurrentIndex = 0;
-            foreach (var disciplinesName in GlobalDef.DisciplinesNames.Where(disciplinesName => data.IndexOf(disciplinesName.Value, StringComparison.InvariantCulture) > -1))
-            {
-                this[disciplineCurrentIndex++] = disciplinesName.Key;
-            }
-        }
-
+        /// <summary>
+        ///     Overriden ToString method that return discipline string that is reader friendly
+        /// </summary>
+        /// <returns>all the disicipline in their respective JobMine names</returns>
         public override string ToString()
         {
             string toString = String.Empty;
@@ -92,15 +100,16 @@ namespace Model.Entities
                 for (byte i = 0; i < GlobalDef.MaxNumberOfDisciplinesPerJob; i++)
                 {
                     byte key = this[i];
-                    if ( key != (byte) DisciplineEnum.UnAssigned)
-                    toString += GlobalDef.DisciplinesNames[key] + ", ";
+                    string disciplineName = GlobalDef.DisciplinesNames[key];
+                    if (key != (byte) DisciplineEnum.UnAssigned && !string.IsNullOrEmpty(disciplineName))
+                        toString += disciplineName + ", ";
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine("!Error-{0}_In_{1}: {2}\n", e.GetType(), GetType(), e.Message);
             }
-            return toString.TrimEnd(',', ' ');
+            return UtilityMethods.UtilityMethods.TrimEndCommaAndSpace(toString);
         }
     }
 }

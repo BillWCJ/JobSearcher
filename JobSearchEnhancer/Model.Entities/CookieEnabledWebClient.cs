@@ -34,11 +34,11 @@ namespace Model.Entities
         /// <summary>
         ///     Get or Set the System.String UserAgent for the current object
         /// </summary>
-        public String UserAgent { get; set; }
+        public string UserAgent { get; set; }
 
-        public string DownloadString(String address, string method, NameValueCollection data)
+        public string DownloadString(string address, NameValueCollection data, string method = "POST")
         {
-            return UploadValues(address, "POST", data).ToString();
+            return UploadValues(address, method, data).ToString();
         }
 
         /// <summary>

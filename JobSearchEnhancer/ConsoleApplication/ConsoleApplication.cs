@@ -34,7 +34,7 @@ namespace ConsoleApplication
             {
                 foreach (Job job in db.Jobs.Include("Employer").Include("Location"))
                 {
-                    PlaceTextSearch.SetLocationIfIncomplete(client, job.Employer, job.Location);
+                    PlaceTextSearch.SetLocationIfIncomplete(job.Employer, job.Location);
                     db.SaveChanges();
                 }
             }
@@ -66,11 +66,11 @@ namespace ConsoleApplication
             var client = new CookieEnabledWebClient();
             Queue<string> jobIDs;
 
-            Console.WriteLine("Loggedin : {0}", Login.LoginToJobmine(client).ToString());
+            Console.WriteLine("Loggedin : {0}", Login.IsLoggedInToJobMine(client).ToString());
             jobIDs = JobInquiry.GetJobIDs(client, term, jobStatus);
             int numjob = jobIDs.Count;
             Console.WriteLine("Total Number of Jobs Found: {0}", numjob);
-            JobDetail.DownLoadJobsFromWebToLocal(client, jobIDs, filePath, 100);
+            JobDetail.DownLoadAndWriteJobsToLocal(jobIDs, client, fileLocation: filePath, numJobsPerFile: 100);
         }
         private static void TestDownload(string term, string jobStatus, string filePath)
         {
@@ -83,17 +83,17 @@ namespace ConsoleApplication
             var client = new CookieEnabledWebClient();
             Queue<string> jobIDs;
 
-            Console.WriteLine("Loggedin : {0}", Login.LoginToJobmine(client).ToString());
+            Console.WriteLine("Loggedin : {0}", Login.IsLoggedInToJobMine(client).ToString());
             jobIDs = JobInquiry.GetJobIDs(client, term, jobStatus);
             int numjob = jobIDs.Count;
             Console.WriteLine("Total Number of Jobs Found: {0}", numjob);
-            JobDetail.DownLoadJobsFromWebToLocal(client, jobIDs, filePath, 100);
+            JobDetail.DownLoadAndWriteJobsToLocal(jobIDs, client, fileLocation: filePath, numJobsPerFile: 100);
         }
 
         private static void DownloadWriteOpenHtmlData(CookieEnabledWebClient client, string downloadUrl, string htmlFileName)
         {
             File.WriteAllText(GVar.FilePath + htmlFileName, client.DownloadString(downloadUrl));
-            Console.WriteLine("{0} - Opening: {1}", Login.IsLoggedInToJobmine(client), htmlFileName);
+            Console.WriteLine("{0} - Opening: {1}", Login.IsLoggedInToJobMine(client), htmlFileName);
             Process.Start(GVar.FilePath + htmlFileName);
         }
     }

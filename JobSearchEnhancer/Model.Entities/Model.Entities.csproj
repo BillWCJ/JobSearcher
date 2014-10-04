@@ -40,15 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Disciplines.cs" />
-    <Compile Include="Employer.cs" />
-    <Compile Include="ExtendedWebClient.cs">
+    <Compile Include="CookieEnabledWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Disciplines.cs" />
+    <Compile Include="Employer.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="Levels.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilityMethods\UtilityMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">

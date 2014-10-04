@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using Data.EF.ClusterDB;
 using GlobalVariable;
 using Model.Entities;
 
@@ -13,28 +8,50 @@ namespace Data.Web.GoogleApis
     public class PlaceTextSearch
     {
         public const string PlaceTextSearchBaseUrl = @"https://maps.googleapis.com/maps/api/place/textsearch/xml?query=";
-        public const string ApiKeyBase = @"&key=";
 
-        public static void SetLocationIfIncomplete(CookieEnabledWebClient client, Employer employer, Location location)
+        public static string ApiKeyGetHeaderString
         {
-            if (!string.IsNullOrEmpty(location.FullAddress) || !(location.Longitude == 0 && location.Latitude == 0))
+            get { return @"&key=" + GVar.Account.GoogleApisBrowserKey; }
+        }
+
+        public static void SetLocationIfIncomplete(Employer employer, Location location,
+            CookieEnabledWebClient client = null)
+        {
+            if (location.AlreadySet)
                 return;
-            string url = PlaceTextSearchBaseUrl + employer.Name + " " +
-                         (string.IsNullOrEmpty(employer.UnitName) ? "" : employer.UnitName + " ") + location.Region +
-                         ApiKeyBase + GVar.Account.GoogleApisBrowserKey;
-            string result = client.DownloadString(url);
+
+            if (client == null)
+                client = new CookieEnabledWebClient();
 
             var xml = new XmlDocument();
+            string url = GetPlaceTextSearchUrl(employer, location);
+            string result = client.DownloadString(url);
             xml.LoadXml(result);
+
             if (xml.DocumentElement != null)
             {
                 XmlNode response = xml.DocumentElement.ChildNodes[0].ChildNodes[0];
-                XmlNodeList firstReturn = xml.GetElementsByTagName("formatted_address");
-                if (response != null)
+                if (response != null && response.InnerText == "OK")
+                {
+                    XmlNodeList returnAddresses = xml.GetElementsByTagName("formatted_address");
+                    PickAndAssignAddress(location, returnAddresses);
                     Console.WriteLine(response.InnerText);
-                    if (response.InnerText == "OK" && firstReturn[0] != null)
-                        location.FullAddress = firstReturn[0].InnerXml;
+                }
             }
+        }
+
+        private static void PickAndAssignAddress(Location location, XmlNodeList returnAddresses)
+        {
+            if (returnAddresses[0] != null)
+                location.FullAddress = returnAddresses[0].InnerXml;
+        }
+
+        private static string GetPlaceTextSearchUrl(Employer employer, Location location)
+        {
+            string url = PlaceTextSearchBaseUrl + employer.Name + " " +
+                         (string.IsNullOrEmpty(employer.UnitName) ? "" : employer.UnitName + " ") + location.Region +
+                         ApiKeyGetHeaderString;
+            return url;
         }
     }
 }
