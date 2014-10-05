@@ -3,10 +3,11 @@ using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GlobalVariable;
+using Model.Definition;
 
 namespace Model.Entities
 {
-    public class JobOverView : System.Collections.IEnumerable
+    public class JobOverView : IEnumerable
     {
         public JobOverView()
         {
@@ -16,17 +17,18 @@ namespace Model.Entities
 
         [Key]
         [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Column(Order = 1)]
-        public int JobMineId { get; set; }
+        public virtual Employer Employer { get; set; }
 
         [Column(Order = 2)]
-        public string JobTitle { get; set; }
-        [Column(Order = 3)]
-        public virtual Employer Employer { get; set; }
-        [Column(Order = 4)]
         public virtual Location Location { get; set; }
+
+        [Column(Order = 3)]
+        public string JobTitle { get; set; }
+
         //public uint NumberOfOpening { get; set; }
         //public uint NumberOfApplied { get; set; }
         //public bool AlreadyApplied { get; set; }
@@ -34,7 +36,7 @@ namespace Model.Entities
         //public DateTime LastDateToApply { get; set; }
         public string IdString
         {
-            get { return JobMineId.ToString("D8"); }
+            get { return Id.ToString("D8"); }
         }
 
         public IEnumerator GetEnumerator()
@@ -55,7 +57,7 @@ namespace Model.Entities
         {
             if (Levels == null)
                 Levels = new Levels();
-            if( Disciplines == null)
+            if (Disciplines == null)
                 Disciplines = new Disciplines();
             SetRelationship();
         }
@@ -75,10 +77,10 @@ namespace Model.Entities
         {
             if (Employer == null || Location == null || Levels == null || Disciplines == null)
                 throw new Exception("One of more of Job's related Entity is null and cannot set relationship");
-                Employer.Jobs.Add(this);
-                Location.Jobs.Add(this);
-                Levels.Job = this;
-                Disciplines.Job = this;
+            Employer.Jobs.Add(this);
+            Location.Jobs.Add(this);
+            Levels.Job = this;
+            Disciplines.Job = this;
         }
 
         public override string ToString()
@@ -92,7 +94,7 @@ namespace Model.Entities
         public string ToString(string format)
         {
             string toString = string.Empty;
-            for (int i = 0; i < GVar.JobDetailPageFieldNameTitles.Length; i++)
+            for (int i = 0; i < JobMineDef.JobDetailPageFieldNameTitles.Length; i++)
             {
                 string fieldValue = string.Empty;
                 switch (i)
@@ -121,11 +123,8 @@ namespace Model.Entities
                     case 7:
                         fieldValue = JobUrl;
                         break;
-                    default:
-                        ;
-                        break;
                 }
-                toString += Environment.NewLine + GVar.JobDetailPageFieldNameTitles[i] + fieldValue +
+                toString += Environment.NewLine + JobMineDef.JobDetailPageFieldNameTitles[i] + fieldValue +
                             Environment.NewLine;
             }
             return toString;

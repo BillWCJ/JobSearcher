@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using GlobalVariable;
+using Model.Definition;
 using Model.Entities;
 
 namespace Data.Web.JobMine
@@ -12,11 +13,11 @@ namespace Data.Web.JobMine
     {
         public static Job GetJob(string htmlSource, string jobId) //todo: improve using html parsing
         {
-            var fields = new string[GVar.FieldSearchString.Length];
-            for (int i = 0; i < GVar.FieldSearchString.Length; i++)
+            var fields = new string[JobMineDef.FieldSearchString.Length];
+            for (int i = 0; i < JobMineDef.FieldSearchString.Length; i++)
                 fields[i] =
                     WebUtility.HtmlDecode(
-                        ExtractField(htmlSource, GVar.FieldSearchString[i], "</span>").Replace("&nbsp;", " "))
+                        ExtractField(htmlSource, JobMineDef.FieldSearchString[i], "</span>").Replace("&nbsp;", " "))
                         .Replace("<br />", "\n");
 
             fields[3] +=
@@ -32,7 +33,7 @@ namespace Data.Web.JobMine
                 Levels = new Levels(fields[4]),
                 Comment = fields[5],
                 JobDescription = fields[6],
-                JobMineId = Convert.ToInt32(jobId),
+                Id = Convert.ToInt32(jobId),
             };
         }
 
@@ -55,8 +56,8 @@ namespace Data.Web.JobMine
             }
             if (!job.Location.Region.Equals(jobOverView.Location.Region, StringComparison.InvariantCultureIgnoreCase))
                 theSame = false;
-            if (!job.JobTitle.Equals(jobOverView.JobTitle, StringComparison.InvariantCultureIgnoreCase))
-                theSame = false;
+            //if (!job.JobTitle.Equals(jobOverView.JobTitle, StringComparison.InvariantCultureIgnoreCase))
+            //    theSame = false;
             if (!theSame)
                 Console.WriteLine("Not The Same: {0}", jobId);
 

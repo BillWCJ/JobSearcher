@@ -10,6 +10,9 @@ namespace Model.Entities
     /// </summary>
     public class Levels
     {
+        public Levels()
+        {
+        }
         /// <summary>
         ///     Initalize a new instance of level entity
         /// </summary>
@@ -31,7 +34,7 @@ namespace Model.Entities
         ///     Id of the Job that contain this level entity
         /// </summary>
         [Key, ForeignKey("Job")]
-        public int Id { get; set; }
+        public int JobId { get; set; }
 
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }

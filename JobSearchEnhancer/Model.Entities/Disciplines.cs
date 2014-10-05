@@ -12,6 +12,10 @@ namespace Model.Entities
     /// </summary>
     public class Disciplines
     {
+        public Disciplines()
+        {
+        }
+
         /// <summary>
         ///     Initalize a instance of Disciplines using a string that contains all the disciplines
         /// </summary>
@@ -27,7 +31,7 @@ namespace Model.Entities
         ///     Key of the Job that contain this discipline
         /// </summary>
         [Key, ForeignKey("Job")]
-        public int Id { get; set; }
+        public int JobId { get; set; }
 
         public byte Discipline1 { get; set; }
         public byte Discipline2 { get; set; }
@@ -100,9 +104,11 @@ namespace Model.Entities
                 for (byte i = 0; i < GlobalDef.MaxNumberOfDisciplinesPerJob; i++)
                 {
                     byte key = this[i];
-                    string disciplineName = GlobalDef.DisciplinesNames[key];
-                    if (key != (byte) DisciplineEnum.UnAssigned && !string.IsNullOrEmpty(disciplineName))
+                    if (key != (byte) DisciplineEnum.UnAssigned &&  GlobalDef.DisciplinesNames.ContainsKey(key))
+                    {
+                        string disciplineName = GlobalDef.DisciplinesNames[key];
                         toString += disciplineName + ", ";
+                    }
                 }
             }
             catch (Exception e)

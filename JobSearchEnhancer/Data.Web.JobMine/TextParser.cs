@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using GlobalVariable;
+using Model.Definition;
 using Model.Entities;
 
 namespace Data.Web.JobMine
@@ -12,15 +13,15 @@ namespace Data.Web.JobMine
     {
         public static Job GetJobFromTextFile(string sourceString, string jobId)
         {
-            var fields = new string[GVar.JobDetailPageFieldNameTitles.Length - 1];
+            var fields = new string[JobMineDef.JobDetailPageFieldNameTitles.Length - 1];
             int indexStart = 0;
-            for (int i = 0; i < GVar.JobDetailPageFieldNameTitles.Length - 1; i++)
+            for (int i = 0; i < JobMineDef.JobDetailPageFieldNameTitles.Length - 1; i++)
             {
                 indexStart =
-                    sourceString.IndexOf(GVar.JobDetailPageFieldNameTitles[i], indexStart,
+                    sourceString.IndexOf(JobMineDef.JobDetailPageFieldNameTitles[i], indexStart,
                         StringComparison.InvariantCulture) +
-                    GVar.JobDetailPageFieldNameTitles[i].Length;
-                int indexEnd = sourceString.IndexOf(GVar.JobDetailPageFieldNameTitles[i + 1], indexStart,
+                    JobMineDef.JobDetailPageFieldNameTitles[i].Length;
+                int indexEnd = sourceString.IndexOf(JobMineDef.JobDetailPageFieldNameTitles[i + 1], indexStart,
                     StringComparison.InvariantCulture);
                 fields[i] = sourceString.Substring(indexStart, indexEnd - indexStart).TrimEnd('\n');
             }
@@ -34,7 +35,7 @@ namespace Data.Web.JobMine
                 Levels = new Levels(fields[4]),
                 Comment = fields[5],
                 JobDescription = fields[6],
-                JobMineId = Convert.ToInt32(jobId),
+                Id = Convert.ToInt32(jobId),
             };
         }
 

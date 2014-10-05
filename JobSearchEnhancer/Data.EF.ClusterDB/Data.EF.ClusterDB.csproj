@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="ClusterRepository.cs" />
     <Compile Include="IDataRepository.cs" />
-    <Compile Include="JobMineInitalSeeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

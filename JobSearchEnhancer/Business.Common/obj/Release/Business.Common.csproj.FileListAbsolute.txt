@@ -1,0 +1,4 @@
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Business.Common\bin\Release\Business.Common.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Business.Common\bin\Release\Business.Common.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Business.Common\obj\Release\Business.Common.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Business.Common\obj\Release\Business.Common.pdb

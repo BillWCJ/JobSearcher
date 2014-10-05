@@ -17,6 +17,15 @@ namespace Data.Web.JobMine
         /// <exception cref="Exception">Thrown when Account not initalized</exception>
         public static System.Collections.Specialized.NameValueCollection LoginData(string userName = "", string password ="")
         {
+            if(!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(password))
+                return new System.Collections.Specialized.NameValueCollection
+                {
+                    {"userid", userName},
+                    {"pwd", password},
+                    {"submit", "Submit"},
+                    {"timezoneOffset", "240"}
+                };
+
             if (GVar.Account == null)
                 throw new Exception("User Account not initalized");
             return new System.Collections.Specialized.NameValueCollection
@@ -32,11 +41,14 @@ namespace Data.Web.JobMine
         /// Check wether the CookieEnabledWebClient is loggined into JobMine
         /// </summary>
         /// <param name="client"></param>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         /// <returns></returns>
-        public static bool IsLoggedInToJobMine(CookieEnabledWebClient client)
+        public static bool LoginToJobMine(CookieEnabledWebClient client, string userName = "", string password = "")
         {
-            string result = client.UploadValues(GVar.LogInUrl, "POST", LoginData()).ToString();
-            return !String.IsNullOrEmpty(result) && client.CookieContainer != null;
+            var logindata = LoginData(userName, password);
+            string result = client.UploadValues(GVar.LogInUrl, "POST", logindata).ToString();
+            return !String.IsNullOrEmpty(result) && client.CookieContainer.Count > 5;
         }
 
         /// <summary>
@@ -46,7 +58,7 @@ namespace Data.Web.JobMine
         public static CookieEnabledWebClient NewJobMineLoggedInWebClient()
         {
             var client = new CookieEnabledWebClient();
-            if (IsLoggedInToJobMine(client))
+            if (LoginToJobMine(client))
                 return client;
             else
                 throw new Exception("Cannot LogIn");

@@ -11,9 +11,13 @@ namespace Data.EF.ClusterDB
 {
     public class ClusterRepository : DbContext 
     {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Properties<decimal>()
+                .Configure(config => config.HasPrecision(18,10));
+        }
         public ClusterRepository(): base()
         {
-            
         }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Employer> Employers { get; set; }

@@ -5,16 +5,11 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\Model.Definition.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\Model.Entities.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\EntityFramework.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\Data.Web.JobMine.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\HtmlAgilityPack.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\Data.EF.ClusterDB.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\GlobalVar.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\Model.Entities.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\EntityFramework.xml
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\Data.Web.JobMine.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\HtmlAgilityPack.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\bin\Release\HtmlAgilityPack.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.pdb
