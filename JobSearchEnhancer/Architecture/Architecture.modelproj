@@ -127,10 +127,6 @@
     </Validate>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApplication.Test\ConsoleApplication.Test.csproj">
-      <Name>ConsoleApplication.Test</Name>
-      <Project>{c2358c74-dd95-4cd0-969c-c98b99ff35f9}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj">
       <Name>ConsoleApplication</Name>
       <Project>{525cd1e6-1ec4-4569-b3b0-501c9e466396}</Project>

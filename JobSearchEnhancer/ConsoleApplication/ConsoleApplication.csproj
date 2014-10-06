@@ -137,10 +137,6 @@
       <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
       <Name>Model.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TextDownload\TextDownload.csproj">
-      <Project>{5051c8eb-3673-4a6e-956f-3b85d5221f8a}</Project>
-      <Name>TextDownload</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
