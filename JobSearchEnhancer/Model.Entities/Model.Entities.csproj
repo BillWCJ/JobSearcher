@@ -50,7 +50,7 @@
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAccount.cs" />
-    <Compile Include="UtilityMethods\UtilityMethods.cs" />
+    <Compile Include="UtilityMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">

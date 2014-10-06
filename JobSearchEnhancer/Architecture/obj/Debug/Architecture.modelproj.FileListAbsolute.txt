@@ -1,7 +1,5 @@
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Console.exe
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\FormsApplication.exe
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\GlobalVar.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Console.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\FormsApplication.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\GlobalVar.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\obj\Debug\Architecture.modelprojResolveAssemblyReference.cache
@@ -14,13 +12,3 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Model.Entities.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.Web.JobMine.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Model.Definition.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.IO.Local.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.EF.DBSeeder.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.EF.ClusterDB.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\EntityFramework.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.Web.GoogleApis.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.IO.Local.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.EF.DBSeeder.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.EF.ClusterDB.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\EntityFramework.xml
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Architecture\bin\Debug\Data.Web.GoogleApis.pdb
