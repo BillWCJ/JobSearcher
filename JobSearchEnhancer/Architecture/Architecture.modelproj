@@ -139,13 +139,5 @@
       <Name>GlobalVariable</Name>
       <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\Jobs.Test\Jobs.Test.csproj">
-      <Name>Jobs.Test</Name>
-      <Project>{cbaf769f-e9a6-49d9-ad74-07da5822bcb1}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\WebClientExtension.Test\WebClientExtension.Test.csproj">
-      <Name>WebClientExtension.Test</Name>
-      <Project>{1711c167-d8f8-4d26-8ca4-ba6cc5e09450}</Project>
-    </ProjectReference>
   </ItemGroup>
 </Project>
