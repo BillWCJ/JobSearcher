@@ -1,0 +1,1 @@
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Presentation.WPF.SimpleJobMineDownloader\bin\Debug\Presentation.WPF.SimpleJobMineDownloader.exe.config
