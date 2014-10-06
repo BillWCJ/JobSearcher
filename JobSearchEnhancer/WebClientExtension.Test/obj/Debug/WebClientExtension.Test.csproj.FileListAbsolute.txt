@@ -8,9 +8,11 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\WebClientExtension.Test.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\WebClientExtension.Test.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\GlobalVar.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\WebClientExtension.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\GlobalVar.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\WebClientExtension.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\obj\Debug\WebClientExtension.Test.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\obj\Debug\WebClientExtension.Test.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\obj\Debug\WebClientExtension.Test.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\Model.Entities.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\Model.Definition.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\Model.Entities.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\WebClientExtension.Test\bin\Debug\Model.Definition.pdb

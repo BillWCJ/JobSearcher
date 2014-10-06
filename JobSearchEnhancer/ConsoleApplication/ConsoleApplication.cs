@@ -20,7 +20,6 @@ using GlobalVariable;
 using System.Xml;
 using System.Windows.Forms;
 using HtmlAgilityPack;
-using TextDownload;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using Data.Web.JobMine;
 using Data.EF.ClusterDB;
