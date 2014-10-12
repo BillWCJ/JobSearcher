@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Data.EF.DBSeeder")]
+[assembly: AssemblyTitle("Business.DataBaseSeeder")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Data.EF.DBSeeder")]
+[assembly: AssemblyProduct("Business.DataBaseSeeder")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8ef1a48a-79eb-46ab-8371-dd0852974faf")]
+[assembly: Guid("38f73545-e30d-41d2-9156-7b491c4435e0")]
 
 // Version information for an assembly consists of the following four values:
 //

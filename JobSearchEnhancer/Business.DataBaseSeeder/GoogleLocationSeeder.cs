@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Data.EF.ClusterDB;
 using Data.Web.GoogleApis;
 using Model.Entities;
 
-namespace Data.EF.DBSeeder
+namespace Business.DataBaseSeeder
 {
     public class GoogleLocationSeeder
     {

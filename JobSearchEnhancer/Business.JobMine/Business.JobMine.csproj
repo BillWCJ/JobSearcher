@@ -47,10 +47,6 @@
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
       <Name>Data.EF.ClusterDB</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data.EF.DBSeeder\Data.EF.DBSeeder.csproj">
-      <Project>{3aa0e7c1-4502-419d-b83d-b658e948789f}</Project>
-      <Name>Data.EF.DBSeeder</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
       <Project>{8bf3f9bb-8ea9-4eef-ba16-f89fb067e7ef}</Project>
       <Name>Data.IO.Local</Name>

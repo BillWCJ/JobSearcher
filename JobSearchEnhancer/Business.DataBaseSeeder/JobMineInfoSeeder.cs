@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Data.EF.ClusterDB;
 using Data.Web.JobMine;
 using Model.Entities;
 
-namespace Data.EF.ClusterDB
+namespace Business.DataBaseSeeder
 {
     public class JobMineInfoSeeder
     {

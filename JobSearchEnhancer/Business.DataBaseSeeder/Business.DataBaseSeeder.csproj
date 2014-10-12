@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3AA0E7C1-4502-419D-B83D-B658E948789F}</ProjectGuid>
+    <ProjectGuid>{1E5B0839-8910-4BB4-B317-F06AE676DDEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Data.EF.DBSeeder</RootNamespace>
-    <AssemblyName>Data.EF.DBSeeder</AssemblyName>
+    <RootNamespace>Business.DataBaseSeeder</RootNamespace>
+    <AssemblyName>Business.DataBaseSeeder</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,10 @@
     <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.ClusterDB.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
       <Name>Data.EF.ClusterDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
+      <Project>{8bf3f9bb-8ea9-4eef-ba16-f89fb067e7ef}</Project>
+      <Name>Data.IO.Local</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.Web.GoogleApis\Data.Web.GoogleApis.csproj">
       <Project>{b0313a60-81f0-4eb1-b423-8052989dbfc7}</Project>
