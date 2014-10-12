@@ -4,20 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Web.JobMine;
-using GlobalVariable;
 using Model.Entities;
 
 namespace Data.EF.ClusterDB
 {
     public class JobMineInfoSeeder
     {
-        public static void SeedDb(string username, string password, string term, string appsAvail, uint numberOfJobsToSeed = 4294967295)
+        UserAccount Account { get; set; }
+
+        public JobMineInfoSeeder(UserAccount account)
+        {
+            Account = account;
+        }
+
+        public void SeedDb(string username, string password, string term, string appsAvail, uint numberOfJobsToSeed = 4294967295)
         {
             using (var db = new ClusterRepository())
             {
                 uint count = 0;
-                GVar.Account = new UserAccount { Username = username, Password = password };
-                CookieEnabledWebClient client = Login.NewJobMineLoggedInWebClient();
+                Account = new UserAccount { Username = username, Password = password };
+                CookieEnabledWebClient client = new Login(Account).NewJobMineLoggedInWebClient();
                 Queue<JobOverView> jobOverViews = JobInquiry.GetJobOverViews(client, term, appsAvail);
                 foreach (JobOverView jov in jobOverViews)
                 {

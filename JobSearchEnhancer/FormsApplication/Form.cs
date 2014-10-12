@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GlobalVariable;
+using Business.Account;
 using Model.Entities;
 using Data.Web.JobMine;
+using Model.Definition;
 
 namespace FormsApplication
 {
@@ -28,9 +29,9 @@ namespace FormsApplication
         public JobDetailBrowser()
         {
             InitializeComponent();
-            jobs = TextParser.ReadInJobFromLocal();
+            jobs = new TextParser(new AccountManager().Account).ReadInJobFromLocal();
             DisplayCurrentJobDetail();
-            CommonWebBrowser.Url = new Uri(GVar.LogInUrl);
+            CommonWebBrowser.Url = new Uri(JobMineDef.LogInUrl);
         }
 
         private void PreviousJobButton_Click(object sender, EventArgs e)

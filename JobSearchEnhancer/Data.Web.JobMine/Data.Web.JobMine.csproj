@@ -49,10 +49,6 @@
     <Compile Include="TextParser.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">
-      <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>
-      <Name>GlobalVariable</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
       <Name>Model.Definition</Name>

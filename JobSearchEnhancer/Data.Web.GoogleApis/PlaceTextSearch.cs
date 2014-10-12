@@ -1,20 +1,26 @@
 ﻿using System;
 using System.Xml;
-using GlobalVariable;
 using Model.Entities;
 
 namespace Data.Web.GoogleApis
 {
     public class PlaceTextSearch
     {
-        public const string PlaceTextSearchBaseUrl = @"https://maps.googleapis.com/maps/api/place/textsearch/xml?query=";
+        UserAccount Account { get; set; }
 
-        public static string ApiKeyGetHeaderString
+        public PlaceTextSearch(UserAccount account)
         {
-            get { return @"&key=" + GVar.Account.GoogleApisBrowserKey; }
+            Account = account;
         }
 
-        public static Location GetLocation(Employer employer, string region, CookieEnabledWebClient client = null)
+        public const string PlaceTextSearchBaseUrl = @"https://maps.googleapis.com/maps/api/place/textsearch/xml?query=";
+
+        public string ApiKeyGetHeaderString
+        {
+            get { return @"&key=" + Account.GoogleApisBrowserKey; }
+        }
+
+        public Location GetLocation(Employer employer, string region, CookieEnabledWebClient client = null)
         {
             if (client == null)
                 client = new CookieEnabledWebClient();
@@ -51,7 +57,7 @@ namespace Data.Web.GoogleApis
             return null;
         }
 
-        private static string GetPlaceTextSearchUrl(Employer employer, string region)
+        private string GetPlaceTextSearchUrl(Employer employer, string region)
         {
             string url = PlaceTextSearchBaseUrl + employer.Name + " " +
                          (string.IsNullOrEmpty(employer.UnitName) ? "" : employer.UnitName + " ") + region +

@@ -125,13 +125,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.Account\Business.Account.csproj">
+      <Project>{f7f36e63-9e80-4bb3-8fd3-7a37aca8a7a9}</Project>
+      <Name>Business.Account</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
       <Project>{07d1aea5-7872-4b29-93d6-73f8fdc63d33}</Project>
       <Name>Data.Web.JobMine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">
-      <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>
-      <Name>GlobalVariable</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>

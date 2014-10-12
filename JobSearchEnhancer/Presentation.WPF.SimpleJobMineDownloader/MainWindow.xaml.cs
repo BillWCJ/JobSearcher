@@ -6,8 +6,9 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using Business.Account;
 using Data.Web.JobMine;
-using GlobalVariable;
+using Model.Definition;
 using Model.Entities;
 
 namespace Presentation.WPF.SimpleJobMineDownloader
@@ -49,7 +50,7 @@ namespace Presentation.WPF.SimpleJobMineDownloader
 
                 var client = new CookieEnabledWebClient();
 
-                bool isLoggedIntoJobMine = Login.LoginToJobMine(client, UserName, Password);
+                bool isLoggedIntoJobMine = new Login(new AccountManager().Account).LoginToJobMine(client, UserName, Password);
                 Dispatcher.Invoke((() => OutputTextBox.AppendText("Loggedin :" + isLoggedIntoJobMine + "\n")));
                 if (!isLoggedIntoJobMine)
                     return;
@@ -79,7 +80,7 @@ namespace Presentation.WPF.SimpleJobMineDownloader
                                 (() =>
                                     OutputTextBox.AppendText("Downloading and Writing Job number:" + currentFileJobCount +
                                                              "- JobMine JobId: " + currentJobId + "\n")));
-                            string url = GVar.JobDetailBaseUrl + currentJobId;
+                            string url = JobMineDef.JobDetailBaseUrl + currentJobId;
                             writer.Write(JobDetail.GetJob(client.DownloadString(url), currentJobId).ToString());
                         }
                         writer.Close();

@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Reflection;
-using GlobalVariable;
 using Model.Definition;
 using Model.Entities;
 
 namespace Data.Web.JobMine
 {
-    public static class JobDetail
+    public class JobDetail
     {
+        private UserAccount Account { get; set; }
+
+        public JobDetail(UserAccount account)
+        {
+            Account = account;
+        }
+
         public static Job GetJob(string htmlSource, string jobId) //todo: improve using html parsing
         {
             var fields = new string[JobMineDef.FieldSearchString.Length];
@@ -40,7 +46,7 @@ namespace Data.Web.JobMine
         public static Job GetJob(CookieEnabledWebClient client, JobOverView jobOverView)
         {
             string jobId = jobOverView.IdString;
-            string url = GVar.JobDetailBaseUrl + jobId;
+            string url = JobMineDef.JobDetailBaseUrl + jobId;
             string htmlSource = client.DownloadString(url);
             Job job = GetJob(htmlSource, jobId);
             job.Employer.UnitName = jobOverView.Employer.UnitName;
@@ -80,8 +86,10 @@ namespace Data.Web.JobMine
             return extractedString;
         }
 
-        public static void DownLoadAndWriteJobsToLocal(Queue<string> jobIDs, CookieEnabledWebClient client, string fileLocation = GVar.FilePath, uint numJobsPerFile = 100)
+        public static void DownLoadAndWriteJobsToLocal(Queue<string> jobIDs, CookieEnabledWebClient client, UserAccount account, string fileLocation = null, uint numJobsPerFile = 100)
         {
+            if (fileLocation == null)
+                fileLocation = account.FilePath;
             try
             {
                 for (uint currentFilePart = 1; jobIDs.Count > 0; currentFilePart++)
@@ -95,7 +103,7 @@ namespace Data.Web.JobMine
                         currentFileJobCount++)
                     {
                         string currentJobId = jobIDs.Dequeue();
-                        string url = GVar.JobDetailBaseUrl + currentJobId;
+                        string url = JobMineDef.JobDetailBaseUrl + currentJobId;
                         writer.Write(GetJob(client.DownloadString(url), currentJobId).ToString());
                     }
                     writer.Close();

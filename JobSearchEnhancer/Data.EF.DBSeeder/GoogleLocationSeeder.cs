@@ -13,7 +13,14 @@ namespace Data.EF.DBSeeder
 {
     public class GoogleLocationSeeder
     {
-        public static void SeedDb()
+        UserAccount Account { get; set; }
+
+        public GoogleLocationSeeder(UserAccount account)
+        {
+            Account = account;
+        }
+
+        public void SeedDb()
         {
             using (var db = new ClusterRepository())
             {
@@ -30,7 +37,7 @@ namespace Data.EF.DBSeeder
                         Employer employer = db.Employers.FirstOrDefault(e => e.Id == job.Employer.Id);
                         if (employer == null) continue;
 
-                        Location completedLocation = PlaceTextSearch.GetLocation(employer, location.Region);
+                        Location completedLocation = new PlaceTextSearch(Account).GetLocation(employer, location.Region);
                         if (completedLocation != null)
                         {
                             location.FullAddress = completedLocation.FullAddress;

@@ -131,9 +131,5 @@
       <Name>FormsApplication</Name>
       <Project>{f96be802-2894-4f07-81a9-bc851de3c884}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">
-      <Name>GlobalVariable</Name>
-      <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>
-    </ProjectReference>
   </ItemGroup>
 </Project>

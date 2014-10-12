@@ -49,19 +49,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GsBPbcPvum1VuQDZV4xsN6Zz6MCsxJ/crzJtGa3jMlQ=</dsig:DigestValue>
+        <dsig:DigestValue>BLGxOAh3FMZarm/9mKVo1DV2hMWmSEsmKnkYmybLry8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GlobalVar.dll" size="8704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GlobalVar.dll" size="7168">
       <assemblyIdentity name="GlobalVar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>heCGduX9Eqwbk3097loB5hAN8oqBHAnsn8k1p6Ih1kc=</dsig:DigestValue>
+        <dsig:DigestValue>Db3YHsy9QenuSnkWt+KgPFdudNxvg6WJQUVCTpLU2S4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,26 +78,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Definition.dll" size="15872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Definition.dll" size="18944">
       <assemblyIdentity name="Model.Definition" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VOeps7BDUyckUnu+X+oARYZ7F9rCZ8ScgTeTPwLXBRU=</dsig:DigestValue>
+        <dsig:DigestValue>4DyVTu0KsxATi0Yql4E6aZZvtEqXtvRF4IR1+CMZV6k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Entities.dll" size="15872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Entities.dll" size="17408">
       <assemblyIdentity name="Model.Entities" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9tlDCa8XCis3gDfUZxGz2JjrbbuuELr+zuT8WXpkBDk=</dsig:DigestValue>
+        <dsig:DigestValue>bxGmwmht3saXPxsgTonDleO3L+i0PcxQGN9lkNnVj5Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lxnBLAAbNo18RSgoa4d/KgBn4SFx6fMu4V4ZrsKPBeE=</dsig:DigestValue>
+        <dsig:DigestValue>3GhnaGsRA7YzHm/jXyVzSgPTibMSlU7tkBGRV3Fin+Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

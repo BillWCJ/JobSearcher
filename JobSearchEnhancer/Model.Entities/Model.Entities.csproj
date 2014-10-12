@@ -48,19 +48,19 @@
     <Compile Include="Job.cs" />
     <Compile Include="Levels.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAccount.cs" />
     <Compile Include="UtilityMethods.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlobalVariable\GlobalVariable.csproj">
-      <Project>{1c3fb343-debb-4f9a-89eb-16a9b441ca59}</Project>
-      <Name>GlobalVariable</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
       <Name>Model.Definition</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

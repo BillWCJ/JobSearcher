@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using GlobalVariable;
 using Model.Definition;
 using Model.Entities;
 
@@ -11,6 +10,11 @@ namespace Data.Web.JobMine
     // todo: Use Html parser instead of string operation
     public class TextParser
     {
+        UserAccount Account { get; set; }
+        public TextParser(UserAccount account)
+        {
+            Account = account;
+        }
         public static Job GetJobFromTextFile(string sourceString, string jobId)
         {
             var fields = new string[JobMineDef.JobDetailPageFieldNameTitles.Length - 1];
@@ -39,7 +43,7 @@ namespace Data.Web.JobMine
             };
         }
 
-        public static Job[] ReadInJobFromLocal()
+        public Job[] ReadInJobFromLocal()
         {
             int indexStart = 0;
             Queue<string> jobId = GetJobIdsFromLocal();
@@ -50,7 +54,7 @@ namespace Data.Web.JobMine
 
             try
             {
-                reader = new StreamReader(GVar.FilePath + "Jobs.txt");
+                reader = new StreamReader(Account.FilePath + "Jobs.txt");
                 data = reader.ReadToEnd();
             }
             catch (Exception e)
@@ -61,9 +65,9 @@ namespace Data.Web.JobMine
             {
                 for (int i = 0; i < numberOfJobs; i++)
                 {
-                    indexStart = data.IndexOf(GVar.SeperationBar, indexStart,StringComparison.InvariantCulture) + GVar.SeperationBar.Length;
+                    indexStart = data.IndexOf(JobDef.SeperationBar, indexStart,StringComparison.InvariantCulture) + JobDef.SeperationBar.Length;
                     int indexEnd = 0;
-                    indexEnd = i != numberOfJobs - 1 ? data.IndexOf(GVar.SeperationBar, indexStart, StringComparison.InvariantCulture) : data.Length;
+                    indexEnd = i != numberOfJobs - 1 ? data.IndexOf(JobDef.SeperationBar, indexStart, StringComparison.InvariantCulture) : data.Length;
                     jobs[i] = GetJobFromTextFile(data.Substring(indexStart, indexEnd - indexStart), jobId.Dequeue());
                 }
             }
@@ -75,10 +79,10 @@ namespace Data.Web.JobMine
             return jobs;
         }
 
-        public static Queue<string> GetJobIdsFromLocal()
+        public Queue<string> GetJobIdsFromLocal()
         {
             var jobID = new Queue<string>();
-            StreamReader reader = OpenFileForStreamReader(GVar.FilePath, "JobList.txt");
+            StreamReader reader = OpenFileForStreamReader(Account.FilePath, "JobList.txt");
             if (reader != null)
             {
                 while (!reader.EndOfStream)

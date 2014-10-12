@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Presentation.WPF.SimpleJobMineDownloader.exe.manifest" size="6914">
+    <dependentAssembly dependencyType="install" codebase="Presentation.WPF.SimpleJobMineDownloader.exe.manifest" size="7571">
       <assemblyIdentity name="Presentation.WPF.SimpleJobMineDownloader.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QSgYn2JepF/GGt5CQryX2gEcXcnGd9MxthAkXUTPRG4=</dsig:DigestValue>
+        <dsig:DigestValue>hTnLADYRjAe/DVPmxa3IJZxeJRyVP+/qc8a54LIzOzc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

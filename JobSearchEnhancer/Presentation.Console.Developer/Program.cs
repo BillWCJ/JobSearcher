@@ -10,11 +10,12 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Windows;
 using System.Diagnostics;
+using Business.Account;
+using Business.JobMine;
 using Data.EF.DBSeeder;
 using Data.Web.GoogleApis;
 using Model.Definition;
 using Model.Entities;
-using GlobalVariable;
 using System.Xml;
 using Data.Web.JobMine;
 using Data.EF.ClusterDB;
@@ -26,39 +27,36 @@ namespace Presentation.Console.Developer
     {
         static void Main(string[] args)
         {
-            string term = "1151";
-            string appsAvail = JobStatus.AppsAvail;
+            const string term = "1151";
+            const string appsAvail = JobStatus.AppsAvail;
             var client = new CookieEnabledWebClient();
-            Seeders(term, appsAvail);
-
-
+            Seeders(term, appsAvail, new AccountManager().Account);
 
             //DownloadJobsDetailsForAllUser();
             //DownLoadJobs("w52jiang", "Ss332640747:)","1149", GVar.JobStatus.AppsAvail, @"C:\Users\BillWenChao\Desktop\");
         }
 
-        private static void Seeders(string term, string appsAvail)
+        private static void Seeders(string term, string appsAvail, UserAccount account)
         {
-            UserSetting.GetAccount();
-            JobMineInfoSeeder.SeedDb(GVar.Account.Username, GVar.Account.Password, term, appsAvail);
-            GoogleLocationSeeder.SeedDb();
+            AccountSetting.GetAccount();
+            new JobMineInfoSeeder(account).SeedDb(account.Username, account.Password, term, appsAvail);
+            new GoogleLocationSeeder(account).SeedDb();
         }
-        public static void DownLoadJobs(string term, string jobStatus, string filePath)
+        public static void DownLoadJobs(string term, string jobStatus, string filePath, UserAccount account)
         {
             System.Console.WriteLine("Enter JobMine UserName");
             string username = System.Console.ReadLine();
             System.Console.WriteLine("Enter Password");
             string password = System.Console.ReadLine();
-            GVar.Account = new UserAccount { Username = username, Password = password };
+            account = new UserAccount { Username = username, Password = password };
 
             var client = new CookieEnabledWebClient();
-            Queue<string> jobIDs;
 
-            System.Console.WriteLine("Loggedin : {0}", Login.LoginToJobMine(client).ToString());
-            jobIDs = JobInquiry.GetJobIDs(client, term, jobStatus);
+            System.Console.WriteLine("Loggedin : {0}", new Login(account).LoginToJobMine(client).ToString());
+            Queue<string> jobIDs = JobInquiry.GetJobIDs(client, term, jobStatus);
             int numjob = jobIDs.Count;
             System.Console.WriteLine("Total Number of Jobs Found: {0}", numjob);
-            JobDetail.DownLoadAndWriteJobsToLocal(jobIDs, client, fileLocation: filePath, numJobsPerFile: 100);
+            JobDetail.DownLoadAndWriteJobsToLocal(jobIDs, client, account, fileLocation: filePath, numJobsPerFile: 100);
         }
         private static void DownloadJobsDetailsForAllUser()
         {
@@ -71,15 +69,16 @@ namespace Presentation.Console.Developer
             System.Console.WriteLine(@"Please Enter the File Path (eg. C:\Users\BillWenChao\Desktop\  - have to end with '\')");
             string filePath = @"C:\Users\BillWenChao\Desktop\";
             filePath = System.Console.ReadLine();
-            DownLoadJobs(term, jobStatus, filePath);
+            DownLoadJobs(term, jobStatus, filePath, new AccountManager().Account);
 
         }
 
-        private static void DownloadWriteOpenHtmlData(CookieEnabledWebClient client, string downloadUrl, string htmlFileName)
+        private void DownloadWriteOpenHtmlData(CookieEnabledWebClient client, string downloadUrl, string htmlFileName, UserAccount account)
         {
-            File.WriteAllText(GVar.FilePath + htmlFileName, client.DownloadString(downloadUrl));
-            System.Console.WriteLine("{0} - Opening: {1}", Login.LoginToJobMine(client), htmlFileName);
-            Process.Start(GVar.FilePath + htmlFileName);
+            File.WriteAllText(account.FilePath + htmlFileName, client.DownloadString(downloadUrl));
+            Login login = new Login(account);
+            System.Console.WriteLine("{0} - Opening: {1}", login.LoginToJobMine(client), htmlFileName);
+            Process.Start(account.FilePath + htmlFileName);
         }
     }
 }

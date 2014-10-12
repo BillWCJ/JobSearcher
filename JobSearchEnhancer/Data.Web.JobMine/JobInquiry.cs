@@ -4,7 +4,6 @@ using System.Collections.Specialized;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
-using GlobalVariable;
 using HtmlAgilityPack;
 using Model.Definition;
 using Model.Entities;
@@ -173,7 +172,7 @@ namespace Data.Web.JobMine
         private static string GetJobinfo(CookieEnabledWebClient client, string iCAction, string term, string iCsid,
             int iCStateNum, string jobStatus)
         {
-            const string url = GVar.JobInquiryUrlShortpsc, method = "POST";
+            const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";
             return
                 Encoding.UTF8.GetString(client.UploadValues(url, method,
                     JobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus)));
@@ -242,7 +241,7 @@ namespace Data.Web.JobMine
         private static string GetIframeSrcUrl(CookieEnabledWebClient client)
         {
             var doc = new HtmlDocument();
-            string inquirypagehtml = client.DownloadString(GVar.JobInquiryUrlpsp);
+            string inquirypagehtml = client.DownloadString(JobMineDef.JobInquiryUrlpsp);
             doc.LoadHtml(inquirypagehtml);
             string src =
                 doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/iframe[1]").Attributes["src"].Value;

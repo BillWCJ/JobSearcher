@@ -2,7 +2,6 @@
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using GlobalVariable;
 using Model.Definition;
 
 namespace Model.Entities
@@ -70,7 +69,7 @@ namespace Model.Entities
 
         public string JobUrl
         {
-            get { return GVar.JobDetailBaseUrl + IdString; }
+            get { return JobMineDef.JobDetailBaseUrl + IdString; }
         }
 
         private void SetRelationship()
@@ -85,7 +84,7 @@ namespace Model.Entities
 
         public override string ToString()
         {
-            return GVar.SeperationBar + Environment.NewLine + ToString("F");
+            return JobDef.SeperationBar + Environment.NewLine + ToString("F");
         }
 
         /// <summary>

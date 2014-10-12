@@ -1,28 +1,27 @@
 ﻿using System;
 using System.IO;
-using GlobalVariable;
+using Model.Entities;
 
 namespace Data.IO.Local
 {
-    public class UserSetting
+    public class AccountSetting
     {
-        public static void GetAccount()
+        public static UserAccount GetAccount()
         {
+            var account = new Model.Entities.UserAccount();
+            string userInfoFilePath = account.MasterFilePath + @"JobMineLogIn.txt";
             var reader = StreamReader.Null;
             try
             {
-                reader = new StreamReader(GVar.UserInfoFile);
+                reader = new StreamReader(userInfoFilePath);
                 String username = reader.ReadLine();
                 String password = reader.ReadLine();
                 String googleApisServerKey = reader.ReadLine();
                 String googleApisBrowserKey = reader.ReadLine();
-                GVar.Account = new UserAccount
-                {
-                    Username = username,
-                    Password = password,
-                    GoogleApisServerKey = googleApisServerKey,
-                    GoogleApisBrowserKey = googleApisBrowserKey
-                };
+                account.Username = username;
+                account.Password = password;
+                account.GoogleApisServerKey = googleApisServerKey;
+                account.GoogleApisBrowserKey = googleApisBrowserKey;
                 reader.Close();
             }
             catch (FileNotFoundException e)
@@ -37,6 +36,7 @@ namespace Data.IO.Local
             {
                 reader.Close();
             }
+            return account;
         }
     }
 }

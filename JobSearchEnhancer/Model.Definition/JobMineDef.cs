@@ -26,6 +26,17 @@ namespace Model.Definition
 
     public class JobMineDef
     {
+        public const string JobInquiryUrlShortpsp = CommonDef.JobMineBaseUrl + @"psp/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBSRCH.GBL";
+        public const string JobInquiryUrlShortpsc = CommonDef.JobMineBaseUrl + @"psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBSRCH.GBL";
+        public const string JobInquiryUrlpsp = CommonDef.JobMineBaseUrl + @"psp/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBSRCH.GBL?pslnkid=UW_CO_JOBSRCH_LINK&FolderPath=PORTAL_ROOT_OBJECT.UW_CO_JOBSRCH_LINK&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder";
+        public const string JobInquiryUrlpsc = CommonDef.JobMineBaseUrl + @"psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBSRCH.GBL?pslnkid=UW_CO_JOBSRCH_LINK&FolderPath=PORTAL_ROOT_OBJECT.UW_CO_JOBSRCH_LINK&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder";
+        public const string LogInUrl = CommonDef.JobMineBaseUrl + @"psp/SS/?cmd=login&languageCd=ENG&sessionId=";
+        public const string JobDetailBaseUrl = CommonDef.JobMineBaseUrl + @"psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS?UW_CO_JOB_ID=";
+        public const string MenuUrl = CommonDef.JobMineBaseUrl + @"psp/SS/EMPLOYEE/WORK/h/?tab=DEFAULT";
+        public const string StudentProfileUrl = CommonDef.JobMineBaseUrl + @"psp/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_STUDENT.GBL?pslnkid=UW_CO_STUDENT_LINK&FolderPath=PORTAL_ROOT_OBJECT.UW_CO_STUDENT_LINK&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder";
+        public const string TestJobId = "00240986";
+        public const string TestJobDetailUrl = JobDetailBaseUrl + TestJobId;
+
         public static readonly string[] JobDetailPageFieldNames = 
         { 
             "Employer",
