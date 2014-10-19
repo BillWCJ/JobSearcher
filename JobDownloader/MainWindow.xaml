@@ -1,0 +1,27 @@
+﻿<Window x:Class="JobDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="540" Width="960">
+    <Grid RenderTransformOrigin="0.0,0.0">
+        <TextBox Name="TermTextBox" HorizontalAlignment="Left" Height="25" Margin="10,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Term:" HorizontalAlignment="Left" Height="26" Margin="10,100,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Content="DownLoad Jobs" HorizontalAlignment="Left" Margin="265,474,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_DownloadJobs" Height="25"/>
+        <Label Content="UserName:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
+        <Label Content="Password:&#xD;&#xA;" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
+        <TextBox Name="UserNameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="PasswordTextBox" HorizontalAlignment="Left" Height="23" Margin="215,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <ComboBox Name="JobStatusComboBox" HorizontalAlignment="Left" Margin="215,131,0,0" VerticalAlignment="Top" Width="200" Height="25">
+            <ComboBoxItem Content="Posted" HorizontalAlignment="Left" Width= "200" />
+            <ComboBoxItem Content="Application Available" HorizontalAlignment="Left" Width="200"/>
+            <ComboBoxItem Content="Cancelled" HorizontalAlignment="Left" Width="200"/>
+            <ComboBoxItem Content="Approved" HorizontalAlignment="Left" Width="200"/>
+        </ComboBox>
+        <Label Content="Job Status:" HorizontalAlignment="Left" Margin="215,101,0,0" VerticalAlignment="Top" Width="125" Height="25"/>
+        <Label Content="File Location:" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="107"/>
+        <TextBox Name="FileLocationTextBox" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="10,231,0,0" TextWrapping="NoWrap" Text="c:\\" VerticalAlignment="Top" Width="405"/>
+        <Button Content="Select File Location" HorizontalAlignment="Left" Margin="265,201,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_Select_File_Location" Height="25"/>
+        <TextBox Name="OutputTextBox" IsReadOnly="True" HorizontalAlignment="Left" Height="459" Margin="460,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="482"/>
+        <Label Content="Output:" HorizontalAlignment="Left" Margin="460,10,0,0" VerticalAlignment="Top" Height="25" Width="86"/>
+
+    </Grid>
+</Window>
