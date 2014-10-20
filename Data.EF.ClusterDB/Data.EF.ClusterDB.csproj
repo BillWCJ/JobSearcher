@@ -46,9 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClusterRepository.cs" />
-    <Compile Include="IDataRepository.cs" />
+    <Compile Include="Configuration\LocationConfiguration.cs" />
+    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="Interface\IBaseRepository.cs" />
+    <Compile Include="Interface\IDisciplinesRepo.cs" />
+    <Compile Include="Interface\IEmployerRepo.cs" />
+    <Compile Include="Interface\IJobRepo.cs" />
+    <Compile Include="Interface\ILevelsRepo.cs" />
+    <Compile Include="Interface\ILocationRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\DisciplinesRepo.cs" />
+    <Compile Include="Repository\EmployerRepo.cs" />
+    <Compile Include="Repository\JobRepo.cs" />
+    <Compile Include="Repository\LevelsRepo.cs" />
+    <Compile Include="Repository\LocationRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

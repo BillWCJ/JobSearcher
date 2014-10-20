@@ -18,7 +18,7 @@ namespace Business.DataBaseSeeder
 
         public void SeedDb(string username, string password, string term, string appsAvail, uint numberOfJobsToSeed = 4294967295)
         {
-            using (var db = new ClusterRepository())
+            using (var db = new DatabaseContext())
             {
                 uint count = 0;
                 Account = new UserAccount { Username = username, Password = password };

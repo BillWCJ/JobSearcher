@@ -20,7 +20,7 @@ namespace Business.DataBaseSeeder
 
         public void SeedDb()
         {
-            using (var db = new ClusterRepository())
+            using (var db = new DatabaseContext())
             {
                 IList<Location> locations = (from l in db.Locations select l).ToList();
                 foreach (Location location in locations)

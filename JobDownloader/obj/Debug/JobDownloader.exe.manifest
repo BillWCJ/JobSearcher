@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Business.DataBaseSeeder.dll" size="11264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Business.DataBaseSeeder.dll" size="10752">
       <assemblyIdentity name="Business.DataBaseSeeder" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>27fj9z5GlRo9Nez5uBJCuF4QqCRRnvJWJHcWkWQygmg=</dsig:DigestValue>
+        <dsig:DigestValue>ra/6QxrQb6QWlfacMYGILbwPae2FpAPjJiyC3Bajono=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,19 +73,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eooM4rjyAozsvnNu/LQuL5X8MM+xF5R7urLiLcdVBYo=</dsig:DigestValue>
+        <dsig:DigestValue>nvfQ3Grpg15yowxtnct4pY6Q8byRh7XLqcFQ3bnV6E8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Data.EF.ClusterDB.dll" size="6144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Data.EF.ClusterDB.dll" size="9216">
       <assemblyIdentity name="Data.EF.ClusterDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GTn3WxOwfJ8BToAhZqhBMlnZ7qG0OegiRCbGcwBbEKM=</dsig:DigestValue>
+        <dsig:DigestValue>eUeCRB7clpcFf7u1oliz1b0L/WHWSG7PF6hZSMSwpsE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ETt7O55f6KIM9T37qwJdPAY++jYUNg7TSyiYpQ66ahU=</dsig:DigestValue>
+        <dsig:DigestValue>mO47rnKNPcl4dB4l0oVNTDyNYDR1ViF3KfMgHHdmIcc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -157,7 +157,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gExdQ4nSwvAOVAFbHfjVED/DemRw+Sn96aK7l2lk8Xc=</dsig:DigestValue>
+        <dsig:DigestValue>m+yF3482WQBEzFKi6pMzbIp4AdA/Fe0t8xIaJV/jj+M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
