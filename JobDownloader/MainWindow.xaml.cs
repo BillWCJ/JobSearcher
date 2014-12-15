@@ -124,7 +124,7 @@ namespace JobDownloader
         {
             var folderBrowserDialog = new FolderBrowserDialog();
             DialogResult result = folderBrowserDialog.ShowDialog();
-            FileLocation = folderBrowserDialog.SelectedPath;
+            FileLocation = folderBrowserDialog.SelectedPath + '\\';
             FileLocationTextBox.Text = FileLocation;
         }
     }

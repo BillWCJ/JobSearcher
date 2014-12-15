@@ -16,7 +16,7 @@ namespace Business.DataBaseSeeder
             Account = account;
         }
 
-        public void SeedDb(string username, string password, string term, string appsAvail, uint numberOfJobsToSeed = 4294967295)
+        public void SeedDb(string username, string password, string term, string appsAvail, int numberOfJobsToSeed = int.MaxValue)
         {
             using (var db = new DatabaseContext())
             {

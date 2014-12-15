@@ -42,3 +42,4 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\FormsApplicatio
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\FormsApplication\obj\Debug\FormsApplication.JobDetailBrowser.resources
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\FormsApplication\obj\Debug\FormsApplication.Properties.Resources.resources
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\FormsApplication\obj\Debug\FormsApplication.csproj.GenerateResource.Cache
+C:\Users\bjiang\Documents\JobSearchEnhancer\FormsApplication\bin\Debug\FormsApplication.exe.config

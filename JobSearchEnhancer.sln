@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{07A73179-EBAC-4875-9A3A-9244B587123F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{2D6FCBBF-09B6-42E3-BCC5-97DD09B76649}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B8ECC065-C584-4589-9810-EA51C0058209}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsApplication", "FormsApplication\FormsApplication.csproj", "{F96BE802-2894-4F07-81A9-BC851DE3C884}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{FAF98A45-19B8-4157-A4A6-62597B13D1AB}"
 EndProject
@@ -51,16 +49,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Release|ARM.ActiveCfg = Release|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Release|x64.ActiveCfg = Release|Any CPU
-		{F96BE802-2894-4F07-81A9-BC851DE3C884}.Release|x86.ActiveCfg = Release|Any CPU
 		{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -186,7 +174,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F96BE802-2894-4F07-81A9-BC851DE3C884} = {2D6FCBBF-09B6-42E3-BCC5-97DD09B76649}
 		{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F} = {045DCFB0-2ABE-4788-8C46-1A97E1CA2ED3}
 		{E807B758-858C-4F1A-A6B1-1FE220426450} = {FAF98A45-19B8-4157-A4A6-62597B13D1AB}
 		{62864846-7447-4600-B704-91831B872E3F} = {FAF98A45-19B8-4157-A4A6-62597B13D1AB}

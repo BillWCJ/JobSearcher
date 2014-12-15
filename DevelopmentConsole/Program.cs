@@ -40,7 +40,7 @@ namespace Presentation.Console.Developer
         {
             AccountSetting.GetAccount();
             new JobMineInfoSeeder(account).SeedDb(account.Username, account.Password, term, appsAvail);
-            new GoogleLocationSeeder(account).SeedDb();
+            //new GoogleLocationSeeder(account).SeedDb();
         }
         public static void DownLoadJobs(string term, string jobStatus, string filePath, UserAccount account)
         {

@@ -9,13 +9,19 @@ namespace Data.EF.ClusterDB
         private const string DefaultConnectionString = "JobSearchEnhancerDatabase";
         private const bool LazyLoadingEnabled = false;
 
-        public DatabaseContext(string connectionString)
-            : base(connectionString ?? DefaultConnectionString)
-        {
-        }
+        //public DatabaseContext(string connectionString)
+        //    : base(connectionString ?? DefaultConnectionString)
+        //{
+        //}
 
-        public DatabaseContext() : this(DefaultConnectionString)
+        //public DatabaseContext() : this(DefaultConnectionString)
+        //{
+        //}
+
+        public DatabaseContext()
+            : base()
         {
+            
         }
 
         public DatabaseContext(bool lazyLoadingEnabled) : this()
