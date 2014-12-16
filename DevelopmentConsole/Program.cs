@@ -23,9 +23,6 @@ namespace DevelopmentConsole
 
             //DownloadJobsDetailsForAllUser();
             //DownLoadJobs("w52jiang", "Ss332640747:)","1149", GVar.JobStatus.AppsAvail, @"C:\Users\BillWenChao\Desktop\");
-
-            Console.WriteLine("DBContext");
-            JobManager.GetTermDuration();
             Console.ReadLine();
         }
 

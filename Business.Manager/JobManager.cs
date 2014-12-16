@@ -11,39 +11,32 @@ namespace Business.Manager
 {
     public static class JobManager
     {
-        public static TermType GetTermDuration(Job job=null)
+        public static TermType GetTermDuration(Job job)
         {
-            var value = (TermType) 0;
-            using (var db = new DatabaseContext())
-            {
+            TermType value;
                 
-                foreach (var j in db.Jobs)
-                {
-                    if (string.IsNullOrWhiteSpace(j.Comment))
-                    {
-                        if (string.IsNullOrWhiteSpace(j.JobDescription))
-                            throw new ArgumentException("Empty description field");
+            if (string.IsNullOrWhiteSpace(job.Comment))
+            {
+                if (string.IsNullOrWhiteSpace(job.JobDescription))
+                    throw new ArgumentException("Empty description field");
 
-                        value = CheckString(j.JobDescription);
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("Job title: {0}\nJob description: {1}\nTerm Duration: {2}\n JobId: {3} ",
-                            j.JobTitle,j.JobDescription,value, j.Id);
-                        Console.ResetColor();
-                        Console.WriteLine("-----------------------------------------------------");
-                    }
-                    else
-                    {
-                        value = CheckString(j.Comment);
-                        if (value == TermType.Not_Specified)
-                            value = CheckString(j.JobDescription);
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("Job title: {0}\nJob comment: {1}\nTerm Duration: {2}\n JobId: {3}",
-                            j.JobTitle, j.Comment, value, j.Id);
-                        Console.ResetColor();
-                        Console.WriteLine("-----------------------------------------------------");
-                    }
-
-                }
+                value = CheckString(job.JobDescription);
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Job title: {0}\nJob description: {1}\nTerm Duration: {2}\n JobId: {3} ",
+                    job.JobTitle,job.JobDescription,value, job.Id);
+                Console.ResetColor();
+                Console.WriteLine("-----------------------------------------------------");
+            }
+            else
+            {
+                value = CheckString(job.Comment);
+                if (value == TermType.Not_Specified)
+                    value = CheckString(job.JobDescription);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Job title: {0}\nJob comment: {1}\nTerm Duration: {2}\n JobId: {3}",
+                    job.JobTitle, job.Comment, value, job.Id);
+                Console.ResetColor();
+                Console.WriteLine("-----------------------------------------------------");
             }
             return value;
         }
@@ -66,7 +59,9 @@ namespace Business.Manager
             }
 
             if (comment.ToLower().Contains("8 months") ||
-                comment.ToLower().Contains("8 month"))
+                comment.ToLower().Contains("8-months") ||
+                comment.ToLower().Contains("8 month") ||
+                comment.ToLower().Contains("8-month"))
             {
                 return TermType.Eight;
             }
