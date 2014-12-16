@@ -27,6 +27,10 @@ namespace JobSearchEnhancerTest
             job = Jobs.FirstOrDefault(j => j.Id.Equals(2));
             term = JobManager.GetTermDuration(job);
             Assert.Equal(TermType.Not_Specified, term);
+
+            job = Jobs.FirstOrDefault(j => j.Id.Equals(6));
+            term = JobManager.GetTermDuration(job);
+            Assert.Equal(TermType.Both, term);
         }
 
         private void GetStubbedData()
@@ -67,6 +71,22 @@ namespace JobSearchEnhancerTest
                     JobTitle = "Senior Java Developer",
                     Comment = "This is a 4 month work term",
                     JobDescription = ""
+                },
+
+                new Job
+                {
+                    Id = 5,
+                    JobTitle = ".Net Developer",
+                    Comment = "This is an 8 month work term. A 4 month term will not be considered",
+                    JobDescription = "Work in a team of Asp.Net developers"
+                },
+
+                new Job
+                {
+                    Id = 6,
+                    JobTitle = "Systems analyst",
+                    Comment = "This is work is for 4 months. An 8 month work term is also considered",
+                    JobDescription = "Work hard play hard"
                 }
             };
         }

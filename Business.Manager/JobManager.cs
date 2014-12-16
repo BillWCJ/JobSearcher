@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data.EF.ClusterDB;
 using Model.Entities;
 
 namespace Business.Manager
@@ -21,22 +15,12 @@ namespace Business.Manager
                     throw new ArgumentException("Empty description field");
 
                 value = CheckString(job.JobDescription);
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Job title: {0}\nJob description: {1}\nTerm Duration: {2}\n JobId: {3} ",
-                    job.JobTitle,job.JobDescription,value, job.Id);
-                Console.ResetColor();
-                Console.WriteLine("-----------------------------------------------------");
             }
             else
             {
                 value = CheckString(job.Comment);
                 if (value == TermType.Not_Specified)
                     value = CheckString(job.JobDescription);
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Job title: {0}\nJob comment: {1}\nTerm Duration: {2}\n JobId: {3}",
-                    job.JobTitle, job.Comment, value, job.Id);
-                Console.ResetColor();
-                Console.WriteLine("-----------------------------------------------------");
             }
             return value;
         }
