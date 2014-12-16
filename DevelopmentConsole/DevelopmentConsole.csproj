@@ -84,6 +84,10 @@
       <Project>{ac05b1c9-c9c9-4220-8a2c-be6952c2e358}</Project>
       <Name>Business.JobMine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Business.Manager\Business.Manager.csproj">
+      <Project>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</Project>
+      <Name>Business.Manager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.ClusterDB.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
       <Name>Data.EF.ClusterDB</Name>
