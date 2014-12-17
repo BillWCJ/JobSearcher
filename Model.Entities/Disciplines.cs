@@ -115,7 +115,7 @@ namespace Model.Entities
             {
                 Console.WriteLine("!Error-{0}_In_{1}: {2}\n", e.GetType(), GetType(), e.Message);
             }
-            return UtilityMethods.UtilityMethods.TrimEndCommaAndSpace(toString);
+            return toString.TrimEndCommaAndSpace();
         }
     }
 }

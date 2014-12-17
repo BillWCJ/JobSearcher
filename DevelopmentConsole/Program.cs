@@ -7,8 +7,10 @@ using Business.DataBaseSeeder;
 using Business.Manager;
 using Data.IO.Local;
 using Data.Web.JobMine;
+using Data.Web.RateMyCoopJob;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.RateMyCoopJob;
 
 namespace DevelopmentConsole
 {
@@ -23,7 +25,7 @@ namespace DevelopmentConsole
 
             //DownloadJobsDetailsForAllUser();
             //DownLoadJobs("w52jiang", "Ss332640747:)","1149", GVar.JobStatus.AppsAvail, @"C:\Users\BillWenChao\Desktop\");
-            Console.ReadLine();
+            RateMyCoopJob.GetRatings(new JobRating());
         }
 
         private static void Seeders(string term, string appsAvail, UserAccount account)

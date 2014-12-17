@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E807B758-858C-4F1A-A6B1-1FE220426450}</ProjectGuid>
+    <ProjectGuid>{F328E8D2-2265-4B1A-B6CC-8B28E4DE7123}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model.Entities</RootNamespace>
-    <AssemblyName>Model.Entities</AssemblyName>
+    <RootNamespace>Data.Web.RateMyCoopJob</RootNamespace>
+    <AssemblyName>Data.Web.RateMyCoopJob</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentSharp.CoreLib">
+      <HintPath>..\packages\FluentSharp.CoreLib.5.5.172\lib\net35\FluentSharp.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentSharp.HtmlAgilityPack">
+      <HintPath>..\packages\FluentSharp.HtmlAgilityPack.5.5.172\lib\net35\FluentSharp.HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentSharp.Xml">
+      <HintPath>..\packages\FluentSharp.Xml.5.5.172\lib\net35\FluentSharp.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,33 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RateMyCoopJob\Rating.cs" />
-    <Compile Include="CookieEnabledWebClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Disciplines.cs" />
-    <Compile Include="Employer.cs" />
-    <Compile Include="RateMyCoopJob\EmployerRating.cs" />
-    <Compile Include="Job.cs" />
-    <Compile Include="RateMyCoopJob\JobRating.cs" />
-    <Compile Include="Levels.cs" />
-    <Compile Include="Location.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="RateMyCoopJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Salary.cs" />
-    <Compile Include="SearchDictionary.cs" />
-    <Compile Include="UserAccount.cs" />
-    <Compile Include="UtilityMethods.cs" />
-    <Compile Include="Word.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
       <Name>Model.Definition</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
+      <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
+      <Name>Model.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
