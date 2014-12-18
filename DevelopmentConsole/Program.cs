@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Business.Account;
 using Business.DataBaseSeeder;
 using Data.EF.ClusterDB;
 using Model.Definition;
@@ -13,7 +14,7 @@ namespace DevelopmentConsole
         {
             const string term = "1149";
             const string appsAvail = JobStatus.AppsAvail;
-            //Seeders(term, appsAvail, new AccountManager().Account);
+            Seeders(term, appsAvail, new AccountManager().Account);
 
             //SeedOneFakeJob();
             var jsedb = new JseDataRepo();

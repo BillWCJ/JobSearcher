@@ -9,3 +9,14 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Business.Account\bin\Debug\Data.IO.Local.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Business.Account\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Business.Account\bin\Debug\Model.Entities.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Business.Account.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Business.Account.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Data.IO.Local.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Model.Definition.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Model.Entities.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Data.IO.Local.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Model.Definition.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\bin\Debug\Model.Entities.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\obj\Debug\Business.Account.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\obj\Debug\Business.Account.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.Account\obj\Debug\Business.Account.pdb

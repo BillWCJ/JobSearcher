@@ -9,6 +9,7 @@ namespace Data.IO.Local
 {
     public class JseLocalRepo : IJseLocalRepo
     {
+        private const string DataFileName = @"ProgramData.txt";
         public JseLocalRepo()
         {
             FilePath = GetSolutionPath() ?? CommonDef.DefaultFilePath;
@@ -16,10 +17,10 @@ namespace Data.IO.Local
 
         public static string FilePath { get; private set; }
 
-        public static UserAccount GetAccount()
+        public UserAccount GetAccount()
         {
             UserAccount account = null;
-            string dataFilePath = FilePath + @"SystemData.txt";
+            string dataFilePath = FilePath + DataFileName;
             StreamReader reader = StreamReader.Null;
             try
             {
@@ -28,6 +29,8 @@ namespace Data.IO.Local
                 String password = reader.ReadLine();
                 String googleApisServerKey = reader.ReadLine();
                 String googleApisBrowserKey = reader.ReadLine();
+                if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                    throw new ArgumentException();
                 account = new UserAccount
                 {
                     FilePath = FilePath,
@@ -40,6 +43,9 @@ namespace Data.IO.Local
             catch (Exception e)
             {
                 Trace.Write(e.ToString());
+                Console.WriteLine("No Data File Found or Data File Empty");
+                CreateDataFile();
+                return GetAccount();
             }
             finally
             {
@@ -70,6 +76,39 @@ namespace Data.IO.Local
                 Trace.Write(e.ToString());
                 return CommonDef.DefaultFilePath;
             }
+        }
+
+        private static void CreateDataFile()
+        {
+            string userName = null;
+            string passWord = null;
+            try
+            {
+                Console.WriteLine("Please enter UserName");
+                userName = Console.ReadLine().TrimEnd('\n');
+                Console.WriteLine("Please enter Password");
+                passWord = Console.ReadLine().TrimEnd('\n');
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            var writer = StreamWriter.Null;
+            var account = new UserAccount();
+            string userInfoFilePath = FilePath + DataFileName;
+            try
+            {
+                writer = new StreamWriter(userInfoFilePath);
+                writer.WriteLine(userName);
+                writer.WriteLine(passWord);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            if (writer != null)
+                writer.Close();
         }
     }
 }

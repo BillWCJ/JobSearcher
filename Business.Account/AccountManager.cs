@@ -9,7 +9,7 @@ namespace Business.Account
 
         public AccountManager()
         {
-            Account = JseLocalRepo.GetAccount();
+            Account = new JseLocalRepo().GetAccount();
         }
     }
 }
