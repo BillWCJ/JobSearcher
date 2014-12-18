@@ -79,7 +79,7 @@ namespace JobDownloader
                             Dispatcher.Invoke(
                                 (() =>
                                     OutputTextBox.AppendText("Downloading and Writing Job number:" + currentFileJobCount +
-                                                             "- JobMine JobId: " + currentJobId + "\n")));
+                                                             "- JobMine JobReviewId: " + currentJobId + "\n")));
                             string url = JobMineDef.JobDetailBaseUrl + currentJobId;
                             writer.Write(JobDetail.GetJob(client.DownloadString(url), currentJobId).ToString());
                         }

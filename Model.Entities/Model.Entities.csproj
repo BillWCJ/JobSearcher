@@ -40,15 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RateMyCoopJob\Rating.cs" />
+    <Compile Include="RateMyCoopJob\JobRating.cs" />
     <Compile Include="CookieEnabledWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Disciplines.cs" />
     <Compile Include="Employer.cs" />
-    <Compile Include="RateMyCoopJob\EmployerRating.cs" />
+    <Compile Include="RateMyCoopJob\EmployerReview.cs" />
     <Compile Include="Job.cs" />
-    <Compile Include="RateMyCoopJob\JobRating.cs" />
+    <Compile Include="RateMyCoopJob\JobReview.cs" />
     <Compile Include="Levels.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Logger.cs" />

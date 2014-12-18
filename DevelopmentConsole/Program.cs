@@ -22,16 +22,17 @@ namespace DevelopmentConsole
             const string appsAvail = JobStatus.AppsAvail;
             var client = new CookieEnabledWebClient();
             //Seeders(term, appsAvail, new AccountManager().Account);
+            RateMyCoopJobSeeder.SeedDb();
 
             //DownloadJobsDetailsForAllUser();
             //DownLoadJobs("w52jiang", "Ss332640747:)","1149", GVar.JobStatus.AppsAvail, @"C:\Users\BillWenChao\Desktop\");
-            RateMyCoopJob.GetRatings(new JobRating());
         }
 
         private static void Seeders(string term, string appsAvail, UserAccount account)
         {
             AccountSetting.GetAccount();
             new JobMineInfoSeeder(account).SeedDb(account.Username, account.Password, term, appsAvail);
+            RateMyCoopJobSeeder.SeedDb();
             //new GoogleLocationSeeder(account).SeedDb();
         }
         public static void DownLoadJobs(string term, string jobStatus, string filePath, UserAccount account)
