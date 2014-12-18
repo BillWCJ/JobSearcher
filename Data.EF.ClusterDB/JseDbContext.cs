@@ -11,19 +11,11 @@ namespace Data.EF.ClusterDB
             base.Seed(dbContext);
         }
     }
+
     public class JseDbContext : DbContext
     {
         private const string DefaultConnectionString = "JobSearchEnhancerDatabase";
         private const bool LazyLoadingEnabled = false;
-
-        //public JseDbContext(string connectionString)
-        //    : base(connectionString ?? DefaultConnectionString)
-        //{
-        //}
-
-        //public JseDbContext() : this(DefaultConnectionString)
-        //{
-        //}
 
         public JseDbContext()
         {

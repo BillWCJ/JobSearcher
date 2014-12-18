@@ -118,7 +118,7 @@ namespace Model.Entities
             for (int i = 0; i < GlobalDef.MaxNumberOfLevels; i++)
                 if (this[i])
                     toString += GlobalDef.LevelNames[i] + ", ";
-            return UtilityMethods.UtilityMethods.TrimEndCommaAndSpace(toString);
+            return toString.TrimEndCommaAndSpace();
         }
     }
 }

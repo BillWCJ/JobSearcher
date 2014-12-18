@@ -54,6 +54,10 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -80,6 +84,14 @@
       <Project>{1e5b0839-8910-4bb4-b317-f06ae676ddee}</Project>
       <Name>Business.DataBaseSeeder</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Business.JobMine\Business.JobMine.csproj">
+      <Project>{ac05b1c9-c9c9-4220-8a2c-be6952c2e358}</Project>
+      <Name>Business.JobMine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Manager\Business.Manager.csproj">
+      <Project>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</Project>
+      <Name>Business.Manager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
       <Name>Data.EF.JseDb</Name>
@@ -95,6 +107,10 @@
     <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
       <Project>{07d1aea5-7872-4b29-93d6-73f8fdc63d33}</Project>
       <Name>Data.Web.JobMine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Web.RateMyCoopJob\Data.Web.RateMyCoopJob.csproj">
+      <Project>{f328e8d2-2265-4b1a-b6cc-8b28e4de7123}</Project>
+      <Name>Data.Web.RateMyCoopJob</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
