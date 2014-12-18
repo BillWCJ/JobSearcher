@@ -92,9 +92,9 @@
       <Project>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</Project>
       <Name>Business.Manager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.ClusterDB.csproj">
+    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
-      <Name>Data.EF.ClusterDB</Name>
+      <Name>Data.EF.JseDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
       <Project>{8bf3f9bb-8ea9-4eef-ba16-f89fb067e7ef}</Project>

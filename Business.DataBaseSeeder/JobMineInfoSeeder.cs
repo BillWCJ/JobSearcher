@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Data.EF.ClusterDB;
 using Data.Web.JobMine;
@@ -16,20 +17,18 @@ namespace Business.DataBaseSeeder
             Account = account;
         }
 
-        public void SeedDb(string username, string password, string term, string appsAvail, int numberOfJobsToSeed = int.MaxValue)
+        public void SeedDb(string term, string appsAvail, int numberOfJobsToSeed = int.MaxValue)
         {
-            using (var db = new DatabaseContext())
+            using (var db = new JseDbContext())
             {
-                uint count = 0;
-                Account = new UserAccount { Username = username, Password = password };
-                CookieEnabledWebClient client = new Login(Account).NewJobMineLoggedInWebClient();
-                Queue<JobOverView> jobOverViews = JobInquiry.GetJobOverViews(client, term, appsAvail);
+                var jobMineRepo = new JobMineRepo(Account);
+                var jobOverViews = jobMineRepo.JobInquiry.GetJobOverViews(term, appsAvail).Take(numberOfJobsToSeed);
                 foreach (JobOverView jov in jobOverViews)
                 {
                     if(db.Jobs.Any(j => j.Id == jov.Id))
                         continue;
 
-                    Job job = JobDetail.GetJob(client, jov);
+                    Job job = jobMineRepo.JobDetail.GetJob(jov);
 
                     Employer existingEmployer = db.Employers.FirstOrDefault(e => e.Name == job.Employer.Name && e.UnitName == job.Employer.UnitName);
                     if (existingEmployer != null)
@@ -47,10 +46,6 @@ namespace Business.DataBaseSeeder
 
                     db.Jobs.Add(job);
                     db.SaveChanges();
-                    Console.WriteLine("Added" + count + "jobs.");
-                    count++;
-                    if (count >= numberOfJobsToSeed)
-                        break;
                 }
             }
         }

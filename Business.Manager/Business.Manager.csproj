@@ -51,7 +51,7 @@
     <Compile Include="TermType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.ClusterDB.csproj">
+    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
       <Project>{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}</Project>
       <Name>Data.EF.ClusterDB</Name>
     </ProjectReference>

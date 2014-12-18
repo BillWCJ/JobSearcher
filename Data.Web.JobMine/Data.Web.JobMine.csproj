@@ -42,11 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IJobMineRepo.cs" />
     <Compile Include="JobDetail.cs" />
     <Compile Include="JobInquiry.cs" />
+    <Compile Include="JobInquiryHelpper.cs" />
+    <Compile Include="JobMineRepo.cs" />
     <Compile Include="Login.cs" />
+    <Compile Include="PostData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextParser.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">

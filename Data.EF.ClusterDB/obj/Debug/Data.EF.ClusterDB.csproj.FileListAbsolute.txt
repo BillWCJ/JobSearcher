@@ -17,9 +17,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.csprojResolveAssemblyReference.cache
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Data.EF.ClusterDB.dll.config
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Data.EF.ClusterDB.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Data.EF.ClusterDB.pdb
@@ -29,10 +26,13 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.Cluster
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Model.Entities.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\HtmlAgilityPack.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Model.Definition.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Data.Web.JobMine.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Model.Entities.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\EntityFramework.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\HtmlAgilityPack.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Model.Definition.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\obj\Debug\Data.EF.ClusterDB.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.EF.ClusterDB\bin\Debug\Data.Web.JobMine.pdb

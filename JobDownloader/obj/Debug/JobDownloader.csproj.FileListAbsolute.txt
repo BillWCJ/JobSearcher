@@ -39,15 +39,13 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.exe.manifest
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.application
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\JobDownloader.exe.config
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.exe
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\JobDownloader.exe.manifest
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\JobDownloader.application
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\JobDownloader.exe
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\JobDownloader.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.Account.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.Common.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.DataBaseSeeder.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.JobMine.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.EF.ClusterDB.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.IO.Local.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Web.GoogleApis.dll
@@ -57,8 +55,8 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\b
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\EntityFramework.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\HtmlAgilityPack.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.Account.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.Common.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.DataBaseSeeder.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Business.JobMine.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.EF.ClusterDB.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.IO.Local.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Web.GoogleApis.pdb
@@ -78,3 +76,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\o
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.csproj.GenerateResource.Cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.exe.manifest
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.application
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.exe
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.pdb

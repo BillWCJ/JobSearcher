@@ -8,9 +8,10 @@ using Data.EF.ClusterDB.Interface;
 
 namespace Data.EF.ClusterDB.Repository
 {
-    public class BaseRepository<TClass> : IBaseRepository<TClass> where TClass : class
+    public class BaseRepository<TClass> : IBaseRepository<TClass>
+        where TClass : class
     {
-        public BaseRepository(DatabaseContext dbContext)
+        public BaseRepository(JseDbContext dbContext)
         {
             if (dbContext == null)
                 throw new ArgumentNullException("dbContext");
@@ -19,7 +20,7 @@ namespace Data.EF.ClusterDB.Repository
             DbSet = DbContext.Set<TClass>();
         }
 
-        protected DatabaseContext DbContext { get; set; }
+        protected JseDbContext DbContext { get; set; }
         protected DbSet<TClass> DbSet { get; set; }
 
         public virtual IQueryable<TClass> GetAll()
@@ -30,8 +31,8 @@ namespace Data.EF.ClusterDB.Repository
             }
             catch (Exception e)
             {
-                string msg = e.GetType() + " : " + e.Message + " at " + GetType().GetMethods();
-                Trace.WriteLine(msg);
+                string msg = typeof (TClass) + " " + this.GetType() + "::GetAll() : \n" + e;
+                Trace.TraceError(msg);
                 throw new DataException(msg, e);
             }
         }
@@ -42,16 +43,10 @@ namespace Data.EF.ClusterDB.Repository
             {
                 return DbSet.Find(id);
             }
-            catch (InvalidOperationException e)
-            {
-                string msg = e.GetType() + " : " + e.Message + " at " + GetType().GetMethods() + " : id =" + id;
-                Trace.WriteLine(msg);
-                throw new DataException(msg, e);
-            }
             catch (Exception e)
             {
-                string msg = e.GetType() + " : " + e.Message + " at " + GetType().GetMethods() + " : id =" + id;
-                Trace.WriteLine(msg);
+                string msg = typeof (TClass) + " " + this.GetType() + "::GetById(" + id.GetType() + " " + id + ") : \n" + e;
+                Trace.TraceError(msg);
                 throw new DataException(msg, e);
             }
         }
@@ -74,9 +69,8 @@ namespace Data.EF.ClusterDB.Repository
             }
             catch (Exception e)
             {
-                string msg = e.GetType() + " : " + e.Message + " at " + GetType().GetMethods() + " : " +
-                             (DbContext == null ? "Null" : DbContext.GetType().ToString());
-                Trace.WriteLine(msg);
+                string msg = "void " + this.GetType() + "::Add(" + typeof(TClass) + " " + entity + ") : \n" + e;
+                Trace.TraceError(msg);
                 throw new DataException(msg, e);
             }
         }
@@ -99,9 +93,8 @@ namespace Data.EF.ClusterDB.Repository
             }
             catch (Exception e)
             {
-                string msg = e.GetType() + " : " + e.Message + " at " + GetType().GetMethods() + " : " +
-                             (DbContext == null ? "Null" : DbContext.GetType().ToString());
-                Trace.WriteLine(msg);
+                string msg = "void " + this.GetType() + "::Update(" + typeof(TClass) + " " + entity + ") : \n" + e;
+                Trace.TraceError(msg);
                 throw new DataException(msg, e);
             }
         }
@@ -127,9 +120,8 @@ namespace Data.EF.ClusterDB.Repository
             }
             catch (Exception e)
             {
-                string msg = e.GetType() + " : " + e.Message + " at " + GetType().GetMethods() + " : " +
-                             (DbContext == null ? "Null" : DbContext.GetType().ToString());
-                Trace.WriteLine(msg);
+                string msg = "void " + this.GetType() + "::Delete(" + typeof(TClass) + " " + entity + ") : \n" + e;
+                Trace.TraceError(msg);
                 throw new DataException(msg, e);
             }
         }
@@ -146,8 +138,8 @@ namespace Data.EF.ClusterDB.Repository
             }
             catch (Exception e)
             {
-                string msg = e.GetType() + " : " + e.Message + " at " + GetType().GetMethods() + " : id =" + id;
-                Trace.WriteLine(msg);
+                string msg = "void " + this.GetType() + "::Delete(" + id.GetType() + " " + id + ") : \n" + e;
+                Trace.TraceError(msg);
                 throw new DataException(msg, e);
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 using Data.EF.ClusterDB;
 using Data.Web.GoogleApis;
@@ -11,31 +12,27 @@ namespace Business.DataBaseSeeder
 {
     public class GoogleLocationSeeder
     {
-        UserAccount Account { get; set; }
-
         public GoogleLocationSeeder(UserAccount account)
         {
             Account = account;
         }
 
+        private UserAccount Account { get; set; }
+
         public void SeedDb()
         {
-            using (var db = new DatabaseContext())
+            using (var db = new JseDbContext())
             {
-                IList<Location> locations = (from l in db.Locations select l).ToList();
-                foreach (Location location in locations)
+                IList<Location> notSetLocations = (from l in db.Locations where l.AlreadySet == false select l).ToList();
+                PlaceTextSearch locationSearcher = new GoogleRepo(new List<string> {Account.GoogleApisBrowserKey}).LocationRepo;
+                foreach (Location location in notSetLocations)
                 {
                     try
                     {
-                        if (location.AlreadySet)
-                            continue;
                         Job job = db.Jobs.Include(j => j.Employer).FirstOrDefault(j => j.Location.Id == location.Id);
-                        if (job == null) continue;
-
                         Employer employer = db.Employers.FirstOrDefault(e => e.Id == job.Employer.Id);
-                        if (employer == null) continue;
 
-                        Location completedLocation = new PlaceTextSearch(Account).GetLocation(employer, location.Region);
+                        Location completedLocation = locationSearcher.GetLocation(employer, location.Region);
                         if (completedLocation != null)
                         {
                             location.FullAddress = completedLocation.FullAddress;
@@ -49,7 +46,7 @@ namespace Business.DataBaseSeeder
                             locationEntry.Property(e => e.Longitude).IsModified = true;
                         }
 
-                        //Because Entity Frameworkd is retarded or i am retard, EF thinking that everything is change even though only location is changed
+                        //Because Entity Framework is retarded or i am, EF thinking that everything is change even though only location is changed
                         DbEntityEntry<Job> jobEntry = db.Entry(job);
                         jobEntry.State = EntityState.Unchanged;
                         DbEntityEntry<Disciplines> disciplineEntry = db.Entry(job.Disciplines);
@@ -59,11 +56,11 @@ namespace Business.DataBaseSeeder
                         DbEntityEntry<Employer> employerEntry = db.Entry(employer);
                         employerEntry.State = EntityState.Unchanged;
 
-                        Console.WriteLine(db.SaveChanges() + "Changes");
+                        Trace.TraceInformation(db.SaveChanges() + "Changes");
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e + "\n" + e.Message + "\n" + e.InnerException + "\n" + e.InnerException.Message);
+                        Trace.TraceWarning(e.ToString()); //ignore error
                     }
                 }
             }

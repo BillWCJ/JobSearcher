@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Reflection;
 using Model.Definition;
 using Model.Entities;
 
@@ -10,13 +10,11 @@ namespace Data.Web.JobMine
 {
     public class JobDetail
     {
-        private UserAccount Account { get; set; }
-
-        public JobDetail(UserAccount account)
+        static CookieEnabledWebClient Client { get; set; }
+        public JobDetail(CookieEnabledWebClient client)
         {
-            Account = account;
+            Client = client;
         }
-
         public static Job GetJob(string htmlSource, string jobId) //todo: improve using html parsing
         {
             var fields = new string[JobMineDef.FieldSearchString.Length];
@@ -32,9 +30,15 @@ namespace Data.Web.JobMine
                     .Replace("<br />", "\n");
             return new Job
             {
-                Employer = new Employer { Name = fields[0] },
+                Employer = new Employer
+                {
+                    Name = fields[0]
+                },
                 JobTitle = fields[1],
-                Location = new Location { Region = fields[2] },
+                Location = new Location
+                {
+                    Region = fields[2]
+                },
                 Disciplines = new Disciplines(fields[3]),
                 Levels = new Levels(fields[4]),
                 Comment = fields[5],
@@ -43,23 +47,19 @@ namespace Data.Web.JobMine
             };
         }
 
-        public static Job GetJob(CookieEnabledWebClient client, JobOverView jobOverView)
+        public Job GetJob(JobOverView jobOverView)
         {
             string jobId = jobOverView.IdString;
             string url = JobMineDef.JobDetailBaseUrl + jobId;
-            string htmlSource = client.DownloadString(url);
+            string htmlSource = Client.DownloadString(url);
             Job job = GetJob(htmlSource, jobId);
             job.Employer.UnitName = jobOverView.Employer.UnitName;
 
             bool theSame = true;
             if (job.Employer.Name.IndexOf(jobOverView.Employer.Name, StringComparison.InvariantCultureIgnoreCase) > -1)
-            {
                 job.Employer.Name = jobOverView.Employer.Name;
-            }
             else
-            {
                 theSame = false;
-            }
             if (!job.Location.Region.Equals(jobOverView.Location.Region, StringComparison.InvariantCultureIgnoreCase))
                 theSame = false;
             //if (!job.JobTitle.Equals(jobOverView.JobTitle, StringComparison.InvariantCultureIgnoreCase))
@@ -74,45 +74,48 @@ namespace Data.Web.JobMine
         {
             int start = data.IndexOf(front, StringComparison.InvariantCulture) + front.Length;
             int end = data.IndexOf(back, start, StringComparison.InvariantCulture);
-            string extractedString = String.Empty;
+            string extractedString;
             try
             {
                 extractedString = data.Substring(start, end - start);
             }
             catch (ArgumentOutOfRangeException e)
             {
-                Console.WriteLine("!Error-ArgumentOutOfRangeException_In_ExtractField: {0}\n", e);
+                Trace.Write(e);
+                throw;
             }
             return extractedString;
         }
 
-        public static void DownLoadAndWriteJobsToLocal(Queue<string> jobIDs, CookieEnabledWebClient client, UserAccount account, string fileLocation = null, uint numJobsPerFile = 100)
+        public IEnumerable<string> DownLoadAndWriteJobsToLocal(Queue<string> jobIDs, string fileLocation, uint numJobsPerFile = 100)
         {
-            if (fileLocation == null)
-                fileLocation = account.FilePath;
-            try
+            bool success = true;
+            for (int currentFilePart = 1; jobIDs.Count > 0; currentFilePart++)
             {
-                for (uint currentFilePart = 1; jobIDs.Count > 0; currentFilePart++)
+                yield return string.Format("Writing JobDetailPart {0} ({1} Jobs Per File)", currentFilePart, numJobsPerFile);
+
+                try
                 {
-                    StreamWriter writer = TextParser.OpenFileForStreamWriter(fileLocation,
-                        "JobDetailPart" + currentFilePart + ".txt");
-                    Console.WriteLine("Writing JobDetailPart {0} ({1} Jobs Per File)", currentFilePart, numJobsPerFile);
+                    var writer = new StreamWriter(fileLocation + ("JobDetailPart" + currentFilePart + ".txt"));
                     writer.Write("Download Time:" + DateTime.Now.ToString("s"));
-                    for (uint currentFileJobCount = 0;
-                        currentFileJobCount < numJobsPerFile && jobIDs.Count > 0;
-                        currentFileJobCount++)
+                    for (uint currentFileJobCount = 0; currentFileJobCount < numJobsPerFile && jobIDs.Count > 0; currentFileJobCount++)
                     {
                         string currentJobId = jobIDs.Dequeue();
                         string url = JobMineDef.JobDetailBaseUrl + currentJobId;
-                        writer.Write(GetJob(client.DownloadString(url), currentJobId).ToString());
+                        Job job = GetJob(Client.DownloadString(url), currentJobId);
+                        writer.Write(job.ToString());
                     }
                     writer.Close();
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("{0}-{1}:{2}-{3}:{4}", MethodBase.GetCurrentMethod().Name, e, e.Message, e.StackTrace,
-                    e.Data);
+                catch (Exception e)
+                {
+                    success = false;
+                    Console.WriteLine(e);
+                }
+                if (success)
+                    yield return string.Format("Finished Writing JobDetailPart" + currentFilePart + "\n");
+                else
+                    yield return string.Format("Writing JobDetailPart" + currentFilePart + " Failed, Existing \n");
             }
         }
     }
