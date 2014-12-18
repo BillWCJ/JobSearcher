@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RM13SR/Ic9v3eOLQHBloLu2SVzWBOYJfX0mI6zwISCg=</dsig:DigestValue>
+        <dsig:DigestValue>z/zhKKqEi3yjKyLf6HDz+2uagDwQHnQ9j1R9QWUN7bA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,31 +61,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>27fj9z5GlRo9Nez5uBJCuF4QqCRRnvJWJHcWkWQygmg=</dsig:DigestValue>
+        <dsig:DigestValue>/IoiNDPnqNnTLiRrURblJpSsjvAH6HvKxYkJpZXWdeY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Business.JobMine.dll" size="5632">
-      <assemblyIdentity name="Business.JobMine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eooM4rjyAozsvnNu/LQuL5X8MM+xF5R7urLiLcdVBYo=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Data.EF.ClusterDB.dll" size="6144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Data.EF.ClusterDB.dll" size="12800">
       <assemblyIdentity name="Data.EF.ClusterDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GTn3WxOwfJ8BToAhZqhBMlnZ7qG0OegiRCbGcwBbEKM=</dsig:DigestValue>
+        <dsig:DigestValue>ZVABy3e3a19E+45BnHcTokiq7xfmIulkd2ibtX44izg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +85,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hplRuRZp31Hz2/KCKhncxJQQZuglxMUc3JIr+oW8q04=</dsig:DigestValue>
+        <dsig:DigestValue>QgMJJIbLFCol0kVrDZwhRHWh2fEtWixQ9EVqMICQ2MQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,19 +97,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ETt7O55f6KIM9T37qwJdPAY++jYUNg7TSyiYpQ66ahU=</dsig:DigestValue>
+        <dsig:DigestValue>HwKx8O3YxH0mkyJdrKVyYz4wXuP8gjW1sAaCutwIbVg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Data.Web.JobMine.dll" size="20992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Data.Web.JobMine.dll" size="16384">
       <assemblyIdentity name="Data.Web.JobMine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Awt3LE1+CwIY4FwE+tGh7Fjc0xhxBvoYym1dgxTj3SE=</dsig:DigestValue>
+        <dsig:DigestValue>KYGG97t72FdCKDKLaNYkUnNvWBNyhGH2VEeAADSGGOU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -157,31 +145,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZENXXDBRdJPXPSJyWh67RBLQtMb4yrai0P5WNkpWkoE=</dsig:DigestValue>
+        <dsig:DigestValue>QjogpCj4KOoJGVNdarPwYufsgRy73uWoPAK92s9ynwE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Definition.dll" size="18944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Definition.dll" size="21504">
       <assemblyIdentity name="Model.Definition" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>D+xQAn0bDlFCqdE6KTre1XgZ7mw1jSmyfGhVP/Ewr4U=</dsig:DigestValue>
+        <dsig:DigestValue>s1lOongPOKaFlH5bNp+Mfau070NwV9F+I+TCMpjc5hk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Entities.dll" size="17408">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.Entities.dll" size="19968">
       <assemblyIdentity name="Model.Entities" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HOSvuS4Vi/eJAVmetrKkIaPOZJ6Jv6//L6yIwITVrSE=</dsig:DigestValue>
+        <dsig:DigestValue>fJTUrwPPr04479SL69AwkaKx9/LP+GKuzrOHeHXHD20=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

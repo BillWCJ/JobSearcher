@@ -1,33 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using Model.Entities;
 
 namespace Data.Web.GoogleApis
 {
-    public class PlaceTextSearch
+    public class PlaceTextSearch : IPlaceTextSearch
     {
-        UserAccount Account { get; set; }
-
-        public PlaceTextSearch(UserAccount account)
+        List<string> GoogleApisKeys { get; set; }
+        CookieEnabledWebClient Client { get; set; }
+        public PlaceTextSearch(List<string> googleApisKeys)
         {
-            Account = account;
+            GoogleApisKeys = googleApisKeys;
+            Client = new CookieEnabledWebClient();
         }
 
-        public const string PlaceTextSearchBaseUrl = @"https://maps.googleapis.com/maps/api/place/textsearch/xml?query=";
+        private const string PlaceTextSearchBaseUrlXml = @"https://maps.googleapis.com/maps/api/place/textsearch/xml?query=";
+        private const string PlaceTextSearchBaseUrlJson = @"https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
 
-        public string ApiKeyGetHeaderString
+        private string ApiKeyGetHeaderString
         {
-            get { return @"&key=" + Account.GoogleApisBrowserKey; }
+            get { return @"&key=" + GoogleApisKeys[0]; }
         }
 
-        public Location GetLocation(Employer employer, string region, CookieEnabledWebClient client = null)
+        public Location GetLocation(Employer employer, string region)
         {
-            if (client == null)
-                client = new CookieEnabledWebClient();
-
             var xml = new XmlDocument();
             string url = GetPlaceTextSearchUrl(employer, region);
-            string result = client.DownloadString(url);
+            string result = Client.DownloadString(url);
 
             xml.LoadXml(result);
             if (xml.DocumentElement == null) return null;
@@ -41,25 +41,26 @@ namespace Data.Web.GoogleApis
 
         private static Location PickLocation(string region, XmlNodeList resultList)
         {
-            if (resultList[0] == null)
-                return null;
-            XmlNode formattedAddress = resultList[0].SelectSingleNode("descendant::formatted_address");
-            XmlNode lat = resultList[0].SelectSingleNode("descendant::lat");
-            XmlNode lng = resultList[0].SelectSingleNode("descendant::lng");
-            if (formattedAddress != null && lat != null && lng != null)
-                return new Location
-                {
-                    Region = region,
-                    FullAddress = formattedAddress.InnerXml,
-                    Longitude = Convert.ToDecimal(lng.InnerXml),
-                    Latitude = Convert.ToDecimal(lat.InnerXml)
-                };
+            if (resultList[0] != null)
+            {
+                XmlNode formattedAddress = resultList[0].SelectSingleNode("descendant::formatted_address");
+                XmlNode lat = resultList[0].SelectSingleNode("descendant::lat");
+                XmlNode lng = resultList[0].SelectSingleNode("descendant::lng");
+                if (formattedAddress != null && lat != null && lng != null)
+                    return new Location
+                    {
+                        Region = region,
+                        FullAddress = formattedAddress.InnerXml,
+                        Longitude = Convert.ToDecimal(lng.InnerXml),
+                        Latitude = Convert.ToDecimal(lat.InnerXml)
+                    };
+            }
             return null;
         }
 
         private string GetPlaceTextSearchUrl(Employer employer, string region)
         {
-            string url = PlaceTextSearchBaseUrl + employer.Name + " " +
+            string url = PlaceTextSearchBaseUrlXml + employer.Name + " " +
                          (string.IsNullOrEmpty(employer.UnitName) ? "" : employer.UnitName + " ") + region +
                          ApiKeyGetHeaderString;
             return url;

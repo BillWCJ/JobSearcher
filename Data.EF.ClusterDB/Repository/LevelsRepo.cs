@@ -9,7 +9,7 @@ namespace Data.EF.ClusterDB.Repository
 {
     public class LevelsRepo : BaseRepository<Levels>, ILevelsRepo
     {
-        public LevelsRepo(DatabaseContext dbContext) : base(dbContext)
+        public LevelsRepo(JseDbContext dbContext) : base(dbContext)
         {
         }
 

@@ -6,7 +6,7 @@ namespace Data.EF.ClusterDB.Repository
 {
     public class LocationRepo : BaseRepository<Location>, ILocationRepo
     {
-        public LocationRepo(DatabaseContext dbContext) : base(dbContext)
+        public LocationRepo(JseDbContext dbContext) : base(dbContext)
         {
         }
 

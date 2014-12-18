@@ -128,17 +128,17 @@
       <Project>{f7f36e63-9e80-4bb3-8fd3-7a37aca8a7a9}</Project>
       <Name>Business.Account</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Business.Common\Business.Common.csproj">
+      <Project>{7D80D69A-DC19-406E-A5A3-84E738283D2E}</Project>
+      <Name>Business.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business.DataBaseSeeder\Business.DataBaseSeeder.csproj">
       <Project>{1e5b0839-8910-4bb4-b317-f06ae676ddee}</Project>
       <Name>Business.DataBaseSeeder</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business.JobMine\Business.JobMine.csproj">
-      <Project>{ac05b1c9-c9c9-4220-8a2c-be6952c2e358}</Project>
-      <Name>Business.JobMine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.ClusterDB.csproj">
+    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
-      <Name>Data.EF.ClusterDB</Name>
+      <Name>Data.EF.JseDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
       <Project>{8bf3f9bb-8ea9-4eef-ba16-f89fb067e7ef}</Project>

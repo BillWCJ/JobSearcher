@@ -7,7 +7,7 @@ namespace Data.EF.ClusterDB.Repository
 {
     internal class JobRepo : BaseRepository<Job>, IJobRepo
     {
-        public JobRepo(DatabaseContext dbContext) : base(dbContext)
+        public JobRepo(JseDbContext dbContext) : base(dbContext)
         {
         }
 

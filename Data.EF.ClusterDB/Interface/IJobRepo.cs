@@ -7,7 +7,7 @@ using Model.Entities;
 
 namespace Data.EF.ClusterDB.Interface
 {
-    interface IJobRepo : IBaseRepository<Job>
+    public interface IJobRepo : IBaseRepository<Job>
     {
         List<Job> GetJobsByEmployerId(int employerId);
         List<Job> GetJobsByLocationId(int locationId);

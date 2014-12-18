@@ -47,7 +47,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Account\Business.Account.csproj">
@@ -71,13 +80,9 @@
       <Project>{1e5b0839-8910-4bb4-b317-f06ae676ddee}</Project>
       <Name>Business.DataBaseSeeder</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business.JobMine\Business.JobMine.csproj">
-      <Project>{ac05b1c9-c9c9-4220-8a2c-be6952c2e358}</Project>
-      <Name>Business.JobMine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.ClusterDB.csproj">
+    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
-      <Name>Data.EF.ClusterDB</Name>
+      <Name>Data.EF.JseDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
       <Project>{8bf3f9bb-8ea9-4eef-ba16-f89fb067e7ef}</Project>

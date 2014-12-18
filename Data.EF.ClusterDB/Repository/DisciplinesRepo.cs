@@ -9,7 +9,7 @@ namespace Data.EF.ClusterDB.Repository
 {
     public class DisciplinesRepo : BaseRepository<Disciplines>, IDisciplinesRepo
     {
-        public DisciplinesRepo(DatabaseContext dbContext) : base(dbContext)
+        public DisciplinesRepo(JseDbContext dbContext) : base(dbContext)
         {
         }
 
