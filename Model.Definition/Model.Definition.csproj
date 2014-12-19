@@ -45,6 +45,7 @@
     <Compile Include="JobMineDef.cs" />
     <Compile Include="LevelsDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TermType.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

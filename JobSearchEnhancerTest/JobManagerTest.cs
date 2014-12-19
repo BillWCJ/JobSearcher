@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Business.Manager;
+using Model.Definition;
 using Model.Entities;
 using Xunit;
 
@@ -26,7 +27,7 @@ namespace JobSearchEnhancerTest
 
             job = Jobs.FirstOrDefault(j => j.Id.Equals(2));
             term = JobManager.GetTermDuration(job);
-            Assert.Equal(TermType.Not_Specified, term);
+            Assert.Equal(TermType.NotSpecified, term);
 
             job = Jobs.FirstOrDefault(j => j.Id.Equals(6));
             term = JobManager.GetTermDuration(job);

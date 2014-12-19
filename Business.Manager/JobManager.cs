@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.Definition;
 using Model.Entities;
 
 namespace Business.Manager
@@ -19,7 +20,7 @@ namespace Business.Manager
             else
             {
                 value = CheckString(job.Comment);
-                if (value == TermType.Not_Specified)
+                if (value == TermType.NotSpecified)
                     value = CheckString(job.JobDescription);
             }
             return value;
@@ -50,7 +51,7 @@ namespace Business.Manager
                 return TermType.Eight;
             }
 
-            return TermType.Not_Specified;
+            return TermType.NotSpecified;
         }
     }
 }

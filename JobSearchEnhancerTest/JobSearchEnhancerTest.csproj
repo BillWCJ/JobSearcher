@@ -70,6 +70,10 @@
       <Project>{f328e8d2-2265-4b1a-b6cc-8b28e4de7123}</Project>
       <Name>Data.Web.RateMyCoopJob</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
+      <Project>{62864846-7447-4600-B704-91831B872E3F}</Project>
+      <Name>Model.Definition</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
       <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
       <Name>Model.Entities</Name>
