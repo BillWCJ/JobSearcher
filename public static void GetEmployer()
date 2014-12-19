@@ -1,0 +1,116 @@
+public static void GetEmployer()
+        {
+            var response = Client.DownloadString(url);
+
+            var jobhmtml = new HtmlDocument();
+
+            jobhmtml.LoadHtml(response);
+            HtmlNodeCollection list = jobhmtml.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[1]/div[3]/div[3]/table[1]/tbody[1]").ChildNodes;
+
+            var listOfJobs = new List<JobRating>();
+
+            using (var sw = new StreamWriter(@"C:\Users\psoladoye\Desktop\ndlist.html"))
+            {
+                foreach (HtmlNode nd in list.Where(x => x.Name.Equals("tr")))
+                {
+                    sw.WriteLine(nd.InnerHtml);
+                    listOfJobs.Add(
+                        new JobRating
+                        {
+                            Employer = new EmployerRating
+                            {
+                                EmployerId = (nd.ChildNodes[1].ChildNodes[1].ChildNodes[1].Attributes.FirstOrDefault(x => x.Name == "href")
+                                            .Value.replace("/update_search_count_for_employer/", "")).toInt(),
+                                Name = nd.ChildNodes[1].ChildNodes[1].ChildNodes[1].InnerHtml
+                            },
+                            Title = nd.ChildNodes[3].ChildNodes[1].ChildNodes[1].InnerHtml,
+                            JobId = nd.ChildNodes[3].ChildNodes[1].ChildNodes[1].Attributes.FirstOrDefault(x => x.Name == "href")
+                                        .Value.replace("/update_search_count_for_job/", "").toInt(),
+                            Location = nd.ChildNodes[5].InnerHtml,
+                            Salary = nd.ChildNodes[7].ChildNodes[1].InnerHtml,
+                            Rating = (nd.ChildNodes[9].ChildNodes[1].InnerHtml).toInt(),
+                            Reviews = (nd.ChildNodes[11].InnerHtml).toInt()
+                        });
+                }
+            }
+            var e1 = listOfJobs[0];
+            Console.WriteLine(e1.Rating);
+            Console.ReadLine();
+        }
+
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Intentional Software Corporation
+385
+Intern Software Developer
+547
+Bellevue, Wa, United States
+$$$$$
+5
+1
+
+Console.WriteLine(nd.ChildNodes[1].ChildNodes[1].ChildNodes[1].InnerHtml);
+                    Console.WriteLine(nd.ChildNodes[1].ChildNodes[1].ChildNodes[1].Attributes.FirstOrDefault(x => x.Name == "href").Value.replace("/update_search_count_for_employer/", ""));
+                    Console.WriteLine(nd.ChildNodes[3].ChildNodes[1].ChildNodes[1].InnerHtml);
+                    Console.WriteLine(nd.ChildNodes[3].ChildNodes[1].ChildNodes[1].Attributes.FirstOrDefault(x => x.Name == "href").Value.replace("/update_search_count_for_job/", ""));
+                    Console.WriteLine(nd.ChildNodes[5].InnerHtml);
+                    Console.WriteLine(nd.ChildNodes[7].ChildNodes[1].InnerHtml);
+                    Console.WriteLine(nd.ChildNodes[9].ChildNodes[1].InnerHtml);
+                    Console.WriteLine(nd.ChildNodes[11].InnerHtml);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    public static void TestMethod()
+        {
+            var webGet = new HtmlWeb();
+            var doc = webGet.Load(url);
+
+            var body = doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "body");
+
+            var  values = new List<string>();
+            using (var sw = new StreamWriter(@"C:\Users\psoladoye\Desktop\TestMethod.html"))
+            {
+                var table = body.Descendants().FirstOrDefault(t => t.Name == "table");
+                var tbody = table.Descendants().FirstOrDefault(tb => tb.Name == "tbody");
+                var tr = tbody.Descendants().FirstOrDefault(t => t.Name == "tr");
+
+                var tds = tr.Descendants().Where(n => n.Name == "td");
+
+                foreach (var td in tds)
+                {
+
+                    //sw.WriteLine(td.InnerHtml.Trim());
+                    var node = HtmlEntity.Entitize(td.InnerHtml.Trim()); //td.InnerHtml.Trim();
+                    //sw.WriteLine(node);
+                    node = node.Replace("div class=", "");
+                    node = node.Replace("<", "");
+                    sw.WriteLine(node);
+
+                }
+            }
+        }
