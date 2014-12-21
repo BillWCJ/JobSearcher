@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="GoogleLocationSeeder.cs" />
     <Compile Include="JobMineInfoSeeder.cs" />
+    <Compile Include="MasterSeeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RateMyCoopJobSeeder.cs" />
   </ItemGroup>

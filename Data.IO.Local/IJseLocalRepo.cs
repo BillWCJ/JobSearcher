@@ -4,5 +4,6 @@ namespace Data.IO.Local
 {
     public interface IJseLocalRepo
     {
+        UserAccount GetAccount();
     }
 }

@@ -4,7 +4,7 @@ using Model.Entities;
 
 namespace Business.Manager
 {
-    public static class JobManager
+    public class JobManager
     {
         public static TermType GetTermDuration(Job job)
         {

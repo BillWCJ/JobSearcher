@@ -5,11 +5,15 @@ namespace Business.Manager
 {
     public class AccountManager
     {
-        public UserAccount Account{ get; set; }
-
-        public AccountManager()
+        IJseLocalRepo JseLocalRepo { get; set; }
+        public AccountManager(IJseLocalRepo jseLocalRepo)
         {
-            Account = new JseLocalRepo().GetAccount();
+            JseLocalRepo = jseLocalRepo;
+        }
+
+        public UserAccount GetUserAccount()
+        {
+            return JseLocalRepo.GetAccount();
         }
     }
 }

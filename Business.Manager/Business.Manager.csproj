@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
     <Compile Include="JobManager.cs" />
-    <Compile Include="JobMineManager.cs" />
+    <Compile Include="LocalDownloadManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@ using Data.Web.JobMine;
 
 namespace Business.Manager
 {
-    public class JobMineManager
+    public class LocalDownloadManager
     {
         public IEnumerable<string> DownLoadJobs(string username, string password, string term, string jobStatus, string filePath)
         {

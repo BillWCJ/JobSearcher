@@ -37,7 +37,7 @@ namespace JobDownloader
             IsInProgress = true;
 
             GetPostInfo();
-            var jobMineManager = new JobMineManager();
+            var jobMineManager = new LocalDownloadManager();
             foreach (string msg in  jobMineManager.DownLoadJobs(UserName, Password, Term, JobStatus, FileLocation))
                 OutputTextBox.AppendText(msg);
 
