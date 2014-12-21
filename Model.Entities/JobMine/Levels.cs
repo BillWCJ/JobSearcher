@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Model.Definition;
 
-namespace Model.Entities
+namespace Model.Entities.JobMine
 {
     /// <summary>
     ///     Entity that specify the level(s) the job is target for
@@ -13,6 +13,7 @@ namespace Model.Entities
         public Levels()
         {
         }
+
         /// <summary>
         ///     Initalize a new instance of level entity
         /// </summary>

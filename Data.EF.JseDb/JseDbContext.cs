@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Data.EF.ClusterDB.Configuration;
 using Model.Entities;
+using Model.Entities.JobMine;
 using Model.Entities.RateMyCoopJob;
 
 namespace Data.EF.JseDb

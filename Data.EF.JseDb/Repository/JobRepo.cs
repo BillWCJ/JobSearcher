@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Data.EF.ClusterDB.Interface;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.EF.JseDb.Repository
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Model.Entities
+namespace Model.Entities.JobMine
 {
     /// <summary>
     ///     Entity that contains the details of an employer
@@ -37,7 +37,10 @@ namespace Model.Entities
         /// <example>Id = 1234567 -> IdString = 01234567</example>
         public string IdString
         {
-            get { return Id.ToString("D8"); }
+            get
+            {
+                return Id.ToString("D8");
+            }
         }
     }
 }

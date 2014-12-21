@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text.RegularExpressions;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.Web.JobMine
 {

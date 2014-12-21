@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Model.Definition;
 
-namespace Model.Entities
+namespace Model.Entities.JobMine
 {
     /// <summary>
     ///     Entity that specify the siscipline(s) the job is target for
@@ -23,7 +22,7 @@ namespace Model.Entities
         public Disciplines(string data = " ")
         {
             byte currentDisciplineIndex = 0;
-            foreach (KeyValuePair<byte, string> name in GlobalDef.DisciplinesNames.Where(name => name.Value != null && data.Contains(name.Value)))
+            foreach (var name in GlobalDef.DisciplinesNames.Where(name => name.Value != null && data.Contains(name.Value)))
                 this[currentDisciplineIndex++] = name.Key;
         }
 
@@ -104,7 +103,7 @@ namespace Model.Entities
                 for (byte i = 0; i < GlobalDef.MaxNumberOfDisciplinesPerJob; i++)
                 {
                     byte key = this[i];
-                    if (key != (byte) DisciplineEnum.UnAssigned &&  GlobalDef.DisciplinesNames.ContainsKey(key))
+                    if (key != (byte) DisciplineEnum.UnAssigned && GlobalDef.DisciplinesNames.ContainsKey(key))
                     {
                         string disciplineName = GlobalDef.DisciplinesNames[key];
                         toString += disciplineName + ", ";

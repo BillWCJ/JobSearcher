@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Model.Definition;
 
-namespace Model.Entities
+namespace Model.Entities.JobMine
 {
-    public class JobOverView : IEnumerable
+    public class JobOverView
     {
         public JobOverView()
         {
@@ -35,12 +34,10 @@ namespace Model.Entities
         //public DateTime LastDateToApply { get; set; }
         public string IdString
         {
-            get { return Id.ToString("D8"); }
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
+            get
+            {
+                return Id.ToString("D8");
+            }
         }
     }
 
@@ -54,10 +51,8 @@ namespace Model.Entities
 
         public Job()
         {
-            if (Levels == null)
-                Levels = new Levels();
-            if (Disciplines == null)
-                Disciplines = new Disciplines();
+            Levels = new Levels();
+            Disciplines = new Disciplines();
             SetRelationship();
         }
 
@@ -69,7 +64,10 @@ namespace Model.Entities
 
         public string JobUrl
         {
-            get { return JobMineDef.JobDetailBaseUrl + IdString; }
+            get
+            {
+                return JobMineDef.JobDetailBaseUrl + IdString;
+            }
         }
 
         private void SetRelationship()

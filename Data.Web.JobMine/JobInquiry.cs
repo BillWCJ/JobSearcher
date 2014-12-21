@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using HtmlAgilityPack;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.Web.JobMine
 {

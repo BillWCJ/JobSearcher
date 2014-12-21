@@ -1,6 +1,7 @@
 ﻿using System;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Business.Manager
 {

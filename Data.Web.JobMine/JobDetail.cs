@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.Web.JobMine
 {

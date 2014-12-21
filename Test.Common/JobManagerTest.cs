@@ -4,6 +4,7 @@ using System.Linq;
 using Business.Manager;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.JobMine;
 using Xunit;
 
 namespace JobSearchEnhancerTest

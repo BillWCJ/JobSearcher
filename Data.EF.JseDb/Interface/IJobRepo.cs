@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.EF.ClusterDB.Interface
 {

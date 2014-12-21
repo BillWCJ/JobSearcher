@@ -8,6 +8,7 @@ using Data.EF.ClusterDB;
 using Data.EF.JseDb;
 using Data.Web.GoogleApis;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Business.DataBaseSeeder
 {
