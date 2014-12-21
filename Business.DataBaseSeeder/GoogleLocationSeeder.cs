@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
-using Data.EF.ClusterDB;
 using Data.EF.JseDb;
 using Data.Web.GoogleApis;
 using Model.Entities;

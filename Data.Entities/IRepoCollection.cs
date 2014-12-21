@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using Data.EF.ClusterDB;
-using Data.EF.JseDb;
+﻿using Data.EF.JseDb;
 using Data.IO.Local;
 using Data.Web.GoogleApis;
 using Data.Web.JobMine;
-using Model.Entities;
 
 namespace Data.Entities
 {

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using Data.EF.ClusterDB;
 using Data.EF.JseDb;
 using Data.Web.RateMyCoopJob;
 using Model.Entities.RateMyCoopJob;
@@ -12,12 +9,12 @@ namespace Business.DataBaseSeeder
 {
     public static class RateMyCoopJobSeeder
     {
-        private static IEnumerable<JobReview> List { get; set; }
-
-        static  RateMyCoopJobSeeder()
+        static RateMyCoopJobSeeder()
         {
             List = new List<JobReview>();
         }
+
+        private static IEnumerable<JobReview> List { get; set; }
 
         public static void SeedDb()
         {
@@ -29,7 +26,7 @@ namespace Business.DataBaseSeeder
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Now seeding db...");
                 Console.ResetColor();
-                foreach (var jReview in List)
+                foreach (JobReview jReview in List)
                 {
                     RateMyCoopJob.PopulateRatingsField(jReview);
 
