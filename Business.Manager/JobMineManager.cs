@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Data.Web.JobMine;
-using Model.Entities;
 
-namespace Business.Common
+namespace Business.Manager
 {
     public class JobMineManager
     {

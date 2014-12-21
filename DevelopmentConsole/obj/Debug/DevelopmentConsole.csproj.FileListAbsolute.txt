@@ -2,7 +2,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Presentation.Co
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\DevelopmentConsole.exe.config
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\DevelopmentConsole.exe
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\DevelopmentConsole.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.Account.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.DataBaseSeeder.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.Manager.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Data.EF.ClusterDB.dll
@@ -16,7 +15,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentCons
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Model.Definition.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Model.Entities.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\FluentSharp.CoreLib.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.Account.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.DataBaseSeeder.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.Manager.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Data.EF.ClusterDB.pdb

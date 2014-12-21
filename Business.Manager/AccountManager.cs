@@ -1,7 +1,7 @@
-﻿using Model.Entities;
-using Data.IO.Local;
+﻿using Data.IO.Local;
+using Model.Entities;
 
-namespace Business.Account
+namespace Business.Manager
 {
     public class AccountManager
     {

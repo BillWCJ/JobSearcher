@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using Business.Account;
-using Business.DataBaseSeeder;
-using Business.Manager;
-using Data.IO.Local;
-using Data.Web.JobMine;
-using Data.Web.RateMyCoopJob;
-using Model.Definition;
+﻿using Business.DataBaseSeeder;
 using Model.Entities;
-using Model.Entities.RateMyCoopJob;
 
 namespace DevelopmentConsole
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
         }
 

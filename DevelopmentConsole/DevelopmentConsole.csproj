@@ -76,10 +76,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Account\Business.Account.csproj">
-      <Project>{f7f36e63-9e80-4bb3-8fd3-7a37aca8a7a9}</Project>
-      <Name>Business.Account</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Business.DataBaseSeeder\Business.DataBaseSeeder.csproj">
       <Project>{1e5b0839-8910-4bb4-b317-f06ae676ddee}</Project>
       <Name>Business.DataBaseSeeder</Name>
