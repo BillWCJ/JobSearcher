@@ -58,8 +58,8 @@
     <Compile Include="RateMyCoopJobTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="Properties\app.config" />
+    <None Include="Properties\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Manager\Business.Manager.csproj">

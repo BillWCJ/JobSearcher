@@ -71,10 +71,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
-      <Project>{07d1aea5-7872-4b29-93d6-73f8fdc63d33}</Project>
-      <Name>Data.Web.JobMine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
       <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
       <Name>Model.Entities</Name>
