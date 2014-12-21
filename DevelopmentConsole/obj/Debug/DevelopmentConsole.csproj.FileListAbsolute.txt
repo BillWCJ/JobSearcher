@@ -4,7 +4,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentCons
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\DevelopmentConsole.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.Account.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.DataBaseSeeder.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.JobMine.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.Manager.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Data.EF.ClusterDB.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Data.IO.Local.dll
@@ -27,7 +26,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentCons
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Data.Web.RateMyCoopJob.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Model.Entities.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.JobMine.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\EntityFramework.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\HtmlAgilityPack.pdb

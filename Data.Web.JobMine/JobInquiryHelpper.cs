@@ -14,7 +14,8 @@ namespace Data.Web.JobMine
         public static IEnumerable<T> GetJobInquiryPageObject<T>(CookieEnabledWebClient client, string term, string jobStatus, Func<HtmlNode, int, T> objectExtractor)
         {
             int numPages = 0; // numpage is 0 if we haven't search for the number of job that matches the given criteria 
-            string iCAction = IcAction.Search, iCsid = "", iCStateNum = "";
+            string iCAction = IcAction.Search, iCsid = "";
+            int iCStateNum = 0;
             var objectT = new Queue<T>();
 
             for (int currentPageNum = 1; currentPageNum <= (numPages != 0 ? numPages : Int32.MaxValue); currentPageNum++)
@@ -51,7 +52,7 @@ namespace Data.Web.JobMine
         }
 
         private static void SetInquiryData(CookieEnabledWebClient client, int numPages, ref string iCAction,
-            ref string iCsid, ref string iCStateNum)
+            ref string iCsid, ref int iCStateNum)
         {
             var doc = new HtmlDocument();
             if (iCAction != IcAction.Down && numPages != JobMineDef.JobInquiryFirstSearch)
@@ -62,12 +63,13 @@ namespace Data.Web.JobMine
                 string downloadString = client.DownloadString(JobMineDef.InquiryResultTableIframeUrl);
                 doc.LoadHtml(downloadString);
                 iCsid = GetIcsid(doc);
+                iCStateNum = GetIcStateNum(doc);
             }
-            iCStateNum = GetIcStateNum(doc);
+            iCStateNum++;
         }
 
         private static string GetJobinfo(CookieEnabledWebClient client, string iCAction, string term, string iCsid,
-            string iCStateNum, string jobStatus)
+            int iCStateNum, string jobStatus)
         {
             const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";
             NameValueCollection postData = PostData.GetJobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus);
@@ -101,7 +103,11 @@ namespace Data.Web.JobMine
         ///     Get the ICStateNum of the page in Html
         /// </summary>
         /// <remarks>Safe Extraction: DocumentNode.SelectSingleNode("//input[@id='ICStateNum']").Attributes["value"].Value;</remarks>
-        private static string GetIcStateNum(HtmlDocument doc) { return doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[3]").Attributes["value"].Value; }
+        private static int GetIcStateNum(HtmlDocument doc)
+        {
+            string icStateNumString = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[3]").Attributes["value"].Value;
+            return Convert.ToInt32(icStateNumString);
+        }
 
         /// <summary>
         ///     Get the ICSID of the page in Html

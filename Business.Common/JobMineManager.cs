@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Data.Web.JobMine;
 using Model.Entities;
 
@@ -17,6 +18,7 @@ namespace Business.Common
             }
             catch (Exception e)
             {
+                Trace.TraceError(e.ToString());
                 isLoggedIn = false;
             }
             yield return string.Format("Loggedin : {0}", isLoggedIn);

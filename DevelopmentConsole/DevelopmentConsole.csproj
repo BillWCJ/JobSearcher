@@ -84,10 +84,6 @@
       <Project>{1e5b0839-8910-4bb4-b317-f06ae676ddee}</Project>
       <Name>Business.DataBaseSeeder</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business.JobMine\Business.JobMine.csproj">
-      <Project>{ac05b1c9-c9c9-4220-8a2c-be6952c2e358}</Project>
-      <Name>Business.JobMine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Business.Manager\Business.Manager.csproj">
       <Project>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</Project>
       <Name>Business.Manager</Name>

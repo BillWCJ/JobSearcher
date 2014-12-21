@@ -8,17 +8,19 @@ namespace Data.Web.JobMine
         public JobMineRepo(string username, string password) : this()
         {
             Client = Login.GetJobMineLoggedInWebClient(username, password);
+            if (Client == null)
+                throw new ArgumentException("Unable to Login");
         }
 
         public JobMineRepo(UserAccount account) : this()
         {
             Client = Login.GetJobMineLoggedInWebClient(account.Username, account.Password);
+            if (Client == null)
+                throw new ArgumentException("Unable to Login");
         }
 
         private JobMineRepo()
         {
-            if (Client == null)
-                throw new ArgumentException("Unable to Login");
             JobInquiry = new JobInquiry(Client);
             JobDetail = new JobDetail(Client);
         }
