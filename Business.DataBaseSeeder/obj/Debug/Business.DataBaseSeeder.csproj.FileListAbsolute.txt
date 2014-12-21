@@ -27,15 +27,18 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBa
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.IO.Local.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.GoogleApis.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.JobMine.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\EntityFramework.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Definition.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Entities.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\HtmlAgilityPack.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\FluentSharp.CoreLib.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.EF.ClusterDB.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.IO.Local.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.GoogleApis.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.JobMine.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Entities.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\EntityFramework.xml
@@ -45,6 +48,3 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBa
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\obj\Debug\Business.DataBaseSeeder.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\obj\Debug\Business.DataBaseSeeder.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\obj\Debug\Business.DataBaseSeeder.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\FluentSharp.CoreLib.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.pdb

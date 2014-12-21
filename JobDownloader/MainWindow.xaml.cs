@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
-using Business.Common;
-using Data.Web.JobMine;
-using Model.Definition;
-using Model.Entities;
+using Business.Manager;
 
 namespace JobDownloader
 {
@@ -79,7 +71,7 @@ namespace JobDownloader
             var folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.ShowDialog();
             FileLocation = folderBrowserDialog.SelectedPath;
-            FileLocation = FileLocation.TrimEnd(' ','\\') + '\\';
+            FileLocation = FileLocation.TrimEnd(' ', '\\') + '\\';
             FileLocationTextBox.Text = FileLocation;
         }
     }
