@@ -48,12 +48,15 @@
   <ItemGroup>
     <Compile Include="JobManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TermType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
       <Project>{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}</Project>
       <Name>Data.EF.ClusterDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
+      <Project>{62864846-7447-4600-B704-91831B872E3F}</Project>
+      <Name>Model.Definition</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
       <Project>{E807B758-858C-4F1A-A6B1-1FE220426450}</Project>

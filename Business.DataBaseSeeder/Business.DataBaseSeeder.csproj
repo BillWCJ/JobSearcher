@@ -50,6 +50,7 @@
     <Compile Include="GoogleLocationSeeder.cs" />
     <Compile Include="JobMineInfoSeeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RateMyCoopJobSeeder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
@@ -67,6 +68,10 @@
     <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
       <Project>{07d1aea5-7872-4b29-93d6-73f8fdc63d33}</Project>
       <Name>Data.Web.JobMine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Web.RateMyCoopJob\Data.Web.RateMyCoopJob.csproj">
+      <Project>{F328E8D2-2265-4B1A-B6CC-8B28E4DE7123}</Project>
+      <Name>Data.Web.RateMyCoopJob</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>

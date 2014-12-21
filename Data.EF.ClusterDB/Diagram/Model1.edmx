@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Disciplines">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="Discipline1" Type="tinyint" Nullable="false" />
+          <Property Name="Discipline2" Type="tinyint" Nullable="false" />
+          <Property Name="Discipline3" Type="tinyint" Nullable="false" />
+          <Property Name="Discipline4" Type="tinyint" Nullable="false" />
+          <Property Name="Discipline5" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployerReviews">
+          <Key>
+            <PropertyRef Name="EmployerId" />
+          </Key>
+          <Property Name="EmployerId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Employers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="UnitName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="JobRatings">
+          <Key>
+            <PropertyRef Name="JobRatingId" />
+          </Key>
+          <Property Name="JobRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Rating" Type="float" Nullable="false" />
+          <Property Name="Date" Type="nvarchar(max)" />
+          <Property Name="Salary" Type="nvarchar(max)" />
+          <Property Name="JobReview_JobReviewId" Type="int" />
+        </EntityType>
+        <EntityType Name="JobReviews">
+          <Key>
+            <PropertyRef Name="JobReviewId" />
+          </Key>
+          <Property Name="JobReviewId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="AverageSalary" Type="nvarchar(max)" />
+          <Property Name="SalaryRange" Type="nvarchar(max)" />
+          <Property Name="NumberOfReviews" Type="int" Nullable="false" />
+          <Property Name="Popularity" Type="int" Nullable="false" />
+          <Property Name="JobDescription" Type="nvarchar(max)" />
+          <Property Name="AverageRating" Type="int" Nullable="false" />
+          <Property Name="Employer_EmployerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="JobDescription" Type="nvarchar(max)" />
+          <Property Name="Employer_Id" Type="int" />
+          <Property Name="Location_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Levels">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="IsJunior" Type="bit" Nullable="false" />
+          <Property Name="IsIntermediate" Type="bit" Nullable="false" />
+          <Property Name="IsSenior" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullAddress" Type="nvarchar(max)" />
+          <Property Name="Region" Type="nvarchar(max)" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="10" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="10" />
+        </EntityType>
+        <Association Name="FK_dbo_Disciplines_dbo_Jobs_JobId">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="1" />
+          <End Role="Disciplines" Type="Self.Disciplines" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disciplines">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId">
+          <End Role="JobReviews" Type="Self.JobReviews" Multiplicity="0..1" />
+          <End Role="JobRatings" Type="Self.JobRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobReviews">
+              <PropertyRef Name="JobReviewId" />
+            </Principal>
+            <Dependent Role="JobRatings">
+              <PropertyRef Name="JobReview_JobReviewId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId">
+          <End Role="EmployerReviews" Type="Self.EmployerReviews" Multiplicity="0..1" />
+          <End Role="JobReviews" Type="Self.JobReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployerReviews">
+              <PropertyRef Name="EmployerId" />
+            </Principal>
+            <Dependent Role="JobReviews">
+              <PropertyRef Name="Employer_EmployerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Employers_Employer_Id">
+          <End Role="Employers" Type="Self.Employers" Multiplicity="0..1" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="Employer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Locations_Location_Id">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="Location_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Levels_dbo_Jobs_JobId">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="1" />
+          <End Role="Levels" Type="Self.Levels" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Levels">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseContextModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disciplines" EntityType="Self.Disciplines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployerReviews" EntityType="Self.EmployerReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employers" EntityType="Self.Employers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobRatings" EntityType="Self.JobRatings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobReviews" EntityType="Self.JobReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Levels" EntityType="Self.Levels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Disciplines_dbo_Jobs_JobId" Association="Self.FK_dbo_Disciplines_dbo_Jobs_JobId">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Disciplines" EntitySet="Disciplines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId" Association="Self.FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId">
+            <End Role="JobReviews" EntitySet="JobReviews" />
+            <End Role="JobRatings" EntitySet="JobRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId" Association="Self.FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId">
+            <End Role="EmployerReviews" EntitySet="EmployerReviews" />
+            <End Role="JobReviews" EntitySet="JobReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Employers_Employer_Id" Association="Self.FK_dbo_Jobs_dbo_Employers_Employer_Id">
+            <End Role="Employers" EntitySet="Employers" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Locations_Location_Id" Association="Self.FK_dbo_Jobs_dbo_Locations_Location_Id">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Levels_dbo_Jobs_JobId" Association="Self.FK_dbo_Levels_dbo_Jobs_JobId">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Levels" EntitySet="Levels" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <Property Name="Discipline1" Type="Byte" Nullable="false" />
+          <Property Name="Discipline2" Type="Byte" Nullable="false" />
+          <Property Name="Discipline3" Type="Byte" Nullable="false" />
+          <Property Name="Discipline4" Type="Byte" Nullable="false" />
+          <Property Name="Discipline5" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_dbo_Disciplines_dbo_Jobs_JobId" FromRole="Disciplines" ToRole="Jobs" />
+        </EntityType>
+        <EntityType Name="EmployerReview">
+          <Key>
+            <PropertyRef Name="EmployerId" />
+          </Key>
+          <Property Name="EmployerId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="JobReviews" Relationship="Self.FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId" FromRole="EmployerReviews" ToRole="JobReviews" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UnitName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Jobs_dbo_Employers_Employer_Id" FromRole="Employers" ToRole="Jobs" />
+        </EntityType>
+        <EntityType Name="JobRating">
+          <Key>
+            <PropertyRef Name="JobRatingId" />
+          </Key>
+          <Property Name="JobRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobReview_JobReviewId" Type="Int32" />
+          <NavigationProperty Name="JobReview" Relationship="Self.FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId" FromRole="JobRatings" ToRole="JobReviews" />
+        </EntityType>
+        <EntityType Name="JobReview">
+          <Key>
+            <PropertyRef Name="JobReviewId" />
+          </Key>
+          <Property Name="JobReviewId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AverageSalary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SalaryRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfReviews" Type="Int32" Nullable="false" />
+          <Property Name="Popularity" Type="Int32" Nullable="false" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AverageRating" Type="Int32" Nullable="false" />
+          <Property Name="Employer_EmployerId" Type="Int32" />
+          <NavigationProperty Name="EmployerReview" Relationship="Self.FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId" FromRole="JobReviews" ToRole="EmployerReviews" />
+          <NavigationProperty Name="JobRatings" Relationship="Self.FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId" FromRole="JobReviews" ToRole="JobRatings" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Employer_Id" Type="Int32" />
+          <Property Name="Location_Id" Type="Int32" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_dbo_Disciplines_dbo_Jobs_JobId" FromRole="Jobs" ToRole="Disciplines" />
+          <NavigationProperty Name="Employer" Relationship="Self.FK_dbo_Jobs_dbo_Employers_Employer_Id" FromRole="Jobs" ToRole="Employers" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_dbo_Jobs_dbo_Locations_Location_Id" FromRole="Jobs" ToRole="Locations" />
+          <NavigationProperty Name="Level" Relationship="Self.FK_dbo_Levels_dbo_Jobs_JobId" FromRole="Jobs" ToRole="Levels" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <Property Name="IsJunior" Type="Boolean" Nullable="false" />
+          <Property Name="IsIntermediate" Type="Boolean" Nullable="false" />
+          <Property Name="IsSenior" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_dbo_Levels_dbo_Jobs_JobId" FromRole="Levels" ToRole="Jobs" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="Decimal" Precision="18" Scale="10" />
+          <Property Name="Latitude" Type="Decimal" Precision="18" Scale="10" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Jobs_dbo_Locations_Location_Id" FromRole="Locations" ToRole="Jobs" />
+        </EntityType>
+        <Association Name="FK_dbo_Disciplines_dbo_Jobs_JobId">
+          <End Role="Jobs" Type="Self.Job" Multiplicity="1" />
+          <End Role="Disciplines" Type="Self.Discipline" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disciplines">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId">
+          <End Role="EmployerReviews" Type="Self.EmployerReview" Multiplicity="0..1" />
+          <End Role="JobReviews" Type="Self.JobReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployerReviews">
+              <PropertyRef Name="EmployerId" />
+            </Principal>
+            <Dependent Role="JobReviews">
+              <PropertyRef Name="Employer_EmployerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Employers_Employer_Id">
+          <End Role="Employers" Type="Self.Employer" Multiplicity="0..1" />
+          <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="Employer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId">
+          <End Role="JobReviews" Type="Self.JobReview" Multiplicity="0..1" />
+          <End Role="JobRatings" Type="Self.JobRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobReviews">
+              <PropertyRef Name="JobReviewId" />
+            </Principal>
+            <Dependent Role="JobRatings">
+              <PropertyRef Name="JobReview_JobReviewId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Locations_Location_Id">
+          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="Location_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Levels_dbo_Jobs_JobId">
+          <End Role="Jobs" Type="Self.Job" Multiplicity="1" />
+          <End Role="Levels" Type="Self.Level" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Levels">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseContextEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Disciplines" EntityType="Self.Discipline" />
+          <EntitySet Name="EmployerReviews" EntityType="Self.EmployerReview" />
+          <EntitySet Name="Employers" EntityType="Self.Employer" />
+          <EntitySet Name="JobRatings" EntityType="Self.JobRating" />
+          <EntitySet Name="JobReviews" EntityType="Self.JobReview" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="Levels" EntityType="Self.Level" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <AssociationSet Name="FK_dbo_Disciplines_dbo_Jobs_JobId" Association="Self.FK_dbo_Disciplines_dbo_Jobs_JobId">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Disciplines" EntitySet="Disciplines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId" Association="Self.FK_dbo_JobReviews_dbo_EmployerReviews_Employer_EmployerId">
+            <End Role="EmployerReviews" EntitySet="EmployerReviews" />
+            <End Role="JobReviews" EntitySet="JobReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Employers_Employer_Id" Association="Self.FK_dbo_Jobs_dbo_Employers_Employer_Id">
+            <End Role="Employers" EntitySet="Employers" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId" Association="Self.FK_dbo_JobRatings_dbo_JobReviews_JobReview_JobReviewId">
+            <End Role="JobReviews" EntitySet="JobReviews" />
+            <End Role="JobRatings" EntitySet="JobRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Locations_Location_Id" Association="Self.FK_dbo_Jobs_dbo_Locations_Location_Id">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Levels_dbo_Jobs_JobId" Association="Self.FK_dbo_Levels_dbo_Jobs_JobId">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Levels" EntitySet="Levels" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseContextModelStoreContainer" CdmEntityContainer="DatabaseContextEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DatabaseContextModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Disciplines">
+            <EntityTypeMapping TypeName="DatabaseContextModel.Discipline">
+              <MappingFragment StoreEntitySet="Disciplines">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="Discipline1" ColumnName="Discipline1" />
+                <ScalarProperty Name="Discipline2" ColumnName="Discipline2" />
+                <ScalarProperty Name="Discipline3" ColumnName="Discipline3" />
+                <ScalarProperty Name="Discipline4" ColumnName="Discipline4" />
+                <ScalarProperty Name="Discipline5" ColumnName="Discipline5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployerReviews">
+            <EntityTypeMapping TypeName="DatabaseContextModel.EmployerReview">
+              <MappingFragment StoreEntitySet="EmployerReviews">
+                <ScalarProperty Name="EmployerId" ColumnName="EmployerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employers">
+            <EntityTypeMapping TypeName="DatabaseContextModel.Employer">
+              <MappingFragment StoreEntitySet="Employers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobRatings">
+            <EntityTypeMapping TypeName="DatabaseContextModel.JobRating">
+              <MappingFragment StoreEntitySet="JobRatings">
+                <ScalarProperty Name="JobRatingId" ColumnName="JobRatingId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="JobReview_JobReviewId" ColumnName="JobReview_JobReviewId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobReviews">
+            <EntityTypeMapping TypeName="DatabaseContextModel.JobReview">
+              <MappingFragment StoreEntitySet="JobReviews">
+                <ScalarProperty Name="JobReviewId" ColumnName="JobReviewId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="AverageSalary" ColumnName="AverageSalary" />
+                <ScalarProperty Name="SalaryRange" ColumnName="SalaryRange" />
+                <ScalarProperty Name="NumberOfReviews" ColumnName="NumberOfReviews" />
+                <ScalarProperty Name="Popularity" ColumnName="Popularity" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="AverageRating" ColumnName="AverageRating" />
+                <ScalarProperty Name="Employer_EmployerId" ColumnName="Employer_EmployerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="DatabaseContextModel.Job">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="Employer_Id" ColumnName="Employer_Id" />
+                <ScalarProperty Name="Location_Id" ColumnName="Location_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levels">
+            <EntityTypeMapping TypeName="DatabaseContextModel.Level">
+              <MappingFragment StoreEntitySet="Levels">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="IsJunior" ColumnName="IsJunior" />
+                <ScalarProperty Name="IsIntermediate" ColumnName="IsIntermediate" />
+                <ScalarProperty Name="IsSenior" ColumnName="IsSenior" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="DatabaseContextModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
