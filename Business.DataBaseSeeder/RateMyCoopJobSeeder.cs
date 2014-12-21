@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Data.EF.ClusterDB;
+using Data.EF.JseDb;
 using Data.Web.RateMyCoopJob;
 using Model.Entities.RateMyCoopJob;
 

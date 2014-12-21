@@ -5,15 +5,15 @@ using System.Linq;
 using Data.EF.ClusterDB.Interface;
 using Model.Entities;
 
-namespace Data.EF.ClusterDB.Repository
+namespace Data.EF.JseDb.Repository
 {
-    public class DisciplinesRepo : BaseRepository<Disciplines>, IDisciplinesRepo
+    public class LevelsRepo : BaseRepository<Levels>, ILevelsRepo
     {
-        public DisciplinesRepo(JseDbContext dbContext) : base(dbContext)
+        public LevelsRepo(JseDbContext dbContext) : base(dbContext)
         {
         }
 
-        public Disciplines GetByJobId(int jobId)
+        public Levels GetByJobId(int jobId)
         {
             try
             {

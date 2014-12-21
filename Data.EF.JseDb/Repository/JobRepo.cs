@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Data.EF.ClusterDB.Interface;
 using Model.Entities;
 
-namespace Data.EF.ClusterDB.Repository
+namespace Data.EF.JseDb.Repository
 {
     internal class JobRepo : BaseRepository<Job>, IJobRepo
     {

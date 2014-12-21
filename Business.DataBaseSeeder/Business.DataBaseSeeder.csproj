@@ -53,7 +53,7 @@
     <Compile Include="RateMyCoopJobSeeder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
+    <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
       <Name>Data.EF.JseDb</Name>
     </ProjectReference>
@@ -83,8 +83,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="Properties\App.config" />
+    <None Include="Properties\packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

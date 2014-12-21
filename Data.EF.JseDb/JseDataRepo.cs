@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.EF.ClusterDB;
 using Data.EF.ClusterDB.Interface;
-using Data.EF.ClusterDB.Repository;
+using Data.EF.JseDb.Repository;
 
-namespace Data.EF.ClusterDB
+namespace Data.EF.JseDb
 {
     public class JseDataRepo : IJseDataRepo
     {
@@ -19,12 +15,14 @@ namespace Data.EF.ClusterDB
             LevelsRepo = new LevelsRepo(DbContext);
             LocationRepo = new LocationRepo(DbContext);
         }
+
         public JseDbContext DbContext { get; set; }
         public IDisciplinesRepo DisciplinesRepo { get; private set; }
         public IEmployerRepo EmployerRepo { get; private set; }
         public IJobRepo JobRepo { get; private set; }
         public ILevelsRepo LevelsRepo { get; private set; }
         public ILocationRepo LocationRepo { get; private set; }
+
         public void SaveChanges()
         {
             DbContext.SaveChanges();

@@ -69,9 +69,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
+    <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
       <Project>{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}</Project>
-      <Name>Data.EF.ClusterDB</Name>
+      <Name>Data.EF.JseDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>

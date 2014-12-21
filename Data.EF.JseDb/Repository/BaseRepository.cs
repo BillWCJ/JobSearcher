@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using Data.EF.ClusterDB.Interface;
 
-namespace Data.EF.ClusterDB.Repository
+namespace Data.EF.JseDb.Repository
 {
     public class BaseRepository<TClass> : IBaseRepository<TClass>
         where TClass : class

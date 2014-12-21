@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using Data.EF.ClusterDB.Interface;
 using Model.Entities;
 
-namespace Data.EF.ClusterDB.Repository
+namespace Data.EF.JseDb.Repository
 {
     internal class EmployerRepo : BaseRepository<Employer>, IEmployerRepo
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Data.EF.ClusterDB;
+using Data.EF.JseDb;
 using Data.Web.JobMine;
 using Model.Entities;
 

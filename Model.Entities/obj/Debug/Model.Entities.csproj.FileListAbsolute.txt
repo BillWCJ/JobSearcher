@@ -5,10 +5,3 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Entities\obj\Debug\Model.Entities.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Entities\obj\Debug\Model.Entities.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Entities\obj\Debug\Model.Entities.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Debug\Model.Entities.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Debug\Model.Entities.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Debug\Model.Definition.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Debug\Model.Definition.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\obj\Debug\Model.Entities.csprojResolveAssemblyReference.cache
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\obj\Debug\Model.Entities.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\obj\Debug\Model.Entities.pdb

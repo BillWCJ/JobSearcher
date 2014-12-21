@@ -3,7 +3,7 @@ using Data.EF.ClusterDB.Configuration;
 using Model.Entities;
 using Model.Entities.RateMyCoopJob;
 
-namespace Data.EF.ClusterDB
+namespace Data.EF.JseDb
 {
     public class JseDbContextInitializer : DropCreateDatabaseIfModelChanges<JseDbContext>
     {

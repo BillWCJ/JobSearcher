@@ -1,6 +1,6 @@
 ﻿using Data.EF.ClusterDB.Interface;
 
-namespace Data.EF.ClusterDB
+namespace Data.EF.JseDb
 {
     public interface IJseDataRepo
     {

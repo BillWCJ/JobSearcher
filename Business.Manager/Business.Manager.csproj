@@ -52,9 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.EF.ClusterDB\Data.EF.JseDb.csproj">
+    <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
       <Project>{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}</Project>
-      <Name>Data.EF.ClusterDB</Name>
+      <Name>Data.EF.JseDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
       <Project>{8BF3F9BB-8EA9-4EEF-BA16-F89FB067E7EF}</Project>
@@ -74,8 +74,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="Properties\App.config" />
+    <None Include="Properties\packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

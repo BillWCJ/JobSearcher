@@ -2,7 +2,7 @@
 using Data.EF.ClusterDB.Interface;
 using Model.Entities;
 
-namespace Data.EF.ClusterDB.Repository
+namespace Data.EF.JseDb.Repository
 {
     public class LocationRepo : BaseRepository<Location>, ILocationRepo
     {
