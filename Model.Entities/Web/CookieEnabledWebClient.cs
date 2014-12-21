@@ -2,12 +2,12 @@
 using System.Collections.Specialized;
 using System.Net;
 
-namespace Model.Entities
+namespace Model.Entities.Web
 {
     /// <summary>
     ///     WebClient with Cookie and UserAgent
     /// </summary>
-    public class CookieEnabledWebClient : WebClient
+    public class CookieEnabledWebClient : WebClient, ICookieEnabledWebClient
     {
         /// <summary>
         ///     Initalizes a new instatnce of WebClientExtension.CookieEnabledWebClient

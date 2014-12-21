@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.Web;
 
 namespace Data.Web.JobMine
 {

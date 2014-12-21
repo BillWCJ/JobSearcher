@@ -6,6 +6,7 @@ using System.Text;
 using HtmlAgilityPack;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.Web;
 
 namespace Data.Web.JobMine
 {

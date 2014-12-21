@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="LocationOfInterest.cs" />
     <Compile Include="RateMyCoopJob\JobRating.cs" />
-    <Compile Include="CookieEnabledWebClient.cs">
+    <Compile Include="Web\CookieEnabledWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="JobMine\Disciplines.cs" />
@@ -57,6 +57,7 @@
     <Compile Include="UserAccount.cs" />
     <Compile Include="UtilityMethods.cs" />
     <Compile Include="SearchDictionary\Word.cs" />
+    <Compile Include="Web\ICookieEnabledWebClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">

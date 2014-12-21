@@ -4,6 +4,7 @@ using FluentSharp.CoreLib;
 using HtmlAgilityPack;
 using Model.Entities;
 using Model.Entities.RateMyCoopJob;
+using Model.Entities.Web;
 
 namespace Data.Web.RateMyCoopJob
 {

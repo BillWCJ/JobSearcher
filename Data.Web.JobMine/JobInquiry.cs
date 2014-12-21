@@ -4,6 +4,7 @@ using HtmlAgilityPack;
 using Model.Definition;
 using Model.Entities;
 using Model.Entities.JobMine;
+using Model.Entities.Web;
 
 namespace Data.Web.JobMine
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using Model.Entities;
+using Model.Entities.Web;
 
 namespace Data.Web.JobMine
 {
