@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Data.EF.ClusterDB.Interface
+namespace Data.EF.JseDb.Interface
 {
     public interface IBaseRepository<T> where T : class
     {

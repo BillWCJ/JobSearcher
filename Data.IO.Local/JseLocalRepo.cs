@@ -34,8 +34,8 @@ namespace Data.IO.Local
                 account = new UserAccount
                 {
                     FilePath = FilePath,
-                    Username = username,
-                    Password = password,
+                    JobMineUsername = username,
+                    JobMinePassword = password,
                     GoogleApisServerKey = googleApisServerKey,
                     GoogleApisBrowserKey = googleApisBrowserKey
                 };
@@ -86,7 +86,7 @@ namespace Data.IO.Local
             {
                 Console.WriteLine("Please enter UserName");
                 userName = Console.ReadLine().TrimEnd('\n');
-                Console.WriteLine("Please enter Password");
+                Console.WriteLine("Please enter JobMinePassword");
                 passWord = Console.ReadLine().TrimEnd('\n');
             }
             catch (Exception e)

@@ -14,7 +14,7 @@ namespace Data.Web.JobMine
 
         public JobMineRepo(UserAccount account) : this()
         {
-            Client = Login.GetJobMineLoggedInWebClient(account.Username, account.Password);
+            Client = Login.GetJobMineLoggedInWebClient(account.JobMineUsername, account.JobMinePassword);
             if (Client == null)
                 throw new ArgumentException("Unable to Login");
         }

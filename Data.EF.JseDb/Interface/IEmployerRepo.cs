@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Model.Entities;
 using Model.Entities.JobMine;
 
-namespace Data.EF.ClusterDB.Interface
+namespace Data.EF.JseDb.Interface
 {
     public interface IEmployerRepo : IBaseRepository<Employer>
     {

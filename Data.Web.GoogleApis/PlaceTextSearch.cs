@@ -24,7 +24,7 @@ namespace Data.Web.GoogleApis
             get { return @"&key=" + GoogleApisKeys[0]; }
         }
 
-        public Location GetLocation(Employer employer, string region)
+        public JobLocation GetLocation(Employer employer, string region)
         {
             var xml = new XmlDocument();
             string url = GetPlaceTextSearchUrl(employer, region);
@@ -40,7 +40,7 @@ namespace Data.Web.GoogleApis
             return PickLocation(region, resultList);
         }
 
-        private static Location PickLocation(string region, XmlNodeList resultList)
+        private static JobLocation PickLocation(string region, XmlNodeList resultList)
         {
             if (resultList[0] != null)
             {
@@ -48,7 +48,7 @@ namespace Data.Web.GoogleApis
                 XmlNode lat = resultList[0].SelectSingleNode("descendant::lat");
                 XmlNode lng = resultList[0].SelectSingleNode("descendant::lng");
                 if (formattedAddress != null && lat != null && lng != null)
-                    return new Location
+                    return new JobLocation
                     {
                         Region = region,
                         FullAddress = formattedAddress.InnerXml,

@@ -25,24 +25,24 @@ namespace Business.DataBaseSeeder
         {
             using (var db = new JseDbContext())
             {
-                IList<Location> notSetLocations = (from l in db.Locations where l.AlreadySet == false select l).ToList();
+                IList<JobLocation> notSetLocations = (from l in db.Locations where l.AlreadySet == false select l).ToList();
                 PlaceTextSearch locationSearcher = new GoogleRepo(new List<string> {Account.GoogleApisBrowserKey}).LocationRepo;
-                foreach (Location location in notSetLocations)
+                foreach (JobLocation location in notSetLocations)
                 {
                     try
                     {
-                        Job job = db.Jobs.Include(j => j.Employer).FirstOrDefault(j => j.Location.Id == location.Id);
+                        Job job = db.Jobs.Include(j => j.Employer).FirstOrDefault(j => j.JobLocation.Id == location.Id);
                         Employer employer = db.Employers.FirstOrDefault(e => e.Id == job.Employer.Id);
 
-                        Location completedLocation = locationSearcher.GetLocation(employer, location.Region);
-                        if (completedLocation != null)
+                        JobLocation completedJobLocation = locationSearcher.GetLocation(employer, location.Region);
+                        if (completedJobLocation != null)
                         {
-                            location.FullAddress = completedLocation.FullAddress;
-                            location.Longitude = completedLocation.Longitude;
-                            location.Latitude = completedLocation.Latitude;
+                            location.FullAddress = completedJobLocation.FullAddress;
+                            location.Longitude = completedJobLocation.Longitude;
+                            location.Latitude = completedJobLocation.Latitude;
 
                             db.Locations.Attach(location);
-                            DbEntityEntry<Location> locationEntry = db.Entry(location);
+                            DbEntityEntry<JobLocation> locationEntry = db.Entry(location);
                             locationEntry.Property(e => e.FullAddress).IsModified = true;
                             locationEntry.Property(e => e.Latitude).IsModified = true;
                             locationEntry.Property(e => e.Longitude).IsModified = true;

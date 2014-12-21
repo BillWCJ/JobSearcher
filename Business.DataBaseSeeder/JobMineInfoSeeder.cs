@@ -37,9 +37,9 @@ namespace Business.DataBaseSeeder
                     {
                         foreach (Job existingJob in existingEmployer.Jobs)
                         {
-                            if (existingJob.Location.Region == job.Location.Region)
+                            if (existingJob.JobLocation.Region == job.JobLocation.Region)
                             {
-                                job.Location = existingJob.Location;
+                                job.JobLocation = existingJob.JobLocation;
                                 break;
                             }
                         }

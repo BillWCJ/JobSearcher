@@ -1,4 +1,4 @@
-﻿using Data.EF.ClusterDB.Interface;
+﻿using Data.EF.JseDb.Interface;
 
 namespace Data.EF.JseDb
 {

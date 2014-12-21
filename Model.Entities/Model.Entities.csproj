@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocationOfInterest.cs" />
     <Compile Include="RateMyCoopJob\JobRating.cs" />
     <Compile Include="CookieEnabledWebClient.cs">
       <SubType>Component</SubType>
@@ -50,12 +51,12 @@
     <Compile Include="JobMine\Job.cs" />
     <Compile Include="RateMyCoopJob\JobReview.cs" />
     <Compile Include="JobMine\Levels.cs" />
-    <Compile Include="Location.cs" />
+    <Compile Include="JobLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchDictionary.cs" />
+    <Compile Include="SearchDictionary\SearchDictionary.cs" />
     <Compile Include="UserAccount.cs" />
     <Compile Include="UtilityMethods.cs" />
-    <Compile Include="Word.cs" />
+    <Compile Include="SearchDictionary\Word.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">

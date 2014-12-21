@@ -1,5 +1,4 @@
-﻿using Data.EF.ClusterDB;
-using Data.EF.ClusterDB.Interface;
+﻿using Data.EF.JseDb.Interface;
 using Data.EF.JseDb.Repository;
 
 namespace Data.EF.JseDb

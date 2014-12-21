@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Data.EF.ClusterDB.Interface;
-using Model.Entities;
+using Data.EF.JseDb.Interface;
 using Model.Entities.JobMine;
 
 namespace Data.EF.JseDb.Repository

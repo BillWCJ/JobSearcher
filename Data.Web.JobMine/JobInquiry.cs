@@ -32,7 +32,7 @@ namespace Data.Web.JobMine
                     Name = GetConvertedNodeInnerHtml(row, ColumnPath.EmployerName, count),
                     UnitName = GetConvertedNodeInnerHtml(row, ColumnPath.UnitName, count)
                 },
-                Location = new Location
+                JobLocation = new JobLocation
                 {
                     Region = GetConvertedNodeInnerHtml(row, ColumnPath.Region, count)
                 },

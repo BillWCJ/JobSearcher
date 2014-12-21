@@ -1,7 +1,6 @@
-﻿using Model.Entities;
-using Model.Entities.JobMine;
+﻿using Model.Entities.JobMine;
 
-namespace Data.EF.ClusterDB.Interface
+namespace Data.EF.JseDb.Interface
 {
     public interface IDisciplinesRepo : IBaseRepository<Disciplines>
     {

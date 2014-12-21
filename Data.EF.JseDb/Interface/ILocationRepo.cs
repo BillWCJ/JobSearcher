@@ -1,10 +1,10 @@
 ﻿using Model.Entities;
 
-namespace Data.EF.ClusterDB.Interface
+namespace Data.EF.JseDb.Interface
 {
-    public interface ILocationRepo : IBaseRepository<Location>
+    public interface ILocationRepo : IBaseRepository<JobLocation>
     {
-        Location GetByJobId(int jobId);
-        Location GetByEmployerId(int employerId);
+        JobLocation GetByJobId(int jobId);
+        JobLocation GetByEmployerId(int employerId);
     }
 }

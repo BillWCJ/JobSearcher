@@ -16,7 +16,7 @@ namespace Data.Web.JobMine
         public static bool IsJobOverViewCompleted(JobOverView jov)
         {
             return jov.Id > 0 && !string.IsNullOrEmpty(jov.JobTitle) &&
-                   !string.IsNullOrEmpty(jov.Employer.Name) && !string.IsNullOrEmpty(jov.Location.Region);
+                   !string.IsNullOrEmpty(jov.Employer.Name) && !string.IsNullOrEmpty(jov.JobLocation.Region);
         }
     }
 }

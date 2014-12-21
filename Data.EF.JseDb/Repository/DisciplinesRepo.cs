@@ -2,8 +2,7 @@
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using Data.EF.ClusterDB.Interface;
-using Model.Entities;
+using Data.EF.JseDb.Interface;
 using Model.Entities.JobMine;
 
 namespace Data.EF.JseDb.Repository

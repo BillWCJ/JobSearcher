@@ -7,9 +7,9 @@ namespace Model.Entities
     /// <summary>
     ///     Entity that contains the location information
     /// </summary>
-    public class Location
+    public class JobLocation
     {
-        public Location()
+        public JobLocation()
         {
             Jobs = new List<Job>();
         }
@@ -25,7 +25,10 @@ namespace Model.Entities
 
         public bool AlreadySet
         {
-            get { return !string.IsNullOrEmpty(FullAddress) && Longitude != null && Latitude != null; }
+            get
+            {
+                return !string.IsNullOrEmpty(FullAddress) && Longitude != null && Latitude != null;
+            }
         }
     }
 }

@@ -48,7 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\LocationConfiguration.cs" />
+    <Compile Include="Configuration\JobLocationConfiguration.cs" />
+    <Compile Include="Configuration\LocationOfInterestConfiguration.cs" />
     <Compile Include="IJseDataRepo.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Interface\IDisciplinesRepo.cs" />

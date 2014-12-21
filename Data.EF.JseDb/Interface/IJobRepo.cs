@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.Entities;
+﻿using System.Collections.Generic;
 using Model.Entities.JobMine;
 
-namespace Data.EF.ClusterDB.Interface
+namespace Data.EF.JseDb.Interface
 {
     public interface IJobRepo : IBaseRepository<Job>
     {

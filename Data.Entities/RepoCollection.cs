@@ -21,7 +21,7 @@ namespace Data.Entities
             : this()
         {
             GoogleRepo = new GoogleRepo(new List<string> {account.GoogleApisBrowserKey});
-            JobMineRepo = new JobMineRepo(account.Username, account.Password);
+            JobMineRepo = new JobMineRepo(account.JobMineUsername, account.JobMinePassword);
         }
 
         private RepoCollection()

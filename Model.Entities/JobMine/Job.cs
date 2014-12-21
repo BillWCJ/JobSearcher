@@ -10,7 +10,7 @@ namespace Model.Entities.JobMine
         public JobOverView()
         {
             Employer = new Employer();
-            Location = new Location();
+            JobLocation = new JobLocation();
         }
 
         [Key]
@@ -22,7 +22,7 @@ namespace Model.Entities.JobMine
         public virtual Employer Employer { get; set; }
 
         [Column(Order = 2)]
-        public virtual Location Location { get; set; }
+        public virtual JobLocation JobLocation { get; set; }
 
         [Column(Order = 3)]
         public string JobTitle { get; set; }
@@ -41,7 +41,6 @@ namespace Model.Entities.JobMine
         }
     }
 
-    //[Table("Jobs")]
     public class Job : JobOverView
     {
         //public DateTime PostingOpenDate { get; set; }
@@ -72,10 +71,10 @@ namespace Model.Entities.JobMine
 
         private void SetRelationship()
         {
-            if (Employer == null || Location == null || Levels == null || Disciplines == null)
+            if (Employer == null || JobLocation == null || Levels == null || Disciplines == null)
                 throw new Exception("One of more of Job's related Entity is null and cannot set relationship");
             Employer.Jobs.Add(this);
-            Location.Jobs.Add(this);
+            JobLocation.Jobs.Add(this);
             Levels.Job = this;
             Disciplines.Job = this;
         }
@@ -103,7 +102,7 @@ namespace Model.Entities.JobMine
                         fieldValue = JobTitle;
                         break;
                     case 2:
-                        fieldValue = Location.Region;
+                        fieldValue = JobLocation.Region;
                         break;
                     case 3:
                         fieldValue = Disciplines.ToString();

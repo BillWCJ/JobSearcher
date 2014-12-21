@@ -36,7 +36,7 @@ namespace Data.Web.JobMine
                     Name = fields[0]
                 },
                 JobTitle = fields[1],
-                Location = new Location
+                JobLocation = new JobLocation
                 {
                     Region = fields[2]
                 },
@@ -61,7 +61,7 @@ namespace Data.Web.JobMine
                 job.Employer.Name = jobOverView.Employer.Name;
             else
                 theSame = false;
-            if (!job.Location.Region.Equals(jobOverView.Location.Region, StringComparison.InvariantCultureIgnoreCase))
+            if (!job.JobLocation.Region.Equals(jobOverView.JobLocation.Region, StringComparison.InvariantCultureIgnoreCase))
                 theSame = false;
             //if (!job.JobTitle.Equals(jobOverView.JobTitle, StringComparison.InvariantCultureIgnoreCase))
             //    theSame = false;

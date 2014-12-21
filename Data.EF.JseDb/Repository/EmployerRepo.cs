@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Data.EF.ClusterDB.Interface;
-using Model.Entities;
+using Data.EF.JseDb.Interface;
 using Model.Entities.JobMine;
 
 namespace Data.EF.JseDb.Repository
@@ -33,7 +32,7 @@ namespace Data.EF.JseDb.Repository
             IList<Employer> employer = null;
             try
             {
-                employer = DbSet.Where(e => e.Jobs.Any(j => j.Location.Id == locationId)).ToList();
+                employer = DbSet.Where(e => e.Jobs.Any(j => j.JobLocation.Id == locationId)).ToList();
             }
             catch (Exception e)
             {
