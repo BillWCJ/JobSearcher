@@ -10,7 +10,7 @@ using Model.Entities.Web;
 
 namespace Data.Web.JobMine
 {
-    public static class JobInquiryHelpper
+    internal static class JobInquiryHelpper
     {
         public static IEnumerable<T> GetJobInquiryPageObject<T>(CookieEnabledWebClient client, string term, string jobStatus, Func<HtmlNode, int, T> objectExtractor)
         {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using Data.Contract.JobMine;
+using Data.Contract.JobMine.Interface;
 using Model.Definition;
 using Model.Entities;
 using Model.Entities.JobMine;
@@ -10,14 +12,15 @@ using Model.Entities.Web;
 
 namespace Data.Web.JobMine
 {
-    public class JobDetail
+    public class JobDetail : IJobDetail
     {
         static CookieEnabledWebClient Client { get; set; }
         public JobDetail(CookieEnabledWebClient client)
         {
             Client = client;
         }
-        public static Job GetJob(string htmlSource, string jobId) //todo: improve using html parsing
+
+        private static Job GetJob(string htmlSource, string jobId) //todo: improve using html parsing
         {
             var fields = new string[JobMineDef.FieldSearchString.Length];
             for (int i = 0; i < JobMineDef.FieldSearchString.Length; i++)
@@ -72,7 +75,7 @@ namespace Data.Web.JobMine
             return job;
         }
 
-        public static string ExtractField(string data, string front, string back)
+        private static string ExtractField(string data, string front, string back)
         {
             int start = data.IndexOf(front, StringComparison.InvariantCulture) + front.Length;
             int end = data.IndexOf(back, start, StringComparison.InvariantCulture);

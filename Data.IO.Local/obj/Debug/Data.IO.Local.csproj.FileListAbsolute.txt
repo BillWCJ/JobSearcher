@@ -16,3 +16,7 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\b
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\obj\Debug\Data.IO.Local.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\obj\Debug\Data.IO.Local.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\obj\Debug\Data.IO.Local.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\Data.Contract.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\Data.Contract.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\EntityFramework.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\EntityFramework.xml

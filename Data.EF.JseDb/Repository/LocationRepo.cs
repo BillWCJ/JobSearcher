@@ -1,5 +1,5 @@
 ﻿using System;
-using Data.EF.JseDb.Interface;
+using Data.Contract.JseDb.Interface;
 using Model.Entities;
 
 namespace Data.EF.JseDb.Repository

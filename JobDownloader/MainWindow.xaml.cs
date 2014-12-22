@@ -1,7 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using Business.Manager;
+using Data.Contract.JobMine;
+using Data.Web.JobMine;
 
 namespace JobDownloader
 {
@@ -37,9 +41,29 @@ namespace JobDownloader
             IsInProgress = true;
 
             GetPostInfo();
-            var jobMineManager = new LocalDownloadManager();
-            foreach (string msg in  jobMineManager.DownLoadJobs(UserName, Password, Term, JobStatus, FileLocation))
-                OutputTextBox.AppendText(msg);
+
+            IJobMineRepo jobMineRepo = null;
+            try
+            {
+                jobMineRepo = new JobMineRepo(UserName, Password);
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.ToString());
+                OutputTextBox.AppendText(string.Format(ex.Message));
+            }
+
+            var jobMineManager = new LocalDownloadManager(jobMineRepo);
+            try
+            {
+                foreach (string msg in jobMineManager.DownLoadJobs(UserName, Password, Term, JobStatus, FileLocation))
+                    OutputTextBox.AppendText(msg);
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.ToString());
+                OutputTextBox.AppendText(string.Format("An Error Occurred"));
+            }
 
             IsInProgress = false;
         }

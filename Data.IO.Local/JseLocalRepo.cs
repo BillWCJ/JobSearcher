@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using Data.Contract.Local;
 using Model.Definition;
 using Model.Entities;
 

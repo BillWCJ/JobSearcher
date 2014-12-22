@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using Data.Contract.GoogleApis.Interface;
 using Model.Entities;
 using Model.Entities.JobMine;
 using Model.Entities.Web;

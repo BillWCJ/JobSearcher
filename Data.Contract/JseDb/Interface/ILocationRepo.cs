@@ -1,6 +1,6 @@
 ﻿using Model.Entities;
 
-namespace Data.EF.JseDb.Interface
+namespace Data.Contract.JseDb.Interface
 {
     public interface ILocationRepo : IBaseRepository<JobLocation>
     {

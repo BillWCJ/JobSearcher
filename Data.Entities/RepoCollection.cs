@@ -1,4 +1,9 @@
 ﻿using System.Collections.Generic;
+using Data.Contract;
+using Data.Contract.GoogleApis;
+using Data.Contract.JobMine;
+using Data.Contract.JseDb;
+using Data.Contract.Local;
 using Data.EF.JseDb;
 using Data.IO.Local;
 using Data.Web.GoogleApis;

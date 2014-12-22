@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
+using Data.Contract.GoogleApis.Interface;
 using Data.EF.JseDb;
 using Data.Web.GoogleApis;
 using Model.Entities;
@@ -25,7 +26,7 @@ namespace Business.DataBaseSeeder
             using (var db = new JseDbContext())
             {
                 IList<JobLocation> notSetLocations = (from l in db.Locations where l.AlreadySet == false select l).ToList();
-                PlaceTextSearch locationSearcher = new GoogleRepo(new List<string> {Account.GoogleApisBrowserKey}).LocationRepo;
+                IPlaceTextSearch locationSearcher = new GoogleRepo(new List<string> {Account.GoogleApisBrowserKey}).LocationRepo;
                 foreach (JobLocation location in notSetLocations)
                 {
                     try

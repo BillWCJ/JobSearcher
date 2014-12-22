@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Data.EF.JseDb.Interface
+namespace Data.Contract.JseDb.Interface
 {
     public interface IBaseRepository<T> where T : class
     {

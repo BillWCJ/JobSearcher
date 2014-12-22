@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Data.EF.JseDb.Interface;
+using Data.Contract.JseDb.Interface;
 using Model.Entities.JobMine;
 
 namespace Data.EF.JseDb.Repository

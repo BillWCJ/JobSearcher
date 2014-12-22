@@ -1,4 +1,6 @@
 ﻿using System;
+using Data.Contract.JobMine;
+using Data.Contract.JobMine.Interface;
 using Model.Entities;
 using Model.Entities.Web;
 
@@ -6,30 +8,24 @@ namespace Data.Web.JobMine
 {
     public class JobMineRepo : IJobMineRepo
     {
-        public JobMineRepo(string username, string password) : this()
+        public JobMineRepo(string username, string password)
         {
             Client = Login.GetJobMineLoggedInWebClient(username, password);
             if (Client == null)
                 throw new ArgumentException("Unable to Login");
-        }
-
-        public JobMineRepo(UserAccount account) : this()
-        {
-            Client = Login.GetJobMineLoggedInWebClient(account.JobMineUsername, account.JobMinePassword);
-            if (Client == null)
-                throw new ArgumentException("Unable to Login");
-        }
-
-        private JobMineRepo()
-        {
             JobInquiry = new JobInquiry(Client);
             JobDetail = new JobDetail(Client);
         }
 
+        public JobMineRepo(UserAccount account)
+            : this(account.JobMineUsername, account.JobMinePassword)
+        {
+        }
+
         private CookieEnabledWebClient Client { get; set; }
 
-        public JobInquiry JobInquiry { get; private set; }
+        public IJobInquiry JobInquiry { get; private set; }
 
-        public JobDetail JobDetail { get; private set; }
+        public IJobDetail JobDetail { get; private set; }
     }
 }

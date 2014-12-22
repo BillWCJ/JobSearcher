@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using Data.EF.JseDb.Configuration;
 using Model.Entities;
 using Model.Entities.JobMine;
@@ -7,7 +8,7 @@ using Model.Entities.SearchDictionary;
 
 namespace Data.EF.JseDb
 {
-    public class JseDbContext : DbContext
+    public class JseDbContext : DbContext, IJseDbContext
     {
         public IDbSet<Job> Jobs { get; set; }
         public IDbSet<Employer> Employers { get; set; }

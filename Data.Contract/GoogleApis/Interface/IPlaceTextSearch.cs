@@ -1,7 +1,7 @@
 using Model.Entities;
 using Model.Entities.JobMine;
 
-namespace Data.Web.GoogleApis
+namespace Data.Contract.GoogleApis.Interface
 {
     public interface IPlaceTextSearch
     {

@@ -122,3 +122,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\o
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.application
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.exe
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Contract.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Contract.pdb

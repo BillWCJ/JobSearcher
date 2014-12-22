@@ -1,6 +1,6 @@
 ﻿using Model.Entities;
 
-namespace Data.IO.Local
+namespace Data.Contract.Local
 {
     public interface IJseLocalRepo
     {

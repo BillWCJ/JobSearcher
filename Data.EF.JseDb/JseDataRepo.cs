@@ -1,4 +1,5 @@
-﻿using Data.EF.JseDb.Interface;
+﻿using Data.Contract.JseDb;
+using Data.Contract.JseDb.Interface;
 using Data.EF.JseDb.Repository;
 
 namespace Data.EF.JseDb

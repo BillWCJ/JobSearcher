@@ -1,6 +1,6 @@
 ﻿using Model.Entities.JobMine;
 
-namespace Data.EF.JseDb.Interface
+namespace Data.Contract.JseDb.Interface
 {
     public interface ILevelsRepo : IBaseRepository<Levels>
     {

@@ -1,6 +1,6 @@
-﻿using Data.EF.JseDb.Interface;
+using Data.Contract.JseDb.Interface;
 
-namespace Data.EF.JseDb
+namespace Data.Contract.JseDb
 {
     public interface IJseDataRepo
     {

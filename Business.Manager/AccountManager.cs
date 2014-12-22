@@ -1,15 +1,16 @@
-﻿using Data.IO.Local;
+﻿using Data.Contract.Local;
 using Model.Entities;
 
 namespace Business.Manager
 {
     public class AccountManager
     {
-        IJseLocalRepo JseLocalRepo { get; set; }
         public AccountManager(IJseLocalRepo jseLocalRepo)
         {
             JseLocalRepo = jseLocalRepo;
         }
+
+        private IJseLocalRepo JseLocalRepo { get; set; }
 
         public UserAccount GetUserAccount()
         {

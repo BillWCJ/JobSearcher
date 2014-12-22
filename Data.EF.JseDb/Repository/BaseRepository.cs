@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
-using Data.EF.JseDb.Interface;
+using Data.Contract.JseDb.Interface;
 
 namespace Data.EF.JseDb.Repository
 {

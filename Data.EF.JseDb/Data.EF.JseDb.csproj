@@ -11,6 +11,7 @@
     <AssemblyName>Data.EF.JseDb</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,13 +51,7 @@
   <ItemGroup>
     <Compile Include="Configuration\JobLocationConfiguration.cs" />
     <Compile Include="Configuration\LocationOfInterestConfiguration.cs" />
-    <Compile Include="IJseDataRepo.cs" />
-    <Compile Include="Interface\IBaseRepository.cs" />
-    <Compile Include="Interface\IDisciplinesRepo.cs" />
-    <Compile Include="Interface\IEmployerRepo.cs" />
-    <Compile Include="Interface\IJobRepo.cs" />
-    <Compile Include="Interface\ILevelsRepo.cs" />
-    <Compile Include="Interface\ILocationRepo.cs" />
+    <Compile Include="IJseDbContext.cs" />
     <Compile Include="JseDataRepo.cs" />
     <Compile Include="JseDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,10 +63,14 @@
     <Compile Include="Repository\LocationRepo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="Properties\App.config" />
+    <None Include="Properties\packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
+      <Project>{07adfcb0-30aa-4a1e-8c2d-0846a03fc831}</Project>
+      <Name>Data.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
       <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
       <Name>Model.Entities</Name>

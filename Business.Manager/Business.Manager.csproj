@@ -52,17 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
-      <Project>{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}</Project>
-      <Name>Data.EF.JseDb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
-      <Project>{8BF3F9BB-8EA9-4EEF-BA16-F89FB067E7EF}</Project>
-      <Name>Data.IO.Local</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
-      <Project>{07D1AEA5-7872-4B29-93D6-73F8FDC63D33}</Project>
-      <Name>Data.Web.JobMine</Name>
+    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
+      <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
+      <Name>Data.Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-B704-91831B872E3F}</Project>
@@ -76,6 +68,9 @@
   <ItemGroup>
     <None Include="Properties\App.config" />
     <None Include="Properties\packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

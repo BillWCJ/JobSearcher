@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Model.Entities.JobMine;
 
-namespace Data.EF.JseDb.Interface
+namespace Data.Contract.JseDb.Interface
 {
     public interface IJobRepo : IBaseRepository<Job>
     {

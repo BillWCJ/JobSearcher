@@ -1,9 +1,9 @@
-﻿using Data.EF.JseDb;
-using Data.IO.Local;
-using Data.Web.GoogleApis;
-using Data.Web.JobMine;
+﻿using Data.Contract.GoogleApis;
+using Data.Contract.JobMine;
+using Data.Contract.JseDb;
+using Data.Contract.Local;
 
-namespace Data.Entities
+namespace Data.Contract
 {
     public interface IRepoCollection
     {

@@ -39,11 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IJseLocalRepo.cs" />
     <Compile Include="JseLocalRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
+      <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
+      <Name>Data.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
       <Name>Model.Definition</Name>

@@ -40,12 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoogleRepo.cs" />
-    <Compile Include="IGoogleRepo.cs" />
-    <Compile Include="IPlaceTextSearch.cs" />
     <Compile Include="PlaceTextSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
+      <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
+      <Name>Data.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>
       <Name>Data.EF.JseDb</Name>
