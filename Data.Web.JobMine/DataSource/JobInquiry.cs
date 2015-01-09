@@ -11,7 +11,7 @@ using Model.Entities;
 using Model.Entities.JobMine;
 using Model.Entities.Web;
 
-namespace Data.Web.JobMine
+namespace Data.Web.JobMine.DataSource
 {
     //public class JobInquiry : IJobInquiry
     //{
@@ -76,12 +76,12 @@ namespace Data.Web.JobMine
         /// </summary>
         private const int FirstSearch = -1;
 
-        public JobInquiry(CookieEnabledWebClient client)
+        public JobInquiry(ICookieEnabledWebClient client)
         {
             Client = client;
         }
 
-        private static CookieEnabledWebClient Client { get; set; }
+        private static ICookieEnabledWebClient Client { get; set; }
 
         /// <summary>
         /// </summary>
@@ -179,7 +179,7 @@ namespace Data.Web.JobMine
             return searchData;
         }
 
-        private static void SetInquiryData(CookieEnabledWebClient client, int numPages, ref string iCAction, ref string iCsid, ref int iCStateNum)
+        private static void SetInquiryData(ICookieEnabledWebClient client, int numPages, ref string iCAction, ref string iCsid, ref int iCStateNum)
         {
             var doc = new HtmlDocument();
             if (iCAction != IcAction.Down && numPages != FirstSearch)
@@ -228,13 +228,13 @@ namespace Data.Web.JobMine
             }
         }
 
-        private static string GetJobinfo(CookieEnabledWebClient client, string iCAction, string term, string iCsid,
+        private static string GetJobinfo(ICookieEnabledWebClient client, string iCAction, string term, string iCsid,
             int iCStateNum, string jobStatus)
         {
             const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";
-            return
-                Encoding.UTF8.GetString(client.UploadValues(url, method,
-                    JobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus)));
+            NameValueCollection jobInquiryData = JobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus);
+            byte[] values = client.UploadValues(url, method, jobInquiryData);
+            return Encoding.UTF8.GetString(values);
         }
 
         private static int GetNumberOfPages(HtmlDocument doc)
@@ -297,13 +297,13 @@ namespace Data.Web.JobMine
         /// </summary>
         /// <param name="client">Loggedin WebClient</param>
         /// <returns>Iframe URL</returns>
-        private static string GetIframeSrcUrl(CookieEnabledWebClient client)
+        private static string GetIframeSrcUrl(ICookieEnabledWebClient client)
         {
-            var doc = new HtmlDocument();
-            string inquirypagehtml = client.DownloadString(JobMineDef.JobInquiryUrlpsp);
-            doc.LoadHtml(inquirypagehtml);
-            string src =
-                doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/iframe[1]").Attributes["src"].Value;
+            //var doc = new HtmlDocument();
+            //string inquirypagehtml = client.DownloadString(JobMineDef.JobInquiryUrlpsp);
+            //doc.LoadHtml(inquirypagehtml);
+            //string src =
+            //    doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/iframe[1]").Attributes["src"].Value;
             //src = doc.DocumentNode.SelectSingleNode("//iframe[@id='ptifrmtgtframe']").Attributes["src"].Value;
             return
                 @"https://jobmine.ccol.uwaterloo.ca/psc/SS/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBSRCH.GBL?pslnkid=UW_CO_JOBSRCH_LINK&amp;FolderPath=PORTAL_ROOT_OBJECT.UW_CO_JOBSRCH_LINK&amp;IsFolder=false&amp;IgnoreParamTempl=FolderPath%2cIsFolder&amp;PortalActualURL=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsc%2fSS%2fEMPLOYEE%2fWORK%2fc%2fUW_CO_STUDENTS.UW_CO_JOBSRCH.GBL%3fpslnkid%3dUW_CO_JOBSRCH_LINK&amp;PortalContentURL=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsc%2fSS%2fEMPLOYEE%2fWORK%2fc%2fUW_CO_STUDENTS.UW_CO_JOBSRCH.GBL%3fpslnkid%3dUW_CO_JOBSRCH_LINK&amp;PortalContentProvider=WORK&amp;PortalCRefLabel=Job%20Inquiry&amp;PortalRegistryName=EMPLOYEE&amp;PortalServletURI=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsp%2fSS%2f&amp;PortalURI=https%3a%2f%2fjobmine.ccol.uwaterloo.ca%2fpsc%2fSS%2f&amp;PortalHostNode=WORK&amp;NoCrumbs=yes&amp;PortalKeyStruct=yes";

@@ -1,6 +1,8 @@
 ﻿using System;
 using Data.Contract.JobMine;
 using Data.Contract.JobMine.Interface;
+using Data.Web.JobMine.Common;
+using Data.Web.JobMine.DataSource;
 using Model.Entities;
 using Model.Entities.Web;
 
@@ -22,7 +24,16 @@ namespace Data.Web.JobMine
         {
         }
 
-        private CookieEnabledWebClient Client { get; set; }
+        public JobMineRepo(ICookieEnabledWebClient client)
+        {
+            //if (!Login.IsLoggedIn(client))
+                //throw new ArgumentException("Not Login");
+            Client = client;
+            JobInquiry = new JobInquiry(Client);
+            JobDetail = new JobDetail(Client);
+        }
+
+        private ICookieEnabledWebClient Client { get; set; }
 
         public IJobInquiry JobInquiry { get; private set; }
 

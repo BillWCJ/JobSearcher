@@ -51,6 +51,8 @@
     <Compile Include="JobMine\Interface\IJobInquiry.cs" />
     <Compile Include="JseDb\IJseDataRepo.cs" />
     <Compile Include="JseDb\IJseDbContext.cs" />
+    <Compile Include="JseDb\Interface\IEmployerReviewRepo.cs" />
+    <Compile Include="JseDb\Interface\IJobRatingRepo.cs" />
     <Compile Include="JseDb\Interface\IBaseRepository.cs" />
     <Compile Include="JseDb\Interface\IDisciplinesRepo.cs" />
     <Compile Include="JseDb\Interface\IEmployerRepo.cs" />

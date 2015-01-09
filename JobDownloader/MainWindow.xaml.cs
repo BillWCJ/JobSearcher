@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -50,14 +51,21 @@ namespace JobDownloader
             catch (Exception ex)
             {
                 Trace.TraceError(ex.ToString());
-                OutputTextBox.AppendText(string.Format(ex.Message));
+                OutputTextBox.AppendText(string.Format(ex.Message) + Environment.NewLine);
             }
+            OutputTextBox.AppendText("Succesfully Loggedin" + Environment.NewLine);
 
             var jobMineManager = new LocalDownloadManager(jobMineRepo);
             try
             {
-                foreach (string msg in jobMineManager.DownLoadJobs(UserName, Password, Term, JobStatus, FileLocation))
-                    OutputTextBox.AppendText(msg);
+                ThreadPool.QueueUserWorkItem(o =>
+                {
+                    foreach (string msg in jobMineManager.DownLoadJobs(UserName, Password, Term, JobStatus, FileLocation))
+                    {
+                        string msg1 = msg;
+                        Dispatcher.Invoke((() => OutputTextBox.AppendText(msg1)));
+                    }
+                });
             }
             catch (Exception ex)
             {

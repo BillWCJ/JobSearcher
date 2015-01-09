@@ -16,7 +16,7 @@ namespace Business.DataBaseSeeder
 
         private UserAccount Account { get; set; }
 
-        public void SeedDb(string term, string appsAvail, int numberOfJobsToSeed = int.MaxValue)
+        public IEnumerable<string> SeedDb(string term, string appsAvail, int numberOfJobsToSeed = int.MaxValue)
         {
             using (var db = new JseDbContext())
             {
@@ -45,6 +45,7 @@ namespace Business.DataBaseSeeder
 
                     db.Jobs.Add(job);
                     db.SaveChanges();
+                    yield return "Job Seeded";
                 }
             }
         }

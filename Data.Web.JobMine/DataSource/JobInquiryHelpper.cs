@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Text;
+using Data.Web.JobMine.Common;
 using HtmlAgilityPack;
 using Model.Definition;
-using Model.Entities;
 using Model.Entities.Web;
 
-namespace Data.Web.JobMine
+namespace Data.Web.JobMine.DataSource
 {
     internal static class JobInquiryHelpper
     {
-        public static IEnumerable<T> GetJobInquiryPageObject<T>(CookieEnabledWebClient client, string term, string jobStatus, Func<HtmlNode, int, T> objectExtractor)
+        public static IEnumerable<T> GetJobInquiryPageObject<T>(ICookieEnabledWebClient client, string term, string jobStatus, Func<HtmlNode, int, T> objectExtractor)
         {
             int numPages = 0; // numpage is 0 if we haven't search for the number of job that matches the given criteria 
             string iCAction = IcAction.Search, iCsid = "";
@@ -52,7 +52,7 @@ namespace Data.Web.JobMine
             }
         }
 
-        private static void SetInquiryData(CookieEnabledWebClient client, int numPages, ref string iCAction,
+        private static void SetInquiryData(ICookieEnabledWebClient client, int numPages, ref string iCAction,
             ref string iCsid, ref int iCStateNum)
         {
             var doc = new HtmlDocument();
@@ -69,7 +69,7 @@ namespace Data.Web.JobMine
             iCStateNum++;
         }
 
-        private static string GetJobinfo(CookieEnabledWebClient client, string iCAction, string term, string iCsid,
+        private static string GetJobinfo(ICookieEnabledWebClient client, string iCAction, string term, string iCsid,
             int iCStateNum, string jobStatus)
         {
             const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";

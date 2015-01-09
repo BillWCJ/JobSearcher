@@ -1,14 +1,19 @@
-﻿using Model.Entities;
+﻿using System.Collections.Generic;
+using Model.Entities;
 
 namespace Business.DataBaseSeeder
 {
     public class MasterSeeder
     {
-        public static void SeedAll(string term, string appsAvail, UserAccount account)
+        public static IEnumerable<string> SeedAll(string term, string appsAvail, UserAccount account, bool seedCoopRating = true, bool seedLocation = true)
         {
-            new JobMineInfoSeeder(account).SeedDb(term, appsAvail);
-            RateMyCoopJobSeeder.SeedDb();
-            new GoogleLocationSeeder(account).SeedDb();
+            foreach (var msg in new JobMineInfoSeeder(account).SeedDb(term, appsAvail))
+                yield return msg;
+
+            if (seedCoopRating)
+                RateMyCoopJobSeeder.SeedDb();
+            if (seedLocation)
+                new GoogleLocationSeeder(account).SeedDb();
         }
     }
 }

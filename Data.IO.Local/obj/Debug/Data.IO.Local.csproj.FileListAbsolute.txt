@@ -20,3 +20,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\b
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\Data.Contract.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\EntityFramework.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\EntityFramework.xml
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\Common.Utility.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\Common.Utility.pdb

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
+using Common.Utility;
 using Data.Contract.Local;
 using Model.Definition;
 using Model.Entities;
@@ -11,9 +11,10 @@ namespace Data.IO.Local
     public class JseLocalRepo : IJseLocalRepo
     {
         private const string DataFileName = @"ProgramData.txt";
+
         public JseLocalRepo()
         {
-            FilePath = GetSolutionPath() ?? CommonDef.DefaultFilePath;
+            FilePath = CommonUtility.GetSolutionPath() ?? CommonDef.DefaultFilePath;
         }
 
         public static string FilePath { get; private set; }
@@ -30,7 +31,7 @@ namespace Data.IO.Local
                 String password = reader.ReadLine();
                 String googleApisServerKey = reader.ReadLine();
                 String googleApisBrowserKey = reader.ReadLine();
-                if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                     throw new ArgumentException();
                 account = new UserAccount
                 {
@@ -56,29 +57,6 @@ namespace Data.IO.Local
             return account;
         }
 
-        private static string GetSolutionPath()
-        {
-            try
-            {
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                var uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-
-                string directoryName = Path.GetDirectoryName(path);
-                if (directoryName == null) throw new NullReferenceException("directoryName is null");
-                string projectPath = directoryName.Replace("obj", "").Replace("bin", "").Replace("Debug", "").Replace("Release", "").TrimEnd('\\');
-
-                string solutionPath = Path.GetDirectoryName(projectPath);
-                if (solutionPath == null) throw new NullReferenceException("solutionPath is null");
-                return solutionPath.TrimEnd('\\') + '\\';
-            }
-            catch (Exception e)
-            {
-                Trace.Write(e.ToString());
-                return CommonDef.DefaultFilePath;
-            }
-        }
-
         private static void CreateDataFile()
         {
             string userName = null;
@@ -95,7 +73,7 @@ namespace Data.IO.Local
                 Console.WriteLine(e);
             }
 
-            var writer = StreamWriter.Null;
+            StreamWriter writer = StreamWriter.Null;
             var account = new UserAccount();
             string userInfoFilePath = FilePath + DataFileName;
             try

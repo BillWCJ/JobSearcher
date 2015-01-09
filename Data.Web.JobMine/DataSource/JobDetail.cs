@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using Data.Contract.JobMine;
 using Data.Contract.JobMine.Interface;
 using Model.Definition;
 using Model.Entities;
 using Model.Entities.JobMine;
 using Model.Entities.Web;
 
-namespace Data.Web.JobMine
+namespace Data.Web.JobMine.DataSource
 {
     public class JobDetail : IJobDetail
     {
-        static CookieEnabledWebClient Client { get; set; }
-        public JobDetail(CookieEnabledWebClient client)
+        static ICookieEnabledWebClient Client { get; set; }
+        public JobDetail(ICookieEnabledWebClient client)
         {
             Client = client;
         }
@@ -97,7 +96,7 @@ namespace Data.Web.JobMine
             bool success = true;
             for (int currentFilePart = 1; jobIDs.Count > 0; currentFilePart++)
             {
-                yield return string.Format("Writing JobDetailPart {0} ({1} Jobs Per File)", currentFilePart, numJobsPerFile);
+                yield return string.Format("Writing JobDetailPart {0} ({1} Jobs Per File)\n", currentFilePart, numJobsPerFile);
 
                 try
                 {

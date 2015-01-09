@@ -51,16 +51,21 @@
   <ItemGroup>
     <Compile Include="Configuration\JobLocationConfiguration.cs" />
     <Compile Include="Configuration\LocationOfInterestConfiguration.cs" />
-    <Compile Include="IJseDbContext.cs" />
     <Compile Include="JseDataRepo.cs" />
     <Compile Include="JseDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\DisciplinesRepo.cs" />
     <Compile Include="Repository\EmployerRepo.cs" />
+    <Compile Include="Repository\EmployerReviewRepo.cs" />
+    <Compile Include="Repository\JobRatingRepo.cs" />
     <Compile Include="Repository\JobRepo.cs" />
+    <Compile Include="Repository\JobReviewRepo.cs" />
     <Compile Include="Repository\LevelsRepo.cs" />
+    <Compile Include="Repository\LocationOfInterestRepo.cs" />
     <Compile Include="Repository\LocationRepo.cs" />
+    <Compile Include="Repository\SearchDictionaryRepo.cs" />
+    <Compile Include="Repository\WordRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.config" />

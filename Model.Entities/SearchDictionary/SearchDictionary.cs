@@ -6,12 +6,15 @@ namespace Model.Entities.SearchDictionary
 {
     public class SearchDictionary
     {
-        [Key, ForeignKey("Job")]
+        [Key]
+        public int Id { get; set; }
+
+        //[Key, ForeignKey("Job")]
         public int JobId { get; set; }
 
         public virtual Job Job { get; set; }
 
-        [Key, ForeignKey("Word")]
+        //[Key, ForeignKey("Word")]
         public int WordId { get; set; }
 
         public virtual Word Word { get; set; }

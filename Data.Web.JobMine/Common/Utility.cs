@@ -1,9 +1,7 @@
-﻿using System.IO;
-using System.Text.RegularExpressions;
-using Model.Entities;
+﻿using System.Text.RegularExpressions;
 using Model.Entities.JobMine;
 
-namespace Data.Web.JobMine
+namespace Data.Web.JobMine.Common
 {
     public static class Utility
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Specialized;
 using Model.Definition;
 
-namespace Data.Web.JobMine
+namespace Data.Web.JobMine.Common
 {
     public static class PostData
     {

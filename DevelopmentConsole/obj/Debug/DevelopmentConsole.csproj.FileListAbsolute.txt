@@ -33,3 +33,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentCons
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Business.DataBaseSeeder.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Data.EF.JseDb.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Data.Contract.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Common.Utility.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\DevelopmentConsole\bin\Debug\Common.Utility.pdb

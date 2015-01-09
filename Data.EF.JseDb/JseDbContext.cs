@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+using Data.Contract.JseDb;
 using Data.EF.JseDb.Configuration;
 using Model.Entities;
 using Model.Entities.JobMine;
@@ -25,7 +25,7 @@ namespace Data.EF.JseDb
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new JobLocationConfiguration());
-            modelBuilder.Configurations.Add(new LocationOfInterestConfiguration());
+            //modelBuilder.Configurations.Add(new LocationOfInterestConfiguration());
         }
     }
 }

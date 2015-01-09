@@ -72,8 +72,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\App.config" />
-    <None Include="Properties\packages.config" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.DataBaseSeeder\Business.DataBaseSeeder.csproj">
@@ -83,6 +83,10 @@
     <ProjectReference Include="..\Business.Manager\Business.Manager.csproj">
       <Project>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</Project>
       <Name>Business.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
+      <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
+      <Name>Data.Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
       <Project>{5dc2f9dc-eaad-425e-853a-5cdeb054f55f}</Project>

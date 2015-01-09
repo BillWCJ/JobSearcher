@@ -1,0 +1,783 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PAGE id='UW_CO_JOBSRCH'><GENSCRIPT id='script'><![CDATA[gridList_win0 = [
+['UW_CO_JOBRES_VW$0',0,2,0,0,0]
+];
+gridHeaderList_win0 = [
+[['UW_CO_JOBRES_VW$0#0',1],
+['UW_CO_JOBRES_VW$0#1',1],
+['UW_CO_JOBRES_VW$0#2',1],
+['UW_CO_JOBRES_VW$0#3',1],
+['UW_CO_JOBRES_VW$0#4',1],
+['UW_CO_JOBRES_VW$0#5',1],
+['UW_CO_JOBRES_VW$0#6',1],
+['UW_CO_JOBRES_VW$0#7',1],
+['UW_CO_JOBRES_VW$0#8',1],
+['UW_CO_JOBRES_VW$0#9',1]]
+];
+gridRowSelRgbColor_win0 ="rgb(212,219,217)";
+gridFieldList_win0 = [
+['UW_CO_JOBTITLE_HL$%c',
+'UW_CO_JOBRES_VW_UW_CO_PARENT_NAME$%c',
+'UW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$%c',
+'UW_CO_JOBRES_VW_UW_CO_OPENGS$%c',
+'UW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES$%c',
+'UW_CO_APPLY_HL$%c',
+'UW_CO_SLIST_HL$%c',
+'UW_CO_JOBRES_VW_UW_CO_JOB_ID$%c',
+'UW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$%c',
+'UW_CO_JOBRES_VW_UW_CO_CHAR_DATE$%c',
+'UW_CO_JOBRES_VW$new$%c$$0',
+'UW_CO_JOBRES_VW$delete$%c$$0']
+];
+]]></GENSCRIPT><GENSCRIPT id='script'><![CDATA[PFieldList_win0 = [['UW_CO_STUDENT_UW_CO_PREF_NAME',1],
+['UW_CO_JOBSRCH_UW_CO_WT_SESSION',1],
+['UW_CO_TERMCALND_UW_CO_DESCR_30',1],
+['UW_CO_JOBSRCH_UW_CO_LOCATION',1]];
+]]></GENSCRIPT><GENSCRIPT id='script'><![CDATA[EFieldList_win0 = [];
+]]></GENSCRIPT><GENSCRIPT id='onloadScript'><![CDATA[var oWin=window;
+var oDoc=document;
+oDoc.win0.ICResubmit.value='0';
+oWin.nResubmit='0';
+oDoc.win0.ICStateNum.value=2;initVars_win0();resetVars_win0();
+oDoc.win0.ICFocus.value='';
+setupTimeout2();
+ptEvent.add(window,'scroll',positionWAIT_win0);
+if (typeof(myAppsWindowOpenJS) != 'undefined' && myAppsWindowOpenJS != null && myAppsWindowOpenJS != '')
+ {
+try {eval(myAppsWindowOpenJS);} catch(e) {}
+  myAppsWindowOpenJS=null;
+}
+self.scroll(0,110);
+if (typeof oWin == 'undefined') setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+ else
+ oWin.setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+setFocus_win0('UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN',-1);
+processing_win0(0,3000);]]></GENSCRIPT>
+<FIELD id='win0divPSPAGECONTAINER'><![CDATA[<table  border='0' id='ACE_width' cellpadding='0' cellspacing='0' class='PSPAGECONTAINER' cols='20' width='1405'>
+<tr>
+<td width='8' height='8'></td>
+<td width='4'></td>
+<td width='4'></td>
+<td width='101'></td>
+<td width='19'></td>
+<td width='20'></td>
+<td width='33'></td>
+<td width='19'></td>
+<td width='9'></td>
+<td width='159'></td>
+<td width='92'></td>
+<td width='104'></td>
+<td width='32'></td>
+<td width='108'></td>
+<td width='40'></td>
+<td width='15'></td>
+<td width='13'></td>
+<td width='553'></td>
+<td width='4'></td>
+<td width='68'></td>
+</tr>
+<tr>
+<td height='1' colspan='3'></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_STUDENT_UW_CO_STU_ID'><span  class='PSEDITBOXLABEL' >Student ID:</span> </DIV></td>
+</tr>
+<tr>
+<td height='22' colspan='3'></td>
+<td colspan='3'  valign='top' align='left'>
+<DIV id='win0divUW_CO_STUDENT_UW_CO_STU_ID'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_STUDENT_UW_CO_STU_ID'>20512856</span><!-- UW_CO_STUDENT_UW_CO_STU_ID -->
+</DIV></td>
+<td colspan='13'  valign='top' align='left'>
+<DIV id='win0divUW_CO_STUDENT_UW_CO_PREF_NAME'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_STUDENT_UW_CO_PREF_NAME'>Jiang,Bill</span><!-- UW_CO_STUDENT_UW_CO_PREF_NAME -->
+</DIV></td>
+</tr>
+<tr>
+<td height='13'></td>
+<td colspan='17'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSHORIZONTALRULE'  />
+</td>
+</tr>
+<tr>
+<td height='4' colspan='5'></td>
+<td colspan='4' rowspan='4' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_WT_SESSION'><input type='text' name='UW_CO_JOBSRCH_UW_CO_WT_SESSION' id='UW_CO_JOBSRCH_UW_CO_WT_SESSION' tabindex='15' value="1149"  class='PSEDITBOX' style='width:35px; ' maxlength='4' onchange="addchg_win0(this);oChange_win0=this;/*a400,300000*/"  /><a name='UW_CO_JOBSRCH_UW_CO_WT_SESSION$prompt' id='UW_CO_JOBSRCH_UW_CO_WT_SESSION$prompt' class='PSHYPERLINK' tabindex='16' href="javascript:pAction_win0(document.win0,'UW_CO_JOBSRCH_UW_CO_WT_SESSION$prompt');"><img src="/cs/SS/cache/nomenu/PT_PROMPT_LOOKUP_1.gif" alt='Look up Term (Alt+5)' title='Look up Term (Alt+5)' name='UW_CO_JOBSRCH_UW_CO_WT_SESSION$prompt$img' border='0' align='absmiddle' /></a>
+</DIV></td>
+</tr>
+<tr>
+<td height='1' colspan='2'></td>
+<td colspan='3' rowspan='4'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_WT_SESSION'><label for='UW_CO_JOBSRCH_UW_CO_WT_SESSION'id='UW_CO_JOBSRCH_UW_CO_WT_SESSION_LBL' class='PSEDITBOXLABEL' >*Term: <span class='psaccesshidden'>Required</span></label>
+</DIV></td>
+</tr>
+<tr>
+<td height='22' colspan='2'></td>
+<td colspan='11'  valign='top' align='left'>
+<DIV id='win0divUW_CO_TERMCALND_UW_CO_DESCR_30'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_TERMCALND_UW_CO_DESCR_30'>Fall 2014</span><!-- UW_CO_TERMCALND_UW_CO_DESCR_30 -->
+</DIV></td>
+</tr>
+<tr>
+<td height='1' colspan='2'></td>
+<td colspan='2'></td>
+<td colspan='3' rowspan='9'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_'><table cellpadding='0' cellspacing='0' cols='1'  class = ' ' width='243'>
+<tr><td> <table cellspacing='0' cellpadding='0' border='0' width = '100%'  class='PSGROUPBOXLABEL'  style = 'border:0'><tr><td  class='PSGROUPBOXLABEL'  align='left' id = 'PSCENTER'><table class='PSRIGHTCORNER' cellspacing='0' cellpadding='0' border='0' style ='height:100%;' width='100%' ><tr><td  class='PSGROUPBOXLABEL PSLEFTCORNER'  style = 'border:0;'>Level</td>
+</tr></table></td></tr></table></td></tr>
+<tr><td width='239' class='PSGROUPBOXWBO' >
+<table  border='0' id='ACE_UW_CO_JOBSRCH_' cellpadding='0' cellspacing='0' cols='3' width='239' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='18' height='5'></td>
+<td width='132'></td>
+<td width='89'></td>
+</tr>
+<tr>
+<td height='20'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_COOP_JR'><input type='hidden' name='UW_CO_JOBSRCH_UW_CO_COOP_JR$chk' id='UW_CO_JOBSRCH_UW_CO_COOP_JR$chk' value="Y" />
+<input type='checkbox' name='UW_CO_JOBSRCH_UW_CO_COOP_JR' id='UW_CO_JOBSRCH_UW_CO_COOP_JR' class='PSCHECKBOX' tabindex='19' value="Y" checked='checked' onclick="setupTimeout2();	this.form.UW_CO_JOBSRCH_UW_CO_COOP_JR$chk.value=(this.checked?'Y':'N');doFocus_win0(this,false,true);" /><label for='UW_CO_JOBSRCH_UW_CO_COOP_JR'id='UW_CO_JOBSRCH_UW_CO_COOP_JR_LBL' class='PSCHECKBOX' >Co-op Junior</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_BACHELOR'><input type='hidden' name='UW_CO_JOBSRCH_UW_CO_BACHELOR$chk' id='UW_CO_JOBSRCH_UW_CO_BACHELOR$chk' value="N" />
+<input type='checkbox' name='UW_CO_JOBSRCH_UW_CO_BACHELOR' id='UW_CO_JOBSRCH_UW_CO_BACHELOR' class='PSCHECKBOX' tabindex='42' value="Y" onclick="setupTimeout2();	this.form.UW_CO_JOBSRCH_UW_CO_BACHELOR$chk.value=(this.checked?'Y':'N');doFocus_win0(this,false,true);" /><label for='UW_CO_JOBSRCH_UW_CO_BACHELOR'id='UW_CO_JOBSRCH_UW_CO_BACHELOR_LBL' class='PSCHECKBOX' >Bachelor</label>
+
+</DIV></td>
+</tr>
+<tr>
+<td height='20'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_COOP_INT'><input type='hidden' name='UW_CO_JOBSRCH_UW_CO_COOP_INT$chk' id='UW_CO_JOBSRCH_UW_CO_COOP_INT$chk' value="Y" />
+<input type='checkbox' name='UW_CO_JOBSRCH_UW_CO_COOP_INT' id='UW_CO_JOBSRCH_UW_CO_COOP_INT' class='PSCHECKBOX' tabindex='21' value="Y" checked='checked' onclick="setupTimeout2();	this.form.UW_CO_JOBSRCH_UW_CO_COOP_INT$chk.value=(this.checked?'Y':'N');doFocus_win0(this,false,true);" /><label for='UW_CO_JOBSRCH_UW_CO_COOP_INT'id='UW_CO_JOBSRCH_UW_CO_COOP_INT_LBL' class='PSCHECKBOX' >Co-op Intermediate</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_MASTERS'><input type='hidden' name='UW_CO_JOBSRCH_UW_CO_MASTERS$chk' id='UW_CO_JOBSRCH_UW_CO_MASTERS$chk' value="N" />
+<input type='checkbox' name='UW_CO_JOBSRCH_UW_CO_MASTERS' id='UW_CO_JOBSRCH_UW_CO_MASTERS' class='PSCHECKBOX' tabindex='43' value="Y" onclick="setupTimeout2();	this.form.UW_CO_JOBSRCH_UW_CO_MASTERS$chk.value=(this.checked?'Y':'N');doFocus_win0(this,false,true);" /><label for='UW_CO_JOBSRCH_UW_CO_MASTERS'id='UW_CO_JOBSRCH_UW_CO_MASTERS_LBL' class='PSCHECKBOX' >Masters</label>
+
+</DIV></td>
+</tr>
+<tr>
+<td height='21'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_COOP_SR'><input type='hidden' name='UW_CO_JOBSRCH_UW_CO_COOP_SR$chk' id='UW_CO_JOBSRCH_UW_CO_COOP_SR$chk' value="Y" />
+<input type='checkbox' name='UW_CO_JOBSRCH_UW_CO_COOP_SR' id='UW_CO_JOBSRCH_UW_CO_COOP_SR' class='PSCHECKBOX' tabindex='22' value="Y" checked='checked' onclick="setupTimeout2();	this.form.UW_CO_JOBSRCH_UW_CO_COOP_SR$chk.value=(this.checked?'Y':'N');doFocus_win0(this,false,true);" /><label for='UW_CO_JOBSRCH_UW_CO_COOP_SR'id='UW_CO_JOBSRCH_UW_CO_COOP_SR_LBL' class='PSCHECKBOX' >Co-op Senior</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_PHD'><input type='hidden' name='UW_CO_JOBSRCH_UW_CO_PHD$chk' id='UW_CO_JOBSRCH_UW_CO_PHD$chk' value="N" />
+<input type='checkbox' name='UW_CO_JOBSRCH_UW_CO_PHD' id='UW_CO_JOBSRCH_UW_CO_PHD' class='PSCHECKBOX' tabindex='44' value="Y" onclick="setupTimeout2();	this.form.UW_CO_JOBSRCH_UW_CO_PHD$chk.value=(this.checked?'Y':'N');doFocus_win0(this,false,true);" /><label for='UW_CO_JOBSRCH_UW_CO_PHD'id='UW_CO_JOBSRCH_UW_CO_PHD_LBL' class='PSCHECKBOX' >Ph.D.</label>
+
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='2'></td>
+<td colspan='6' rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_EMPLYR_NAME'><input type='text' name='UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME' id='UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME' tabindex='17' value=""  class='PSEDITBOX' style='width:284px; ' maxlength='110'  />
+</DIV></td>
+</tr>
+<tr>
+<td height='24' colspan='3'></td>
+<td colspan='2' rowspan='2'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_EMPLYR_NAME'><label for='UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME'id='UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME_LBL' class='PSEDITBOXLABEL' >Employer Name:</label>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+<td colspan='6' rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_JOB_TITLE'><input type='text' name='UW_CO_JOBSRCH_UW_CO_JOB_TITLE' id='UW_CO_JOBSRCH_UW_CO_JOB_TITLE' tabindex='20' value=""  class='PSEDITBOX' style='width:284px; ' maxlength='50'  />
+</DIV></td>
+</tr>
+<tr>
+<td height='20' colspan='3'></td>
+<td colspan='2' rowspan='2'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_JOB_TITLE'><label for='UW_CO_JOBSRCH_UW_CO_JOB_TITLE'id='UW_CO_JOBSRCH_UW_CO_JOB_TITLE_LBL' class='PSEDITBOXLABEL' >Job Title:</label>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+<td colspan='6' rowspan='2'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_ADV_DISCP1'><select name='UW_CO_JOBSRCH_UW_CO_ADV_DISCP1' id='UW_CO_JOBSRCH_UW_CO_ADV_DISCP1' tabindex='23' size='1'  class='PSDROPDOWNLIST' style='width:204px; ' >
+<option value="" selected='selected'>&nbsp; </option>
+<option value="4">AHS-(unspecified)</option>
+<option value="110">AHS-Health Promotion</option>
+<option value="5">AHS-Hlth Studies &amp; Gerontology</option>
+<option value="6">AHS-Kinesiology</option>
+<option value="7">AHS-Rec. &amp; Leisure Studies</option>
+<option value="8">AHS-Rec./Business Management</option>
+<option value="31">ARCH-Architecture</option>
+<option value="92">ARTS MASTERS-Economics</option>
+<option value="90">ARTS MASTERS-Exp Digital Media</option>
+<option value="88">ARTS MASTERS-Literary Studies</option>
+<option value="102">ARTS MASTERS-Political Science</option>
+<option value="91">ARTS MASTERS-Public Service</option>
+<option value="89">ARTS MASTERS-Rhet/Comm Design</option>
+<option value="9">ARTS-(unspecified)</option>
+<option value="10">ARTS-Anthropology</option>
+<option value="68">ARTS-Arts &amp; Business</option>
+<option value="2">ARTS-Chart Prof Acct (CPA)</option>
+<option value="77">ARTS-Digital Arts Comm</option>
+<option value="11">ARTS-Economics</option>
+<option value="107">ARTS-English Lit &amp; Rhetoric</option>
+<option value="13">ARTS-English Literature</option>
+<option value="76">ARTS-Financial Management</option>
+<option value="115">ARTS-Fine Arts</option>
+<option value="116">ARTS-French</option>
+<option value="114">ARTS-Global Bus &amp; Digital Arts</option>
+<option value="108">ARTS-Global Engagement</option>
+<option value="15">ARTS-HR Management</option>
+<option value="14">ARTS-History</option>
+<option value="106">ARTS-International Trade</option>
+<option value="112">ARTS-Legal Studies</option>
+<option value="80">ARTS-Management Accounting</option>
+<option value="111">ARTS-Mathematical Economics</option>
+<option value="78">ARTS-Philosophy</option>
+<option value="16">ARTS-Political Science</option>
+<option value="17">ARTS-Psychology</option>
+<option value="69">ARTS-Rhetoric &amp; Prof Writing</option>
+<option value="18">ARTS-Sociology</option>
+<option value="113">ARTS-Speech Communication</option>
+<option value="65">All Business (unspecified)</option>
+<option value="109">All Finance (unspecified)</option>
+<option value="81">All Health Informatics</option>
+<option value="66">All Info Tech (unspecified)</option>
+<option value="94">ENG MASTERS-Civil</option>
+<option value="93">ENG MASTERS-Management Science</option>
+<option value="19">ENG-(unspecified)</option>
+<option value="117">ENG-Biomedical</option>
+<option value="20">ENG-Chemical</option>
+<option value="21">ENG-Civil</option>
+<option value="22">ENG-Computer</option>
+<option value="23">ENG-Electrical</option>
+<option value="82">ENG-Environmental</option>
+<option value="26">ENG-Geological</option>
+<option value="83">ENG-Management</option>
+<option value="28">ENG-Mechanical</option>
+<option value="70">ENG-Mechatronics</option>
+<option value="79">ENG-Nanotechnology</option>
+<option value="45">ENG-Software</option>
+<option value="29">ENG-Systems Design</option>
+<option value="30">ENV- (unspecified)</option>
+<option value="32">ENV-Env &amp; Resource Studies</option>
+<option value="71">ENV-Environment &amp; Business</option>
+<option value="33">ENV-Geog &amp; Env Management</option>
+<option value="84">ENV-Geomatics</option>
+<option value="97">ENV-International Development</option>
+<option value="96">ENV-Knowledge Integration</option>
+<option value="34">ENV-Planning</option>
+<option value="95">MATH MASTERS-Health Info</option>
+<option value="36">MATH- (unspecified)</option>
+<option value="35">MATH-Actuarial Science</option>
+<option value="37">MATH-Applied Mathematics</option>
+<option value="38">MATH-Bioinformatics</option>
+<option value="39">MATH-Business Administration</option>
+<option value="40">MATH-Combinatorics &amp; Optimizat</option>
+<option value="72">MATH-Computational Math</option>
+<option value="41">MATH-Computer Science</option>
+<option value="104">MATH-Computing &amp; Financial Mgm</option>
+<option value="101">MATH-Fin Analysis &amp; Risk Mgmt</option>
+<option value="98">MATH-IT Management</option>
+<option value="99">MATH-Mathematical Economics</option>
+<option value="100">MATH-Mathematical Finance</option>
+<option value="42">MATH-Mathematical Optimization</option>
+<option value="73">MATH-Mathematical Physics</option>
+<option value="74">MATH-Mathematical Studies</option>
+<option value="43">MATH-Pure Mathematics</option>
+<option value="44">MATH-Scientific Computation</option>
+<option value="46">MATH-Statistics</option>
+<option value="105">MATH-Statistics for Health</option>
+<option value="63">MATH-Teaching</option>
+<option value="47">SCI- (unspecified)</option>
+<option value="48">SCI-Biochemistry</option>
+<option value="49">SCI-Bioinformatics</option>
+<option value="50">SCI-Biology</option>
+<option value="51">SCI-Biotechnology/Economics</option>
+<option value="52">SCI-Chemistry</option>
+<option value="53">SCI-Earth Sciences</option>
+<option value="54">SCI-Environmental Science</option>
+<option value="56">SCI-Geology and Hydrogeology</option>
+<option value="87">SCI-Optometry</option>
+<option value="86">SCI-Pharmacy</option>
+<option value="58">SCI-Physics</option>
+<option value="103">SCI-Psychology</option>
+<option value="60">SCI-Science/Business</option>
+</select>
+</DIV></td>
+</tr>
+<tr>
+<td height='20' colspan='3'></td>
+<td colspan='2' rowspan='2'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_ADV_DISCP1'><label for='UW_CO_JOBSRCH_UW_CO_ADV_DISCP1'id='UW_CO_JOBSRCH_UW_CO_ADV_DISCP1_LBL' class='PSDROPDOWNLABEL' >Discipline 1:</label>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+<td colspan='6' rowspan='3'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_ADV_DISCP2'><select name='UW_CO_JOBSRCH_UW_CO_ADV_DISCP2' id='UW_CO_JOBSRCH_UW_CO_ADV_DISCP2' tabindex='24' size='1'  class='PSDROPDOWNLIST' style='width:204px; ' >
+<option value="" selected='selected'>&nbsp; </option>
+<option value="4">AHS- (unspecified)</option>
+<option value="110">AHS-Health Promotion</option>
+<option value="5">AHS-Hlth Studies &amp; Gerontology</option>
+<option value="6">AHS-Kinesiology</option>
+<option value="7">AHS-Rec. &amp; Leisure Studies</option>
+<option value="8">AHS-Rec./Business Management</option>
+<option value="31">ARCH-Architecture</option>
+<option value="92">ARTS MASTERS-Economics</option>
+<option value="90">ARTS MASTERS-Exp Digital Media</option>
+<option value="88">ARTS MASTERS-Literary Studies</option>
+<option value="102">ARTS MASTERS-Political Science</option>
+<option value="91">ARTS MASTERS-Public Service</option>
+<option value="89">ARTS MASTERS-Rhet/Comm Design</option>
+<option value="9">ARTS-(unspecified)</option>
+<option value="10">ARTS-Anthropology</option>
+<option value="68">ARTS-Arts &amp; Business</option>
+<option value="2">ARTS-Chart Prof Acct (CPA)</option>
+<option value="77">ARTS-Digital Arts Comm</option>
+<option value="11">ARTS-Economics</option>
+<option value="107">ARTS-English Lit &amp; Rhetoric</option>
+<option value="13">ARTS-English Literature</option>
+<option value="76">ARTS-Financial Management</option>
+<option value="115">ARTS-Fine Arts</option>
+<option value="116">ARTS-French</option>
+<option value="114">ARTS-Global Bus &amp; Digital Arts</option>
+<option value="108">ARTS-Global Engagement</option>
+<option value="15">ARTS-HR Management</option>
+<option value="14">ARTS-History</option>
+<option value="106">ARTS-International Trade</option>
+<option value="112">ARTS-Legal Studies</option>
+<option value="80">ARTS-Management Accounting</option>
+<option value="111">ARTS-MathematicalEconomics</option>
+<option value="78">ARTS-Philosophy</option>
+<option value="16">ARTS-Political Science</option>
+<option value="17">ARTS-Psychology</option>
+<option value="69">ARTS-Rhetoric &amp; Prof Writing</option>
+<option value="18">ARTS-Sociology</option>
+<option value="113">ARTS-Speech Communication</option>
+<option value="65">All Business (unspecified)</option>
+<option value="109">All Finance (unspecified)</option>
+<option value="81">All Health Informatics</option>
+<option value="66">All Info Tech (unspecified)</option>
+<option value="94">ENG MASTERS-Civil</option>
+<option value="93">ENG MASTERS-Management Science</option>
+<option value="19">ENG- (unspecified)</option>
+<option value="117">ENG-Biomedical</option>
+<option value="20">ENG-Chemical</option>
+<option value="21">ENG-Civil</option>
+<option value="22">ENG-Computer</option>
+<option value="23">ENG-Electrical</option>
+<option value="82">ENG-Environmental</option>
+<option value="26">ENG-Geological</option>
+<option value="83">ENG-Management</option>
+<option value="28">ENG-Mechanical</option>
+<option value="70">ENG-Mechatronics</option>
+<option value="79">ENG-Nanotechnology</option>
+<option value="45">ENG-Software</option>
+<option value="29">ENG-Systems Design</option>
+<option value="30">ENV- (unspecified)</option>
+<option value="32">ENV-Env &amp; Resource Studies</option>
+<option value="71">ENV-Environment &amp; Business</option>
+<option value="33">ENV-Geog &amp; Env Management</option>
+<option value="84">ENV-Geomatics</option>
+<option value="97">ENV-International Development</option>
+<option value="96">ENV-Knowledge Integration</option>
+<option value="34">ENV-Planning</option>
+<option value="95">MATH MASTERS-Health Info</option>
+<option value="36">MATH- (unspecified)</option>
+<option value="35">MATH-Actuarial Science</option>
+<option value="37">MATH-Applied Mathematics</option>
+<option value="38">MATH-Bioinformatics</option>
+<option value="39">MATH-Business Administration</option>
+<option value="40">MATH-Combinatorics &amp; Optimizat</option>
+<option value="72">MATH-Computational Math</option>
+<option value="41">MATH-Computer Science</option>
+<option value="104">MATH-Computing &amp; Financial Mgm</option>
+<option value="101">MATH-Fin Analysis &amp; Risk Mgmt</option>
+<option value="98">MATH-IT Management</option>
+<option value="99">MATH-Mathematical Economics</option>
+<option value="100">MATH-Mathematical Finance</option>
+<option value="42">MATH-Mathematical Optimization</option>
+<option value="73">MATH-Mathematical Physics</option>
+<option value="74">MATH-Mathematical Studies</option>
+<option value="43">MATH-Pure Mathematics</option>
+<option value="44">MATH-Scientific Computation</option>
+<option value="46">MATH-Statistics</option>
+<option value="105">MATH-Statistics for Health</option>
+<option value="63">MATH-Teaching</option>
+<option value="47">SCI- (unspecified)</option>
+<option value="48">SCI-Biochemistry</option>
+<option value="49">SCI-Bioinformatics</option>
+<option value="50">SCI-Biology</option>
+<option value="51">SCI-Biotechnology/Economics</option>
+<option value="52">SCI-Chemistry</option>
+<option value="53">SCI-Earth Sciences</option>
+<option value="54">SCI-Environmental Science</option>
+<option value="56">SCI-Geology and Hydrogeology</option>
+<option value="87">SCI-Optometry</option>
+<option value="86">SCI-Pharmacy</option>
+<option value="58">SCI-Physics</option>
+<option value="103">SCI-Psychology</option>
+<option value="60">SCI-Science/Business</option>
+</select>
+</DIV></td>
+</tr>
+<tr>
+<td height='3' colspan='3'></td>
+<td colspan='2' rowspan='3'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_ADV_DISCP2'><label for='UW_CO_JOBSRCH_UW_CO_ADV_DISCP2'id='UW_CO_JOBSRCH_UW_CO_ADV_DISCP2_LBL' class='PSDROPDOWNLABEL' >Discipline 2:</label>
+</DIV></td>
+</tr>
+<tr>
+<td height='17' colspan='3'></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+<td colspan='15' rowspan='2'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_ADV_DISCP3'><select name='UW_CO_JOBSRCH_UW_CO_ADV_DISCP3' id='UW_CO_JOBSRCH_UW_CO_ADV_DISCP3' tabindex='29' size='1'  class='PSDROPDOWNLIST' style='width:204px; ' >
+<option value="" selected='selected'>&nbsp; </option>
+<option value="4">AHS- (unspecified)</option>
+<option value="110">AHS-Health Promotion</option>
+<option value="5">AHS-Hlth Studies &amp; Gerontology</option>
+<option value="6">AHS-Kinesiology</option>
+<option value="7">AHS-Rec. &amp; Leisure Studies</option>
+<option value="8">AHS-Rec./Business Management</option>
+<option value="31">ARCH-Architecture</option>
+<option value="92">ARTS MASTERS-Economics</option>
+<option value="90">ARTS MASTERS-Exp Digital Media</option>
+<option value="88">ARTS MASTERS-Literary Studies</option>
+<option value="102">ARTS MASTERS-Political Science</option>
+<option value="91">ARTS MASTERS-Public Service</option>
+<option value="89">ARTS MASTERS-Rhet/Comm Design</option>
+<option value="9">ARTS-(unspecified)</option>
+<option value="10">ARTS-Anthropology</option>
+<option value="68">ARTS-Arts &amp; Business</option>
+<option value="2">ARTS-Chart Prof Acct (CPA)</option>
+<option value="77">ARTS-Digital Arts Comm</option>
+<option value="11">ARTS-Economics</option>
+<option value="107">ARTS-English Lit &amp; Rhetoric</option>
+<option value="13">ARTS-English Literature</option>
+<option value="76">ARTS-Financial Management</option>
+<option value="115">ARTS-Fine Arts</option>
+<option value="116">ARTS-French</option>
+<option value="114">ARTS-Global Bus &amp; Digital Arts</option>
+<option value="108">ARTS-Global Engagement</option>
+<option value="15">ARTS-HR Management</option>
+<option value="14">ARTS-History</option>
+<option value="106">ARTS-International Trade</option>
+<option value="112">ARTS-Legal Studies</option>
+<option value="80">ARTS-Management Accounting</option>
+<option value="111">ARTS-Mathematical Economics</option>
+<option value="78">ARTS-Philosophy</option>
+<option value="16">ARTS-Political Science</option>
+<option value="17">ARTS-Psychology</option>
+<option value="69">ARTS-Rhetoric &amp; Prof Writing</option>
+<option value="18">ARTS-Sociology</option>
+<option value="113">ARTS-Speech Communication</option>
+<option value="65">All Business (unspecified)</option>
+<option value="109">All Finance (unspecified)</option>
+<option value="81">All Health Informatics</option>
+<option value="66">All Info Tech (unspecified)</option>
+<option value="94">ENG MASTERS-Civil</option>
+<option value="93">ENG MASTERS-Management Science</option>
+<option value="19">ENG- (unspecified)</option>
+<option value="117">ENG-Biomedical</option>
+<option value="20">ENG-Chemical</option>
+<option value="21">ENG-Civil</option>
+<option value="22">ENG-Computer</option>
+<option value="23">ENG-Electrical</option>
+<option value="82">ENG-Environmental</option>
+<option value="26">ENG-Geological</option>
+<option value="83">ENG-Management</option>
+<option value="28">ENG-Mechanical</option>
+<option value="70">ENG-Mechatronics</option>
+<option value="79">ENG-Nanotechnology</option>
+<option value="45">ENG-Software</option>
+<option value="29">ENG-Systems Design</option>
+<option value="30">ENV- (unspecified)</option>
+<option value="32">ENV-Env &amp; Resource Studies</option>
+<option value="71">ENV-Environment &amp; Business</option>
+<option value="33">ENV-Geog &amp; Env Management</option>
+<option value="84">ENV-Geomatics</option>
+<option value="97">ENV-International Development</option>
+<option value="96">ENV-Knowledge Integration</option>
+<option value="34">ENV-Planning</option>
+<option value="95">MATH MASTERS-Health Info</option>
+<option value="36">MATH- (unspecified)</option>
+<option value="35">MATH-Actuarial Science</option>
+<option value="37">MATH-Applied Mathematics</option>
+<option value="38">MATH-Bioinformatics</option>
+<option value="39">MATH-Business Administration</option>
+<option value="40">MATH-Combinatorics &amp; Optimizat</option>
+<option value="72">MATH-Computational Math</option>
+<option value="41">MATH-Computer Science</option>
+<option value="104">MATH-Computing &amp; Financial Mgm</option>
+<option value="101">MATH-Fin Analysis &amp; Risk Mgmt</option>
+<option value="98">MATH-IT Management</option>
+<option value="99">MATH-Mathematical Economics</option>
+<option value="100">MATH-Mathematical Finance</option>
+<option value="42">MATH-Mathematical Optimization</option>
+<option value="73">MATH-Mathematical Physics</option>
+<option value="74">MATH-Mathematical Studies</option>
+<option value="43">MATH-Pure Mathematics</option>
+<option value="44">MATH-Scientific Computation</option>
+<option value="46">MATH-Statistics</option>
+<option value="105">MATH-Statistics for Health</option>
+<option value="63">MATH-Teaching</option>
+<option value="47">SCI- (unspecfied)</option>
+<option value="48">SCI-Biochemistry</option>
+<option value="49">SCI-Bioinformatics</option>
+<option value="50">SCI-Biology</option>
+<option value="51">SCI-Biotechnology/Economics</option>
+<option value="52">SCI-Chemistry</option>
+<option value="53">SCI-Earth Sciences</option>
+<option value="54">SCI-Environmental Science</option>
+<option value="56">SCI-Geology and Hydrogeology</option>
+<option value="87">SCI-Optometry</option>
+<option value="86">SCI-Pharmacy</option>
+<option value="58">SCI-Physics</option>
+<option value="103">SCI-Psychology</option>
+<option value="60">SCI-Science/Business</option>
+</select>
+</DIV></td>
+</tr>
+<tr>
+<td height='20' colspan='3'></td>
+<td colspan='2' rowspan='2'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_ADV_DISCP3'><label for='UW_CO_JOBSRCH_UW_CO_ADV_DISCP3'id='UW_CO_JOBSRCH_UW_CO_ADV_DISCP3_LBL' class='PSDROPDOWNLABEL' >Discipline 3:</label>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+<td colspan='5' rowspan='4' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_LOCATION'><input type='text' name='UW_CO_JOBSRCH_UW_CO_LOCATION' id='UW_CO_JOBSRCH_UW_CO_LOCATION' tabindex='25' value=""  class='PSEDITBOX' style='width:188px; ' maxlength='162'  /><a name='UW_CO_JOBSRCH_UW_CO_LOCATION$prompt' id='UW_CO_JOBSRCH_UW_CO_LOCATION$prompt' class='PSHYPERLINK' tabindex='26' href="javascript:pAction_win0(document.win0,'UW_CO_JOBSRCH_UW_CO_LOCATION$prompt');"><img src="/cs/SS/cache/nomenu/PT_PROMPT_LOOKUP_1.gif" alt='Look up Location (Alt+5)' title='Look up Location (Alt+5)' name='UW_CO_JOBSRCH_UW_CO_LOCATION$prompt$img' border='0' align='absmiddle' /></a>
+</DIV></td>
+<td></td>
+<td colspan='2' rowspan='4'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS'><select name='UW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS' id='UW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS' tabindex='30' size='1'  class='PSDROPDOWNLIST' style='width:88px; ' >
+<option value="APPR">Approved</option>
+<option value="APPA">Apps Avail</option>
+<option value="CANC">Cancelled</option>
+<option value="POST" selected='selected'>Posted</option>
+</select>
+</DIV></td>
+</tr>
+<tr>
+<td height='12' colspan='3'></td>
+<td colspan='2' rowspan='3'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_LOCATION'><label for='UW_CO_JOBSRCH_UW_CO_LOCATION'id='UW_CO_JOBSRCH_UW_CO_LOCATION_LBL' class='PSEDITBOXLABEL' >Location:</label>
+</DIV></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS'><label for='UW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS'id='UW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS_LBL' class='PSDROPDOWNLABEL' >*Job Status: <span class='psaccesshidden'>Required</span></label>
+</DIV></td>
+</tr>
+<tr>
+<td height='1' colspan='3'></td>
+<td colspan='2' rowspan='2'  valign='top' align='left'>
+<DIV id='win0divlblUW_CO_JOBSRCHDW_UW_CO_MAX_NUM_APPL'><span  class='PSEDITBOXLABEL' >Applications Remaining:</span> </DIV></td>
+<td colspan='2'></td>
+<td colspan='3' rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField27'><span  class='PSTEXT' >(Co-op Only)</span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18' colspan='3'></td>
+<td  valign='top' align='right'>
+<DIV id='win0divUW_CO_JOBSRCHDW_UW_CO_MAX_NUM_APPL'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBSRCHDW_UW_CO_MAX_NUM_APPL'>99</span><!-- UW_CO_JOBSRCHDW_UW_CO_MAX_NUM_APPL -->
+</DIV></td>
+</tr>
+<tr>
+<td height='44' colspan='3'></td>
+<td colspan='16'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCH_UW_CO_JOB_TYPE'><table cellpadding='0' cellspacing='0' cols='1'  class = ' ' width='855'>
+<tr><td> <table cellspacing='0' cellpadding='0' border='0' width = '100%'  class='PSGROUPBOXLABEL'  style = 'border:0'><tr><td  class='PSGROUPBOXLABEL'  align='left' id = 'PSCENTER'><table class='PSRIGHTCORNER' cellspacing='0' cellpadding='0' border='0' style ='height:100%;' width='100%' ><tr><td  class='PSGROUPBOXLABEL PSLEFTCORNER'  style = 'border:0;'>Job Type</td>
+</tr></table></td></tr></table></td></tr>
+<tr><td width='851' class='PSGROUPBOXWBO' >
+<table  border='0' id='ACE_UW_CO_JOBSRCH_UW_CO_JOB_TYPE' cellpadding='0' cellspacing='0' cols='11' width='851' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='0' height='1'></td>
+<td width='64'></td>
+<td width='104'></td>
+<td width='88'></td>
+<td width='108'></td>
+<td width='108'></td>
+<td width='84'></td>
+<td width='68'></td>
+<td width='92'></td>
+<td width='64'></td>
+<td width='73'></td>
+</tr>
+<tr>
+<td height='25'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_COOP'><input type='radio' name='TYPE_COOP' id='TYPE_COOP' class='PSRADIOBUTTON' tabindex='31' value="1" checked='checked' onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_COOP'id='TYPE_COOP_LBL' class='PSRADIOBUTTON' >Co-op</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_ARCH'><input type='radio' name='TYPE_COOP' id='TYPE_ARCH' class='PSRADIOBUTTON' tabindex='32' value="2" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_ARCH'id='TYPE_ARCH_LBL' class='PSRADIOBUTTON' >Co-op ARCH</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_CA'><input type='radio' name='TYPE_COOP' id='TYPE_CA' class='PSRADIOBUTTON' tabindex='33' value="3" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_CA'id='TYPE_CA_LBL' class='PSRADIOBUTTON' >Co-op CA</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_TEACH'><input type='radio' name='TYPE_COOP' id='TYPE_TEACH' class='PSRADIOBUTTON' tabindex='34' value="4" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_TEACH'id='TYPE_TEACH_LBL' class='PSRADIOBUTTON' >Co-op TEACH</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_PHARM'><input type='radio' name='TYPE_COOP' id='TYPE_PHARM' class='PSRADIOBUTTON' tabindex='37' value="9" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_PHARM'id='TYPE_PHARM_LBL' class='PSRADIOBUTTON' >Co-op PHARM</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_UAE'><input type='radio' name='TYPE_COOP' id='TYPE_UAE' class='PSRADIOBUTTON' tabindex='36' value="10" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_UAE'id='TYPE_UAE_LBL' class='PSRADIOBUTTON' >Co-op UAE</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_ALUM'><input type='radio' name='TYPE_COOP' id='TYPE_ALUM' class='PSRADIOBUTTON' tabindex='38' value="5" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_ALUM'id='TYPE_ALUM_LBL' class='PSRADIOBUTTON' >Alumni</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_GRAD'><input type='radio' name='TYPE_COOP' id='TYPE_GRAD' class='PSRADIOBUTTON' tabindex='39' value="6" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_GRAD'id='TYPE_GRAD_LBL' class='PSRADIOBUTTON' >Graduating</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_PART_TIME'><input type='radio' name='TYPE_COOP' id='TYPE_PART_TIME' class='PSRADIOBUTTON' tabindex='40' value="7" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_PART_TIME'id='TYPE_PART_TIME_LBL' class='PSRADIOBUTTON' >Other</label>
+
+</DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divTYPE_SUMMER'><input type='radio' name='TYPE_COOP' id='TYPE_SUMMER' class='PSRADIOBUTTON' tabindex='35' value="8" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);/*8800,0*/"  /><label for='TYPE_SUMMER'id='TYPE_SUMMER_LBL' class='PSRADIOBUTTON' >Summer</label>
+
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='20' colspan='20'></td>
+</tr>
+<tr>
+<td height='33' colspan='8'></td>
+<td colspan='2' rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN'><a class='PSPUSHBUTTON' style='background-Color: transparent;border:0;' id = 'Left'><span style='background-Color: transparent;'><input type='button' name='UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN' id='UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN' tabindex='45' value='Search'  class='PSPUSHBUTTON' style='width:116px; ' onclick="hAction_win0(document.win0,'UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN', 0, 0, 'Search', false, true);" title='Derived work search button'  /></span></a><!-- UW_CO_JOBSRCHDW_UW_CO_DW_SRCHBTN -->
+</DIV></td>
+<td colspan='10' rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBSRCHDW_UW_CO_SRCHCLR_HL'><a class='PSPUSHBUTTON' style='background-Color: transparent;border:0;' id = 'Left'><span style='background-Color: transparent;'><input type='button' name='UW_CO_JOBSRCHDW_UW_CO_SRCHCLR_HL' id='UW_CO_JOBSRCHDW_UW_CO_SRCHCLR_HL' tabindex='27' value='Clear'  class='PSPUSHBUTTON' style='width:112px; ' onclick="hAction_win0(document.win0,'UW_CO_JOBSRCHDW_UW_CO_SRCHCLR_HL', 0, 0, 'Clear', false, true);" title='Employer Hyperlink'  /></span></a><!-- UW_CO_JOBSRCHDW_UW_CO_SRCHCLR_HL -->
+</DIV></td>
+</tr>
+<tr>
+<td height='7' colspan='3'></td>
+<td colspan='3' rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField23'><span  class='PAPAGETITLE' >Search Results</span>
+</DIV></td>
+</tr>
+<tr>
+<td height='28' colspan='3'></td>
+<td colspan='2'></td>
+<td colspan='2'></td>
+<td colspan='8' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0div$ICField22'><a class='PSPUSHBUTTON' style='background-Color: transparent;border:0;' id = 'Left'><span style='background-Color: transparent;'><input type='button' name='$ICField22' id='$ICField22' tabindex='28' value='View Short List'  class='PSPUSHBUTTON' style='width:116px; ' onclick="hAction_win0(document.win0,'$ICField22', 0, 0, 'View Short List', false, true);" /></span></a><!-- $ICField22 -->
+</DIV></td>
+</tr>
+<tr>
+<td height='90' colspan='2'></td>
+<td colspan='16'  valign='top' align='left'>
+<DIV id='win0divUW_CO_JOBRES_VW$0'><table cellspacing='0'  class = ' ' id='UW_CO_JOBRES_VW$scroll$0' dir='ltr' cols='1' width='1321' cellpadding='0'>
+<tr><td><DIV id='win0divGPUW_CO_JOBRES_VW$0'><table cellspacing='0' cellpadding='0' border='0' width = '100%'  class='PSLEVEL1GRIDLABEL'  style = 'border:0'><tr><td  class='PSLEVEL1GRIDLABEL'  align='left' id = 'PSCENTER'><table class='PSRIGHTCORNER' cellspacing='0' cellpadding='0' border='0' style ='height:100%;' width='100%' ><tr><td  class='PSLEVEL1GRIDLABEL PSLEFTCORNER'  style = 'border:0;' align='left' ><a name='UW_CO_JOBRES_VW$hpers$0' id='UW_CO_JOBRES_VW$hpers$0' tabindex='48' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$hpers$0');"  class='PSLEVEL1GRIDLABEL' >Customize</a>&nbsp;|&nbsp;<a name='UW_CO_JOBRES_VW$hfind$0' id='UW_CO_JOBRES_VW$hfind$0' tabindex='49' onclick="return FindString_win0(document.win0.ICFind);" href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$hfind$0');"  class='PSLEVEL1GRIDLABEL' >Find</a>&nbsp;|&nbsp;<span  class='PSHEADERHYPERLINKD' >View All</span>&nbsp;|&nbsp;<a name='UW_CO_JOBRES_VW$hmodal$0' id='UW_CO_JOBRES_VW$hmodal$0' tabindex='51' href="javascript:mAction_win0(document.win0,'UW_CO_JOBRES_VW$hmodal$0', null, null, '', true);"><img src="/cs/SS/cache/nomenu/PT_MODAL_CNTRL_1.gif" name='UW_CO_JOBRES_VW$pt_modal_cntrl$img$0' alt='Zoom ' title='Zoom ' border='0' align='top' /></a>&nbsp;|&nbsp;<a class='PSHYPERLINK' name='UW_CO_JOBRES_VW$hexcel$0' id='UW_CO_JOBRES_VW$hexcel$0' tabindex='51' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$hexcel$0');"><img src=/cs/SS/cache/nomenu/PT_DOWNLOAD_1.gif name='UW_CO_JOBRES_VW$hexcel$img$0' alt='Download' title='Download' border='0' /></a>&nbsp;&nbsp;&nbsp;<span  class='PSHEADERHYPERLINKD' >First</span>&nbsp;<img src=/cs/SS/cache/nomenu/PT_PREVIOUSROW_D_1.gif name='UW_CO_JOBRES_VW$hup$img$0' alt='Show previous row (inactive button) (Alt+,)' title='Show previous row (inactive button) (Alt+,)' border='0' />&nbsp;<span class='PSGRIDCOUNTER' >1-2 of 2</span>&nbsp;<img src=/cs/SS/cache/nomenu/PT_NEXTROW_D_1.gif name='UW_CO_JOBRES_VW$hdown$img$0' alt='Show next row (inactive button) (Alt+.)' title='Show next row (inactive button) (Alt+.)' border='0' />&nbsp;<span  class='PSHEADERHYPERLINKD' >Last</span></td>
+</tr></table></td></tr></table></DIV></td></tr>
+<tr><td><table cellspacing='0' class='PSLEVEL1GRIDWBO'  id='UW_CO_JOBRES_VW$scroll$0' dir='ltr' cellpadding='0' cols='1' width='1321'>
+<tr><td>
+<table dir='ltr' border='0' cellpadding='2' cellspacing='0' cols='10' width='100%' class='PSLEVEL1GRID' style='border-style:none' >
+<tr>
+<th scope='col'  style='border-left: 1px solid rgb(203,203,203);' abbr='Job Title' width='142' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt0$0' id='UW_CO_JOBRES_VW$srt0$0' tabindex='60' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt0$0');" title="Click column heading to sort ascending">Job Title</a></th>
+<th scope='col' abbr='Employer Name' width='131' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt1$0' id='UW_CO_JOBRES_VW$srt1$0' tabindex='61' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt1$0');" title="Click column heading to sort ascending">Employer Name</a></th>
+<th scope='col' abbr='Location' width='81' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt2$0' id='UW_CO_JOBRES_VW$srt2$0' tabindex='62' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt2$0');" title="Click column heading to sort ascending">Location</a></th>
+<th scope='col' abbr='Openings' width='76' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt3$0' id='UW_CO_JOBRES_VW$srt3$0' tabindex='63' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt3$0');" title="Click column heading to sort ascending">Openings</a></th>
+<th scope='col' abbr='# Apps' width='51' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt4$0' id='UW_CO_JOBRES_VW$srt4$0' tabindex='64' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt4$0');" title="Click column heading to sort ascending"># Apps</a></th>
+<th scope='col' abbr='Apply' width='82' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt5$0' id='UW_CO_JOBRES_VW$srt5$0' tabindex='65' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt5$0');" title="Click column heading to sort ascending">Apply</a></th>
+<th scope='col' abbr='Short List' width='106' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt6$0' id='UW_CO_JOBRES_VW$srt6$0' tabindex='66' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt6$0');" title="Click column heading to sort ascending">Short List</a></th>
+<th scope='col' abbr='Job Identifier' width='77' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt7$0' id='UW_CO_JOBRES_VW$srt7$0' tabindex='67' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt7$0');" title="Click column heading to sort ascending">Job Identifier</a></th>
+<th scope='col' abbr='Unit Name' width='107' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt8$0' id='UW_CO_JOBRES_VW$srt8$0' tabindex='68' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt8$0');" title="Click column heading to sort ascending">Unit Name</a></th>
+<th scope='col' abbr='Last Day to Apply' width='424' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='UW_CO_JOBRES_VW$srt9$0' id='UW_CO_JOBRES_VW$srt9$0' tabindex='69' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$srt9$0');" title="Click column heading to sort ascending">Last Day to Apply</a></th>
+</tr>
+<tr id='trUW_CO_JOBRES_VW$0_row1' valign='center' onClick="HighLightTR('rgb(212,219,217)','','trUW_CO_JOBRES_VW$0_row1');" onMouseOver="hoverLightTR('rgb(249,254,203)','',0,'trUW_CO_JOBRES_VW$0_row1');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trUW_CO_JOBRES_VW$0_row1');">
+<td align='left'  class='PSLEVEL1GRIDODDROW'  height='14' style='border-left: 1px solid rgb(203,203,203);' >
+<DIV id='win0divUW_CO_JOBTITLE_HL$0'><span  class='PSHYPERLINK'  title='Job Title (Hyper Link)' ><a name='UW_CO_JOBTITLE_HL$0' id='UW_CO_JOBTITLE_HL$0' tabindex='72' href="javascript:hAction_win0(document.win0,'UW_CO_JOBTITLE_HL$0', 0, 0, 'Mechanical Engineering - 8 month', false, true);"  class='PSHYPERLINK' >Mechanical Engineering - 8 month</a></span><!-- UW_CO_JOBTITLE_HL$0 --><!-- UW_CO_JOBTITLE_HL$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_PARENT_NAME$0'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_PARENT_NAME$0'>Toronto Transit Commission</span><!-- UW_CO_JOBRES_VW_UW_CO_PARENT_NAME$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$0'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$0'>Toronto</span><!-- UW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_OPENGS$0'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_OPENGS$0'>1</span><!-- UW_CO_JOBRES_VW_UW_CO_OPENGS$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES$0'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES$0'>6</span><!-- UW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_APPLY_HL$0'><span  class='PSHYPERLINKDISABLED'  title='Apply to Position' >  &nbsp;</span><!-- UW_CO_APPLY_HL$0 --><!-- UW_CO_APPLY_HL$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_SLIST_HL$0'><span  class='PSHYPERLINK'  title='Short List HyperLink' ><a name='UW_CO_SLIST_HL$0' id='UW_CO_SLIST_HL$0' tabindex='75' href="javascript:hAction_win0(document.win0,'UW_CO_SLIST_HL$0', 0, 0, 'Add to Short List', false, true);"  class='PSHYPERLINK' >Add to Short List</a></span><!-- UW_CO_SLIST_HL$0 --><!-- UW_CO_SLIST_HL$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_JOB_ID$0'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_JOB_ID$0'>00241141</span><!-- UW_CO_JOBRES_VW_UW_CO_JOB_ID$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$0'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$0'>&nbsp;</span><!-- UW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$0 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDODDROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_CHAR_DATE$0'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_CHAR_DATE$0'>21 SEP 2014</span><!-- UW_CO_JOBRES_VW_UW_CO_CHAR_DATE$0 -->
+</DIV></td>
+</tr>
+<tr id='trUW_CO_JOBRES_VW$0_row2' valign='center' onClick="HighLightTR('rgb(212,219,217)','','trUW_CO_JOBRES_VW$0_row2');" onMouseOver="hoverLightTR('rgb(249,254,203)','',0,'trUW_CO_JOBRES_VW$0_row2');" onmouseout="hoverLightTR('rgb(249,254,203)','',1,'trUW_CO_JOBRES_VW$0_row2');">
+<td align='left'  class='PSLEVEL1GRIDEVENROW'  height='14' style='border-left: 1px solid rgb(203,203,203);' >
+<DIV id='win0divUW_CO_JOBTITLE_HL$1'><span  class='PSHYPERLINK'  title='Job Title (Hyper Link)' ><a name='UW_CO_JOBTITLE_HL$1' id='UW_CO_JOBTITLE_HL$1' tabindex='78' href="javascript:hAction_win0(document.win0,'UW_CO_JOBTITLE_HL$1', 0, 0, 'Electrical Engineering Assistant - 8 month', false, true);"  class='PSHYPERLINK' >Electrical Engineering Assistant - 8 month</a></span><!-- UW_CO_JOBTITLE_HL$1 --><!-- UW_CO_JOBTITLE_HL$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_PARENT_NAME$1'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_PARENT_NAME$1'>Toronto Transit Commission</span><!-- UW_CO_JOBRES_VW_UW_CO_PARENT_NAME$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$1'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$1'>Toronto</span><!-- UW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_OPENGS$1'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_OPENGS$1'>1</span><!-- UW_CO_JOBRES_VW_UW_CO_OPENGS$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES$1'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES$1'>4</span><!-- UW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_APPLY_HL$1'><span  class='PSHYPERLINKDISABLED'  title='Apply to Position' >  &nbsp;</span><!-- UW_CO_APPLY_HL$1 --><!-- UW_CO_APPLY_HL$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_SLIST_HL$1'><span  class='PSHYPERLINK'  title='Short List HyperLink' ><a name='UW_CO_SLIST_HL$1' id='UW_CO_SLIST_HL$1' tabindex='81' href="javascript:hAction_win0(document.win0,'UW_CO_SLIST_HL$1', 0, 0, 'Add to Short List', false, true);"  class='PSHYPERLINK' >Add to Short List</a></span><!-- UW_CO_SLIST_HL$1 --><!-- UW_CO_SLIST_HL$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_JOB_ID$1'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_JOB_ID$1'>00241140</span><!-- UW_CO_JOBRES_VW_UW_CO_JOB_ID$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$1'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$1'>&nbsp;</span><!-- UW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$1 -->
+</DIV></td>
+<td align='left'  class='PSLEVEL1GRIDEVENROW' >
+<DIV id='win0divUW_CO_JOBRES_VW_UW_CO_CHAR_DATE$1'><span  class='PSEDITBOX_DISPONLY' id='UW_CO_JOBRES_VW_UW_CO_CHAR_DATE$1'>21 SEP 2014</span><!-- UW_CO_JOBRES_VW_UW_CO_CHAR_DATE$1 -->
+</DIV></td>
+</tr>
+</table></td></tr>
+<tr><td class='PSLEVEL1GRIDNAVIGATIONBAR'  align='left'><DIV id='win0divGPUW_CO_JOBRES_VW$0'><a name='UW_CO_JOBRES_VW$ffind$0' id='UW_CO_JOBRES_VW$ffind$0' tabindex='82' onclick="return FindString_win0(document.win0.ICFind);" href="javascript:submitAction_win0(document.win0,'UW_CO_JOBRES_VW$ffind$0');"  class='PSLEVEL1GRIDNAVIGATIONBAR' >Find</a>&nbsp;|&nbsp;<span  class='PSHEADERHYPERLINKD' >View All</span>&nbsp;|&nbsp;<a name='UW_CO_JOBRES_VW$hmodal$0' id='UW_CO_JOBRES_VW$hmodal$0' tabindex='84' href="javascript:mAction_win0(document.win0,'UW_CO_JOBRES_VW$hmodal$0', null, null, '', true);"><img src="/cs/SS/cache/nomenu/PT_MODAL_CNTRL_1.gif" name='UW_CO_JOBRES_VW$pt_modal_cntrl$img$0' alt='Zoom ' title='Zoom ' border='0' align='top' /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class='PSHEADERHYPERLINKD' >First</span>&nbsp;<img src=/cs/SS/cache/nomenu/PT_PREVIOUSROW_D_1.gif name='UW_CO_JOBRES_VW$fup$img$0' alt='Show previous row (inactive button) (Alt+,)' title='Show previous row (inactive button) (Alt+,)' border='0' />&nbsp;<span class='PSGRIDCOUNTER' >1-2 of 2</span>&nbsp;<img src=/cs/SS/cache/nomenu/PT_NEXTROW_D_1.gif name='UW_CO_JOBRES_VW$fdown$img$0' alt='Show next row (inactive button) (Alt+.)' title='Show next row (inactive button) (Alt+.)' border='0' />&nbsp;<span  class='PSHEADERHYPERLINKD' >Last</span></DIV></td></tr>
+</table>
+</td></tr></table>
+</DIV></td>
+</tr>
+<tr>
+<td height='47' colspan='20'></td>
+</tr>
+</table>
+]]></FIELD>
+<FIELD id='divpopupFrame'><![CDATA[<iframe src='about:blank' title='Modal Prompt' frameborder='0' allowtransparency='true' id='popupFrame' name='popupFrame' width='100%' height='100%'></iframe>]]></FIELD>
+<SYSVAR id='sysvar'><![CDATA[bDefer = true;
+var bCDATA = false;
+]]></SYSVAR></PAGE>

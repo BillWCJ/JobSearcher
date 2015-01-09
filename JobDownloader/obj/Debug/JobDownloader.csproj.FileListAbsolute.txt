@@ -124,3 +124,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\o
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Contract.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Contract.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Common.Utility.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Common.Utility.pdb
