@@ -7,7 +7,7 @@ namespace Business.Manager
 {
     public class JobManager
     {
-        public static TermType GetTermDuration(Job job)
+        public TermType GetTermDuration(Job job)
         {
             TermType value;
                 

@@ -34,20 +34,14 @@ namespace Model.Entities.JobMine
         /// <summary>
         ///     Id of the Job that contain this level entity
         /// </summary>
-        [Key, ForeignKey("Job")]
-        public int JobId { get; set; }
-
+        [Key]
+        public int Id { get; set; }
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }
         public bool IsSenior { get; set; }
         //public bool IsBachelor { get; set; }
         //public bool IsMaster { get; set; }
         //public bool IsPhD { get; set; }
-
-        /// <summary>
-        ///     Instance of Job entity that contain this level entity
-        /// </summary>
-        public virtual Job Job { get; set; }
 
         /// <summary>
         ///     Get or Set the level with the given index

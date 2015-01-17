@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using Data.Contract.JseDb.Interface;
 using Model.Entities.JobMine;
 
@@ -19,6 +21,11 @@ namespace Data.EF.JseDb.Repository
         public List<Job> GetJobsByLocationId(int locationId)
         {
             throw new NotImplementedException();
+        }
+
+        public Job GetFullJob(int id)
+        {
+            return DbContext.Jobs.Include(j => j.JobLocation).Include(j => j.Employer).FirstOrDefault(j => j.Id == id);
         }
     }
 }

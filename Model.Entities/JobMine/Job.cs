@@ -50,9 +50,12 @@ namespace Model.Entities.JobMine
 
         public Job()
         {
-            Levels = new Levels();
-            Disciplines = new Disciplines();
-            SetRelationship();
+            if (Employer == null || JobLocation == null)
+                throw new Exception("One of more of Job's related Entity is null and cannot set relationship");
+            Employer.Jobs.Add(this);
+            JobLocation.Jobs.Add(this);
+            Levels = new Levels {};
+            Disciplines = new Disciplines {};
         }
 
         public virtual Levels Levels { get; set; }
@@ -69,16 +72,6 @@ namespace Model.Entities.JobMine
             }
         }
 
-        private void SetRelationship()
-        {
-            if (Employer == null || JobLocation == null || Levels == null || Disciplines == null)
-                throw new Exception("One of more of Job's related Entity is null and cannot set relationship");
-            Employer.Jobs.Add(this);
-            JobLocation.Jobs.Add(this);
-            Levels.Job = this;
-            Disciplines.Job = this;
-        }
-
         public override string ToString()
         {
             return JobDef.SeperationBar + Environment.NewLine + ToString("F");
@@ -90,39 +83,50 @@ namespace Model.Entities.JobMine
         public string ToString(string format)
         {
             string toString = string.Empty;
-            for (int i = 0; i < JobMineDef.JobDetailPageFieldNameTitles.Length; i++)
+            if (format == "F")
             {
-                string fieldValue = string.Empty;
-                switch (i)
+                for (int i = 0; i < JobMineDef.JobDetailPageFieldNameTitles.Length; i++)
                 {
-                    case 0:
-                        fieldValue = Employer.Name;
-                        break;
-                    case 1:
-                        fieldValue = JobTitle;
-                        break;
-                    case 2:
-                        fieldValue = JobLocation.Region;
-                        break;
-                    case 3:
-                        fieldValue = Disciplines.ToString();
-                        break;
-                    case 4:
-                        fieldValue = Levels.ToString();
-                        break;
-                    case 5:
-                        fieldValue = Comment;
-                        break;
-                    case 6:
-                        fieldValue = JobDescription;
-                        break;
-                    case 7:
-                        fieldValue = JobUrl;
-                        break;
+                    string fieldValue = string.Empty;
+                    switch (i)
+                    {
+                        case 0:
+                            fieldValue = Employer.Name;
+                            break;
+                        case 1:
+                            fieldValue = JobTitle;
+                            break;
+                        case 2:
+                            fieldValue = JobLocation.Region;
+                            break;
+                        case 3:
+                            fieldValue = Disciplines.ToString();
+                            break;
+                        case 4:
+                            fieldValue = Levels.ToString();
+                            break;
+                        case 5:
+                            fieldValue = Comment;
+                            break;
+                        case 6:
+                            fieldValue = JobDescription;
+                            break;
+                        case 7:
+                            fieldValue = JobUrl;
+                            break;
+                    }
+                    toString += Environment.NewLine + JobMineDef.JobDetailPageFieldNameTitles[i] + fieldValue + Environment.NewLine;
                 }
-                toString += Environment.NewLine + JobMineDef.JobDetailPageFieldNameTitles[i] + fieldValue +
-                            Environment.NewLine;
             }
+            else
+            {
+                toString += Employer.Name + "                    " + JobTitle + "                    " + JobLocation.Region + Environment.NewLine;
+                toString += Disciplines + "                    " + Levels + Environment.NewLine;
+                toString += "Comment:" + Environment.NewLine + Comment + Environment.NewLine;
+                toString += "JobDescription:" + Environment.NewLine + JobDescription;
+            }
+
+
             return toString;
         }
     }

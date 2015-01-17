@@ -25,7 +25,7 @@ namespace Data.Web.RateMyCoopJob
 
             List<JobReview> listOfJobs = body.Where(x => x.Name.Equals("tr")).Select(node => new JobReview
             {
-                Employer = new EmployerReview
+                EmployerReview = new EmployerReview
                 {
                     EmployerId = (node.ChildNodes[1].ChildNodes[1].ChildNodes[1].Attributes.FirstOrDefault(x => x.Name == "href")
                         .Value.replace("/update_search_count_for_employer/", "")).toInt(),

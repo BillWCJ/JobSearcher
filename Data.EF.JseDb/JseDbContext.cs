@@ -10,6 +10,10 @@ namespace Data.EF.JseDb
 {
     public class JseDbContext : DbContext, IJseDbContext
     {
+        public JseDbContext()
+        {
+            this.Configuration.LazyLoadingEnabled = true;
+        }
         public IDbSet<Job> Jobs { get; set; }
         public IDbSet<Employer> Employers { get; set; }
         public IDbSet<JobLocation> Locations { get; set; }

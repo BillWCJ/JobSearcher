@@ -23,15 +23,15 @@ namespace JobSearchEnhancerTest
         public void CheckTermTest()
         {
             var job = Jobs.FirstOrDefault(j => j.Id.Equals(1));
-            var term = JobManager.GetTermDuration(job);
+            var term = new JobManager().GetTermDuration(job);
             Assert.Equal(TermType.Eight, term);
 
             job = Jobs.FirstOrDefault(j => j.Id.Equals(2));
-            term = JobManager.GetTermDuration(job);
+            term = new JobManager().GetTermDuration(job);
             Assert.Equal(TermType.NotSpecified, term);
 
             job = Jobs.FirstOrDefault(j => j.Id.Equals(6));
-            term = JobManager.GetTermDuration(job);
+            term = new JobManager().GetTermDuration(job);
             Assert.Equal(TermType.Both, term);
         }
 

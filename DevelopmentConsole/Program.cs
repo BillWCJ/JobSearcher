@@ -1,6 +1,11 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Data.Entity;
+using Business.DataBaseSeeder;
+using Business.Manager;
 using Data.EF.JseDb;
+using Data.IO.Local;
+using Model.Definition;
 using Model.Entities.JobMine;
 
 namespace DevelopmentConsole
@@ -9,14 +14,9 @@ namespace DevelopmentConsole
     {
         private static void Main(string[] args)
         {
-            var jseDb = new JseDataRepo();
-            int count = 0;
-            Console.WriteLine(jseDb.JobRepo.GetAll().ToList().Count);
-            foreach (Job job in jseDb.JobRepo.GetAll().ToList())
+            foreach (var msg in MasterSeeder.SeedAll("1155", JobStatus.Posted, new JseLocalRepo().GetAccount(), true, false))
             {
-                if (job.JobDescription.IndexOf("solidworks", StringComparison.OrdinalIgnoreCase) > 0)
-                    count++;
-                Console.WriteLine(count + " " + job.IdString);
+                Console.WriteLine(msg);
             }
             Console.ReadKey();
         }

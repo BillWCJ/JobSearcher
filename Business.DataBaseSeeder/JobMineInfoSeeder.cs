@@ -20,8 +20,11 @@ namespace Business.DataBaseSeeder
         {
             using (var db = new JseDbContext())
             {
+                int numJobSeeded = 0;
                 var jobMineRepo = new JobMineRepo(Account);
                 IEnumerable<JobOverView> jobOverViews = jobMineRepo.JobInquiry.GetJobOverViews(term, appsAvail).Take(numberOfJobsToSeed);
+                yield return "Number of Job Founded: " + jobOverViews.Count();
+
                 foreach (JobOverView jov in jobOverViews)
                 {
                     if (db.Jobs.Any(j => j.Id == jov.Id))
@@ -45,7 +48,7 @@ namespace Business.DataBaseSeeder
 
                     db.Jobs.Add(job);
                     db.SaveChanges();
-                    yield return "Job Seeded";
+                    yield return "Job Seeded: " + ++numJobSeeded;
                 }
             }
         }

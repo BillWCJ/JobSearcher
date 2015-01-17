@@ -17,7 +17,7 @@ namespace Data.EF.JseDb.Repository
         {
             try
             {
-                return DbSet.SingleOrDefault(u => u.JobId == jobId);
+                return null;//DbSet.SingleOrDefault(u => u.Job.Id == jobId);
             }
             catch (Exception e)
             {

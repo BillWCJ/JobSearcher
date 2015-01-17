@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Linq;
 using Model.Definition;
 
@@ -29,19 +31,13 @@ namespace Model.Entities.JobMine
         /// <summary>
         ///     Key of the Job that contain this discipline
         /// </summary>
-        [Key, ForeignKey("Job")]
-        public int JobId { get; set; }
-
+        [Key]
+        public int Id { get; set; }
         public byte Discipline1 { get; set; }
         public byte Discipline2 { get; set; }
         public byte Discipline3 { get; set; }
         public byte Discipline4 { get; set; }
         public byte Discipline5 { get; set; }
-
-        /// <summary>
-        ///     Instance of Job entity that contain this discipline
-        /// </summary>
-        public virtual Job Job { get; set; }
 
         /// <summary>
         ///     Get or Set the discipline with the given index
@@ -89,6 +85,23 @@ namespace Model.Entities.JobMine
                         break;
                 }
             }
+        }
+
+        public bool ContainDiscipline(DisciplineEnum discipline)
+        {
+            try
+            {
+                for (byte i = 0; i < GlobalDef.MaxNumberOfDisciplinesPerJob; i++)
+                {
+                    if (this[i] == (byte)discipline)
+                        return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError(e.ToString());
+            }
+            return false;
         }
 
         /// <summary>

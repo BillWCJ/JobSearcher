@@ -30,7 +30,7 @@ namespace Business.DataBaseSeeder
                 {
                     RateMyCoopJob.PopulateRatingsField(jReview);
 
-                    jReview.Employer = db.EmployerReviews.Find(jReview.Employer.EmployerId) ?? jReview.Employer;
+                    jReview.EmployerReview = db.EmployerReviews.Find(jReview.EmployerReview.EmployerId) ?? jReview.EmployerReview;
 
                     db.JobReviews.AddOrUpdate(jReview);
                     db.SaveChanges();

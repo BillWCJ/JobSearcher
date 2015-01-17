@@ -25,7 +25,7 @@ namespace Business.DataBaseSeeder
         {
             using (var db = new JseDbContext())
             {
-                IList<JobLocation> notSetLocations = (from l in db.Locations where l.AlreadySet == false select l).ToList();
+                IList<JobLocation> notSetLocations = (from l in db.Locations where l.Longitude == null && l.Latitude == null && l.FullAddress == null select l).ToList();
                 IPlaceTextSearch locationSearcher = new GoogleRepo(new List<string> {Account.GoogleApisBrowserKey}).LocationRepo;
                 foreach (JobLocation location in notSetLocations)
                 {

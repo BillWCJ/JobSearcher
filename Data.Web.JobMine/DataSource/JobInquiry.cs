@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -99,6 +100,7 @@ namespace Data.Web.JobMine.DataSource
 
             for (int currentPageNum = 1; (numPages == FirstSearch) || currentPageNum <= numPages; currentPageNum++)
             {
+                Trace.TraceInformation("GetJobOverViews Parsing Page " + currentPageNum);
                 var doc = new HtmlDocument();
                 SetInquiryData(Client, numPages, ref iCAction, ref iCsid, ref iCStateNum);
 

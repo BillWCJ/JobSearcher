@@ -7,5 +7,6 @@ namespace Data.Contract.JseDb.Interface
     {
         List<Job> GetJobsByEmployerId(int employerId);
         List<Job> GetJobsByLocationId(int locationId);
+        Job GetFullJob(int id);
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Model.Entities.RateMyCoopJob
+﻿using System;
+
+namespace Model.Entities.RateMyCoopJob
 {
     public class JobRating
     {
@@ -8,5 +10,13 @@
         public string Date { get; set; }
         public string Salary { get; set; }
         public virtual JobReview JobReview { get; set; }
+
+        public override string ToString()
+        {
+            string msg = null;
+            msg += "Rating: " + Rating + "|" + "Date: " + Date + "|" + Salary + Environment.NewLine;
+            msg += Comment + Environment.NewLine;
+            return msg;
+        }
     }
 }
