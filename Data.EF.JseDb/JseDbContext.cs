@@ -25,6 +25,9 @@ namespace Data.EF.JseDb
         public IDbSet<Word> Words { get; set; }
         public IDbSet<SearchDictionary> SearchDictionaries { get; set; }
         public IDbSet<LocationOfInterest> LocationOfInterests { get; set; }
+        public IDbSet<JobShortList> JobShortLists { get; set; }
+        public IDbSet<JobLinker> JobLinkers { get; set; }
+        public IDbSet<EmployerLinker> EmployerLinkers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

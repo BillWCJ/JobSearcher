@@ -14,28 +14,91 @@ namespace Business.Manager
     {
         public static List<Job> FindJobs()
         {
-            var jobIWant = new List<Job>();
-            var jobICanGet = new List<Job>();
+            var jobList = new List<Job>();
             var jobManager = new JobManager();
             using (var db = new JseDbContext())
             {
                 foreach (Job j in db.Jobs.Include(j => j.Levels).Include(j => j.Disciplines).Include(j => j.JobLocation).Include(j => j.Employer))
                 {
-                    TermType termType = jobManager.GetTermDuration(j);
-                    if (termType != TermType.Eight && NotQaJob(j)
-                        && (j.Disciplines.ContainDiscipline(DisciplineEnum.ENGMechatronics) || j.Disciplines.ContainDiscipline(DisciplineEnum.ENGMechanical) || j.Disciplines.ContainDiscipline(DisciplineEnum.MATHComputerScience)))
+                    if (IsNotEightMonth(jobManager, j) && IsMyLevel(j.Levels) && IsRelatedDiscipline(j.Disciplines) && IsNotQaJob(j))
                     {
-                        jobIWant.Add(j);
-                        if ((j.Levels.IsJunior || j.Levels.IsIntermediate) && (ContainWord(j.JobDescription, "c#") || ContainWord(j.JobDescription, "solidwork")) && j.Disciplines.ContainDiscipline(DisciplineEnum.ENGMechatronics))
-                        {
-                            jobICanGet.Add(j);
-                        }
+                        j.Score = 0;
+                        //location score
+                        if (ContainWord(j.JobLocation.Region, "ottawa"))
+                            j.Score += 10;
+                        else if (ContainWord(j.JobLocation.Region, "toronto"))
+                            j.Score += 5;
+                        else if (ContainWord(j.JobLocation.Region, "waterloo"))
+                            j.Score += 5;
+                        else if (ContainWord(j.JobLocation.Region, "kitchener"))
+                            j.Score += 5;
+                        else if (ContainWord(j.JobLocation.Region, "usa"))
+                            j.Score += 20;
+
+                        //level score
+                        if (j.Levels.IsJunior)
+                            j.Score += 10;
+
+                        //discipline score
+                        if (j.Disciplines.ContainDiscipline(DisciplineEnum.ENGMechatronics))
+                            j.Score += 5;
+
+                        //--------skill & keywords
+                        //mech
+                        if (ContainWord(j.JobDescription, "solidwork"))
+                            j.Score += 5;
+                        else if (ContainWord(j.JobDescription, "cad"))
+                            j.Score += 3;
+                        if (ContainWord(j.JobDescription, "fea"))
+                            j.Score += 2;
+
+                        //software
+                        if (ContainWord(j.JobDescription, "c#"))
+                            j.Score += 5;
+                        else if (ContainWord(j.JobDescription, "c++"))
+                            j.Score += 5;
+
+                        jobList.Add(j);
                     }
                 }
-                Console.WriteLine(jobIWant.Count);
-                Console.WriteLine(jobICanGet.Count);
-                return jobICanGet;
+                Console.WriteLine(jobList.Count);
+                jobList.Sort(SortByScore);
+                return jobList;
             }
+        }
+
+        private static int SortByScore(Job x, Job y)
+        {
+            if (x == null)
+                return 1;
+            if (y == null)
+                return -1;
+            if (x.Score >= y.Score)
+                return -1;
+            return 1;
+        }
+
+        private static bool IsNotEightMonth(JobManager jobManager, Job j)
+        {
+            return jobManager.GetTermDuration(j) != TermType.Eight;
+        }
+
+        private static bool IsMyLevel(Levels levels)
+        {
+            return levels.IsJunior || levels.IsIntermediate;
+        }
+
+        private static bool IsRelatedDiscipline(Disciplines d)
+        {
+            return d.ContainDiscipline(DisciplineEnum.ENGMechatronics)
+                || d.ContainDiscipline(DisciplineEnum.ENGMechanical)
+                || d.ContainDiscipline(DisciplineEnum.ENGElectrical)
+                || d.ContainDiscipline(DisciplineEnum.ENGComputer)
+                || d.ContainDiscipline(DisciplineEnum.ENGUnSpecified)
+                || d.ContainDiscipline(DisciplineEnum.ENGManagement)
+                || d.ContainDiscipline(DisciplineEnum.ENGSystemsDesign)
+                || d.ContainDiscipline(DisciplineEnum.ENGSoftware) 
+                || d.ContainDiscipline(DisciplineEnum.MATHComputerScience);
         }
 
         private static bool ContainWord(string src, string word)
@@ -43,9 +106,9 @@ namespace Business.Manager
             return src.IndexOf(word, StringComparison.OrdinalIgnoreCase) > 0;
         }
 
-        private static bool NotQaJob(Job job)
+        private static bool IsNotQaJob(Job job)
         {
-            return !ContainWord(job.JobTitle, "Quality") && !ContainWord(job.JobTitle, "QA") && !ContainWord(job.JobTitle, "verification");
+            return !ContainWord(job.JobTitle, "Quality") && !ContainWord(job.JobTitle, "QA") && !ContainWord(job.JobTitle, "verification") && !ContainWord(job.JobTitle, "test");
         }
     }
 }

@@ -30,6 +30,7 @@ namespace SimpleJobBrowser
         private void Display()
         {
             OutputTextBox.Text = Jobs[Index].ToString("f");
+            OutputTextBox2.Text = Jobs[Index].Score.ToString("Score: 0 \n") + Jobs[Index].NumberOfOpening.ToString("NumberOfOpening: 0 \n");
             //var review = JobReviewManager.GetJobReview(Jobs[Index].Employer.Name, Jobs[Index].JobTitle);
             //string reviewMsg = review.Aggregate<JobReview, string>(null, (current, r) => current + r.ToString());
             //OutputTextBox2.Text = reviewMsg;

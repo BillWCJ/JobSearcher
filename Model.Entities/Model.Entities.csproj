@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployerLinker.cs" />
+    <Compile Include="JobLinker.cs" />
+    <Compile Include="JobShortList.cs" />
     <Compile Include="LocationOfInterest.cs" />
     <Compile Include="RateMyCoopJob\JobRating.cs" />
     <Compile Include="Web\CookieEnabledWebClient.cs">

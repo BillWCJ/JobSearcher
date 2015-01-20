@@ -32,6 +32,12 @@ namespace Data.Web.JobMine.DataSource
                 WebUtility.HtmlDecode(
                     ExtractField(htmlSource, "id='UW_CO_JOBDTL_DW_UW_CO_DESCR100'>", "</span>").Replace("&nbsp;", " "))
                     .Replace("<br />", "\n");
+
+            string numopen = 
+                WebUtility.HtmlDecode(
+                    ExtractField(htmlSource, "id='UW_CO_JOBDTL_VW_UW_CO_AVAIL_OPENGS'>", "</span>").Replace("&nbsp;", " "))
+                    .Replace("<br />", "\n");
+
             return new Job
             {
                 Employer = new Employer
@@ -48,6 +54,7 @@ namespace Data.Web.JobMine.DataSource
                 Comment = fields[5],
                 JobDescription = fields[6],
                 Id = Convert.ToInt32(jobId),
+                NumberOfOpening = Convert.ToUInt32(numopen)
             };
         }
 

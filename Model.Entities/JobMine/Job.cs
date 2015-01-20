@@ -27,11 +27,12 @@ namespace Model.Entities.JobMine
         [Column(Order = 3)]
         public string JobTitle { get; set; }
 
-        //public uint NumberOfOpening { get; set; }
+        public uint NumberOfOpening { get; set; }
         //public uint NumberOfApplied { get; set; }
         //public bool AlreadyApplied { get; set; }
         //public bool OnShortList { get; set; }
         //public DateTime LastDateToApply { get; set; }
+
         public string IdString
         {
             get
@@ -54,9 +55,12 @@ namespace Model.Entities.JobMine
                 throw new Exception("One of more of Job's related Entity is null and cannot set relationship");
             Employer.Jobs.Add(this);
             JobLocation.Jobs.Add(this);
-            Levels = new Levels {};
-            Disciplines = new Disciplines {};
+            Levels = new Levels();
+            Disciplines = new Disciplines();
         }
+
+        [NotMapped]
+        public int Score { get; set; }
 
         public virtual Levels Levels { get; set; }
         public virtual Disciplines Disciplines { get; set; }
@@ -123,7 +127,7 @@ namespace Model.Entities.JobMine
                 toString += Employer.Name + "                    " + JobTitle + "                    " + JobLocation.Region + Environment.NewLine;
                 toString += Disciplines + "                    " + Levels + Environment.NewLine;
                 toString += "Comment:" + Environment.NewLine + Comment + Environment.NewLine;
-                toString += "JobDescription:" + Environment.NewLine + JobDescription;
+                toString += "JobDescription:" + Environment.NewLine + JobDescription + Environment.NewLine + Environment.NewLine;
             }
 
 
