@@ -12,8 +12,7 @@ namespace Model.Entities.RateMyCoopJob
             JobReviews = JobReviews ?? new List<JobReview>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int EmployerId { get; set; }
         public string Name { get; set; }
         public virtual List<JobReview> JobReviews { get; set; }

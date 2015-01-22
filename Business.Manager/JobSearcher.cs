@@ -33,7 +33,7 @@ namespace Business.Manager
                         else if (ContainWord(j.JobLocation.Region, "kitchener"))
                             j.Score += 5;
                         else if (ContainWord(j.JobLocation.Region, "usa"))
-                            j.Score += 20;
+                            j.Score += 5;
 
                         //level score
                         if (j.Levels.IsJunior)
@@ -57,6 +57,9 @@ namespace Business.Manager
                             j.Score += 5;
                         else if (ContainWord(j.JobDescription, "c++"))
                             j.Score += 5;
+
+                        if (ContainWord(j.JobDescription, "arduino"))
+                            j.Score += 2;
 
                         jobList.Add(j);
                     }

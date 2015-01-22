@@ -21,16 +21,21 @@ namespace Business.DataBaseSeeder
 
         private UserAccount Account { get; set; }
 
-        public void SeedDb()
+        public void SeedDb(string selectLocation = null)
         {
             using (var db = new JseDbContext())
             {
                 IList<JobLocation> notSetLocations = (from l in db.Locations where l.Longitude == null && l.Latitude == null && l.FullAddress == null select l).ToList();
                 IPlaceTextSearch locationSearcher = new GoogleRepo(new List<string> {Account.GoogleApisBrowserKey}).LocationRepo;
+                selectLocation = selectLocation == null? null : selectLocation.ToLower();
+
                 foreach (JobLocation location in notSetLocations)
                 {
                     try
                     {
+                        if(selectLocation != null && !location.Region.ToLower().Contains(selectLocation))
+                            continue;
+
                         Job job = db.Jobs.Include(j => j.Employer).FirstOrDefault(j => j.JobLocation.Id == location.Id);
                         Employer employer = db.Employers.FirstOrDefault(e => e.Id == job.Employer.Id);
 

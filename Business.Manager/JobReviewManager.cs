@@ -9,6 +9,34 @@ namespace Business.Manager
 {
     public class JobReviewManager
     {
+        public IEnumerable<JobReview> GetJobReview(int jobId, int employerId)
+        {
+            var jobreviews = new List<JobReview>();
+            using (var db = new JseDbContext())
+            {
+                foreach (var linker in db.JobLinkers.Include(j => j.Job).Include(j => j.JobReview).Where(j => j.Job.Id == jobId))
+                {
+                    jobreviews.Add(linker.JobReview);
+                }
+
+                if (!jobreviews.Any())
+                {
+                    jobreviews = GetJobReview(db, employerId);
+                }
+            }
+            return jobreviews;
+        }
+
+        private List<JobReview> GetJobReview(JseDbContext db, int employerId)
+        {
+            var jobreviews = new List<JobReview>();
+            foreach (var linker in db.EmployerLinkers.Include(j => j.Employer).Include(j => j.EmployerReview.JobReviews).Where(j => j.Employer.Id == employerId))
+            {
+                jobreviews.AddRange(linker.EmployerReview.JobReviews);
+            }
+            return jobreviews;
+        }
+
         public IEnumerable<JobReview> GetJobReview(string employerName, string jobTitle)
         {
             var returnlist = new List<JobReview>();
@@ -18,13 +46,13 @@ namespace Business.Manager
                 int employerNameTolerance = 0, jobTitelTolerance = 0;
                 while (!list.Any())
                 {
-                    bool anyEmployerMatch = false, anyJobMatch = false;                    
+                    bool anyEmployerMatch = false, anyJobMatch = false;
                     foreach (EmployerReview employer in db.EmployerReviews.Include(e => e.JobReviews))
                     {
                         if (IsSimilar(employerName, employer.Name, employerNameTolerance))
                         {
                             anyEmployerMatch = true;
-                            var jobs = employer.JobReviews.Where(job => IsSimilar(jobTitle, job.Title, jobTitelTolerance));
+                            IEnumerable<JobReview> jobs = employer.JobReviews.Where(job => IsSimilar(jobTitle, job.Title, jobTitelTolerance));
                             if (jobs.Any())
                                 anyJobMatch = true;
                             list.AddRange(jobs);
@@ -33,7 +61,8 @@ namespace Business.Manager
                     if (!anyEmployerMatch)
                         employerNameTolerance = employerNameTolerance < 2 ? employerNameTolerance++ : employerNameTolerance;
                     if (anyEmployerMatch && !anyJobMatch)
-                        jobTitelTolerance = jobTitelTolerance < 2 ? jobTitelTolerance++ : jobTitelTolerance; ;
+                        jobTitelTolerance = jobTitelTolerance < 2 ? jobTitelTolerance++ : jobTitelTolerance;
+                    ;
                 }
                 returnlist = list.Select(jobReview => db.JobReviews.Include(j => j.EmployerReview).Include(j => j.JobRatings).FirstOrDefault(j => j.JobReviewId == jobReview.JobReviewId)).ToList();
             }

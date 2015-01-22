@@ -33,11 +33,6 @@ namespace Data.Web.JobMine.DataSource
                     ExtractField(htmlSource, "id='UW_CO_JOBDTL_DW_UW_CO_DESCR100'>", "</span>").Replace("&nbsp;", " "))
                     .Replace("<br />", "\n");
 
-            string numopen = 
-                WebUtility.HtmlDecode(
-                    ExtractField(htmlSource, "id='UW_CO_JOBDTL_VW_UW_CO_AVAIL_OPENGS'>", "</span>").Replace("&nbsp;", " "))
-                    .Replace("<br />", "\n");
-
             return new Job
             {
                 Employer = new Employer
@@ -53,30 +48,30 @@ namespace Data.Web.JobMine.DataSource
                 Levels = new Levels(fields[4]),
                 Comment = fields[5],
                 JobDescription = fields[6],
-                Id = Convert.ToInt32(jobId),
-                NumberOfOpening = Convert.ToUInt32(numopen)
+                Id = Convert.ToInt32(jobId)
             };
         }
 
-        public Job GetJob(JobOverView jobOverView)
+        public Job GetJob(JobOverView jov)
         {
-            string jobId = jobOverView.IdString;
+            string jobId = jov.IdString;
             string url = JobMineDef.JobDetailBaseUrl + jobId;
             string htmlSource = Client.DownloadString(url);
             Job job = GetJob(htmlSource, jobId);
-            job.Employer.UnitName = jobOverView.Employer.UnitName;
+            job.Employer.UnitName = jov.Employer.UnitName;
+            job.NumberOfOpening = jov.NumberOfOpening;
+            job.NumberOfApplied = jov.NumberOfApplied;
+            job.AlreadyApplied = jov.AlreadyApplied;
+            job.OnShortList = jov.OnShortList;
+            job.LastDateToApply = jov.LastDateToApply;
 
-            bool theSame = true;
-            if (job.Employer.Name.IndexOf(jobOverView.Employer.Name, StringComparison.InvariantCultureIgnoreCase) > -1)
-                job.Employer.Name = jobOverView.Employer.Name;
+            if (!job.Employer.Name.Contains(jov.Employer.Name))
+            {
+                job.Employer.Name = job.Employer.Name.Split(',')[0];
+                Console.WriteLine("Not The Same: {0}", jov.Employer.Name);
+            }
             else
-                theSame = false;
-            if (!job.JobLocation.Region.Equals(jobOverView.JobLocation.Region, StringComparison.InvariantCultureIgnoreCase))
-                theSame = false;
-            //if (!job.JobTitle.Equals(jobOverView.JobTitle, StringComparison.InvariantCultureIgnoreCase))
-            //    theSame = false;
-            if (!theSame)
-                Console.WriteLine("Not The Same: {0}", jobId);
+                job.Employer.Name = jov.Employer.Name;
 
             return job;
         }

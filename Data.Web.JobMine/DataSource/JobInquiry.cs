@@ -271,9 +271,16 @@ namespace Data.Web.JobMine.DataSource
         {
             string jobId = GetConvertedNodeInnerHtml(row, ColumnPath.JobId, count);
             if (IsCorrectJobId(jobId))
+            {
+                string numberOfOpeningString = GetConvertedNodeInnerHtml(row, ColumnPath.NumberOfOpening, count);
+                string numberOfAppliedString = GetConvertedNodeInnerHtml(row, ColumnPath.NumberOfApplied, count);
+                bool alreadyApplied = GetConvertedNodeInnerHtml(row, ColumnPath.AlreadyApplied, count) == "Applied";
+                bool onShortList = GetConvertedNodeInnerHtml(row, ColumnPath.OnShortList, count) == "On Short List";
+                string lastDateToApplyString = GetConvertedNodeInnerHtml(row, ColumnPath.LastDateToApply, count);
+                DateTime? lastDateToApply = string.IsNullOrWhiteSpace(lastDateToApplyString) ? (DateTime?) null : DateTime.Parse(lastDateToApplyString);
                 return new JobOverView
                 {
-                    JobTitle = " ", //GetConvertedNodeInnerHtml(row, ColumnPath.JobTitle, count),
+                    JobTitle = GetConvertedNodeInnerHtml(row, ColumnPath.JobTitle, count),
                     Employer = new Employer
                     {
                         Name = GetConvertedNodeInnerHtml(row, ColumnPath.EmployerName, count),
@@ -281,17 +288,23 @@ namespace Data.Web.JobMine.DataSource
                     },
                     JobLocation = new JobLocation {Region = GetConvertedNodeInnerHtml(row, ColumnPath.Region, count)},
                     Id = Convert.ToInt32(jobId),
+                    NumberOfOpening = string.IsNullOrWhiteSpace(numberOfOpeningString) ? 0 : Convert.ToInt32(numberOfOpeningString),
+                    NumberOfApplied = string.IsNullOrWhiteSpace(numberOfAppliedString) ? 0 : Convert.ToInt32(numberOfAppliedString),
+                    AlreadyApplied = alreadyApplied,
+                    OnShortList = onShortList,
+                    LastDateToApply = lastDateToApply
                 };
+            }
             return new JobOverView();
         }
 
         private static string GetConvertedNodeInnerHtml(HtmlNode row, string path, int count)
         {
-            return
-                row.SelectSingleNode(path + count + "']")
-                    .InnerHtml.Replace("&nbsp;", " ")
-                    .Replace("<br />", "\n")
-                    .Replace("&amp;", "&");
+            string convertedNodeInnerHtml = row.SelectSingleNode(String.Format(path, count))
+                .InnerHtml.Replace("&nbsp;", " ")
+                .Replace("<br />", "\n")
+                .Replace("&amp;", "&");
+            return convertedNodeInnerHtml;
         }
 
         /// <summary>
@@ -344,11 +357,16 @@ namespace Data.Web.JobMine.DataSource
 
         public struct ColumnPath
         {
-            public const string JobId = "//span[@id='UW_CO_JOBRES_VW_UW_CO_JOB_ID$";
-            public const string JobTitle = "//span[@id='UW_CO_JOBTITLE_HL$";
-            public const string EmployerName = "//span[@id='UW_CO_JOBRES_VW_UW_CO_PARENT_NAME$";
-            public const string Region = "//span[@id='UW_CO_JOBRES_VW_UW_CO_WORK_LOCATN$";
-            public const string UnitName = "//span[@id='UW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1$";
+            public const string JobId = "//span[@id='UW_CO_JOBRES_VW_UW_CO_JOB_ID${0}']";
+            public const string JobTitle = "//div[@id='win0divUW_CO_JOBTITLE_HL${0}']/span[@title='Job Title (Hyper Link)']/a[@class='PSHYPERLINK']";
+            public const string EmployerName = "//span[@id='UW_CO_JOBRES_VW_UW_CO_PARENT_NAME${0}']";
+            public const string Region = "//span[@id='UW_CO_JOBRES_VW_UW_CO_WORK_LOCATN${0}']";
+            public const string UnitName = "//span[@id='UW_CO_JOBRES_VW_UW_CO_EMPLYR_NAME1${0}']";
+            public const string NumberOfOpening = "//span[@id='UW_CO_JOBRES_VW_UW_CO_OPENGS${0}']";
+            public const string NumberOfApplied = "//span[@id='UW_CO_JOBAPP_CT_UW_CO_MAX_RESUMES${0}']";
+            public const string AlreadyApplied = "//div[@id='win0divUW_CO_APPLY_HL${0}']/span[@title='Apply to Position']";
+            public const string OnShortList = "//div[@id='win0divUW_CO_SLIST_HL${0}']/span[@title='Short List HyperLink']";
+            public const string LastDateToApply = "//span[@id='UW_CO_JOBRES_VW_UW_CO_CHAR_DATE${0}']";
         }
     }
 }

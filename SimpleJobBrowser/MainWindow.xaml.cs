@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using Business.Manager;
+using Data.EF.JseDb;
 using Model.Entities.JobMine;
 using Model.Entities.RateMyCoopJob;
 
@@ -16,6 +17,7 @@ namespace SimpleJobBrowser
         protected int Index;
         protected JobReviewManager JobReviewManager;
         protected List<Job> Jobs;
+        private JseDbContext Db { get; set; }
 
         public MainWindow()
         {
@@ -23,7 +25,7 @@ namespace SimpleJobBrowser
             Jobs = JobSearcher.FindJobs();
             Count = Jobs.Count;
             Index = 0;
-            //JobReviewManager = new JobReviewManager();
+            JobReviewManager = new JobReviewManager();
             Display();
         }
 
@@ -31,9 +33,9 @@ namespace SimpleJobBrowser
         {
             OutputTextBox.Text = Jobs[Index].ToString("f");
             OutputTextBox2.Text = Jobs[Index].Score.ToString("Score: 0 \n") + Jobs[Index].NumberOfOpening.ToString("NumberOfOpening: 0 \n");
-            //var review = JobReviewManager.GetJobReview(Jobs[Index].Employer.Name, Jobs[Index].JobTitle);
-            //string reviewMsg = review.Aggregate<JobReview, string>(null, (current, r) => current + r.ToString());
-            //OutputTextBox2.Text = reviewMsg;
+            var review = JobReviewManager.GetJobReview(Jobs[Index].Id, Jobs[Index].Employer.Id);
+            string reviewMsg = review.Aggregate<JobReview, string>(null, (current, r) => current + r.ToString());
+            OutputTextBox2.Text = reviewMsg;
         }
 
         private void PreviousJob(object sender, RoutedEventArgs e)

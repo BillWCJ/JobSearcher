@@ -13,25 +13,20 @@ namespace Model.Entities.JobMine
             JobLocation = new JobLocation();
         }
 
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
-        [Column(Order = 1)]
         public virtual Employer Employer { get; set; }
 
-        [Column(Order = 2)]
         public virtual JobLocation JobLocation { get; set; }
 
-        [Column(Order = 3)]
         public string JobTitle { get; set; }
 
-        public uint NumberOfOpening { get; set; }
-        //public uint NumberOfApplied { get; set; }
-        //public bool AlreadyApplied { get; set; }
-        //public bool OnShortList { get; set; }
-        //public DateTime LastDateToApply { get; set; }
+        public int NumberOfOpening { get; set; }
+        public int NumberOfApplied { get; set; }
+        public bool AlreadyApplied { get; set; }
+        public bool OnShortList { get; set; }
+        public DateTime? LastDateToApply { get; set; }
 
         public string IdString
         {
