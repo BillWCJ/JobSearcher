@@ -1,15 +1,18 @@
 JobSearchEnhancer
 =================
 
-JobSearchEnhancer provides additional functionality to University of Waterloo's CO-OP system
+JobSearchEnhancer provides additional functionality to University of Waterloo's JobMine CO-OP system
 
-External Dependencies:
+JobDownloader:
+-Sign into Jobmine and retrieve all job posting information.
+-Stores posting information into text file for key word search using word processors
 
--HttpAgilePack : http://www.nuget.org/packages/HtmlAgilityPack
-PM> Install-Package HtmlAgilityPack
+SimpleJobBrowser:
+-Retrieve job posting information and stores into database.
+-Retrieve coop job reviews from ratemycoopjob.com
+-Retrieve Local data from GoogleMaps api
+-Simple UI for browser job postings base on preset filters
 
--EntityFramework : https://www.nuget.org/packages/entityframework
-PM> Install-Package EntityFramework -Version 6.1.1
+UWActuallyWorks:
+-Better UI version of SimpleJobBrowser
 
-Usage:
-Install Console For Simple Downloader
