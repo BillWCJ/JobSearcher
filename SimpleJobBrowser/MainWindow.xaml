@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="768" Width="1366">
     <Grid>
-        <Button Content="Previous Job" HorizontalAlignment="Left" Height="60" Margin="1093,667,0,0" VerticalAlignment="Top" Width="125" Click="PreviousJob"/>
-        <Button Content="Next Job" HorizontalAlignment="Left" Height="60" Margin="1223,667,0,0" VerticalAlignment="Top" Width="125" Click="NextJob"/>
-        <TextBox Name="OutputTextBox" HorizontalAlignment="Left" Height="717" Margin="10,10,0,0" TextWrapping="Wrap" Text="OutputTextBox&#xD;&#xA;" VerticalAlignment="Top" Width="1078"/>
-        <TextBox Name="OutputTextBox2" HorizontalAlignment="Left" Height="652" Margin="1093,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="255"/>
+        <Button Content="Previous Job" HorizontalAlignment="Left" Height="60" Margin="943,667,0,0" VerticalAlignment="Top" Width="200" Click="PreviousJob"/>
+        <Button Content="Next Job" HorizontalAlignment="Left" Height="60" Margin="1148,667,0,0" VerticalAlignment="Top" Width="200" Click="NextJob"/>
+        <TextBox Name="MainTextBox" HorizontalAlignment="Left" Height="652" Margin="10,10,0,0" TextWrapping="Wrap" Text="OutputTextBox&#xD;&#xA;" VerticalAlignment="Top" Width="1078"/>
+        <TextBox Name="SideTextBox" HorizontalAlignment="Left" Height="652" Margin="1093,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="255"/>
+        <Button Content="Update &amp; Refresh Stored Data" HorizontalAlignment="Left" Height="60" Margin="738,667,0,0" VerticalAlignment="Top" Width="200" Click="UpdateData"/>
 
     </Grid>
 </Window>

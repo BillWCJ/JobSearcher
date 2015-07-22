@@ -15,7 +15,7 @@ namespace DevelopmentConsole
     {
         private static void Main(string[] args)
         {
-            foreach (var msg in MasterSeeder.SeedAll("1155", JobStatus.Approved, new JseLocalRepo().GetAccount(), true, false, "ottawa"))
+            foreach (var msg in MasterSeeder.SeedAll("1155", JobStatus.Posted, new JseLocalRepo().GetAccount(), false, false, "ottawa"))
             {
                 Console.WriteLine(msg);
             }

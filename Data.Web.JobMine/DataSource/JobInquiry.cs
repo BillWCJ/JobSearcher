@@ -274,7 +274,7 @@ namespace Data.Web.JobMine.DataSource
             {
                 string numberOfOpeningString = GetConvertedNodeInnerHtml(row, ColumnPath.NumberOfOpening, count);
                 string numberOfAppliedString = GetConvertedNodeInnerHtml(row, ColumnPath.NumberOfApplied, count);
-                bool alreadyApplied = GetConvertedNodeInnerHtml(row, ColumnPath.AlreadyApplied, count) == "Applied";
+                bool alreadyApplied = GetConvertedNodeInnerHtml(row, ColumnPath.AlreadyApplied, count) == "Already Applied";
                 bool onShortList = GetConvertedNodeInnerHtml(row, ColumnPath.OnShortList, count) == "On Short List";
                 string lastDateToApplyString = GetConvertedNodeInnerHtml(row, ColumnPath.LastDateToApply, count);
                 DateTime? lastDateToApply = string.IsNullOrWhiteSpace(lastDateToApplyString) ? (DateTime?) null : DateTime.Parse(lastDateToApplyString);

@@ -20,28 +20,28 @@ namespace Business.Manager
             {
                 foreach (Job j in db.Jobs.Include(j => j.Levels).Include(j => j.Disciplines).Include(j => j.JobLocation).Include(j => j.Employer))
                 {
-                    if (IsNotEightMonth(jobManager, j) && IsMyLevel(j.Levels) && IsRelatedDiscipline(j.Disciplines) && IsNotQaJob(j))
+                    if (IsNotEightMonth(jobManager, j) && IsMyLevel(j.Levels) && IsRelatedDiscipline(j.Disciplines) )//&& IsNotQaJob(j))
                     {
                         j.Score = 0;
                         //location score
                         if (ContainWord(j.JobLocation.Region, "ottawa"))
-                            j.Score += 10;
-                        else if (ContainWord(j.JobLocation.Region, "toronto"))
-                            j.Score += 5;
-                        else if (ContainWord(j.JobLocation.Region, "waterloo"))
-                            j.Score += 5;
-                        else if (ContainWord(j.JobLocation.Region, "kitchener"))
                             j.Score += 5;
                         else if (ContainWord(j.JobLocation.Region, "usa"))
                             j.Score += 5;
+                        else if (ContainWord(j.JobLocation.Region, "toronto"))
+                            j.Score += 2;
+                        else if (ContainWord(j.JobLocation.Region, "waterloo"))
+                            j.Score += 2;
+                        else if (ContainWord(j.JobLocation.Region, "kitchener"))
+                            j.Score += 2;
 
                         //level score
                         if (j.Levels.IsJunior)
-                            j.Score += 10;
+                            j.Score += 3;
 
                         //discipline score
                         if (j.Disciplines.ContainDiscipline(DisciplineEnum.ENGMechatronics))
-                            j.Score += 5;
+                            j.Score += 2;
 
                         //--------skill & keywords
                         //mech
@@ -59,8 +59,15 @@ namespace Business.Manager
                             j.Score += 5;
 
                         if (ContainWord(j.JobDescription, "arduino"))
-                            j.Score += 2;
+                            j.Score += 10;
 
+
+                        if (ContainWord(j.JobTitle, "hardware"))
+                            j.Score += 10;
+
+                        j.Score += 100 * j.NumberOfOpening/(1+j.NumberOfApplied);
+
+                        if(!j.AlreadyApplied)
                         jobList.Add(j);
                     }
                 }

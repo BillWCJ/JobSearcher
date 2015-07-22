@@ -20,37 +20,58 @@ namespace Business.DataBaseSeeder
         {
             using (var db = new JseDbContext())
             {
-                int numJobSeeded = 0;
+                yield return "Searching For Jobs";
+                int numJobSeeded = 0, numJobUpdated = 0;
                 var jobMineRepo = new JobMineRepo(Account);
                 IEnumerable<JobOverView> jobOverViews = jobMineRepo.JobInquiry.GetJobOverViews(term, appsAvail).Take(numberOfJobsToSeed);
                 yield return "Number of Job Founded: " + jobOverViews.Count();
 
                 foreach (JobOverView jov in jobOverViews)
                 {
-                    if (db.Jobs.Any(j => j.Id == jov.Id))
-                        continue;
+                    var job = db.Jobs.Find(jov.Id);
 
-                    Job job = jobMineRepo.JobDetail.GetJob(jov);
-
-                    Employer existingEmployer = db.Employers.FirstOrDefault(e => e.Name == job.Employer.Name && e.UnitName == job.Employer.UnitName);
-                    if (existingEmployer != null)
+                    if (job == null)
                     {
-                        foreach (Job existingJob in existingEmployer.Jobs)
-                        {
-                            if (existingJob.JobLocation.Region == job.JobLocation.Region)
-                            {
-                                job.JobLocation = existingJob.JobLocation;
-                                break;
-                            }
-                        }
-                        job.Employer = existingEmployer;
+                        SeedJobAndRelatedEntities(jobMineRepo, jov, db);
+                        yield return "Job Seeded: " + ++numJobSeeded;
                     }
-
-                    db.Jobs.Add(job);
-                    db.SaveChanges();
-                    yield return "Job Seeded: " + ++numJobSeeded;
+                    else
+                    {
+                        UpdateJob(job, jov, db);
+                        yield return "Job Updated: " + ++numJobUpdated;
+                    }
                 }
             }
+        }
+
+        private static void UpdateJob(Job job, JobOverView jov, JseDbContext db)
+        {
+            job.NumberOfApplied = jov.NumberOfApplied;
+            job.AlreadyApplied = jov.AlreadyApplied;
+            job.OnShortList = jov.OnShortList;
+            db.SaveChanges();
+        }
+
+        private static void SeedJobAndRelatedEntities(JobMineRepo jobMineRepo, JobOverView jov, JseDbContext db)
+        {
+            Job job = jobMineRepo.JobDetail.GetJob(jov);
+
+            Employer existingEmployer = db.Employers.FirstOrDefault(e => e.Name == job.Employer.Name && e.UnitName == job.Employer.UnitName);
+            if (existingEmployer != null)
+            {
+                foreach (Job existingJob in existingEmployer.Jobs)
+                {
+                    if (existingJob.JobLocation.Region == job.JobLocation.Region)
+                    {
+                        job.JobLocation = existingJob.JobLocation;
+                        break;
+                    }
+                }
+                job.Employer = existingEmployer;
+            }
+
+            db.Jobs.Add(job);
+            db.SaveChanges();
         }
     }
 }
