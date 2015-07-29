@@ -28,6 +28,11 @@ namespace UWActuallyWorks.PostingTable
             var jobs = JobSearcher.FindJobs();
             var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
             JobPostings = new ObservableCollection<JobPostingViewModel>(jobPostingViewModels);
+            Initalize();
+        }
+
+        private void Initalize()
+        {
         }
     }
 }

@@ -2,9 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converter="clr-namespace:UWActuallyWorks.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1366">
+    <UserControl.Resources>
+        <converter:UrlConverter x:Key="UrlConverter"/>
+    </UserControl.Resources>
+    
     <DataGrid Name="JobPostingTable"
               Height="Auto"
               Width="Auto"
@@ -18,8 +23,7 @@
                 Header="Select">
             </DataGridCheckBoxColumn>
             <DataGridTextColumn 
-                Binding="{Binding 
-                Path=Job.JobTitle}" 
+                Binding="{Binding Path=Job.JobTitle}" 
                 Width="Auto" 
                 Header="Job Title">
             </DataGridTextColumn>
@@ -37,6 +41,40 @@
                 Binding="{Binding Path=Job.JobLocation.Region}" 
                 Width="Auto" 
                 Header="Region">
+            </DataGridTextColumn>
+            <DataGridTextColumn 
+                Binding="{Binding Path=Job.Levels}" 
+                Width="Auto" 
+                Header="Levels">
+            </DataGridTextColumn>
+            <DataGridTemplateColumn  
+                Width="80"
+                Header="Disciplines">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Job.Disciplines}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"></TextBlock>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                <DataGridTemplateColumn.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="ToolTip" Value="{Binding Path=Job.Disciplines}" />
+                    </Style>
+                </DataGridTemplateColumn.CellStyle>
+            </DataGridTemplateColumn>
+            <DataGridTextColumn
+                Binding="{Binding Path=Job.Comment}"
+                Width="*" 
+                Header="Detail (Hover Over!)">
+                <DataGridTextColumn.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="ToolTip" Value="{Binding Path=Job.JobDescription}" />
+                    </Style>
+                </DataGridTextColumn.CellStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn
+                Header="Open"
+                Width="40"
+                Binding="{Binding Job.IdString}">
             </DataGridTextColumn>
         </DataGrid.Columns>
     </DataGrid>
