@@ -4,6 +4,35 @@
         xmlns:local="clr-namespace:UWActuallyWorks.PostingTable"
         Title="MainWindow" Height="768" Width="1366">
     <Grid>
-        <local:PostingTableView></local:PostingTableView>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="RefreshButton" Height="40" Width="40" Margin="5"></Button>
+            <Label Grid.Column="1" Name="CurrentPerspectiveLabel" Height="40" Width="130" HorizontalAlignment="Left" Margin="5"></Label>
+            <TextBlock Grid.Column="2" Name="MessageTextBlock" Height="40" Width="Auto"></TextBlock>
+            <DockPanel Grid.Column="3">
+                <Button Name="ImportDataPerspectiveButton" Height="40" Width="40" Margin="5"></Button>
+                <Button Name="JobPostingPerspectiveButton" Height="40" Width="40" Margin="5"></Button>
+                <Button Name="MapPerspectiveButton" Height="40" Width="40" Margin="5"></Button>
+                <Button Name="OptionsPerspectiveButton" Height="40" Width="40" Margin="5"></Button>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <local:PostingTableView Grid.Column="1"></local:PostingTableView>
+        </Grid>
+        <Grid Grid.Row="2"></Grid>
     </Grid>
 </Window>
