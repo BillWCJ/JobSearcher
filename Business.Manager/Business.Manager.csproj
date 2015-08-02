@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
+    <Compile Include="FilterManager.cs" />
     <Compile Include="JobManager.cs" />
     <Compile Include="JobReviewManager.cs" />
     <Compile Include="JobSearcher.cs" />

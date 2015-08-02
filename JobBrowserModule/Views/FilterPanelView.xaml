@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="JobBrowserModule.Views.FilterPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:JobBrowserModule.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="150">
+    <UserControl.Resources>
+        <BitmapImage x:Key="MinimizeIcon" UriSource="../Icons/Minus.png" />
+        <BitmapImage x:Key="CloseIcon" UriSource="../Icons/Cross.png" />
+        <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
+        <BitmapImage x:Key="EditIcon" UriSource="../Icons/Pencil.png" />
+    </UserControl.Resources>
+
+    <Grid
+        Width="150">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="White" Grid.Row="0">
+            <Button HorizontalAlignment="Left" Height="15" Width="15" Margin="5" Background="Transparent"
+                        BorderBrush="Transparent" BorderThickness="0">
+                <Image Source="{StaticResource MinimizeIcon}" />
+            </Button>
+            <Label HorizontalAlignment="Center" Content="Filter Panel"></Label>
+            <Button HorizontalAlignment="Right" Name="JobPostingPerspectiveButton" Height="15" Width="15" Margin="5" Background="Transparent"
+                        BorderBrush="Transparent" BorderThickness="0">
+                <Image Source="{StaticResource CloseIcon}" />
+            </Button>
+        </Grid>
+        <DataGrid Grid.Row="1" 
+                  Background="Transparent" 
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding Path=Filters}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn
+                    Width="Auto"
+                    CanUserSort="True">
+                    <DataGridTemplateColumn.Header>
+                        <CheckBox IsChecked="{Binding Path=IsAllSelected, Mode=TwoWay}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Margin="4,0,0,0" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}" Checked="FilterSelectionChange" Unchecked="FilterSelectionChange"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Binding="{Binding Path=Name}"
+                    Width="*"
+                    Header="Name">
+                </DataGridTextColumn>
+                <DataGridTemplateColumn
+                    Width="25"
+                    IsReadOnly="True">
+                    <DataGridTemplateColumn.Header>
+                        <Button Click="AddFilterCLicked"
+                                Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                            <Image Height="13" Width="13" Source="{StaticResource AddIcon}"
+                                   ToolTip="Open posting on JobMine" />
+                        </Button>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="EditFilterClicked"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}}"
+                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                                <Image Height="15" Width="15" Source="{StaticResource EditIcon}"
+                                       ToolTip="Open posting on JobMine" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

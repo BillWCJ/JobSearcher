@@ -1,0 +1,89 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:definition="clr-namespace:Model.Definition;assembly=Model.Definition"
+    x:Class="JobBrowserModule.Views.FilterModificationWindow"
+    Title="CreateFilterWindow" Height="300" Width="800" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
+        <BitmapImage x:Key="CloseIcon" UriSource="../Icons/Cross.png" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" CornerRadius="2" Margin="2">
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Label Width="Auto" Content="Name:" />
+                <TextBox Width="100" Text="{Binding Path=Name, Mode=TwoWay}" />
+                <Label Width="Auto" Content="Short Description:" />
+                <TextBox MinWidth="200" Text="{Binding Path=Description, Mode=TwoWay}" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" CornerRadius="2" Margin="2">
+            <TabControl>
+                <TabItem Width="Auto" Header="{x:Static definition:FilterCategory.StringSearch}">
+                    <Grid Background="Transparent">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Search Target (Where to search; Job description, comments):" />
+                                <Button Width="15" Height="15" Background="Transparent" BorderThickness="0">
+                                    <Image Source="{StaticResource AddIcon}" />
+                                </Button>
+                            </StackPanel>
+                            <ListBox Name="TargetListBox">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="15">
+                                            <TextBlock Text="{Binding}" />
+                                            <Button Background="Transparent" BorderThickness="0">
+                                                <Image Source="{StaticResource CloseIcon}" />
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Search Values (What to search; HTML, Ottawa):" />
+                                <Button Width="15" Height="15" Background="Transparent" BorderThickness="0">
+                                    <Image Source="{StaticResource AddIcon}" />
+                                </Button>
+                            </StackPanel>
+                            <ListBox Name="ValueListBox">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="15">
+                                            <TextBlock Text="{Binding}" />
+                                            <Button Background="Transparent" BorderThickness="0">
+                                                <Image Source="{StaticResource CloseIcon}" />
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <CheckBox Content="Match Case" IsChecked="{Binding Path=Data.MatchCase, Mode=TwoWay}" />
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Border>
+        <Border Grid.Row="2" BorderThickness="2" BorderBrush="DimGray" CornerRadius="2" Margin="2">
+            <DockPanel>
+                <Button DockPanel.Dock="Right" Content="Add/Save" Click="SaveOrEdit_OnClick" />
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

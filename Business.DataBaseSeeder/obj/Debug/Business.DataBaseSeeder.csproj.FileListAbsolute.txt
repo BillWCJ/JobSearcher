@@ -29,8 +29,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBa
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.GoogleApis.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.JobMine.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\EntityFramework.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Definition.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Entities.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Common.Utility.dll

@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="JobBrowserModule.Views.PostingTableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:JobBrowserModule.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="768" d:DesignWidth="1366">
+
+    <UserControl.Resources>
+        <BitmapImage x:Key="WaterlooIcon" UriSource="../Icons/Waterloo.png" />
+        <BitmapImage x:Key="GoogleIcon" UriSource="../Icons/Google.png" />
+        <BitmapImage x:Key="LocationIcon" UriSource="../Icons/Location.png" />
+        <BitmapImage x:Key="MoreIcon" UriSource="../Icons/More.png" />
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <viewModels:PostingTableViewModel />
+    </UserControl.DataContext>
+
+    <DataGrid x:Name="JobPostingTable"
+              Height="Auto"
+              Width="Auto"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Left"
+              AutoGenerateColumns="False"
+              ItemsSource="{Binding JobPostings}"
+              FontSize="10"
+              IsReadOnly="True"
+              BorderBrush="#FF97C2EC"
+              HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"
+              VerticalGridLinesBrush="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"
+              AlternatingRowBackground="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
+              AlternationCount="2"
+              MinColumnWidth="10"
+              IsTextSearchEnabled="True">
+        <DataGrid.Columns>
+            <DataGridTemplateColumn
+                Width="Auto"
+                CanUserSort="True">
+                <DataGridTemplateColumn.Header>
+                    <CheckBox
+                        IsChecked="{Binding Path=IsAllSelected, Mode=TwoWay}" />
+                </DataGridTemplateColumn.Header>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <CheckBox Margin="4,0,0,0" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTextColumn
+                Binding="{Binding Path=Job.JobTitle}"
+                Width="200"
+                Header="Job Title">
+                <DataGridTextColumn.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="ToolTip" Value="{Binding Job.JobTitle}" />
+                    </Style>
+                </DataGridTextColumn.CellStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn
+                Binding="{Binding Job.Employer.Name}"
+                Width="100"
+                Header="Employer">
+                <DataGridTextColumn.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="ToolTip" Value="{Binding Job.Employer.Name}" />
+                    </Style>
+                </DataGridTextColumn.CellStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn
+                Binding="{Binding Job.JobLocation.Region}"
+                Width="50"
+                Header="Region">
+                <DataGridTextColumn.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="ToolTip" Value="{Binding Job.JobLocation.Region}" />
+                    </Style>
+                </DataGridTextColumn.CellStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn
+                Binding="{Binding Job.Levels.ShortString}"
+                Width="Auto"
+                Header="Levels">
+                <DataGridTextColumn.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="ToolTip" Value="{Binding Job.Levels}" />
+                    </Style>
+                </DataGridTextColumn.CellStyle>
+            </DataGridTextColumn>
+            <DataGridTemplateColumn
+                Width="150"
+                Header="Disciplines">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Job.Disciplines}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextTrimming="CharacterEllipsis"
+                                   ToolTip="{Binding Job.Disciplines}"
+                                   FontSize="8"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Height="22" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn
+                Width="*"
+                Header="Details (Hover over text for tooltips and over more icon for job description)">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <DockPanel Width="Auto">
+                            <TextBlock DockPanel.Dock="Left" Text="{Binding Job.Comment}"
+                                       TextWrapping="WrapWithOverflow"
+                                       TextTrimming="CharacterEllipsis"
+                                       ToolTip="{Binding Job.JobDescription}"
+                                       FontSize="8"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Height="22" />
+                        </DockPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn
+                Header="Browser"
+                Width="55"
+                IsReadOnly="True">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <DockPanel>
+                            <Button Click="OpenPostingClicked"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}}"
+                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                                <Image Height="15" Width="15" Source="{StaticResource WaterlooIcon}"
+                                       ToolTip="Open posting on JobMine" />
+                            </Button>
+                            <Button Click="GoogleEmployerClicked"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}}"
+                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                                <Image Height="15" Width="15" Source="{StaticResource GoogleIcon}"
+                                       ToolTip="Search Employer on Google" />
+                            </Button>
+                            <Button Click="SearchLocationClicked"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}}"
+                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                                <Image Height="15" Width="15" Source="{StaticResource LocationIcon}"
+                                       ToolTip="Search Job Location on Google Maps" />
+                            </Button>
+                        </DockPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>
