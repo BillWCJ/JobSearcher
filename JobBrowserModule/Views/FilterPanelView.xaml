@@ -13,6 +13,10 @@
         <BitmapImage x:Key="EditIcon" UriSource="../Icons/Pencil.png" />
     </UserControl.Resources>
 
+    <UserControl.DataContext>
+        <viewModels:FilterPanelViewModelMock/>
+    </UserControl.DataContext>
+    
     <Grid
         Width="150">
         <Grid.RowDefinitions>
@@ -43,7 +47,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox Margin="4,0,0,0" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}" Checked="FilterSelectionChange" Unchecked="FilterSelectionChange"></CheckBox>
+                            <CheckBox Margin="4,0,0,0" IsChecked="{Binding DataContext.IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Mode=TwoWay}" Checked="FilterSelectionChanged" Unchecked="FilterSelectionChanged"></CheckBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

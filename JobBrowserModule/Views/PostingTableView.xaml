@@ -14,10 +14,6 @@
         <BitmapImage x:Key="MoreIcon" UriSource="../Icons/More.png" />
     </UserControl.Resources>
 
-    <UserControl.DataContext>
-        <viewModels:PostingTableViewModel />
-    </UserControl.DataContext>
-
     <DataGrid x:Name="JobPostingTable"
               Height="Auto"
               Width="Auto"

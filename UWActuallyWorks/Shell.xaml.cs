@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JobBrowserModule.Services;
+using JobBrowserModule.ViewModels;
 using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace UWActuallyWorks
@@ -21,12 +23,16 @@ namespace UWActuallyWorks
     /// </summary>
     public partial class Shell : Window
     {
-        readonly IEventAggregator _aggregator = new EventAggregator();
+        readonly IReporter _aggregator = new Reporter();
         public Shell()
         {
             InitializeComponent();
-            //PostingTableViewModel postingTableViewModel = PostingTable.DataContext as PostingTableViewModel;
-            //FilterPanel.FilterChanged += postingTableViewModel.FilterChanged;
+            var filterPanelViewModel = new FilterPanelViewModel(_aggregator);
+            var postingTableViewModel = new PostingTableViewModel(_aggregator);
+            _aggregator.FilterChanged = postingTableViewModel.FilterChanged;
+            this.FilterPanel.ViewModel = filterPanelViewModel;
+            this.JobPostingTable.ViewModel = postingTableViewModel;
         }
     }
+
 }

@@ -42,8 +42,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBa
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Entities.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\EntityFramework.xml
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Common.Utility.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\HtmlAgilityPack.xml

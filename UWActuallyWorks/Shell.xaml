@@ -56,8 +56,8 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <views:FilterPanelView Grid.Column="0"/>
-            <views:PostingTableView Grid.Column="1"/>
+            <views:FilterPanelView Grid.Column="0" Name="FilterPanel"/>
+            <views:PostingTableView Grid.Column="1" Name="JobPostingTable"/>
             <!--<ItemsControl  Grid.Column="0" Name="FilterPanel" prism:RegionManager.RegionName="FilterPanel"/>
             <ItemsControl  Grid.Column="1" Name="JobPostingTable" prism:RegionManager.RegionName="JobPostingTable"/>-->
         </Grid>

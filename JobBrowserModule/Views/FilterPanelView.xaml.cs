@@ -12,12 +12,24 @@ namespace JobBrowserModule.Views
     /// </summary>
     public partial class FilterPanelView : UserControl
     {
-        public FilterPanelViewModel ViewModel { get; set; }
+        private IFilterPanelViewModel _viewModel;
+
+        public IFilterPanelViewModel ViewModel
+        {
+            get
+            {
+                return _viewModel ?? new FilterPanelViewModelMock();
+            }
+            set
+            {
+                _viewModel = value;
+                this.DataContext = _viewModel;
+            }
+        }
+
         public FilterPanelView()
         {
             InitializeComponent();
-            this.ViewModel = new FilterPanelViewModel();
-            this.DataContext = ViewModel;
         }
 
         private void EditFilterClicked(object sender, RoutedEventArgs e)
@@ -47,19 +59,9 @@ namespace JobBrowserModule.Views
             }
         }
 
-        private void FilterSelectionChange(object sender, RoutedEventArgs e)
+        private void FilterSelectionChanged(object sender, RoutedEventArgs e)
         {
-            if (FilterChanged != null)
-            {
-                var viewModel = DataContext as FilterPanelViewModel;
-                if (viewModel != null)
-                {
-                    IEnumerable<FilterViewModel> filterViewModels = viewModel.Filters.Where(f => f.IsSelected);
-                    FilterChanged(filterViewModels);
-                }
-            }
+            ViewModel.FilterChanged();
         }
-
-        public Action<IEnumerable<FilterViewModel>> FilterChanged;
     }
 }

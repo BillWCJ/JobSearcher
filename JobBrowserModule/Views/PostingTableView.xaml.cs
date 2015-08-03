@@ -10,9 +10,24 @@ namespace JobBrowserModule.Views
     /// </summary>
     public partial class PostingTableView : UserControl
     {
+        private IPostingTableViewModel _viewModel;
+
         public PostingTableView()
         {
             InitializeComponent();
+        }
+
+        public IPostingTableViewModel ViewModel
+        {
+            get
+            {
+                return _viewModel ?? new PostingTableViewModelMock();
+            }
+            set
+            {
+                _viewModel = value;
+                DataContext = _viewModel;
+            }
         }
 
         private void OpenPostingClicked(object sender, RoutedEventArgs e)

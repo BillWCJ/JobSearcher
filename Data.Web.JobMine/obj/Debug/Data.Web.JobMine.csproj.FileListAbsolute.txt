@@ -22,7 +22,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMin
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\bin\Debug\Model.Entities.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\bin\Debug\HtmlAgilityPack.xml
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\bin\Debug\EntityFramework.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\obj\Debug\Data.Web.JobMine.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\obj\Debug\Data.Web.JobMine.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\obj\Debug\Data.Web.JobMine.pdb
