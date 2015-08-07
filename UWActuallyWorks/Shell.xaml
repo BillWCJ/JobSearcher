@@ -17,50 +17,60 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Name="RefreshButton" Height="40" Width="40" Margin="5" Background="Transparent"
-                    BorderBrush="Transparent" BorderThickness="0">
-                <Image Source="{StaticResource RefreshIcon}"/>
-            </Button>
-            <Label Grid.Column="1" Name="CurrentPerspectiveLabel" Height="40" Width="130" HorizontalAlignment="Left" Margin="5"></Label>
-            <TextBlock Grid.Column="2" Name="MessageTextBlock" Height="40" Width="Auto"></TextBlock>
-            <DockPanel Grid.Column="3">
-                <Button Name="ImportDataPerspectiveButton" Height="40" Width="40" Margin="5" Background="Transparent"
+        <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Name="RefreshButton" Height="Auto" Width="Auto" Margin="5" Background="Transparent"
                         BorderBrush="Transparent" BorderThickness="0">
-                    <Image Source="{StaticResource WaterlooIcon}" />
+                    <Image Source="{StaticResource RefreshIcon}" />
                 </Button>
-                <Button Name="JobPostingPerspectiveButton" Height="40" Width="40" Margin="5" Background="Transparent"
-                        BorderBrush="Transparent" BorderThickness="0">
-                    <Image Source="{StaticResource TableIcon}" />
-                </Button>
-                <Button Name="MapPerspectiveButton" Height="40" Width="40" Margin="5" Background="Transparent"
-                        BorderBrush="Transparent" BorderThickness="0">
-                    <Image Source="{StaticResource MapIcon}" />
-                </Button>
-                <Button Name="OptionsPerspectiveButton" Height="40" Width="40" Margin="5" Background="Transparent"
-                        BorderBrush="Transparent" BorderThickness="0">
-                    <Image Source="{StaticResource OptionsIcon}" />
-                </Button>
-            </DockPanel>
-        </Grid>
+                <Label Grid.Column="1" Name="CurrentPerspectiveLabel" Height="Auto" Width="130"
+                       HorizontalAlignment="Left" Margin="5">
+                </Label>
+                <TextBlock Grid.Column="2" Name="MessageTextBlock" Height="Auto" Width="Auto"></TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="3">
+                    <ToggleButton Name="ImportDataPerspectiveButton" Margin="5"
+                            Background="Transparent"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource WaterlooIcon}" />
+                    </ToggleButton>
+                    <ToggleButton Name="JobPostingPerspectiveButton" Margin="5"
+                            Background="Transparent"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource TableIcon}" />
+                    </ToggleButton>
+                    <ToggleButton Name="MapPerspectiveButton" Margin="5" Background="Transparent"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource MapIcon}" />
+                    </ToggleButton>
+                    <ToggleButton Name="OptionsPerspectiveButton" Margin="5" Background="Transparent"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource OptionsIcon}" />
+                    </ToggleButton>
+                </StackPanel>
+            </Grid>
+        </Border>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <views:FilterPanelView Grid.Column="0" Name="FilterPanel"/>
-            <views:PostingTableView Grid.Column="1" Name="JobPostingTable"/>
+            <Border Grid.Column="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                <views:FilterPanelView Name="FilterPanel" />
+            </Border>
+            <Border Grid.Column="1" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                <views:PostingTableView Name="JobPostingTable"/>
+            </Border>
             <!--<ItemsControl  Grid.Column="0" Name="FilterPanel" prism:RegionManager.RegionName="FilterPanel"/>
             <ItemsControl  Grid.Column="1" Name="JobPostingTable" prism:RegionManager.RegionName="JobPostingTable"/>-->
         </Grid>
-        <Grid Grid.Row="2"></Grid>
+        <Border Grid.Row="2" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2"></Border>
     </Grid>
 </Window>

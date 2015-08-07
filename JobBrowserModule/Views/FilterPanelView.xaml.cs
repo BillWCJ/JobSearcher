@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using JobBrowserModule.ViewModels;
+using Model.Definition;
+using Model.Entities.PostingFilter;
 
 namespace JobBrowserModule.Views
 {
@@ -39,24 +42,31 @@ namespace JobBrowserModule.Views
             var dataGridRow = button.CommandParameter as DataGridRow;
             if (dataGridRow == null) return;
             var filterViewModel = dataGridRow.Item as FilterViewModel;
-            StartModifyingFilter(filterViewModel);
+            var modifiedFilter = StartModifyingFilter(filterViewModel);
             
         }
 
         private void AddFilterCLicked(object sender, RoutedEventArgs e)
         {
-            var newFilter = new FilterViewModel();
-            StartModifyingFilter(newFilter);
+            var newFilter = StartModifyingFilter(new FilterViewModel { Filter = new Filter { StringSearchTargetData = new StringSearchTargetData{Targets = new List<StringSearchTarget>(), Values = new List<string>()}} });
+            if (newFilter != null) ViewModel.AddFilter(newFilter);
         }
 
-        private void StartModifyingFilter(FilterViewModel newFilter)
+        private FilterViewModel StartModifyingFilter(FilterViewModel newFilter)
         {
             bool success = false;
-            var dialog = new FilterModificationWindow(newFilter, () => success=true);
-            dialog.Owner = this.Parent as Window;
-            if (dialog.ShowDialog() == true)
+            var filterModificationWindow = new FilterModificationWindow(newFilter, () => success=true);
+            filterModificationWindow.WindowStyle = WindowStyle.None;
+            filterModificationWindow.Background = Brushes.Transparent;
+            filterModificationWindow.ShowInTaskbar = false;
+            filterModificationWindow.AllowsTransparency = true;
+            filterModificationWindow.Owner = this.Parent as Window;
+            if (filterModificationWindow.ShowDialog() == true)
             {
+                if (success)
+                    return newFilter;
             }
+            return null;
         }
 
         private void FilterSelectionChanged(object sender, RoutedEventArgs e)

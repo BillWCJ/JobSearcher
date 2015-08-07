@@ -1,37 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using JobBrowserModule.Annotations;
 using JobBrowserModule.Services;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Definition;
+using Model.Entities.PostingFilter;
 
 namespace JobBrowserModule.ViewModels
 {
-    public interface IFilterPanelViewModel
+    public interface IFilterPanelViewModel : INotifyPropertyChanged
     {
         void FilterChanged();
         ObservableCollection<FilterViewModel> Filters { get; set; }
         bool IsAllSelected { get; set; }
+        void AddFilter(FilterViewModel newFilter);
     }
 
     class FilterPanelViewModelMock : IFilterPanelViewModel
     {
         public FilterPanelViewModelMock()
         {
-            Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel> {new FilterViewModel
+            Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel>
             {
-                Name = "Mech",
-                Description = "Mechanical",
-                IsSelected = true,
-                Category = FilterCategory.StringSearch,
-                StringSearchTargetData = new StringSearchTargetData
+                new FilterViewModel
                 {
-                    MatchCase = true,
-                    Targets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
-                    Values = new List<string> {"Solidworks", "Mech"}
+                    IsSelected = true,
+                    Filter = new Filter
+                    {
+                        Name = "asdasd",
+                        Description = "Mechanical",
+                        Category = FilterCategory.StringSearch,
+                        StringSearchTargetData = new StringSearchTargetData
+                        {
+                            MatchCase = true,
+                            Targets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
+                            Values = new List<string> {"Solidworks", "Mech"}
+                        }
+                    }
                 }
-            }});
+            });
         }
         public void FilterChanged()
         {
@@ -39,6 +51,19 @@ namespace JobBrowserModule.ViewModels
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }
         public bool IsAllSelected { get; set; }
+        public void AddFilter(FilterViewModel newFilter)
+        {
+        }
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 
     public class FilterPanelViewModel : IFilterPanelViewModel
@@ -47,21 +72,26 @@ namespace JobBrowserModule.ViewModels
 
         public FilterPanelViewModel()
         {
+            Filters = new ObservableCollection<FilterViewModel>();
             var item = new FilterViewModel
             {
-                Name = "Mech",
-                Description = "Mechanical",
                 IsSelected = true,
-                Category = FilterCategory.StringSearch,
-                StringSearchTargetData = new StringSearchTargetData
+                Filter = new Filter
                 {
-                    MatchCase = true,
-                    Targets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
-                    Values = new List<string> {"Solidworks", "Mech"}
+                    Name = "Mech",
+                    Description = "Mechanical",
+                    Category = FilterCategory.StringSearch,
+                    StringSearchTargetData = new StringSearchTargetData
+                    {
+                        MatchCase = true,
+                        Targets = new List<StringSearchTarget> { StringSearchTarget.JobDescription, StringSearchTarget.Disciplines },
+                        Values = new List<string> { "Solidworks", "Mech" }
+                    }
                 }
             };
-            Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel> {item});
+            Filters.Add(item);
         }
+
 
         public FilterPanelViewModel(IReporter aggregator) : this()
         {
@@ -78,5 +108,19 @@ namespace JobBrowserModule.ViewModels
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }
         public bool IsAllSelected { get; set; }
+        public void AddFilter(FilterViewModel newFilter)
+        {
+            Filters.Add(newFilter);
+            NotifyPropertyChanged("Filters");
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        internal void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
     }
 }

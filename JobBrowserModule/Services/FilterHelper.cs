@@ -4,6 +4,7 @@ using System.Linq;
 using Common.Utility;
 using JobBrowserModule.ViewModels;
 using Model.Definition;
+using Model.Entities.PostingFilter;
 
 namespace JobBrowserModule.Services
 {
@@ -15,7 +16,7 @@ namespace JobBrowserModule.Services
             {
                 Func<JobPostingViewModel, FilterViewModel, bool> filterOperation = null;
 
-                switch (filter.Category)
+                switch (filter.Filter.Category)
                 {
                     case FilterCategory.StringSearch:
                         filterOperation = StringSearchOperation;
@@ -36,7 +37,7 @@ namespace JobBrowserModule.Services
                         filterOperation = CustomFilterOperation;
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException("Does not Support Filter Category: " + filter.Category);
+                        throw new ArgumentOutOfRangeException("Does not Support Filter Category: " + filter.Filter.Category);
                 }
 
                 if (!filterOperation(jobPosting, filter))
@@ -72,9 +73,9 @@ namespace JobBrowserModule.Services
 
         private static bool StringSearchOperation(JobPostingViewModel jobPosting, FilterViewModel filter)
         {
-            if (!(filter.StringSearchTargetData is StringSearchTargetData))
+            if (!(filter.Filter.StringSearchTargetData is StringSearchTargetData))
                 return false;
-            var data = (StringSearchTargetData) filter.StringSearchTargetData;
+            var data = (StringSearchTargetData) filter.Filter.StringSearchTargetData;
 
             var culture = StringComparison.InvariantCultureIgnoreCase;
             if(data.MatchCase)
@@ -126,13 +127,6 @@ namespace JobBrowserModule.Services
             }
             return isContained;
         }
-    }
-
-    public struct StringSearchTargetData
-    {
-        public IList<StringSearchTarget> Targets;
-        public IList<string> Values;
-        public bool MatchCase;
     }
 }
 

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployerLinker.cs" />
+    <Compile Include="PostingFilter\Filter.cs" />
     <Compile Include="JobLinker.cs" />
     <Compile Include="JobShortList.cs" />
     <Compile Include="LocationOfInterest.cs" />

@@ -52,7 +52,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn
-                    Binding="{Binding Path=Name}"
+                    Binding="{Binding Path=Filter.Name}"
                     Width="*"
                     Header="Name">
                 </DataGridTextColumn>

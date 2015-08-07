@@ -37,6 +37,8 @@ namespace Model.Definition
         JobDescription,
         [Description("All Job Detail")]
         Job,
+        [Description("Unknown")]
+        Unknown = 99,
     }
 
     public enum FilterCategory
