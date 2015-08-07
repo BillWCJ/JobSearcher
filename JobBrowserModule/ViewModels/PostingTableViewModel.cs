@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
 using Business.Manager;
 using JobBrowserModule.Services;
-using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace JobBrowserModule.ViewModels
 {
@@ -16,30 +14,31 @@ namespace JobBrowserModule.ViewModels
         void FilterChanged(IList<FilterViewModel> filters);
     }
 
-    class PostingTableViewModelMock : IPostingTableViewModel
+    internal class PostingTableViewModelMock : IPostingTableViewModel
     {
         public ICollectionView JobPostings { get; private set; }
         public bool IsAllSelected { get; set; }
+
         public void FilterChanged(IList<FilterViewModel> filters)
         {
         }
     }
 
-    public class PostingTableViewModel : IPostingTableViewModel
+    public class PostingTableViewModel : ViewModelBase, IPostingTableViewModel
     {
         private readonly ICollectionView _jobPostings;
         private IList<FilterViewModel> _activeFilters = new List<FilterViewModel>();
+        private IReporter _aggregator;
         private bool _isAllSelected;
         protected JobReviewManager JobReviewManager;
-        private IReporter _aggregator;
 
         public PostingTableViewModel()
         {
         }
-        
+
         public PostingTableViewModel(IReporter aggregator) : this()
         {
-            this._aggregator = aggregator;
+            _aggregator = aggregator;
             JobReviewManager = new JobReviewManager();
             var jobs = JobSearcher.FindJobs();
             var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
@@ -73,6 +72,12 @@ namespace JobBrowserModule.ViewModels
             }
         }
 
+        public void FilterChanged(IList<FilterViewModel> filters)
+        {
+            _activeFilters = filters;
+            JobPostings.Refresh();
+        }
+
         private bool JobPostingFilter(object item)
         {
             var jobPosting = item as JobPostingViewModel;
@@ -86,12 +91,5 @@ namespace JobBrowserModule.ViewModels
 
             return isVisible;
         }
-
-        public void FilterChanged(IList<FilterViewModel> filters)
-        {
-            _activeFilters = filters;
-            JobPostings.Refresh();
-        }
     }
-
 }

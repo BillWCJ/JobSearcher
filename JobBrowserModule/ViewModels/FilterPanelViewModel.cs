@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -7,7 +6,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using JobBrowserModule.Annotations;
 using JobBrowserModule.Services;
-using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Definition;
 using Model.Entities.PostingFilter;
 
@@ -15,13 +13,13 @@ namespace JobBrowserModule.ViewModels
 {
     public interface IFilterPanelViewModel : INotifyPropertyChanged
     {
-        void FilterChanged();
         ObservableCollection<FilterViewModel> Filters { get; set; }
         bool IsAllSelected { get; set; }
+        void FilterChanged();
         void AddFilter(FilterViewModel newFilter);
     }
 
-    class FilterPanelViewModelMock : IFilterPanelViewModel
+    internal class FilterPanelViewModelMock : IFilterPanelViewModel
     {
         public FilterPanelViewModelMock()
         {
@@ -45,18 +43,20 @@ namespace JobBrowserModule.ViewModels
                 }
             });
         }
+
         public void FilterChanged()
         {
         }
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }
         public bool IsAllSelected { get; set; }
+
         public void AddFilter(FilterViewModel newFilter)
         {
         }
 
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
         public event PropertyChangedEventHandler PropertyChanged;
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -66,9 +66,9 @@ namespace JobBrowserModule.ViewModels
         }
     }
 
-    public class FilterPanelViewModel : IFilterPanelViewModel
+    public class FilterPanelViewModel : ViewModelBase, IFilterPanelViewModel
     {
-        private IReporter _aggregator;
+        private readonly IReporter _aggregator;
 
         public FilterPanelViewModel()
         {
@@ -84,43 +84,34 @@ namespace JobBrowserModule.ViewModels
                     StringSearchTargetData = new StringSearchTargetData
                     {
                         MatchCase = true,
-                        Targets = new List<StringSearchTarget> { StringSearchTarget.JobDescription, StringSearchTarget.Disciplines },
-                        Values = new List<string> { "Solidworks", "Mech" }
+                        Targets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
+                        Values = new List<string> {"Solidworks", "Mech"}
                     }
                 }
             };
             Filters.Add(item);
         }
 
-
         public FilterPanelViewModel(IReporter aggregator) : this()
         {
-            this._aggregator = aggregator;
+            _aggregator = aggregator;
         }
-        
 
         public void FilterChanged()
         {
-            IEnumerable<FilterViewModel> filterViewModels = Filters.Where(f => f.IsSelected);
+            var filterViewModels = Filters.Where(f => f.IsSelected);
 
-            if (_aggregator != null && _aggregator.FilterChanged != null) _aggregator.FilterChanged(filterViewModels.Where(f => f.IsSelected).ToList());
+            if (_aggregator != null && _aggregator.FilterChanged != null) 
+                _aggregator.FilterChanged(filterViewModels.Where(f => f.IsSelected).ToList());
         }
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }
         public bool IsAllSelected { get; set; }
+
         public void AddFilter(FilterViewModel newFilter)
         {
             Filters.Add(newFilter);
             NotifyPropertyChanged("Filters");
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        internal void NotifyPropertyChanged(String info)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
         }
     }
 }

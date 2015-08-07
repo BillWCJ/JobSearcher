@@ -47,11 +47,11 @@
                                     </Button>
                                 </StackPanel>
                                 <ListBox Name="TargetListBox" ItemsSource="{Binding Path=Targets}">
-                                    <ListBox.ItemsPanel>
+                                    <!--<ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel IsItemsHost="True" />
                                         </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
+                                    </ListBox.ItemsPanel>-->
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Height="15">

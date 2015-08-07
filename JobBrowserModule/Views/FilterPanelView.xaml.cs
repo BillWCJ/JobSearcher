@@ -61,11 +61,9 @@ namespace JobBrowserModule.Views
             filterModificationWindow.ShowInTaskbar = false;
             filterModificationWindow.AllowsTransparency = true;
             filterModificationWindow.Owner = this.Parent as Window;
-            if (filterModificationWindow.ShowDialog() == true)
-            {
-                if (success)
-                    return newFilter;
-            }
+            filterModificationWindow.ShowDialog();
+            if (success)
+                return newFilter;
             return null;
         }
 

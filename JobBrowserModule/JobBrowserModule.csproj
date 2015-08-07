@@ -68,9 +68,10 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Events.cs" />
+    <Compile Include="Services\FilterHelper.cs" />
     <Compile Include="Services\Reporter.cs" />
     <Compile Include="ViewModels\JobPostingViewModel.cs" />
-    <Compile Include="Services\FilterHelper.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\FilterModificationWindow.xaml.cs">
       <DependentUpon>FilterModificationWindow.xaml</DependentUpon>
     </Compile>
