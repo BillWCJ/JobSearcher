@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Model.Definition;
 
@@ -16,5 +17,10 @@ namespace Model.Entities.PostingFilter
         public string Description { get; set; }
         public FilterCategory Category { get; set; }
         public StringSearchTargetData StringSearchTargetData { get; set; }
+
+        public override string ToString()
+        {
+            return Name + Environment.NewLine + Description;
+        }
     }
 }

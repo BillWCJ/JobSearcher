@@ -21,14 +21,12 @@
               HorizontalAlignment="Left"
               AutoGenerateColumns="False"
               ItemsSource="{Binding JobPostings}"
-              FontSize="10"
               IsReadOnly="True"
               BorderBrush="#FF97C2EC"
               HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"
               VerticalGridLinesBrush="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"
               AlternatingRowBackground="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
               AlternationCount="2"
-              MinColumnWidth="10"
               IsTextSearchEnabled="True">
         <DataGrid.Columns>
             <DataGridTemplateColumn

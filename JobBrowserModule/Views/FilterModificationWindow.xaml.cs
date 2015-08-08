@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Common.Utility;
 using JobBrowserModule.ViewModels;
+using Model.Definition;
 
 namespace JobBrowserModule.Views
 {
@@ -12,23 +11,24 @@ namespace JobBrowserModule.Views
     /// </summary>
     public partial class FilterModificationWindow : Window
     {
-        public FilterModificationWindow(FilterViewModel viewModel, Action callBack)
+        public FilterModificationWindow(FilterViewModel viewModel, Action saveChangeCallBack)
         {
             InitializeComponent();
-            ViewModel = viewModel;
+            ViewModel = new FilterModificationViewModel(viewModel);
             DataContext = ViewModel;
-            CallBack = callBack;
+            SaveChangeCallBack = saveChangeCallBack;
         }
 
-        private FilterViewModel ViewModel { get; set; }
-        public Action CallBack { get; set; }
+        private FilterModificationViewModel ViewModel { get; set; }
+        public Action SaveChangeCallBack { get; set; }
 
         private void SaveOrEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            var errorInInput = ContainErrorInInput();
+            var errorInInput = ViewModel.ErrorInInput();
             if (errorInInput == null)
             {
-                CallBack();
+                ViewModel.SaveChangeToBaseViewModel();
+                SaveChangeCallBack();
                 Close();
             }
             DisplayError(errorInInput);
@@ -39,48 +39,32 @@ namespace JobBrowserModule.Views
             ErrorTextBox.Text = errorInInput;
         }
 
-        private string ContainErrorInInput()
+        private void Cancel_OnClick(object sender, RoutedEventArgs e)
         {
-            var errors = string.Empty;
-            if (ViewModel.Filter.Name.IsNullSpaceOrEmpty())
-                errors += "Name is Empty";
-            if (!ViewModel.Filter.StringSearchTargetData.Targets.Any())
-                errors += "Targets is Empty";
-            if (!ViewModel.Filter.StringSearchTargetData.Values.Any())
-                errors += "Values is Empty";
-            return errors.IsNullSpaceOrEmpty() ? null : errors;
+            Close();
         }
 
         private void AddStringSearchTarget(object sender, RoutedEventArgs e)
         {
-            ViewModel.AddTarget(StringSearchTargetComboBox.SelectionBoxItem.ToString());
-            TargetListBox.ItemsSource = ViewModel.Filter.StringSearchTargetData.Targets;
+            ViewModel.Targets.Add((StringSearchTarget) Enum.Parse(typeof (StringSearchTarget), StringSearchTargetComboBox.SelectionBoxItem.ToString()));
         }
 
         private void AddStringSearchValue(object sender, RoutedEventArgs e)
         {
-            ViewModel.AddValue(StringSearchValueTextBox.Text);
+            ViewModel.Values.Add(StringSearchValueTextBox.Text);
             StringSearchValueTextBox.Text = string.Empty;
-            ValueListBox.ItemsSource = ViewModel.Filter.StringSearchTargetData.Values;
         }
 
         private void DeletedTarget(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button != null) ViewModel.DeleteTarget(button.CommandParameter.ToString());
-            TargetListBox.ItemsSource = ViewModel.Filter.StringSearchTargetData.Targets;
+            if (button != null) ViewModel.Targets.Remove((StringSearchTarget) Enum.Parse(typeof (StringSearchTarget), button.CommandParameter.ToString()));
         }
 
         private void DeletedValue(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button != null) ViewModel.DeleteValue(button.CommandParameter.ToString());
-            ValueListBox.ItemsSource = ViewModel.Filter.StringSearchTargetData.Values;
-        }
-
-        private void Cancel_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
+            if (button != null) ViewModel.Values.Remove(button.CommandParameter.ToString());
         }
     }
 }

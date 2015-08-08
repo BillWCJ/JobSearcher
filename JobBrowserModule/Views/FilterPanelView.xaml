@@ -34,9 +34,21 @@
                 <Image Source="{StaticResource CloseIcon}" />
             </Button>
         </Grid>
-        <DataGrid Grid.Row="1" 
-                  Background="Transparent" 
+        <DataGrid Grid.Row="1"
+                  Height="Auto"
+                  Width="Auto"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left"
                   AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  BorderBrush="#FF97C2EC"
+                  HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"
+                  VerticalGridLinesBrush="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"
+                  AlternatingRowBackground="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
+                  AlternationCount="2"
+                  MinColumnWidth="10"
+                  IsTextSearchEnabled="True"
+                  Background="Transparent"
                   ItemsSource="{Binding Path=Filters}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn
@@ -47,7 +59,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox Margin="4,0,0,0" IsChecked="{Binding DataContext.IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Mode=TwoWay}" Checked="FilterSelectionChanged" Unchecked="FilterSelectionChanged"></CheckBox>
+                            <CheckBox Margin="4,0,0,0" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Mode=TwoWay}" Checked="FilterSelectionChanged" Unchecked="FilterSelectionChanged"></CheckBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

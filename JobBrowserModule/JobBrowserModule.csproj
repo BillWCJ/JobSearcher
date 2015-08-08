@@ -70,6 +70,7 @@
     <Compile Include="Services\Events.cs" />
     <Compile Include="Services\FilterHelper.cs" />
     <Compile Include="Services\Reporter.cs" />
+    <Compile Include="ViewModels\FilterModificationViewModel.cs" />
     <Compile Include="ViewModels\JobPostingViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\FilterModificationWindow.xaml.cs">

@@ -27,9 +27,9 @@
             <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <Label Width="Auto" Margin="5" Content="Name:" />
-                    <TextBox Width="100" Margin="5" Text="{Binding Path=Filter.Name, Mode=TwoWay}" />
+                    <TextBox Width="100" Margin="5" Text="{Binding Path=Name, Mode=TwoWay}" />
                     <Label Width="Auto" Margin="5" Content="Short Description:" />
-                    <TextBox MinWidth="200" Margin="5" Text="{Binding Path=Filter.Description, Mode=TwoWay}" />
+                    <TextBox MinWidth="200" Margin="5" Text="{Binding Path=Description, Mode=TwoWay}" />
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
@@ -47,11 +47,11 @@
                                     </Button>
                                 </StackPanel>
                                 <ListBox Name="TargetListBox" ItemsSource="{Binding Path=Targets}">
-                                    <!--<ListBox.ItemsPanel>
+                                    <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel IsItemsHost="True" />
                                         </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>-->
+                                    </ListBox.ItemsPanel>
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Height="15">
@@ -91,7 +91,7 @@
                                     </ListBox.ItemTemplate>
                                 </ListBox>
                                 <CheckBox Content="Match Case"
-                                          IsChecked="{Binding Path=Filter.StringSearchTargetData.MatchCase, Mode=TwoWay}" />
+                                          IsChecked="{Binding Path=MatchCase, Mode=TwoWay}" />
                             </StackPanel>
                         </Grid>
                     </TabItem>

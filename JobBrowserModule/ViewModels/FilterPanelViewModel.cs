@@ -30,12 +30,10 @@ namespace JobBrowserModule.ViewModels
                     IsSelected = true,
                     Filter = new Filter
                     {
-                        Name = "asdasd",
-                        Description = "Mechanical",
+                        Name = "M",
                         Category = FilterCategory.StringSearch,
                         StringSearchTargetData = new StringSearchTargetData
                         {
-                            MatchCase = true,
                             Targets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
                             Values = new List<string> {"Solidworks", "Mech"}
                         }
@@ -72,7 +70,6 @@ namespace JobBrowserModule.ViewModels
 
         public FilterPanelViewModel()
         {
-            Filters = new ObservableCollection<FilterViewModel>();
             var item = new FilterViewModel
             {
                 IsSelected = true,
@@ -89,7 +86,7 @@ namespace JobBrowserModule.ViewModels
                     }
                 }
             };
-            Filters.Add(item);
+            Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel>(){item});
         }
 
         public FilterPanelViewModel(IReporter aggregator) : this()
