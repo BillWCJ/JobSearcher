@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Linq;
+using Business.Manager;
+using Model.Definition;
 using Model.Entities.JobMine;
 
 namespace JobBrowserModule.ViewModels
 {
     public class JobPostingViewModel
     {
-        public Job Job { get; private set; }
-
-        public bool IsSelected { get; set; }
+        private string _qualification = string.Empty;
 
         public JobPostingViewModel(Job job)
         {
-            this.Job = job;
+            Job = job;
+            Duration = JobManager.GetTermDuration(Job);
         }
 
-
-        private string _qualification = string.Empty;
-        private int _score;
+        public Job Job { get; private set; }
+        public bool IsSelected { get; set; }
+        public TermType Duration { get; private set; }
 
         public string Qualification
         {
@@ -29,15 +30,17 @@ namespace JobBrowserModule.ViewModels
             }
         }
 
+        public int Score { get; private set; }
+
         private string GetQualification()
         {
-            string qualification = string.Empty;
+            var qualification = string.Empty;
             try
             {
-                string[] lines = Job.JobDescription.Split('\n');
-                char lastBeginCharacter = lines.First()[0];
-                bool copy = false;
-                for (int i = 1; i < lines.Length; i++)
+                var lines = Job.JobDescription.Split('\n');
+                var lastBeginCharacter = lines.First()[0];
+                var copy = false;
+                for (var i = 1; i < lines.Length; i++)
                 {
                     if (copy)
                     {
@@ -60,20 +63,12 @@ namespace JobBrowserModule.ViewModels
             {
                 Console.WriteLine(e);
             }
-            return qualification == String.Empty ? null : qualification;
-        }
-
-        public int Score
-        {
-            get
-            {
-                return _score;
-            }
+            return qualification == string.Empty ? null : qualification;
         }
 
         private void GenerateScore()
         {
-            _score = 0;
+            Score = 0;
         }
     }
 }

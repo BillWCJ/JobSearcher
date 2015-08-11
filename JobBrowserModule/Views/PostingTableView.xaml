@@ -82,6 +82,16 @@
                     </Style>
                 </DataGridTextColumn.CellStyle>
             </DataGridTextColumn>
+            <DataGridTextColumn
+                Binding="{Binding Duration}"
+                Width="Auto"
+                Header="Duration">
+                <DataGridTextColumn.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="ToolTip" Value="{Binding Duration}" />
+                    </Style>
+                </DataGridTextColumn.CellStyle>
+            </DataGridTextColumn>
             <DataGridTemplateColumn
                 Width="150"
                 Header="Disciplines">

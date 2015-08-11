@@ -90,7 +90,7 @@ namespace Business.Manager
 
         private static bool IsNotEightMonth(JobManager jobManager, Job j)
         {
-            return jobManager.GetTermDuration(j) != TermType.Eight;
+            return JobManager.GetTermDuration(j) != TermType.Eight;
         }
 
         private static bool IsMyLevel(Levels levels)

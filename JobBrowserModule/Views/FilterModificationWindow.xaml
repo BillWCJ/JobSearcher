@@ -3,8 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:definition="clr-namespace:Model.Definition;assembly=Model.Definition"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:viewModels="clr-namespace:JobBrowserModule.ViewModels"
     x:Class="JobBrowserModule.Views.FilterModificationWindow"
-    Title="CreateFilterWindow" Height="300" Width="800" WindowStartupLocation="CenterOwner">
+    Title="CreateFilterWindow" Height="400" Width="800" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
         <BitmapImage x:Key="CloseIcon" UriSource="../Icons/Cross.png" />
@@ -17,6 +18,10 @@
         </ObjectDataProvider>
     </Window.Resources>
 
+    <Window.DataContext>
+        <viewModels:FilterModificationViewModelMock/>
+    </Window.DataContext>
+
     <Border Background="White" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5">
         <Grid >
             <Grid.RowDefinitions>
@@ -27,9 +32,9 @@
             <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <Label Width="Auto" Margin="5" Content="Name:" />
-                    <TextBox Width="100" Margin="5" Text="{Binding Path=Name, Mode=TwoWay}" />
+                    <TextBox Width="100" Margin="5" Text="{Binding Name, Mode=TwoWay}" />
                     <Label Width="Auto" Margin="5" Content="Short Description:" />
-                    <TextBox MinWidth="200" Margin="5" Text="{Binding Path=Description, Mode=TwoWay}" />
+                    <TextBox MinWidth="200" Margin="5" Text="{Binding Description, Mode=TwoWay}" />
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
@@ -38,15 +43,16 @@
                         <Grid Background="Transparent">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Search Target (Where to search; Job description, comments):" />
-                                    <ComboBox Name="StringSearchTargetComboBox"
+                                    <Label Margin="5"
+                                           Content="Search Target (Where to search; Job description, comments):" />
+                                    <ComboBox Margin="5" x:Name="StringSearchTargetComboBox"
                                               ItemsSource="{Binding Source={StaticResource StringSearchTarget}}" />
-                                    <Button Width="15" Height="15" Background="Transparent" BorderThickness="0"
+                                    <Button Margin="5" Height="22" Background="Transparent" BorderThickness="0"
                                             Click="AddStringSearchTarget">
                                         <Image Source="{StaticResource AddIcon}" />
                                     </Button>
                                 </StackPanel>
-                                <ListBox Name="TargetListBox" ItemsSource="{Binding Path=Targets}">
+                                <ListBox x:Name="TargetListBox" ItemsSource="{Binding Targets}">
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel IsItemsHost="True" />
@@ -54,25 +60,28 @@
                                     </ListBox.ItemsPanel>
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Orientation="Horizontal" Height="15">
-                                                <TextBlock Text="{Binding}" />
-                                                <Button Background="Transparent" BorderThickness="0"
-                                                        Click="DeletedTarget" CommandParameter="{Binding}">
-                                                    <Image Source="{StaticResource CloseIcon}" />
-                                                </Button>
-                                            </StackPanel>
+                                            <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
+                                                    CornerRadius="2">
+                                                <StackPanel Orientation="Horizontal" Height="24">
+                                                    <TextBlock Margin="2" Text="{Binding}" />
+                                                    <Button Margin="2" Background="Transparent" BorderThickness="0"
+                                                            Click="DeletedTarget" CommandParameter="{Binding}">
+                                                        <Image Source="{StaticResource CloseIcon}" />
+                                                    </Button>
+                                                </StackPanel>
+                                            </Border>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Search Values (What to search; HTML, Ottawa):" />
-                                    <TextBox MaxWidth="200" Name="StringSearchValueTextBox" MinWidth="50"></TextBox>
-                                    <Button Width="15" Height="15" Background="Transparent" BorderThickness="0"
-                                            Click="AddStringSearchValue">
+                                    <Label Margin="5" Content="Search Values (What to search; HTML, Ottawa):" />
+                                    <TextBox Margin="5" MaxWidth="200" x:Name="StringSearchValueTextBox" MinWidth="50"/>
+                                    <Button Margin="5" Height="22" Background="Transparent" BorderThickness="0"
+										Click="AddStringSearchValue">
                                         <Image Source="{StaticResource AddIcon}" />
                                     </Button>
                                 </StackPanel>
-                                <ListBox Name="ValueListBox" ItemsSource="{Binding Path=Values}">
+                                <ListBox x:Name="ValueListBox" ItemsSource="{Binding Values}">
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel IsItemsHost="True" />
@@ -80,18 +89,21 @@
                                     </ListBox.ItemsPanel>
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Orientation="Horizontal" Height="15">
-                                                <TextBlock Text="{Binding}" />
-                                                <Button Background="Transparent" BorderThickness="0"
-                                                        Click="DeletedValue" CommandParameter="{Binding}">
-                                                    <Image Source="{StaticResource CloseIcon}" />
-                                                </Button>
-                                            </StackPanel>
+                                            <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
+                                                    CornerRadius="2">
+                                                <StackPanel Orientation="Horizontal" Height="24">
+                                                    <TextBlock Margin="2" Text="{Binding}" />
+                                                    <Button Margin="2" Background="Transparent" BorderThickness="0"
+                                                            Click="DeletedValue" CommandParameter="{Binding}">
+                                                        <Image Source="{StaticResource CloseIcon}" />
+                                                    </Button>
+                                                </StackPanel>
+                                            </Border>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
-                                <CheckBox Content="Match Case"
-                                          IsChecked="{Binding Path=MatchCase, Mode=TwoWay}" />
+                                <CheckBox Margin="5" Content="Match Case"
+									IsChecked="{Binding MatchCase, Mode=TwoWay}" />
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -104,10 +116,11 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Margin="5" x:Name="ErrorTextBox" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock Grid.Column="0" Margin="5" x:Name="ErrorTextBox" TextWrapping="Wrap"/>
                     <Button Grid.Column="1" Width="75" Margin="5" Content="Cancel" Click="Cancel_OnClick" />
                     <Button Grid.Column="2" Width="75" Margin="5" Content="Add/Save" Click="SaveOrEdit_OnClick" />
                 </Grid>
             </Border>
-        </Grid></Border>
+        </Grid>
+    </Border>
 </Window>

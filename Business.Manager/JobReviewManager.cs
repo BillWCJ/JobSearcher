@@ -9,7 +9,7 @@ namespace Business.Manager
 {
     public class JobReviewManager
     {
-        public IEnumerable<JobReview> GetJobReview(int jobId, int employerId)
+        public static IEnumerable<JobReview> GetJobReview(int jobId, int employerId)
         {
             var jobreviews = new List<JobReview>();
             using (var db = new JseDbContext())
@@ -27,7 +27,7 @@ namespace Business.Manager
             return jobreviews;
         }
 
-        private List<JobReview> GetJobReview(JseDbContext db, int employerId)
+        private static List<JobReview> GetJobReview(JseDbContext db, int employerId)
         {
             var jobreviews = new List<JobReview>();
             foreach (var linker in db.EmployerLinkers.Include(j => j.Employer).Include(j => j.EmployerReview.JobReviews).Where(j => j.Employer.Id == employerId))
@@ -37,7 +37,7 @@ namespace Business.Manager
             return jobreviews;
         }
 
-        public IEnumerable<JobReview> GetJobReview(string employerName, string jobTitle)
+        public static IEnumerable<JobReview> GetJobReview(string employerName, string jobTitle)
         {
             var returnlist = new List<JobReview>();
             using (var db = new JseDbContext())

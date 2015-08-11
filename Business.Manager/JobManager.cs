@@ -7,7 +7,7 @@ namespace Business.Manager
 {
     public class JobManager
     {
-        public TermType GetTermDuration(Job job)
+        public static TermType GetTermDuration(Job job)
         {
             TermType value;
                 
@@ -21,7 +21,7 @@ namespace Business.Manager
             else
             {
                 value = CheckString(job.Comment);
-                if (value == TermType.NotSpecified)
+                if (value == TermType.Unknown)
                     value = CheckString(job.JobDescription);
             }
             return value;
@@ -52,7 +52,7 @@ namespace Business.Manager
                 return TermType.Eight;
             }
 
-            return TermType.NotSpecified;
+            return TermType.Unknown;
         }
     }
 }

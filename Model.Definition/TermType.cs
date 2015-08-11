@@ -4,7 +4,7 @@
     {
         Four = 4,
         Eight = 8,
-        Both,
-        NotSpecified
+        Both = 12,
+        Unknown = 99
     }
 }

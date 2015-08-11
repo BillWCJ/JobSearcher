@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Documents;
 using Common.Utility;
 using Model.Definition;
 
@@ -27,6 +29,15 @@ namespace JobBrowserModule.ViewModels
         public void SaveChangeToBaseViewModel()
         {
         }
+
+        public FilterModificationViewModelMock()
+        {
+            Targets = new ObservableCollection<StringSearchTarget>(new List<StringSearchTarget>(){StringSearchTarget.EmployerName});
+            Values = new ObservableCollection<string>(new List<string>(){"Mech"});
+            Name = "Mech";
+            Description = "Mechanical";
+        }
+            
 
         public string ErrorInInput()
         {

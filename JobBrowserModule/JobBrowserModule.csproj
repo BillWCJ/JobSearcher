@@ -70,6 +70,9 @@
     <Compile Include="Services\Events.cs" />
     <Compile Include="Services\FilterHelper.cs" />
     <Compile Include="Services\Reporter.cs" />
+    <Compile Include="Views\JobBrowserModuleView.xaml.cs">
+      <DependentUpon>JobBrowserModuleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\FilterModificationViewModel.cs" />
     <Compile Include="ViewModels\JobPostingViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -91,6 +94,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Views\JobBrowserModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FilterModificationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
