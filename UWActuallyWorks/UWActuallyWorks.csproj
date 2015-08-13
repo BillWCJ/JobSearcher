@@ -207,6 +207,10 @@
       <Project>{5cfde7e3-a01f-4879-a851-898794623c27}</Project>
       <Name>JobBrowserModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JobDownloaderModule\JobDownloaderModule.csproj">
+      <Project>{AB57DCC1-0C9A-4B2D-8909-9899034EB768}</Project>
+      <Name>JobDownloaderModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
       <Name>Model.Definition</Name>

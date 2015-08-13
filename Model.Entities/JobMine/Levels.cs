@@ -118,7 +118,7 @@ namespace Model.Entities.JobMine
             string shortString = string.Empty;
             if (IsJunior) shortString += "J";
             if (IsIntermediate) shortString += "I";
-            if (IsSenior) shortString += "M";
+            if (IsSenior) shortString += "S";
             return shortString;
         }
 

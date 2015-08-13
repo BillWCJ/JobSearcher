@@ -34,6 +34,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +48,7 @@
     <Compile Include="JobDownloaderView.xaml.cs">
       <DependentUpon>JobDownloaderView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JobDownloaderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,10 +76,6 @@
       <Project>{8bf3f9bb-8ea9-4eef-ba16-f89fb067e7ef}</Project>
       <Name>Data.IO.Local</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data.Test\Data.Test.csproj">
-      <Project>{0e0f9d86-07c7-4a15-bb34-6aa868fe2de5}</Project>
-      <Name>Data.Test</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Data.Web.GoogleApis\Data.Web.GoogleApis.csproj">
       <Project>{b0313a60-81f0-4eb1-b423-8052989dbfc7}</Project>
       <Name>Data.Web.GoogleApis</Name>
@@ -104,6 +102,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
