@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:jobBrowerViews="clr-namespace:JobBrowserModule.Views;assembly=JobBrowserModule"
         xmlns:jobDownloaderModule="clr-namespace:JobDownloaderModule;assembly=JobDownloaderModule"
+        xmlns:jobDetailModule="clr-namespace:JobDetailModule;assembly=JobDetailModule"
         Title="UWActuallyWorks" Height="768" Width="1366">
     
     <Window.Resources>
@@ -61,14 +62,22 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>-->
-            <DockPanel Name="JobBrowserContainer">
-                <Border DockPanel.Dock="Left" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+            <Grid Name="JobBrowserContainer">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
                     <jobBrowerViews:FilterPanelView Name="FilterPanel" />
                 </Border>
-                <Border DockPanel.Dock="Right" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                <Border Grid.Column="1" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
                     <jobBrowerViews:PostingTableView Name="JobPostingTable" />
                 </Border>
-            </DockPanel>
+                <Border Grid.Column="2" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                    <jobDetailModule:JobDetailView Name="JobDetailPanel" />
+                </Border>
+            </Grid>
             <Grid Name="JobDownloaderContainer">
                 <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
                     <jobDownloaderModule:JobDownloaderView />

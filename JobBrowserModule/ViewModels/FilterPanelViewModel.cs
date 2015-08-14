@@ -17,9 +17,10 @@ namespace JobBrowserModule.ViewModels
         bool IsAllSelected { get; set; }
         void FilterChanged();
         void AddFilter(FilterViewModel newFilter);
+        void FilterModified(FilterViewModel modifiedFilter);
     }
 
-    internal class FilterPanelViewModelMock : IFilterPanelViewModel
+    internal class FilterPanelViewModelMock : ViewModelBase, IFilterPanelViewModel
     {
         public FilterPanelViewModelMock()
         {
@@ -41,26 +42,16 @@ namespace JobBrowserModule.ViewModels
                 }
             });
         }
-
         public void FilterChanged()
         {
         }
-
         public ObservableCollection<FilterViewModel> Filters { get; set; }
         public bool IsAllSelected { get; set; }
-
         public void AddFilter(FilterViewModel newFilter)
         {
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public void FilterModified(FilterViewModel modifiedFilter)
         {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
@@ -109,6 +100,15 @@ namespace JobBrowserModule.ViewModels
         {
             Filters.Add(newFilter);
             NotifyPropertyChanged("Filters");
+        }
+
+        public void FilterModified(FilterViewModel modifiedFilter)
+        {
+            if (modifiedFilter == null)
+                return;
+            int index = Filters.ToList().FindIndex(f => f.Filter.Id == modifiedFilter.Filter.Id);
+            Filters.RemoveAt(index);
+            Filters.Insert(index, modifiedFilter);
         }
     }
 }

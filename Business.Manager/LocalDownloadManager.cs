@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Common.Utility;
 using Data.Contract.JobMine;
 using Data.EF.JseDb;
 using Newtonsoft.Json;
@@ -32,10 +33,10 @@ namespace Business.Manager
             using (var db = new JseDbContext())
             {
                 var jobIds = new Queue<int>(db.Jobs.Select(x => x.Id));
-                var count = jobIds.Count;
-                if (count >= 0)
+                var jobCount = jobIds.Count;
+                if (jobCount >= 0)
                 {
-                    messageCallBack("Found {0} Jobs, Starting export");
+                    messageCallBack("Found {0} Jobs, Starting export".Format(jobCount));
                 }
                 else
                 {

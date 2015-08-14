@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="JobDetailModule.JobDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:jobDetailModule="clr-namespace:JobDetailModule"
+             mc:Ignorable="d"
+             d:DesignHeight="768" d:DesignWidth="500">
+
+    <UserControl.DataContext>
+        <jobDetailModule:JobDetailViewModel />
+    </UserControl.DataContext>
+    <Grid Name="ContainerGrid" Background="White">
+        <Grid Name="MinimizedPanelContainer">
+            <Button Grid.Row="0" Click="MaximizePanel" Background="Transparent" BorderBrush="Transparent">
+                <Label Content="Maximize Detail Panel">
+                    <Label.LayoutTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90" />
+                            <ScaleTransform ScaleX="-1" ScaleY="-1" />
+                        </TransformGroup>
+                    </Label.LayoutTransform>
+                </Label>
+            </Button>
+        </Grid>
+        <Grid Name="ExpandedPanelContainer" Width="500">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" HorizontalAlignment="Left" Content="Minimize" Click="MinimizePanel" Background="Transparent" BorderBrush="Transparent"></Button>
+            <Label Grid.Row="0" HorizontalAlignment="Center" Content="Job Detail" FontWeight="Bold"></Label>
+            <Button Grid.Row="0" HorizontalAlignment="Right" Content="Close" Background="Transparent" BorderBrush="Transparent"></Button>
+            <TextBox Grid.Row="1" Text="{Binding CurrentJobString, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap"/>
+        </Grid>
+    </Grid>
+
+</UserControl>

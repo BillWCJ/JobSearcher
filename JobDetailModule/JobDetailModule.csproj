@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</ProjectGuid>
+    <ProjectGuid>{A2F35430-0FDB-4DC1-A677-38F860925968}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business.Manager</RootNamespace>
-    <AssemblyName>Business.Manager</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>JobDetailModule</RootNamespace>
+    <AssemblyName>JobDetailModule</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,64 +30,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountManager.cs" />
-    <Compile Include="FilterManager.cs" />
-    <Compile Include="JobManager.cs" />
-    <Compile Include="JobReviewManager.cs" />
-    <Compile Include="JobSearcher.cs" />
-    <Compile Include="LocalDownloadManager.cs" />
+    <Compile Include="JobDetailView.xaml.cs">
+      <DependentUpon>JobDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JobDetailViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CommonUtility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Utility\Common.Utility.csproj">
-      <Project>{c8806bc4-df4e-455e-aeff-c2deef16f1f4}</Project>
-      <Name>Common.Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
-      <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
-      <Name>Data.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
-      <Project>{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}</Project>
-      <Name>Data.EF.JseDb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
-      <Project>{62864846-7447-4600-B704-91831B872E3F}</Project>
-      <Name>Model.Definition</Name>
+    <Page Include="JobDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobBrowserModule\JobBrowserModule.csproj">
+      <Project>{5CFDE7E3-A01F-4879-A851-898794623C27}</Project>
+      <Name>JobBrowserModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
       <Project>{E807B758-858C-4F1A-A6B1-1FE220426450}</Project>
       <Name>Model.Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Properties\App.config" />
-    <None Include="Properties\packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

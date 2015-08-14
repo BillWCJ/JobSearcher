@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using JobBrowserModule.ViewModels;
+using Model.Entities.JobMine;
 
 namespace JobBrowserModule.Views
 {
@@ -58,6 +59,16 @@ namespace JobBrowserModule.Views
             var dataGridRow = button.CommandParameter as DataGridRow;
             if (dataGridRow == null) return null;
             return dataGridRow.Item as JobPostingViewModel;
+        }
+
+        private void SelectedJobChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var jobPostingViewModel = this.JobPostingTable.SelectedItem as JobPostingViewModel;
+            if (jobPostingViewModel != null)
+            {
+                var job = jobPostingViewModel.Job;
+                _viewModel.SelectedJobChanged(job);
+            }
         }
     }
 }

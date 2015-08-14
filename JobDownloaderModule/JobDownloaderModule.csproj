@@ -44,7 +44,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JobDownloaderModule.cs" />
     <Compile Include="JobDownloaderView.xaml.cs">
       <DependentUpon>JobDownloaderView.xaml</DependentUpon>
     </Compile>
@@ -87,6 +86,10 @@
     <ProjectReference Include="..\Data.Web.RateMyCoopJob\Data.Web.RateMyCoopJob.csproj">
       <Project>{f328e8d2-2265-4b1a-b6cc-8b28e4de7123}</Project>
       <Name>Data.Web.RateMyCoopJob</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobBrowserModule\JobBrowserModule.csproj">
+      <Project>{5CFDE7E3-A01F-4879-A851-898794623C27}</Project>
+      <Name>JobBrowserModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>

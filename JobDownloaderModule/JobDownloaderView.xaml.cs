@@ -64,7 +64,7 @@ namespace JobDownloaderModule
             folderBrowserDialog.ShowDialog();
             string fileLocation = folderBrowserDialog.SelectedPath;
             fileLocation = fileLocation.TrimEnd(' ', '\\') + '\\';
-            FileLocationTextBox.Text = fileLocation;
+            _viewModel.FileLocation = fileLocation;
         }
 
         private void ExportJob(object sender, RoutedEventArgs e)

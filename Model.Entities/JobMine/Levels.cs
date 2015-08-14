@@ -102,26 +102,6 @@ namespace Model.Entities.JobMine
             return this[index];
         }
 
-        [NotMapped]
-        private string _shortString = null;
-
-        public string ShortString
-        {
-            get
-            {
-                return _shortString ?? (_shortString = GetShortString());
-            }
-        }
-
-        private string GetShortString()
-        {
-            string shortString = string.Empty;
-            if (IsJunior) shortString += "J";
-            if (IsIntermediate) shortString += "I";
-            if (IsSenior) shortString += "S";
-            return shortString;
-        }
-
         /// <summary>
         ///     Overriden ToString method that convert the levels into reader friendly string
         /// </summary>

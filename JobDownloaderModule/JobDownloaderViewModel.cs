@@ -1,38 +1,67 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Threading;
 using Business.DataBaseSeeder;
 using Business.Manager;
 using Data.Contract.JobMine;
 using Data.IO.Local;
 using Data.Web.JobMine;
+using JobBrowserModule.Annotations;
 using Model.Definition;
 
 namespace JobDownloaderModule
 {
-    public class JobDownloaderViewModel
+    public class JobDownloaderViewModel : INotifyPropertyChanged
     {
         public JobDownloaderViewModel()
         {
             NumberOfJobPerFile = 100;
             FileLocation = "c:\\";
             ProgressStringBuilder = new StringBuilder();
-            IsInProgressLock = new object();
-            MessageCallBack = newMessage =>
+            MessageCallBack = message =>
+            {
+                Dispatcher.CurrentDispatcher.Invoke(DispatcherPriority.Render, (Action<string>)(UpdateProgress), message);
+            };
+
+        }
+
+        private void UpdateProgress(string newMessage)
+        {
+            lock (_isDisplayingMessageLock)
             {
                 ProgressStringBuilder.AppendLine(newMessage);
-            };
+                OnPropertyChanged("Progress");
+            }
         }
 
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Term { get; set; }
         public int JobStatusSelectionIndex { get; set; }
-        public string FileLocation { get; set; }
+
+        public string FileLocation
+        {
+            get
+            {
+                return _fileLocation;
+            }
+            set
+            {
+                _fileLocation = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string DownloadFormat { get; set; }
         public uint NumberOfJobPerFile { get; set; }
-        private object IsInProgressLock { get; set; }
+        private readonly object _isInProgressLock = new object();
+        private readonly object _isDisplayingMessageLock = new object();
+        private string _fileLocation;
         private Action<string> MessageCallBack { get; set; }
         private StringBuilder ProgressStringBuilder { get; set; }
         public bool SeedLocation { get; set; }
@@ -48,7 +77,7 @@ namespace JobDownloaderModule
 
         public void DownloadJobToLocal()
         {
-            lock (IsInProgressLock)
+            ExecuteDownloadOrExport(() =>
             {
                 IJobMineRepo jobMineRepo = null;
                 try
@@ -81,16 +110,20 @@ namespace JobDownloaderModule
                     Trace.TraceError(ex.ToString());
                     MessageCallBack("A Major error occurred, Operation Aborted");
                 }
-            }
+            });
         }
 
         public void DownloadAndSeedJobIntoDb()
         {
-            var account = new JseLocalRepo().GetAccount();
-            foreach (var msg in MasterSeeder.SeedAll(Term, GetJobStatus(), account, false, false))
+            ExecuteDownloadOrExport(() =>
             {
-                MessageCallBack(msg);
-            }
+                var account = new JseLocalRepo().GetAccount();
+                foreach (var msg in MasterSeeder.SeedAll(Term, GetJobStatus(), account, false, false))
+                {
+                    MessageCallBack(msg);
+                }
+            });
+
         }
 
         private string GetJobStatus()
@@ -116,7 +149,38 @@ namespace JobDownloaderModule
 
         public void ExportFromDbToLocal()
         {
-            LocalDownloadManager.ExportJob(MessageCallBack, FileLocation, NumberOfJobPerFile);
+            ExecuteDownloadOrExport(() =>
+            {
+                LocalDownloadManager.ExportJob(MessageCallBack, FileLocation, NumberOfJobPerFile);
+            });
+        }
+
+        private void ExecuteDownloadOrExport(Action action)
+        {
+            bool acquired = false;
+            try
+            {
+                acquired = Monitor.TryEnter(_isInProgressLock);
+                if (acquired)
+                {
+                    Task task = new Task(action);
+                    task.Start();
+                    Monitor.Exit(_isInProgressLock);
+                }
+            }
+            catch
+            {
+                
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

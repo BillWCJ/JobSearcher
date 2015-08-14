@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using Business.Manager;
+using Common.Utility;
 using Model.Definition;
 using Model.Entities.JobMine;
 
@@ -13,12 +15,12 @@ namespace JobBrowserModule.ViewModels
         public JobPostingViewModel(Job job)
         {
             Job = job;
-            Duration = JobManager.GetTermDuration(Job);
+            Duration = JobManager.GetTermDuration(Job).GetDescription();
         }
 
         public Job Job { get; private set; }
         public bool IsSelected { get; set; }
-        public TermType Duration { get; private set; }
+        public string Duration { get; private set; }
 
         public string Qualification
         {
@@ -69,6 +71,33 @@ namespace JobBrowserModule.ViewModels
         private void GenerateScore()
         {
             Score = 0;
+        }
+
+        private string _shortString = null;
+
+        public string ShortString
+        {
+            get
+            {
+                return _shortString ?? (_shortString = GetShortString());
+            }
+        }
+
+        private string GetShortString()
+        {
+            string shortString = string.Empty;
+            try
+            {
+                if (Job.Levels.IsJunior) shortString += "[J]";
+                if (Job.Levels.IsIntermediate) shortString += "[I]";
+                if (Job.Levels.IsSenior) shortString += "[S]";
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLine(e);
+                shortString = "[???]";
+            }
+            return shortString;
         }
     }
 }

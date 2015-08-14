@@ -33,6 +33,7 @@ namespace JobBrowserModule.Views
         public FilterPanelView()
         {
             InitializeComponent();
+            MaximizePanel(null, null);
         }
 
         private void EditFilterClicked(object sender, RoutedEventArgs e)
@@ -43,7 +44,8 @@ namespace JobBrowserModule.Views
             if (dataGridRow == null) return;
             var filterViewModel = dataGridRow.Item as FilterViewModel;
             var modifiedFilter = StartModifyingFilter(filterViewModel);
-            
+            ViewModel.FilterModified(modifiedFilter);
+
         }
 
         private void AddFilterCLicked(object sender, RoutedEventArgs e)
@@ -70,6 +72,17 @@ namespace JobBrowserModule.Views
         private void FilterSelectionChanged(object sender, RoutedEventArgs e)
         {
             ViewModel.FilterChanged();
+        }
+
+        private void MinimizePanel(object sender, RoutedEventArgs e)
+        {
+            ExpandedPanelContainer.Visibility = Visibility.Collapsed;
+            MinimizedPanelContainer.Visibility = Visibility.Visible;
+        }
+        private void MaximizePanel(object sender, RoutedEventArgs e)
+        {
+            ExpandedPanelContainer.Visibility = Visibility.Visible;
+            MinimizedPanelContainer.Visibility = Visibility.Hidden;
         }
     }
 }

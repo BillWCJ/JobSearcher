@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using JobBrowserModule.Services;
 using JobBrowserModule.ViewModels;
+using JobDetailModule;
 
 namespace UWActuallyWorks
 {
@@ -17,6 +18,7 @@ namespace UWActuallyWorks
             var filterPanelViewModel = new FilterPanelViewModel(_aggregator);
             var postingTableViewModel = new PostingTableViewModel(_aggregator);
             _aggregator.FilterChanged = postingTableViewModel.FilterChanged;
+            _aggregator.SelectedJobChanged = JobDetailPanel.ViewModel.JobChanged;
             FilterPanel.ViewModel = filterPanelViewModel;
             JobPostingTable.ViewModel = postingTableViewModel;
             SelectPerspective(0);

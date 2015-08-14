@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Data;
 using Business.Manager;
 using JobBrowserModule.Services;
+using Model.Entities.JobMine;
 
 namespace JobBrowserModule.ViewModels
 {
@@ -12,6 +13,7 @@ namespace JobBrowserModule.ViewModels
         ICollectionView JobPostings { get; }
         bool IsAllSelected { get; set; }
         void FilterChanged(IList<FilterViewModel> filters);
+        void SelectedJobChanged(Job job);
     }
 
     internal class PostingTableViewModelMock : IPostingTableViewModel
@@ -20,6 +22,10 @@ namespace JobBrowserModule.ViewModels
         public bool IsAllSelected { get; set; }
 
         public void FilterChanged(IList<FilterViewModel> filters)
+        {
+        }
+
+        public void SelectedJobChanged(Job job)
         {
         }
     }
@@ -76,6 +82,13 @@ namespace JobBrowserModule.ViewModels
         {
             _activeFilters = filters;
             JobPostings.Refresh();
+        }
+
+        public void SelectedJobChanged(Job job)
+        {
+            if (_aggregator.SelectedJobChanged == null)
+                return;
+            _aggregator.SelectedJobChanged(job);
         }
 
         private bool JobPostingFilter(object item)
