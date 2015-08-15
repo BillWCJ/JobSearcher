@@ -2,6 +2,7 @@
 using Common.Utility;
 using Model.Definition;
 using Model.Entities.PostingFilter;
+using Presentation.WPF;
 
 namespace JobBrowserModule.ViewModels
 {

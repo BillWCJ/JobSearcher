@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Common.Utility;
 using Data.Contract.JobMine;
 using Data.EF.JseDb;
+using Model.Entities.JobMine;
 using Newtonsoft.Json;
 
 namespace Business.Manager
 {
     public class LocalDownloadManager
     {
+        private static JsonSerializerSettings _jsonSerializerSettings;
+
         public LocalDownloadManager(IJobMineRepo jobMineRepo)
         {
             JobMineRepo = jobMineRepo;
@@ -28,42 +34,80 @@ namespace Business.Manager
             yield return "Finished\n";
         }
 
-        public static void ExportJob(Action<string> messageCallBack, string fileLocation, uint numJobsPerFile)
+        public static void ExportJob(Action<string> messageCallBack, string pathLocation, int numJobsPerFile)
+        {
+            numJobsPerFile = numJobsPerFile > 0 ? numJobsPerFile : 100;
+            List<int> jobIds;
+
+            using (var db = new JseDbContext())
+            {
+                jobIds = db.Jobs.Select(x => x.Id).ToList();
+            }
+            if (!jobIds.Any())
+            {
+                messageCallBack("Database does not contain any jobs! Jobs not Exported");
+                return;
+            }
+            messageCallBack("Found {0} Jobs, Starting export".FormatString(jobIds.Count));
+
+            long fileCount = (jobIds.Count + numJobsPerFile - 1)/numJobsPerFile;
+            var tasks = new Task[fileCount];
+            for (var i = 0; i < fileCount; i++)
+            {
+                var currentFileJobIds = jobIds.GetRange(i*numJobsPerFile, Math.Min(numJobsPerFile, jobIds.Count - i*numJobsPerFile));
+                var currentFilePart = i + 1;
+                tasks[i] = Task.Factory.StartNew(() =>
+                {
+                    GetValue(messageCallBack, pathLocation, numJobsPerFile, currentFilePart, currentFileJobIds);
+                });
+            }
+            Task.WaitAll(tasks);
+            messageCallBack("Jobs export finished\n");
+        }
+
+        private static void GetValue(Action<string> messageCallBack, string pathLocation, int numJobsPerFile, int currentFilePart, List<int> currentPageJobIds)
         {
             using (var db = new JseDbContext())
             {
-                var jobIds = new Queue<int>(db.Jobs.Select(x => x.Id));
-                var jobCount = jobIds.Count;
-                if (jobCount >= 0)
+                _jsonSerializerSettings = new JsonSerializerSettings
                 {
-                    messageCallBack("Found {0} Jobs, Starting export".Format(jobCount));
-                }
-                else
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                };
+                var failures = 0;
+                var fileName = "{0}JobExportPart{1}.txt".FormatString(pathLocation, currentFilePart);
+                try
                 {
-                    messageCallBack("Database does not contain any jobs! Jobs not Exported");
-                }
-
-                var success = true;
-                for (var currentFilePart = 1;; currentFilePart++)
-                {
-                    messageCallBack(string.Format("Writing JobExportPart {0} ({1} Jobs Per File)\n", currentFilePart, numJobsPerFile));
-                    try
+                    messageCallBack(string.Format("Writing {0} ({1} Jobs Per File)", fileName, numJobsPerFile));
+                    using (var writer = new StreamWriter(fileName))
                     {
-                        var writer = new StreamWriter(fileLocation + ("JobExportPart" + currentFilePart + ".txt"));
-                        for (uint currentFileJobCount = 0; currentFileJobCount < numJobsPerFile && jobIds.Count > 0; currentFileJobCount++)
+                        foreach (var jobId in currentPageJobIds)
                         {
-                            var currentJobId = jobIds.Dequeue();
-                            var job = db.Jobs.Find(currentJobId);
-                            writer.Write(JsonConvert.ToString(job));
+                            try
+                            {
+                                Job job = db.Jobs.Include(j => j.JobLocation).Include(j => j.Employer).Include(j => j.Levels).Include(j => j.Disciplines)
+                                    .FirstOrDefault(j => j.Id == jobId);
+
+                                var serializedString = JsonConvert.SerializeObject(job, _jsonSerializerSettings);
+                                writer.Write(serializedString);
+                            }
+                            catch (Exception e)
+                            {
+                                messageCallBack("Error occured while writing Job (Id={0}) to {1}: {0}".FormatString(jobId, fileName, e.Message));
+                                failures++;
+                                Trace.WriteLine(e);
+                            }
                         }
-                        writer.Close();
                     }
-                    catch (Exception e)
-                    {
-                        success = false;
-                        Trace.WriteLine(e);
-                    }
-                    messageCallBack(string.Format("Writing JobDetailPart" + currentFilePart + " {0}\n", success ? "Succeeded" : "Failed"));
+                }
+                catch (Exception e)
+                {
+                    messageCallBack("Error Occurred: {0}".FormatString(e.Message));
+                    failures++;
+                    Trace.WriteLine(e);
+                }
+                finally
+                {
+                    messageCallBack("Writing to {0} finished with {1} failures".FormatString(fileName, failures));
                 }
             }
         }

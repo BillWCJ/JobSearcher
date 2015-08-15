@@ -223,6 +223,10 @@
       <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
       <Name>Model.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Presentation.WPF\Presentation.WPF.csproj">
+      <Project>{6E88C44D-363D-47FE-A482-DAE929900E97}</Project>
+      <Name>Presentation.WPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

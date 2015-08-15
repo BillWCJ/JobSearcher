@@ -38,7 +38,7 @@ namespace Common.Utility
             return false;
         }
 
-        public static string Format(this string value, params object[] args)
+        public static string FormatString(this string value, params object[] args)
         {
             return String.Format(value, args);
         }

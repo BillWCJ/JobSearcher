@@ -5,6 +5,7 @@ using System.Windows.Data;
 using Business.Manager;
 using JobBrowserModule.Services;
 using Model.Entities.JobMine;
+using Presentation.WPF;
 
 namespace JobBrowserModule.ViewModels
 {

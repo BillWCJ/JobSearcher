@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using JobBrowserModule.Annotations;
 using Model.Entities.JobMine;
+using Presentation.WPF;
 
 namespace JobDetailModule
 {
-    public class JobDetailViewModel : INotifyPropertyChanged
+    public class JobDetailViewModel : ViewModelBase
     {
         private Job _currentJob;
 
@@ -42,15 +36,6 @@ namespace JobDetailModule
             CurrentJob = newJob;
             if (JobChangedCallBack != null)
                 JobChangedCallBack();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

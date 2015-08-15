@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
@@ -75,6 +77,17 @@ namespace JobDownloaderModule
         private void DownloadToLocal(object sender, RoutedEventArgs e)
         {
             _viewModel.DownloadJobToLocal();
+        }
+
+        private void PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Password = ((PasswordBox) sender).Password;
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

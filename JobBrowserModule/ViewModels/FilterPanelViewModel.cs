@@ -4,14 +4,14 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using JobBrowserModule.Annotations;
 using JobBrowserModule.Services;
 using Model.Definition;
 using Model.Entities.PostingFilter;
+using Presentation.WPF;
 
 namespace JobBrowserModule.ViewModels
 {
-    public interface IFilterPanelViewModel : INotifyPropertyChanged
+    public interface IFilterPanelViewModel : IViewModelBase
     {
         ObservableCollection<FilterViewModel> Filters { get; set; }
         bool IsAllSelected { get; set; }
@@ -99,7 +99,7 @@ namespace JobBrowserModule.ViewModels
         public void AddFilter(FilterViewModel newFilter)
         {
             Filters.Add(newFilter);
-            NotifyPropertyChanged("Filters");
+            OnPropertyChanged("Filters");
         }
 
         public void FilterModified(FilterViewModel modifiedFilter)
