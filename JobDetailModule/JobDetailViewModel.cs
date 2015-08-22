@@ -25,6 +25,7 @@ namespace JobDetailModule
                 _currentJob = value;
                 OnPropertyChanged("CurrentJobString");
                 OnPropertyChanged("GoogleSearchUrl");
+                OnPropertyChanged("GoogleMapUrl");
             }
         }
 
