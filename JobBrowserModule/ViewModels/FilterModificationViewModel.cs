@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Documents;
+using System.Windows.Input;
 using Common.Utility;
 using Model.Definition;
 
@@ -10,30 +11,42 @@ namespace JobBrowserModule.ViewModels
 {
     public interface IFilterModificationViewModel
     {
-        ObservableCollection<StringSearchTarget> Targets { get; set; }
-        ObservableCollection<string> Values { get; set; }
+        ObservableCollection<StringSearchTarget> StringSearchTargets { get; set; }
+        ObservableCollection<string> StringSearchValues { get; set; }
+        ObservableCollection<DisciplineEnum> DisciplineSearchTargets { get; set; }
+        FilterCategory SelectedFilterCategory { get; set; }
+
         string Name { get; set; }
         string Description { get; set; }
         bool MatchCase { get; set; }
+        bool IsJunior { get; set; }
+        bool IsIntermediate { get; set; }
+        bool IsSenior { get; set; }
         void SaveChangeToBaseViewModel();
         string ErrorInInput();
     }
 
     public class FilterModificationViewModelMock : IFilterModificationViewModel
     {
-        public ObservableCollection<StringSearchTarget> Targets { get; set; }
-        public ObservableCollection<string> Values { get; set; }
+        public ObservableCollection<StringSearchTarget> StringSearchTargets { get; set; }
+        public ObservableCollection<string> StringSearchValues { get; set; }
+        public ObservableCollection<DisciplineEnum> DisciplineSearchTargets { get; set; }
+        public FilterCategory SelectedFilterCategory { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool MatchCase { get; set; }
+        public bool IsJunior { get; set; }
+        public bool IsIntermediate { get; set; }
+        public bool IsSenior { get; set; }
+
         public void SaveChangeToBaseViewModel()
         {
         }
 
         public FilterModificationViewModelMock()
         {
-            Targets = new ObservableCollection<StringSearchTarget>(new List<StringSearchTarget>(){StringSearchTarget.EmployerName});
-            Values = new ObservableCollection<string>(new List<string>(){"Mech"});
+            StringSearchTargets = new ObservableCollection<StringSearchTarget>(new List<StringSearchTarget>(){StringSearchTarget.EmployerName});
+            StringSearchValues = new ObservableCollection<string>(new List<string>(){"Mech"});
             Name = "Mech";
             Description = "Mechanical";
         }
@@ -54,32 +67,41 @@ namespace JobBrowserModule.ViewModels
             _filterViewModel = viewModel;
             if (_filterViewModel != null)
             {
-                Targets = new ObservableCollection<StringSearchTarget>(_filterViewModel.Filter.StringSearchTargetData.Targets);
-                Values = new ObservableCollection<string>(_filterViewModel.Filter.StringSearchTargetData.Values);
+                StringSearchTargets = new ObservableCollection<StringSearchTarget>(_filterViewModel.Filter.StringSearchTargets);
+                StringSearchValues = new ObservableCollection<string>(_filterViewModel.Filter.StringSearchValues);
+                DisciplineSearchTargets = new ObservableCollection<DisciplineEnum>(_filterViewModel.Filter.DisciplinesSearchTarget);
                 Name = _filterViewModel.Filter.Name;
                 Description = _filterViewModel.Filter.Description;
-                MatchCase = _filterViewModel.Filter.StringSearchTargetData.MatchCase;
+                MatchCase = _filterViewModel.Filter.MatchCase;
             }
             else
             {
-                Targets = new ObservableCollection<StringSearchTarget>();
-                Values = new ObservableCollection<string>();
+                StringSearchTargets = new ObservableCollection<StringSearchTarget>();
+                StringSearchValues = new ObservableCollection<string>();
+                DisciplineSearchTargets = new ObservableCollection<DisciplineEnum>();
             }
+            SelectedFilterCategory = FilterCategory.StringSearch;
         }
 
-        public ObservableCollection<StringSearchTarget> Targets { get; set; }
-        public ObservableCollection<string> Values { get; set; }
+        public ObservableCollection<StringSearchTarget> StringSearchTargets { get; set; }
+        public ObservableCollection<string> StringSearchValues { get; set; }
+        public ObservableCollection<DisciplineEnum> DisciplineSearchTargets { get; set; }
+        public FilterCategory SelectedFilterCategory { get; set; }
+        public Dictionary<FilterCategory, bool> FilterCategorySelection { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool MatchCase { get; set; }
+        public bool IsJunior { get; set; }
+        public bool IsIntermediate { get; set; }
+        public bool IsSenior { get; set; }
 
         public void SaveChangeToBaseViewModel()
         {
-            _filterViewModel.Filter.StringSearchTargetData.Targets = Targets.ToList();
-            _filterViewModel.Filter.StringSearchTargetData.Values = Values.ToList();
+            _filterViewModel.Filter.StringSearchTargets = StringSearchTargets.ToList();
+            _filterViewModel.Filter.StringSearchValues = StringSearchValues.ToList();
             _filterViewModel.Filter.Name = Name;
             _filterViewModel.Filter.Description = Description;
-            _filterViewModel.Filter.StringSearchTargetData.MatchCase = MatchCase;
+            _filterViewModel.Filter.MatchCase = MatchCase;
         }
 
         public string ErrorInInput()
@@ -87,9 +109,9 @@ namespace JobBrowserModule.ViewModels
             var errors = string.Empty;
             if (Name.IsNullSpaceOrEmpty())
                 errors += "Name is Empty";
-            if (!Targets.Any())
+            if (!StringSearchTargets.Any())
                 errors += "Targets is Empty";
-            if (!Values.Any())
+            if (!StringSearchValues.Any())
                 errors += "Values is Empty";
             return errors.IsNullSpaceOrEmpty() ? null : errors;
         }

@@ -31,13 +31,13 @@ namespace JobBrowserModule.ViewModels
                     IsSelected = true,
                     Filter = new Filter
                     {
-                        Name = "M",
+                        Name = "Mech",
+                        Description = "Mechanical",
                         Category = FilterCategory.StringSearch,
-                        StringSearchTargetData = new StringSearchTargetData
-                        {
-                            Targets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
-                            Values = new List<string> {"Solidworks", "Mech"}
-                        }
+                        DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.ENGMechatronics, DisciplineEnum.ENGSoftware},
+                        MatchCase = true,
+                        StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
+                        StringSearchValues = new List<string> {"Solidworks", "Mech"}
                     }
                 }
             });
@@ -69,12 +69,10 @@ namespace JobBrowserModule.ViewModels
                     Name = "Mech",
                     Description = "Mechanical",
                     Category = FilterCategory.StringSearch,
-                    StringSearchTargetData = new StringSearchTargetData
-                    {
-                        MatchCase = true,
-                        Targets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
-                        Values = new List<string> {"Solidworks", "Mech"}
-                    }
+                    DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.ENGMechatronics, DisciplineEnum.ENGSoftware},
+                    MatchCase = true,
+                    StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
+                    StringSearchValues = new List<string> {"Solidworks", "Mech"}
                 }
             };
             Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel>(){item});

@@ -3,9 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:definition="clr-namespace:Model.Definition;assembly=Model.Definition"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:converter="clr-namespace:Presentation.WPF.Converter;assembly=Presentation.WPF"
     xmlns:viewModels="clr-namespace:JobBrowserModule.ViewModels"
     x:Class="JobBrowserModule.Views.FilterModificationWindow"
-    Title="CreateFilterWindow" Height="400" Width="800" WindowStartupLocation="CenterOwner">
+    Title="CreateFilterWindow" Height="800" Width="800" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
         <BitmapImage x:Key="CloseIcon" UriSource="../Icons/Cross.png" />
@@ -16,6 +17,15 @@
                 <x:Type TypeName="definition:StringSearchTarget" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <ObjectDataProvider MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}"
+                            x:Key="DisciplineSearchTarget">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="definition:DisciplineEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <converter:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+        <converter:EnumDescriptionConverter x:Key="EnumDescriptionConverter" />
     </Window.Resources>
 
     <Window.DataContext>
@@ -23,7 +33,7 @@
     </Window.DataContext>
 
     <Border Background="White" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5">
-        <Grid >
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
@@ -38,76 +48,168 @@
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
-                <TabControl Margin="5">
-                    <TabItem Width="Auto" Header="{x:Static definition:FilterCategory.StringSearch}">
-                        <Grid Background="Transparent">
-                            <StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Margin="5"
-                                           Content="Search Target (Where to search; Job description, comments):" />
-                                    <ComboBox Margin="5" x:Name="StringSearchTargetComboBox"
-                                              ItemsSource="{Binding Source={StaticResource StringSearchTarget}}" />
-                                    <Button Margin="5" Height="22" Background="Transparent" BorderThickness="0"
-                                            Click="AddStringSearchTarget">
-                                        <Image Source="{StaticResource AddIcon}" />
-                                    </Button>
-                                </StackPanel>
-                                <ListBox x:Name="TargetListBox" ItemsSource="{Binding Targets}">
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel IsItemsHost="True" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                                    <ListBox.ItemTemplate>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <RadioButton
+                                Content="{Binding Source={x:Static definition:FilterCategory.StringSearch}, Converter={StaticResource EnumDescriptionConverter}}"
+                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.StringSearch}}" />
+                        <StackPanel
+                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.StringSearch}}"
+                            Margin="5" Height="Auto" Background="Transparent">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Margin="5"
+                                       Content="Search Target (Where to search; Job description, comments):" />
+                                <ComboBox Margin="5" x:Name="StringSearchTargetComboBox"
+                                          ItemsSource="{Binding Source={StaticResource StringSearchTarget}}">
+                                    <ComboBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
-                                                    CornerRadius="2">
-                                                <StackPanel Orientation="Horizontal" Height="24">
-                                                    <TextBlock Margin="2" Text="{Binding}" />
-                                                    <Button Margin="2" Background="Transparent" BorderThickness="0"
-                                                            Click="DeletedTarget" CommandParameter="{Binding}">
-                                                        <Image Source="{StaticResource CloseIcon}" />
-                                                    </Button>
-                                                </StackPanel>
-                                            </Border>
+                                            <TextBlock Text="{Binding Converter={StaticResource EnumDescriptionConverter}}"/>
                                         </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Margin="5" Content="Search Values (What to search; HTML, Ottawa):" />
-                                    <TextBox Margin="5" MaxWidth="200" x:Name="StringSearchValueTextBox" MinWidth="50"/>
-                                    <Button Margin="5" Height="22" Background="Transparent" BorderThickness="0"
-										Click="AddStringSearchValue">
-                                        <Image Source="{StaticResource AddIcon}" />
-                                    </Button>
-                                </StackPanel>
-                                <ListBox x:Name="ValueListBox" ItemsSource="{Binding Values}">
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel IsItemsHost="True" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
-                                                    CornerRadius="2">
-                                                <StackPanel Orientation="Horizontal" Height="24">
-                                                    <TextBlock Margin="2" Text="{Binding}" />
-                                                    <Button Margin="2" Background="Transparent" BorderThickness="0"
-                                                            Click="DeletedValue" CommandParameter="{Binding}">
-                                                        <Image Source="{StaticResource CloseIcon}" />
-                                                    </Button>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                                <CheckBox Margin="5" Content="Match Case"
-									IsChecked="{Binding MatchCase, Mode=TwoWay}" />
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <Button Margin="5" Height="16" Background="Transparent" BorderThickness="0"
+                                        Click="AddStringSearchTarget">
+                                    <Image Source="{StaticResource AddIcon}" />
+                                </Button>
                             </StackPanel>
-                        </Grid>
-                    </TabItem>
-                </TabControl>
+                            <ListBox x:Name="TargetListBox" ItemsSource="{Binding StringSearchTargets}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
+                                                CornerRadius="2">
+                                            <StackPanel Orientation="Horizontal" Height="24">
+                                                <TextBlock Margin="2" Text="{Binding}" />
+                                                <Button Margin="5" Background="Transparent" BorderThickness="0"
+                                                        Click="DeletedStringSearchTarget" CommandParameter="{Binding}">
+                                                    <Image Source="{StaticResource CloseIcon}" />
+                                                </Button>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Margin="5" Content="Search Values (What to search; HTML, Ottawa):" />
+                                <TextBox Margin="5" MaxWidth="200" x:Name="StringSearchValueTextBox" MinWidth="50" />
+                                <Button Margin="5" Height="16" Background="Transparent" BorderThickness="0"
+                                        Click="AddStringSearchValue">
+                                    <Image Source="{StaticResource AddIcon}" />
+                                </Button>
+                            </StackPanel>
+                            <ListBox x:Name="ValueListBox" ItemsSource="{Binding StringSearchValues}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
+                                                CornerRadius="2">
+                                            <StackPanel Orientation="Horizontal" Height="24">
+                                                <TextBlock Margin="2" Text="{Binding}" />
+                                                <Button Margin="5" Background="Transparent" BorderThickness="0"
+                                                        Click="DeletedStringSearchValue" CommandParameter="{Binding}">
+                                                    <Image Source="{StaticResource CloseIcon}" />
+                                                </Button>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <CheckBox Margin="5" Content="Match Case" IsChecked="{Binding MatchCase, Mode=TwoWay}" />
+                            <TextBox BorderThickness="0"
+                                Text="Everything within this filter operate in OR logic; any value found in any target will pass this filter. Use multiple filters for AND logic">
+                            </TextBox>
+                        </StackPanel>
+                        <RadioButton
+                                Content="{Binding Source={x:Static definition:FilterCategory.LevelSelection}, Converter={StaticResource EnumDescriptionConverter}}"
+                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.LevelSelection}}" />
+                        <StackPanel
+                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.LevelSelection}}"
+                            Margin="5" Height="Auto" Background="Transparent">
+                            <Label Margin="5" Content="Levels:"></Label>
+                            <StackPanel Margin="5" Orientation="Horizontal">
+                                <CheckBox Margin="5" Content="Junior" IsChecked="{Binding Path=IsJunior}" />
+                                <CheckBox Margin="5" Content="Intermediate" IsChecked="{Binding Path=IsIntermediate}" />
+                                <CheckBox Margin="5" Content="Senior" IsChecked="{Binding Path=IsSenior}" />
+                            </StackPanel>
+                        </StackPanel>
+                        <RadioButton
+                                Content="{Binding Source={x:Static definition:FilterCategory.DisciplineSelection}, Converter={StaticResource EnumDescriptionConverter}}"
+                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.DisciplineSelection}}" />
+                        <StackPanel
+                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.DisciplineSelection}}"
+                            Margin="5" Height="Auto" Background="Transparent">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Margin="5" Content="Disciplines:" />
+                                <ComboBox Margin="5" Name="DisciplineSearchTargetComboBox"
+                                          ItemsSource="{Binding Source={StaticResource DisciplineSearchTarget}}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Converter={StaticResource EnumDescriptionConverter}}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <Button Margin="5" Height="16" Background="Transparent" BorderThickness="0"
+                                        Click="AddDisciplineSearchTarget">
+                                    <Image Source="{StaticResource AddIcon}" />
+                                </Button>
+                            </StackPanel>
+                            <ListBox ItemsSource="{Binding DisciplineSearchTargets}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
+                                                CornerRadius="2">
+                                            <StackPanel Orientation="Horizontal" Height="24">
+                                                <TextBlock Margin="2" Text="{Binding}" />
+                                                <Button Margin="5" Background="Transparent" BorderThickness="0"
+                                                        Click="DeletedDisciplineSearchTarget"
+                                                        CommandParameter="{Binding}">
+                                                    <Image Source="{StaticResource CloseIcon}" />
+                                                </Button>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                        <RadioButton
+                                Content="{Binding Source={x:Static definition:FilterCategory.ValueFilter}, Converter={StaticResource EnumDescriptionConverter}}"
+                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.ValueFilter}}" />
+                        <StackPanel
+                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.ValueFilter}}"
+                            Margin="5" Height="Auto" Background="Transparent">
+                            <TextBox Text="Coming Soon"></TextBox>
+                        </StackPanel>
+                        <RadioButton
+                                Content="{Binding Source={x:Static definition:FilterCategory.ReviewFilter}, Converter={StaticResource EnumDescriptionConverter}}"
+                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.ReviewFilter}}" />
+                        <StackPanel
+                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.ReviewFilter}}"
+                            Margin="5" Height="Auto" Background="Transparent">
+                            <TextBox Text="Coming Soon"></TextBox>
+                        </StackPanel>
+                        <RadioButton
+                                Content="{Binding Source={x:Static definition:FilterCategory.LocationFilter}, Converter={StaticResource EnumDescriptionConverter}}"
+                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.LocationFilter}}" />
+                        <StackPanel
+                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.LocationFilter}}"
+                            Margin="5" Height="Auto" Background="Transparent">
+                            <TextBox Text="Coming Soon"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </Border>
             <Border Grid.Row="2" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
                 <Grid>

@@ -4,7 +4,6 @@ using System.Linq;
 using Common.Utility;
 using JobBrowserModule.ViewModels;
 using Model.Definition;
-using Model.Entities.PostingFilter;
 
 namespace JobBrowserModule.Services
 {
@@ -24,7 +23,7 @@ namespace JobBrowserModule.Services
                     case FilterCategory.ValueFilter:
                         filterOperation = ValueFilterOperation;
                         break;
-                    case FilterCategory.CategorySelection:
+                    case FilterCategory.LevelSelection:
                         filterOperation = CategorySelectionOperation;
                         break;
                     case FilterCategory.LocationFilter:
@@ -33,7 +32,7 @@ namespace JobBrowserModule.Services
                     case FilterCategory.ReviewFilter:
                         filterOperation = ReviewFilterOperation;
                         break;
-                    case FilterCategory.CustomFilter:
+                    case FilterCategory.DisciplineSelection:
                         filterOperation = CustomFilterOperation;
                         break;
                     default:
@@ -63,7 +62,20 @@ namespace JobBrowserModule.Services
 
         private static bool CategorySelectionOperation(JobPostingViewModel jobPosting, FilterViewModel filter)
         {
-            return true;
+            bool isRightLevel = true;
+            if (filter.Filter.IsJunior || filter.Filter.IsIntermediate || filter.Filter.IsSenior)
+            {
+                isRightLevel = (filter.Filter.IsJunior && jobPosting.Job.Levels.IsJunior)
+                    || (filter.Filter.IsIntermediate && jobPosting.Job.Levels.IsIntermediate) 
+                    || (filter.Filter.IsSenior && jobPosting.Job.Levels.IsSenior);
+            }
+
+            bool isRightDiscipline = true;
+            if (filter.Filter.DisciplinesSearchTarget.Any())
+            {
+                isRightDiscipline = filter.Filter.DisciplinesSearchTarget.Any(discipline => jobPosting.Job.Disciplines.ContainDiscipline(discipline));
+            }
+            return isRightLevel && isRightDiscipline;
         }
 
         private static bool ValueFilterOperation(JobPostingViewModel jobPosting, FilterViewModel filter)
@@ -73,17 +85,13 @@ namespace JobBrowserModule.Services
 
         private static bool StringSearchOperation(JobPostingViewModel jobPosting, FilterViewModel filter)
         {
-            if (!(filter.Filter.StringSearchTargetData is StringSearchTargetData))
-                return false;
-            var data = (StringSearchTargetData) filter.Filter.StringSearchTargetData;
-
             var culture = StringComparison.InvariantCultureIgnoreCase;
-            if(data.MatchCase)
+            if(filter.Filter.MatchCase)
                 culture = StringComparison.InvariantCulture;
 
             var isContained = false;
 
-            foreach (StringSearchTarget target in data.Targets)
+            foreach (StringSearchTarget target in filter.Filter.StringSearchTargets)
             {
                 string searchString;
                 switch (target)
@@ -122,7 +130,7 @@ namespace JobBrowserModule.Services
                 searchString = searchString.Replace("-\n", "").Replace("\n", "");
                 if (searchString.IsNullSpaceOrEmpty())
                     continue;
-                if (data.Values.Any(value => searchString.IndexOf(value, culture) >= 0))
+                if (filter.Filter.StringSearchValues.Any(value => searchString.IndexOf(value, culture) >= 0))
                     isContained = true;
             }
             return isContained;

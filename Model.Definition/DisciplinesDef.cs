@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,104 +12,203 @@ namespace Model.Definition
     /// </summary>
     public enum DisciplineEnum : byte
     {
+        [Description("Unknown (Please Pick a Discipline)")]
         UnAssigned = 0,
+        [Description("AHS-(unspecified)")]
         AHSUnspecified = 4,
+        [Description("AHS-Health Promotion")]
         AHSHealthPromotion = 110,
+        [Description("AHS-Hlth Studies & Gerontology")]
         AHSHealthStudiesAndGerontology = 5,
+        [Description("AHS-Kinesiology")]
         AHSKinesiology = 6,
+        [Description("AHS-Rec. & Leisure Studies")]
         AHSRecLeisureStudies = 7,
+        [Description("AHS-Rec./Business Management")]
         AHSRecBusinessManagement = 8,
+        [Description("ARCH-Architecture")]
         ARCHArchitecture = 31,
+        [Description("ARTS MASTERS-Economics")]
         ARTSMASTERSEconomics = 92,
+        [Description("ARTS MASTERS-Exp Digital Media")]
         ARTSMASTERSExpDigitalMedia = 90,
+        [Description("ARTS MASTERS-Literary Studies")]
         ARTSMASTERSLiteraryStudies = 88,
+        [Description("ARTS MASTERS-Political Science")]
         ARTSMASTERSPoliticalScience = 102,
+        [Description("ARTS MASTERS-Public Service")]
         ARTSMASTERSPublicService = 91,
+        [Description("ARTS MASTERS-Rhet/Comm Design")]
         ARTSMASTERSRhetCommDesign = 89,
+        [Description("ARTS-(unspecified)")]
         ARTSUnspecified = 9,
+        [Description("ARTS-Anthropology")]
         ARTSAnthropology = 10,
+        [Description("ARTS-Arts & Business")]
         ARTSArtsAndBusiness = 68,
+        [Description("ARTS-Digital Arts Comm")]
         ARTSDigitalArtsComm = 77,
+        [Description("ARTS-Economics")]
         ARTSEconomics = 11,
+        [Description("ARTS-English")]
         ARTSEnglish = 13,
+        [Description("ARTS-English Lit & Rhetoric")]
         ARTSEnglishLitAndRhetoric = 107,
+        [Description("ARTS-Financial Management")]
         ARTSFinancialManagement = 76,
+        [Description("ARTS-GlobalDef Engagement")]
         ARTSGlobalEngagement = 108,
+        [Description("ARTS-HR Management")]
         ARTSHRManagement = 15,
+        [Description("ARTS-History")]
         ARTSHistory = 14,
+        [Description("ARTS-International Trade")]
         ARTSInternationalTrade = 106,
+        [Description("ARTS-Legal Studies")]
         ARTSLegalStudies = 112,
+        [Description("ARTS-Management Accounting")]
         ARTSManagementAccounting = 80,
+        [Description("ARTS-Mathematical Economics")]
         ARTSMathematicalEconomics = 111,
+        [Description("ARTS-Philosophy")]
         ARTSPhilosophy = 78,
+        [Description("ARTS-Political Science")]
         ARTSPoliticalScience = 16,
+        [Description("ARTS-Psychology")]
         ARTSPsychology = 17,
+        [Description("ARTS-Rhetoric & Prof Writing")]
         ARTSRhetoricAndProfWriting = 69,
+        [Description("ARTS-Sociology")]
         ARTSSociology = 18,
+        [Description("ARTS-Speech Communication")]
         ARTSSpeechCommunication = 113,
+        [Description("All Business (unspecified)")]
         AllBusinessUnSpecified = 65,
+        [Description("All Finance (unspecified)")]
         AllFinanceUnSpecified = 109,
+        [Description("All Health Informatics")]
         AllHealthInformatics = 81,
+        [Description("All Info Tech (unspecified)")]
         AllInfoTechUnSpecified = 66,
+        [Description("CA-Chart Prof Acct (CPA)")]
         CAChartProfAcctCPA = 2,
+        [Description("ENG MASTERS-Civil")]
         ENGMASTERSCivil = 94,
+        [Description("ENG MASTERS-Management Science")]
         ENGMASTERSManagementScience = 93,
+        [Description("ENG-(unspecified)")]
         ENGUnSpecified = 19,
+        [Description("ENG-Chemical")]
         ENGChemical = 20,
+        [Description("ENG-Civil")]
         ENGCivil = 21,
+        [Description("ENG-Computer")]
         ENGComputer = 22,
+        [Description("ENG-Electrical")]
         ENGElectrical = 23,
+        [Description("ENG-Environmental")]
         ENGEnvironmental = 82,
+        [Description("ENG-Geological")]
         ENGGeological = 26,
+        [Description("ENG-Management")]
         ENGManagement = 83,
+        [Description("ENG-Mechanical")]
         ENGMechanical = 28,
+        [Description("ENG-Mechatronics")]
         ENGMechatronics = 70,
+        [Description("ENG-Nanotechnology")]
         ENGNanotechnology = 79,
+        [Description("ENG-Software")]
         ENGSoftware = 45,
+        [Description("ENG-Systems Design")]
         ENGSystemsDesign = 29,
+        [Description("ENV- (unspecified)")]
         ENVUnSpecified = 30,
+        [Description("ENV-Env & Resource Studies")]
         ENVEnvAndResourceStudies = 32,
+        [Description("ENV-Environment & Business")]
         ENVEnvironmentAndBusiness = 71,
+        [Description("ENV-Geog & Env Management")]
         ENVGeogAndEnvManagement = 33,
+        [Description("ENV-Geomatics")]
         ENVGeomatics = 84,
+        [Description("ENV-International Development")]
         ENVInternationalDevelopment = 97,
+        [Description("ENV-Knowledge Integratio")]
         ENVKnowledgeIntegration = 96,
+        [Description("ENV-Planning")]
         ENVPlanning = 34,
+        [Description("MATH MASTERS-Health Info")]
         MATHMASTERSHealthInfo = 95,
+        [Description("MATH- (unspecified)")]
         MATHUnspecified = 36,
+        [Description("MATH-Actuarial Science")]
         MATHActuarialScience = 35,
+        [Description("MATH-Applied Mathematics")]
         MATHAppliedMathematics = 37,
+        [Description("MATH-Bioinformatics")]
         MATHBioinformatics = 38,
+        [Description("MATH-Business Administration")]
         MATHBusinessAdministration = 39,
+        [Description("MATH-Combinatorics & Optimizat")]
         MATHCombinatoricsAndOptimizat = 40,
+        [Description("MATH-Computational Math")]
         MATHComputationalMath = 72,
+        [Description("MATH-Computer Science")]
         MATHComputerScience = 41,
+        [Description("MATH-Computing & Financial Mgm")]
         MATHComputingAndFinancialMgm = 104,
+        [Description("MATH-Fin Analysis & Risk Mgmt")]
         MATHFinAnalysisAndRiskMgmt = 101,
+        [Description("MATH-IT Management")]
         MATHITManagement = 98,
+        [Description("MATH-Mathematical Economics")]
         MATHMathematicalEconomics = 99,
+        [Description("MATH-Mathematical Finance")]
         MATHMathematicalFinance = 100,
+        [Description("MATH-Mathematical Optimization")]
         MATHMathematicalOptimization = 42,
+        [Description("MATH-Mathematical Physics")]
         MATHMathematicalPhysics = 73,
+        [Description("MATH-Mathematical Studies")]
         MATHMathematicalStudies = 74,
+        [Description("MATH-Pure Mathematics")]
         MATHPureMathematics = 43,
+        [Description("MATH-Scientific Computation")]
         MATHScientificComputation = 44,
+        [Description("MATH-Statistics")]
         MATHStatistics = 46,
+        [Description("MATH-Statistics for Health")]
         MATHStatisticsforHealth = 105,
+        [Description("MATH-Teaching")]
         MATHTeaching = 63,
+        [Description("SCI- (unspecified)")]
         SCIUnspecified = 47,
+        [Description("SCI-Biochemistry")]
         SCIBiochemistry = 48,
+        [Description("SCI-Bioinformatics")]
         SCIBioinformatics = 49,
+        [Description("SCI-Biology")]
         SCIBiology = 50,
+        [Description("SCI-Biotechnology/Economics")]
         SCIBiotechnologyEconomics = 51,
+        [Description("SCI-Chemistry")]
         SCIChemistry = 52,
+        [Description("SCI-Earth Sciences")]
         SCIEarthSciences = 53,
+        [Description("SCI-Environmental Science")]
         SCIEnvironmentalScience = 54,
+        [Description("SCI-Geology and Hydrogeology")]
         SCIGeologyandHydrogeology = 56,
+        [Description("SCI-Optometry")]
         SCIOptometry = 87,
+        [Description("SCI-Pharmacy")]
         SCIPharmacy = 86,
+        [Description("SCI-Physics")]
         SCIPhysics = 58,
+        [Description("SCI-Psychology")]
         SCIPsychology = 103,
+        [Description("SCI-Science/Business")]
         SCIScienceBusiness = 60
     }
     public partial class GlobalDef

@@ -46,25 +46,36 @@ namespace JobBrowserModule.Views
 
         private void AddStringSearchTarget(object sender, RoutedEventArgs e)
         {
-            ViewModel.Targets.Add((StringSearchTarget) Enum.Parse(typeof (StringSearchTarget), StringSearchTargetComboBox.SelectionBoxItem.ToString()));
+            ViewModel.StringSearchTargets.Add((StringSearchTarget) Enum.Parse(typeof (StringSearchTarget), StringSearchTargetComboBox.SelectionBoxItem.ToString()));
         }
 
         private void AddStringSearchValue(object sender, RoutedEventArgs e)
         {
-            ViewModel.Values.Add(StringSearchValueTextBox.Text);
+            ViewModel.StringSearchValues.Add(StringSearchValueTextBox.Text);
             StringSearchValueTextBox.Text = string.Empty;
         }
 
-        private void DeletedTarget(object sender, RoutedEventArgs e)
+        private void DeletedStringSearchTarget(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button != null) ViewModel.Targets.Remove((StringSearchTarget) Enum.Parse(typeof (StringSearchTarget), button.CommandParameter.ToString()));
+            if (button != null) ViewModel.StringSearchTargets.Remove((StringSearchTarget) Enum.Parse(typeof (StringSearchTarget), button.CommandParameter.ToString()));
         }
 
-        private void DeletedValue(object sender, RoutedEventArgs e)
+        private void DeletedStringSearchValue(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button != null) ViewModel.Values.Remove(button.CommandParameter.ToString());
+            if (button != null) ViewModel.StringSearchValues.Remove(button.CommandParameter.ToString());
+        }
+
+        private void AddDisciplineSearchTarget(object sender, RoutedEventArgs e)
+        {
+            ViewModel.DisciplineSearchTargets.Add((DisciplineEnum)Enum.Parse(typeof(DisciplineEnum), DisciplineSearchTargetComboBox.SelectionBoxItem.ToString()));
+        }
+
+        private void DeletedDisciplineSearchTarget(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null) ViewModel.DisciplineSearchTargets.Remove((DisciplineEnum)Enum.Parse(typeof(DisciplineEnum), button.CommandParameter.ToString()));
         }
     }
 }

@@ -45,15 +45,15 @@ namespace Model.Definition
     {
         [Description("String Search")]
         StringSearch,
-        [Description("Value Filter")]
+        [Description("Level Selection")]
+        LevelSelection,
+        [Description("Discipline Selection")]
+        DisciplineSelection,
+        [Description("Value Filter (Numbers & Etc)")]
         ValueFilter,
-        [Description("Category Selection")]
-        CategorySelection,
-        [Description("Location Filter")]
-        LocationFilter,
         [Description("Review Filter (Beta - RateCoopJob.com Data)")]
         ReviewFilter,
-        [Description("Custom Filter (Beta)")]
-        CustomFilter,
+        [Description("Location Filter")]
+        LocationFilter
     }
 }

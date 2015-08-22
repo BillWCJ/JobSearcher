@@ -50,7 +50,7 @@ namespace JobBrowserModule.Views
 
         private void AddFilterCLicked(object sender, RoutedEventArgs e)
         {
-            var newFilter = StartModifyingFilter(new FilterViewModel { Filter = new Filter { StringSearchTargetData = new StringSearchTargetData{Targets = new List<StringSearchTarget>(), Values = new List<string>()}} });
+            var newFilter = StartModifyingFilter(new FilterViewModel{Filter = new Filter()});
             if (newFilter != null) ViewModel.AddFilter(newFilter);
         }
 
