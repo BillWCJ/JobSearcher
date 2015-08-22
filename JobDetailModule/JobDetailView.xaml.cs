@@ -32,5 +32,11 @@ namespace JobDetailModule
             ExpandedPanelContainer.Visibility = Visibility.Visible;
             MinimizedPanelContainer.Visibility = Visibility.Hidden;
         }
+
+        private void AddSelectedJobToShortList(object sender, RoutedEventArgs e)
+        {
+            string name = string.IsNullOrWhiteSpace(ShortListTextBox.Text) ? ShortListComboBox.SelectionBoxItem.ToString() : ShortListTextBox.Text;
+            ViewModel.AddSelectedJobToShortList(name);
+        }
     }
 }

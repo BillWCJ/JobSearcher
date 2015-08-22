@@ -70,5 +70,11 @@ namespace JobBrowserModule.Views
                 _viewModel.SelectedJobChanged(job);
             }
         }
+
+        private void AddSelectedJobsToShortList(object sender, RoutedEventArgs e)
+        {
+            string name = string.IsNullOrWhiteSpace(ShortListTextBox.Text) ? ShortListComboBox.SelectionBoxItem.ToString() : ShortListTextBox.Text;
+            ViewModel.AddSelectedJobsToShortList(name);
+        }
     }
 }

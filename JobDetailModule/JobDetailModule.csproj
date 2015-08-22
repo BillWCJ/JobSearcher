@@ -56,6 +56,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.Manager\Business.Manager.csproj">
+      <Project>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</Project>
+      <Name>Business.Manager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JobBrowserModule\JobBrowserModule.csproj">
       <Project>{5CFDE7E3-A01F-4879-A851-898794623C27}</Project>
       <Name>JobBrowserModule</Name>

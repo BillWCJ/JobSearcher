@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
@@ -15,6 +16,8 @@ namespace JobBrowserModule.ViewModels
         bool IsAllSelected { get; set; }
         void FilterChanged(IList<FilterViewModel> filters);
         void SelectedJobChanged(Job job);
+        void AddSelectedJobsToShortList(string name);
+        ObservableCollection<string> ShortListNames { get; set; } 
     }
 
     internal class PostingTableViewModelMock : IPostingTableViewModel
@@ -29,6 +32,12 @@ namespace JobBrowserModule.ViewModels
         public void SelectedJobChanged(Job job)
         {
         }
+
+        public void AddSelectedJobsToShortList(string name)
+        {
+        }
+
+        public ObservableCollection<string> ShortListNames { get; set; }
     }
 
     public class PostingTableViewModel : ViewModelBase, IPostingTableViewModel
@@ -51,6 +60,7 @@ namespace JobBrowserModule.ViewModels
             var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
             _jobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
             _jobPostings.Filter += JobPostingFilter;
+            ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
         }
 
         public ICollectionView JobPostings
@@ -91,6 +101,20 @@ namespace JobBrowserModule.ViewModels
                 return;
             _aggregator.SelectedJobChanged(job);
         }
+
+        public void AddSelectedJobsToShortList(string name)
+        {
+            foreach (var jobPostingViewModel in JobPostings.Cast<JobPostingViewModel>().Where(j => j.IsSelected))
+            {
+                if (LocalShortListManager.AddJobToShortList(jobPostingViewModel.Job, name))
+                {
+                    if(!ShortListNames.Contains(name))
+                        ShortListNames.Add(name);
+                }
+            }
+        }
+
+        public ObservableCollection<string> ShortListNames { get; set; }
 
         private bool JobPostingFilter(object item)
         {
