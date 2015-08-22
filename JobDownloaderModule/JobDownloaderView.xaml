@@ -61,6 +61,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <CheckBox Grid.Row="0" Margin="5" IsChecked="{Binding SeedJobRating}"
                               Content="Download job rating from RateMyCoopJob.com" />
@@ -79,6 +80,8 @@
                     <TextBox Grid.Row="3" Text="{Binding GoogleMapApiKeyString}"></TextBox>
                     <Button Grid.Row="4" Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
                             Content="DownLoad and save/update into database" />
+                    <Button Grid.Row="5" Margin="5" HorizontalAlignment="Right" Click="ImportJobToDbButton_OnClick"
+                            Content="Import and save/update into database (Selected directory must be exported JSON Files)" />
                 </Grid>
             </StackPanel>
             <StackPanel Grid.Row="3" Margin="10">

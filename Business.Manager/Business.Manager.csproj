@@ -60,6 +60,10 @@
     <Compile Include="CommonUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.DataBaseSeeder\Business.DataBaseSeeder.csproj">
+      <Project>{1E5B0839-8910-4BB4-B317-F06AE676DDEE}</Project>
+      <Name>Business.DataBaseSeeder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Utility\Common.Utility.csproj">
       <Project>{c8806bc4-df4e-455e-aeff-c2deef16f1f4}</Project>
       <Name>Common.Utility</Name>

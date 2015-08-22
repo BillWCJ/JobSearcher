@@ -28,11 +28,12 @@ namespace Business.DataBaseSeeder
 
                 foreach (JobOverView jov in jobOverViews)
                 {
-                    var job = db.Jobs.Find(jov.Id);
+                    var job = db.Jobs.FirstOrDefault(x => x.Id == jov.Id);
 
                     if (job == null)
                     {
-                        SeedJobAndRelatedEntities(jobMineRepo, jov, db);
+                        job = jobMineRepo.JobDetail.GetJob(jov);
+                        SeedJobAndRelatedEntities(job, db);
                         yield return "Job Seeded: " + ++numJobSeeded;
                     }
                     else
@@ -44,7 +45,7 @@ namespace Business.DataBaseSeeder
             }
         }
 
-        private static void UpdateJob(Job job, JobOverView jov, JseDbContext db)
+        public static void UpdateJob(Job job, JobOverView jov, JseDbContext db)
         {
             job.NumberOfApplied = jov.NumberOfApplied;
             job.AlreadyApplied = jov.AlreadyApplied;
@@ -52,10 +53,8 @@ namespace Business.DataBaseSeeder
             db.SaveChanges();
         }
 
-        private static void SeedJobAndRelatedEntities(JobMineRepo jobMineRepo, JobOverView jov, JseDbContext db)
+        public static void SeedJobAndRelatedEntities(Job job, JseDbContext db)
         {
-            Job job = jobMineRepo.JobDetail.GetJob(jov);
-
             Employer existingEmployer = db.Employers.FirstOrDefault(e => e.Name == job.Employer.Name && e.UnitName == job.Employer.UnitName);
             if (existingEmployer != null)
             {

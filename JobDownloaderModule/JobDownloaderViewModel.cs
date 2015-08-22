@@ -105,6 +105,32 @@ namespace JobDownloaderModule
             }, Task.Factory.CancellationToken);
         }
 
+        public void ImportFromLocal()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                var acquired = false;
+                try
+                {
+                    acquired = Monitor.TryEnter(_isInProgressLock);
+                    if (acquired)
+                    {
+                        LocalDownloadManager.ImportJob(MessageCallBack, FileLocation);
+                    }
+                    else
+                    {
+                        MessageCallBack("An Operation is already in progress");
+                    }
+                }
+                finally
+                {
+                    if (acquired)
+                        Monitor.Exit(_isInProgressLock);
+                }
+            }, Task.Factory.CancellationToken);
+            
+        }
+
         public void DownloadAndSeedJobIntoDb()
         {
             Task.Factory.StartNew(() =>

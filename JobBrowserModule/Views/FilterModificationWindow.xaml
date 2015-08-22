@@ -6,7 +6,7 @@
     xmlns:converter="clr-namespace:Presentation.WPF.Converter;assembly=Presentation.WPF"
     xmlns:viewModels="clr-namespace:JobBrowserModule.ViewModels"
     x:Class="JobBrowserModule.Views.FilterModificationWindow"
-    Title="CreateFilterWindow" Height="800" Width="800" WindowStartupLocation="CenterOwner">
+    Title="CreateFilterWindow" Height="300" Width="800" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
         <BitmapImage x:Key="CloseIcon" UriSource="../Icons/Cross.png" />
@@ -83,7 +83,7 @@
                                         <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
                                                 CornerRadius="2">
                                             <StackPanel Orientation="Horizontal" Height="24">
-                                                <TextBlock Margin="2" Text="{Binding}" />
+                                                <TextBlock Margin="2" Text="{Binding Converter={StaticResource EnumDescriptionConverter}}" />
                                                 <Button Margin="5" Background="Transparent" BorderThickness="0"
                                                         Click="DeletedStringSearchTarget" CommandParameter="{Binding}">
                                                     <Image Source="{StaticResource CloseIcon}" />
@@ -172,7 +172,7 @@
                                         <Border BorderBrush="DimGray" BorderThickness="2" Margin="1,0"
                                                 CornerRadius="2">
                                             <StackPanel Orientation="Horizontal" Height="24">
-                                                <TextBlock Margin="2" Text="{Binding}" />
+                                                <TextBlock Margin="2" Text="{Binding Converter={StaticResource EnumDescriptionConverter}}" />
                                                 <Button Margin="5" Background="Transparent" BorderThickness="0"
                                                         Click="DeletedDisciplineSearchTarget"
                                                         CommandParameter="{Binding}">

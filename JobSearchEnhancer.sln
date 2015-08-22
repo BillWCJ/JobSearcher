@@ -34,6 +34,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopmentConsole", "DevelopmentConsole\DevelopmentConsole.csproj", "{D380F335-F678-48D0-940A-2FAC4E6045E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Manager", "Business.Manager\Business.Manager.csproj", "{DAA00879-C4F6-4B71-808D-F36EC9485E2C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1E5B0839-8910-4BB4-B317-F06AE676DDEE} = {1E5B0839-8910-4BB4-B317-F06AE676DDEE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Common", "Test.Common\Test.Common.csproj", "{A5821945-B1F7-4C5E-9B1D-E7373C63F194}"
 EndProject

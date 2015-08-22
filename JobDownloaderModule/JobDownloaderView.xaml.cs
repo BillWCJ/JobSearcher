@@ -89,5 +89,10 @@ namespace JobDownloaderModule
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+
+        private void ImportJobToDbButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _viewModel.ImportFromLocal();
+        }
     }
 }

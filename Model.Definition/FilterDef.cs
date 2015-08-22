@@ -13,7 +13,9 @@ namespace Model.Definition
 
     public enum StringSearchTarget
     {
-        [Description("EmployerName")]
+        [Description("Unknown (Please Pick a Search Target)")]
+        Unknown = 0,
+        [Description("Employer Name")]
         EmployerName,
         [Description("Full Address")]
         FullAddress,
@@ -36,9 +38,7 @@ namespace Model.Definition
         [Description("Job Description")]
         JobDescription,
         [Description("All Job Detail")]
-        Job,
-        [Description("Unknown")]
-        Unknown = 99,
+        Job
     }
 
     public enum FilterCategory
