@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Business.Manager;
 using JobBrowserModule.Services;
 using JobBrowserModule.ViewModels;
 using JobDetailModule;
@@ -14,6 +15,10 @@ namespace UWActuallyWorks
 
         public Shell()
         {
+            if (!BrowserEmulationManager.IsBrowserEmulationSet())
+            {
+                BrowserEmulationManager.SetBrowserEmulationVersion();
+            }
             InitializeComponent();
             var filterPanelViewModel = new FilterPanelViewModel(_aggregator);
             var postingTableViewModel = new PostingTableViewModel(_aggregator);
