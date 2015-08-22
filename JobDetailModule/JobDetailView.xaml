@@ -10,62 +10,38 @@
     <UserControl.DataContext>
         <jobDetailModule:JobDetailViewModel />
     </UserControl.DataContext>
-    <Grid Name="ContainerGrid" Background="White">
-        <Grid Name="MinimizedPanelContainer">
-            <Button Grid.Row="0" Click="MaximizePanel" Background="Transparent" BorderBrush="Transparent">
-                <Label Content="Maximize Detail Panel">
-                    <Label.LayoutTransform>
-                        <TransformGroup>
-                            <RotateTransform Angle="90" />
-                            <ScaleTransform ScaleX="-1" ScaleY="-1" />
-                        </TransformGroup>
-                    </Label.LayoutTransform>
-                </Label>
-            </Button>
-        </Grid>
-        <Grid Name="ExpandedPanelContainer" Width="500">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Button Grid.Row="0" HorizontalAlignment="Left" Content="Minimize" Click="MinimizePanel"
-                    Background="Transparent" BorderBrush="Transparent">
-            </Button>
-            <Label Grid.Row="0" HorizontalAlignment="Center" Content="Job Detail" FontWeight="Bold"></Label>
-            <Button Grid.Row="0" HorizontalAlignment="Right" Content="Close" Background="Transparent"
-                    BorderBrush="Transparent">
-            </Button>
-            <TabControl  Grid.Row="1">
-                <TabItem Header="Job Detail">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <TextBox Grid.Row="0" Text="{Binding CurrentJobString, Mode=OneWay}" IsReadOnly="True"
-                                 TextWrapping="Wrap" />
-                        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
-                            <Label Margin="5"
-                                   Content="Add to local short list (Enter in text box to add new short list):">
-                            </Label>
-                            <ComboBox Margin="5" ItemsSource="{Binding ShortListNames}" Name="ShortListComboBox"></ComboBox>
-                            <TextBox Margin="5" MinWidth="50" Name="ShortListTextBox"></TextBox>
-                            <Button Margin="5"
-                                    Click="AddSelectedJobToShortList">
-                                <Image Height="15" Width="15"
-                                       ToolTip="Add selected jobs to local short list" />
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Employer Google Web Brower">
-                    <WebBrowser jobDetailModule:WebBrowserProperties.Url="{Binding GoogleSearchUrl}"/>
-                </TabItem>
-                <TabItem Header="Job Location Google Map Web Brower">
-                    <WebBrowser jobDetailModule:WebBrowserProperties.Url="{Binding GoogleMapUrl}"/>
-                </TabItem>
-            </TabControl>
-        </Grid>
+    <Grid Name="ContainerGrid">
+        <TabControl>
+            <TabItem Header="Job Detail">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Text="{Binding CurrentJobString, Mode=OneWay}" IsReadOnly="True"
+                             TextWrapping="Wrap" />
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
+                        <Label Margin="5"
+                               Content="Add to local short list (Enter in text box to add new short list):">
+                        </Label>
+                        <ComboBox Margin="5" ItemsSource="{Binding ShortListNames}" Name="ShortListComboBox"></ComboBox>
+                        <TextBox Margin="5" MinWidth="50" Name="ShortListTextBox"></TextBox>
+                        <Button Margin="5"
+                                Click="AddSelectedJobToShortList">
+                            <Image Height="15" Width="15"
+                                   ToolTip="Add selected jobs to local short list" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Employer Google Web Brower">
+                <WebBrowser jobDetailModule:WebBrowserProperties.Url="{Binding GoogleSearchUrl}"/>
+            </TabItem>
+            <TabItem Header="Job Location Google Map Web Brower">
+                <WebBrowser jobDetailModule:WebBrowserProperties.Url="{Binding GoogleMapUrl}"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 
 </UserControl>

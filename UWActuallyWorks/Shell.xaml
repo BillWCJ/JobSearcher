@@ -4,6 +4,9 @@
         xmlns:jobBrowerViews="clr-namespace:JobBrowserModule.Views;assembly=JobBrowserModule"
         xmlns:jobDownloaderModule="clr-namespace:JobDownloaderModule;assembly=JobDownloaderModule"
         xmlns:jobDetailModule="clr-namespace:JobDetailModule;assembly=JobDetailModule"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
         Title="UWActuallyWorks" Height="768" Width="1366">
     
     <Window.Resources>
@@ -14,6 +17,7 @@
         <BitmapImage x:Key="OptionsIcon" UriSource="/JobBrowserModule;Component/Icons/Gear.png" />
     </Window.Resources>
     
+   
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -59,27 +63,55 @@
         </Border>
         <Grid Grid.Row="1">
             <Grid Name="JobBrowserContainer">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-                    <jobBrowerViews:FilterPanelView Name="FilterPanel" />
-                </Border>
-                <Border Grid.Column="1" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-                    <jobBrowerViews:PostingTableView Name="JobPostingTable" />
-                </Border>
-                <Border Grid.Column="2" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-                    <jobDetailModule:JobDetailView Name="JobDetailPanel" />
-                </Border>
+                <xcad:DockingManager
+            AllowMixedOrientation="True"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Theme="{Binding ElementName=_themeCombo, Path=SelectedItem.Tag}">
+                    <xcad:DockingManager.DocumentHeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding IconSource}" Margin="0,0,4,0" />
+                                <TextBlock Text="{Binding Title}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </xcad:DockingManager.DocumentHeaderTemplate>
+                    <xcad:LayoutRoot x:Name="LayoutRoot">
+                        <xcad:LayoutRoot.LeftSide>
+                            <xcad:LayoutAnchorSide>
+                                <xcad:LayoutAnchorGroup>
+                                    <xcad:LayoutAnchorable ContentId="FilterPanelContentId" Title="Filter Panel"
+                                                   CanClose="False" AutoHideWidth="200" CanFloat="True">
+                                        <jobBrowerViews:FilterPanelView Name="FilterPanel" />
+                                    </xcad:LayoutAnchorable>
+                                </xcad:LayoutAnchorGroup>
+                            </xcad:LayoutAnchorSide>
+                        </xcad:LayoutRoot.LeftSide>
+                        <xcad:LayoutPanel Orientation="Horizontal">
+                            <xcad:LayoutAnchorablePane DockWidth="*">
+                                <xcad:LayoutAnchorable ContentId="JobPostingTableContentId" Title="Job Posting Table" CanClose="False"
+                                               CanHide="False" CanFloat="False" CanAutoHide="False">
+                                    <jobBrowerViews:PostingTableView Name="JobPostingTable" />
+                                </xcad:LayoutAnchorable>
+                            </xcad:LayoutAnchorablePane>
+                        </xcad:LayoutPanel>
+                        <xcad:LayoutRoot.RightSide>
+                            <xcad:LayoutAnchorSide>
+                                <xcad:LayoutAnchorGroup>
+                                    <xcad:LayoutAnchorable ContentId="JobDetailPanelContentId" Title="Job Detail Panel">
+                                        <jobDetailModule:JobDetailView Name="JobDetailPanel" />
+                                    </xcad:LayoutAnchorable>
+                                </xcad:LayoutAnchorGroup>
+                            </xcad:LayoutAnchorSide>
+                        </xcad:LayoutRoot.RightSide>
+                    </xcad:LayoutRoot>
+                </xcad:DockingManager>
             </Grid>
             <Grid Name="JobDownloaderContainer">
                 <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
                     <jobDownloaderModule:JobDownloaderView />
                 </Border>
             </Grid>
-            <!--<views:JobBrowserModuleView Name="JobBrowserModule" />-->
         </Grid>
     </Grid>
 </Window>

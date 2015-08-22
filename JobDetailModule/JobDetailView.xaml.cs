@@ -19,18 +19,6 @@ namespace JobDetailModule
                 ViewModel = new JobDetailViewModel();
                 DataContext = ViewModel;
             }
-            MinimizePanel(null, null);
-        }
-
-        private void MinimizePanel(object sender, RoutedEventArgs e)
-        {
-            ExpandedPanelContainer.Visibility = Visibility.Collapsed;
-            MinimizedPanelContainer.Visibility = Visibility.Visible;
-        }
-        private void MaximizePanel(object sender, RoutedEventArgs e)
-        {
-            ExpandedPanelContainer.Visibility = Visibility.Visible;
-            MinimizedPanelContainer.Visibility = Visibility.Hidden;
         }
 
         private void AddSelectedJobToShortList(object sender, RoutedEventArgs e)

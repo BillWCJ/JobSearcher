@@ -16,30 +16,7 @@
     </UserControl.DataContext>
     
     <Grid>
-        <Grid Name="MinimizedPanelContainer">
-            <Button Grid.Row="0" Click="MaximizePanel" Background="Transparent" BorderBrush="Transparent">
-                <Label Content="Maximize Detail Panel">
-                    <Label.LayoutTransform>
-                        <TransformGroup>
-                            <RotateTransform Angle="90" />
-                            <ScaleTransform ScaleX="-1" ScaleY="-1" />
-                        </TransformGroup>
-                    </Label.LayoutTransform>
-                </Label>
-            </Button>
-        </Grid>
-        <Grid Name="ExpandedPanelContainer" Width="200">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid Background="White" Grid.Row="0">
-                <Label HorizontalAlignment="Center" Content="Filter Panel" FontWeight="Bold"></Label>
-                <Button HorizontalAlignment="Right" Name="JobPostingPerspectiveButton" Background="Transparent"
-                        BorderBrush="Transparent" Content="Minimize" Click="MinimizePanel">
-                </Button>
-            </Grid>
-            <DataGrid Grid.Row="1"
+        <DataGrid
                       Height="Auto"
                       Width="Auto"
                       VerticalAlignment="Top"
@@ -98,6 +75,6 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-            </DataGrid></Grid>
+            </DataGrid>
     </Grid>
 </UserControl>
