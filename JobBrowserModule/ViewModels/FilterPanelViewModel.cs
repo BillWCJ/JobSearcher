@@ -34,7 +34,7 @@ namespace JobBrowserModule.ViewModels
                         Name = "Mech",
                         Description = "Mechanical",
                         Category = FilterCategory.StringSearch,
-                        DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.ENGMechatronics, DisciplineEnum.ENGSoftware},
+                        DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.EngMechatronics, DisciplineEnum.EngSoftware},
                         MatchCase = true,
                         StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
                         StringSearchValues = new List<string> {"Solidworks", "Mech"}
@@ -69,7 +69,7 @@ namespace JobBrowserModule.ViewModels
                     Name = "Mech",
                     Description = "Mechanical",
                     Category = FilterCategory.StringSearch,
-                    DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.ENGMechatronics, DisciplineEnum.ENGSoftware},
+                    DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.EngMechatronics, DisciplineEnum.EngSoftware},
                     MatchCase = true,
                     StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
                     StringSearchValues = new List<string> {"Solidworks", "Mech"}

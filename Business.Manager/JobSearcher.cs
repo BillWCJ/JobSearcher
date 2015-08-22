@@ -40,7 +40,7 @@ namespace Business.Manager
                             j.Score += 3;
 
                         //discipline score
-                        if (j.Disciplines.ContainDiscipline(DisciplineEnum.ENGMechatronics))
+                        if (j.Disciplines.ContainDiscipline(DisciplineEnum.EngMechatronics))
                             j.Score += 2;
 
                         //--------skill & keywords
@@ -100,15 +100,15 @@ namespace Business.Manager
 
         private static bool IsRelatedDiscipline(Disciplines d)
         {
-            return d.ContainDiscipline(DisciplineEnum.ENGMechatronics)
-                || d.ContainDiscipline(DisciplineEnum.ENGMechanical)
-                || d.ContainDiscipline(DisciplineEnum.ENGElectrical)
-                || d.ContainDiscipline(DisciplineEnum.ENGComputer)
-                || d.ContainDiscipline(DisciplineEnum.ENGUnSpecified)
-                || d.ContainDiscipline(DisciplineEnum.ENGManagement)
-                || d.ContainDiscipline(DisciplineEnum.ENGSystemsDesign)
-                || d.ContainDiscipline(DisciplineEnum.ENGSoftware) 
-                || d.ContainDiscipline(DisciplineEnum.MATHComputerScience);
+            return d.ContainDiscipline(DisciplineEnum.EngMechatronics)
+                || d.ContainDiscipline(DisciplineEnum.EngMechanical)
+                || d.ContainDiscipline(DisciplineEnum.EngElectrical)
+                || d.ContainDiscipline(DisciplineEnum.EngComputer)
+                || d.ContainDiscipline(DisciplineEnum.EngUnSpecified)
+                || d.ContainDiscipline(DisciplineEnum.EngManagement)
+                || d.ContainDiscipline(DisciplineEnum.EngSystemsDesign)
+                || d.ContainDiscipline(DisciplineEnum.EngSoftware) 
+                || d.ContainDiscipline(DisciplineEnum.MathComputerScience);
         }
 
         private static bool ContainWord(string src, string word)

@@ -66,6 +66,10 @@
     <Compile Include="Web\ICookieEnabledWebClient.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Utility\Common.Utility.csproj">
+      <Project>{C8806BC4-DF4E-455E-AEFF-C2DEEF16F1F4}</Project>
+      <Name>Common.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-b704-91831b872e3f}</Project>
       <Name>Model.Definition</Name>
