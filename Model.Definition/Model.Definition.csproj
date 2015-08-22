@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CommonDef.cs" />
     <Compile Include="DisciplinesDef.cs" />
+    <Compile Include="FilterDef.cs" />
     <Compile Include="JobDef.cs" />
     <Compile Include="JobMineDef.cs" />
     <Compile Include="LevelsDef.cs" />

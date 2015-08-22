@@ -1,0 +1,85 @@
+﻿<Window x:Class="UWActuallyWorks.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:jobBrowerViews="clr-namespace:JobBrowserModule.Views;assembly=JobBrowserModule"
+        xmlns:jobDownloaderModule="clr-namespace:JobDownloaderModule;assembly=JobDownloaderModule"
+        xmlns:jobDetailModule="clr-namespace:JobDetailModule;assembly=JobDetailModule"
+        Title="UWActuallyWorks" Height="768" Width="1366">
+    
+    <Window.Resources>
+        <BitmapImage x:Key="RefreshIcon" UriSource="/JobBrowserModule;Component/Icons/Sync.png" />
+        <BitmapImage x:Key="HomeIcon" UriSource="/JobBrowserModule;Component/Icons/Home.png" />
+        <BitmapImage x:Key="TableIcon" UriSource="/JobBrowserModule;Component/Icons/Grid.png" />
+        <BitmapImage x:Key="MapIcon" UriSource="/JobBrowserModule;Component/Icons/Location.png" />
+        <BitmapImage x:Key="OptionsIcon" UriSource="/JobBrowserModule;Component/Icons/Gear.png" />
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Name="CurrentPerspectiveLabel" Height="Auto" Width="130"
+                       HorizontalAlignment="Left" Margin="5">
+                </Label>
+                <TextBlock Grid.Column="1" Name="MessageTextBlock" Height="Auto" Width="Auto"></TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="2">
+                    <Button Name="RefreshButton" Height="Auto" Width="Auto" Margin="5" 
+                            Background="Transparent" Click="SelectJobDownloaderPerspective"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource RefreshIcon}" />
+                    </Button>
+                    <Button Name="ImportDataPerspectiveButton" Margin="5"
+                            Background="Transparent" Click="SelectJobBrowserPerspective"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource HomeIcon}" />
+                    </Button>
+                    <Button Name="JobPostingPerspectiveButton" Margin="5"
+                            Background="Transparent"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource TableIcon}" />
+                    </Button>
+                    <Button Name="MapPerspectiveButton" Margin="5" Background="Transparent"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource MapIcon}" />
+                    </Button>
+                    <Button Name="OptionsPerspectiveButton" Margin="5" Background="Transparent"
+                            BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="{StaticResource OptionsIcon}" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid Name="JobBrowserContainer">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                    <jobBrowerViews:FilterPanelView Name="FilterPanel" />
+                </Border>
+                <Border Grid.Column="1" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                    <jobBrowerViews:PostingTableView Name="JobPostingTable" />
+                </Border>
+                <Border Grid.Column="2" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                    <jobDetailModule:JobDetailView Name="JobDetailPanel" />
+                </Border>
+            </Grid>
+            <Grid Name="JobDownloaderContainer">
+                <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                    <jobDownloaderModule:JobDownloaderView />
+                </Border>
+            </Grid>
+            <!--<views:JobBrowserModuleView Name="JobBrowserModule" />-->
+        </Grid>
+    </Grid>
+</Window>

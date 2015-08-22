@@ -36,17 +36,21 @@ namespace Business.Manager
             return (dist);
         }
 
-        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-        //::  This function converts decimal degrees to radians             :::
-        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /// <summary>
+        /// This function converts decimal degrees to radians 
+        /// </summary>
+        /// <param name="deg"></param>
+        /// <returns></returns>
         private static double GetRadFromDegree(double deg)
         {
             return (deg*Math.PI/180.0);
         }
 
-        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-        //::  This function converts radians to decimal degrees             :::
-        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /// <summary>
+        /// This function converts radians to decimal degrees
+        /// </summary>
+        /// <param name="rad"></param>
+        /// <returns></returns>
         private static double GetDegreeFromRad(double rad)
         {
             return (rad/Math.PI*180.0);

@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="JobBrowserModule.Views.FilterPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:JobBrowserModule.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="200">
+    <UserControl.Resources>
+        <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
+        <BitmapImage x:Key="EditIcon" UriSource="../Icons/Pencil.png" />
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <viewModels:FilterPanelViewModelMock/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid Name="MinimizedPanelContainer">
+            <Button Grid.Row="0" Click="MaximizePanel" Background="Transparent" BorderBrush="Transparent">
+                <Label Content="Maximize Detail Panel">
+                    <Label.LayoutTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90" />
+                            <ScaleTransform ScaleX="-1" ScaleY="-1" />
+                        </TransformGroup>
+                    </Label.LayoutTransform>
+                </Label>
+            </Button>
+        </Grid>
+        <Grid Name="ExpandedPanelContainer" Width="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Background="White" Grid.Row="0">
+                <Label HorizontalAlignment="Center" Content="Filter Panel" FontWeight="Bold"></Label>
+                <Button HorizontalAlignment="Right" Name="JobPostingPerspectiveButton" Background="Transparent"
+                        BorderBrush="Transparent" Content="Minimize" Click="MinimizePanel">
+                </Button>
+            </Grid>
+            <DataGrid Grid.Row="1"
+                      Height="Auto"
+                      Width="Auto"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      BorderBrush="#FF97C2EC"
+                      HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"
+                      VerticalGridLinesBrush="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"
+                      AlternatingRowBackground="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
+                      AlternationCount="2"
+                      MinColumnWidth="10"
+                      IsTextSearchEnabled="True"
+                      Background="Transparent"
+                      ItemsSource="{Binding Path=Filters}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn
+                        Width="Auto"
+                        CanUserSort="True">
+                        <DataGridTemplateColumn.Header>
+                            <CheckBox IsChecked="{Binding Path=IsAllSelected, Mode=TwoWay}" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Margin="4,0,0,0"
+                                          IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Mode=TwoWay}"
+                                          Checked="FilterSelectionChanged" Unchecked="FilterSelectionChanged">
+                                </CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn
+                        Binding="{Binding Path=Filter.Name}"
+                        Width="*"
+                        Header="Name">
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn
+                        Width="25"
+                        IsReadOnly="True">
+                        <DataGridTemplateColumn.Header>
+                            <Button Click="AddFilterCLicked"
+                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                                <Image Height="13" Width="13" Source="{StaticResource AddIcon}"
+                                       ToolTip="Open posting on JobMine" />
+                            </Button>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="EditFilterClicked"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}}"
+                                        Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                                    <Image Height="15" Width="15" Source="{StaticResource EditIcon}"
+                                           ToolTip="Open posting on JobMine" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid></Grid>
+    </Grid>
+</UserControl>

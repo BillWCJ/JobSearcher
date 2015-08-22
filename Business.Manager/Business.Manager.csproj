@@ -36,6 +36,10 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -47,14 +51,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
+    <Compile Include="BrowserEmulationManager.cs" />
+    <Compile Include="FilterManager.cs" />
     <Compile Include="JobManager.cs" />
     <Compile Include="JobReviewManager.cs" />
     <Compile Include="JobSearcher.cs" />
     <Compile Include="LocalDownloadManager.cs" />
+    <Compile Include="LocalShortListManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CommonUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.DataBaseSeeder\Business.DataBaseSeeder.csproj">
+      <Project>{1E5B0839-8910-4BB4-B317-F06AE676DDEE}</Project>
+      <Name>Business.DataBaseSeeder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Utility\Common.Utility.csproj">
+      <Project>{c8806bc4-df4e-455e-aeff-c2deef16f1f4}</Project>
+      <Name>Common.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
       <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
       <Name>Data.Contract</Name>
@@ -73,6 +88,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\App.config" />
     <None Include="Properties\packages.config" />
   </ItemGroup>

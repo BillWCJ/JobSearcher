@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 using System.Linq;
+using Common.Utility;
 using Model.Definition;
 
 namespace Model.Entities.JobMine
@@ -24,8 +26,8 @@ namespace Model.Entities.JobMine
         public Disciplines(string data = " ")
         {
             byte currentDisciplineIndex = 0;
-            foreach (var name in GlobalDef.DisciplinesNames.Where(name => name.Value != null && data.Contains(name.Value)))
-                this[currentDisciplineIndex++] = name.Key;
+            foreach (var name in Enum.GetValues(typeof(DisciplineEnum)).Cast<DisciplineEnum>().Where(name => name.GetDescription() != null && data.Contains(name.GetDescription())))
+                this[currentDisciplineIndex++] = (byte)name;
         }
 
         /// <summary>
@@ -116,9 +118,10 @@ namespace Model.Entities.JobMine
                 for (byte i = 0; i < GlobalDef.MaxNumberOfDisciplinesPerJob; i++)
                 {
                     byte key = this[i];
-                    if (key != (byte) DisciplineEnum.UnAssigned && GlobalDef.DisciplinesNames.ContainsKey(key))
+                    IEnumerable<DisciplineEnum> disciplineEnums = Enum.GetValues(typeof(DisciplineEnum)).Cast<DisciplineEnum>();
+                    if (key != (byte)DisciplineEnum.UnAssigned && disciplineEnums.Contains((DisciplineEnum)key))
                     {
-                        string disciplineName = GlobalDef.DisciplinesNames[key];
+                        string disciplineName = ((DisciplineEnum)key).GetDescription();
                         toString += disciplineName + ", ";
                     }
                 }

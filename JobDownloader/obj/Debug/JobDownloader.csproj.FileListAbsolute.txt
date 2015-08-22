@@ -109,7 +109,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\b
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Web.JobMine.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Model.Entities.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\EntityFramework.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Data.Web.RateMyCoopJob.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Common.Utility.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\HtmlAgilityPack.pdb
@@ -126,3 +125,5 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\o
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.application
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.exe
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\obj\Debug\JobDownloader.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobDownloader\bin\Debug\Newtonsoft.Json.xml

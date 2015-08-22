@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Business.Manager;
 using Model.Definition;
-using Model.Entities;
 using Model.Entities.JobMine;
 using Xunit;
 
-namespace JobSearchEnhancerTest
+namespace Test.Common
 {
     //TODO To use xunit, you'll need to install the xunit runner from extention tools
     public class JobManagerTest
     {
-        private List<Job> Jobs;
+        private List<Job> _jobs;
 
         public JobManagerTest()
         {
@@ -22,22 +20,22 @@ namespace JobSearchEnhancerTest
         [Fact]
         public void CheckTermTest()
         {
-            var job = Jobs.FirstOrDefault(j => j.Id.Equals(1));
-            var term = new JobManager().GetTermDuration(job);
+            var job = _jobs.FirstOrDefault(j => j.Id.Equals(1));
+            var term = JobManager.GetTermDuration(job);
             Assert.Equal(TermType.Eight, term);
 
-            job = Jobs.FirstOrDefault(j => j.Id.Equals(2));
-            term = new JobManager().GetTermDuration(job);
-            Assert.Equal(TermType.NotSpecified, term);
+            job = _jobs.FirstOrDefault(j => j.Id.Equals(2));
+            term = JobManager.GetTermDuration(job);
+            Assert.Equal(TermType.Unknown, term);
 
-            job = Jobs.FirstOrDefault(j => j.Id.Equals(6));
-            term = new JobManager().GetTermDuration(job);
+            job = _jobs.FirstOrDefault(j => j.Id.Equals(6));
+            term = JobManager.GetTermDuration(job);
             Assert.Equal(TermType.Both, term);
         }
 
         private void GetStubbedData()
         {
-            Jobs = new List<Job>
+            _jobs = new List<Job>
             {
                 new Job
                 {
