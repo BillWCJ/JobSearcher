@@ -10,6 +10,7 @@
     <UserControl.DataContext>
         <jobDetailModule:JobDetailViewModel />
     </UserControl.DataContext>
+    
     <Grid Name="ContainerGrid">
         <TabControl>
             <TabItem Header="Job Detail">

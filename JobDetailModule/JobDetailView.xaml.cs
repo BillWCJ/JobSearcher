@@ -8,17 +8,24 @@ namespace JobDetailModule
     /// </summary>
     public partial class JobDetailView : UserControl
     {
-        public JobDetailViewModel ViewModel;
+        private JobDetailViewModel _viewModel;
+
+        public JobDetailViewModel ViewModel
+        {
+            get
+            {
+                return _viewModel ?? new JobDetailViewModel();
+            }
+            set
+            {
+                _viewModel = value;
+                this.DataContext = _viewModel;
+            }
+        }
 
         public JobDetailView()
         {
             InitializeComponent();
-            ViewModel = DataContext as JobDetailViewModel;
-            if (ViewModel == null)
-            {
-                ViewModel = new JobDetailViewModel();
-                DataContext = ViewModel;
-            }
         }
 
         private void AddSelectedJobToShortList(object sender, RoutedEventArgs e)

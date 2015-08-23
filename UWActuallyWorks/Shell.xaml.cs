@@ -3,6 +3,7 @@ using Business.Manager;
 using JobBrowserModule.Services;
 using JobBrowserModule.ViewModels;
 using JobDetailModule;
+using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace UWActuallyWorks
 {
@@ -11,7 +12,7 @@ namespace UWActuallyWorks
     /// </summary>
     public partial class Shell : Window
     {
-        private readonly IReporter _aggregator = new Reporter();
+        private readonly EventAggregator _aggregator = new EventAggregator();
 
         public Shell()
         {
@@ -20,12 +21,9 @@ namespace UWActuallyWorks
                 BrowserEmulationManager.SetBrowserEmulationVersion();
             }
             InitializeComponent();
-            var filterPanelViewModel = new FilterPanelViewModel(_aggregator);
-            var postingTableViewModel = new PostingTableViewModel(_aggregator);
-            _aggregator.FilterChanged = postingTableViewModel.FilterChanged;
-            _aggregator.SelectedJobChanged = JobDetailPanel.ViewModel.JobChanged;
-            FilterPanel.ViewModel = filterPanelViewModel;
-            JobPostingTable.ViewModel = postingTableViewModel;
+            FilterPanel.ViewModel = new FilterPanelViewModel(_aggregator);
+            JobPostingTable.ViewModel = new PostingTableViewModel(_aggregator);
+            JobDetailPanel.ViewModel = new JobDetailViewModel(_aggregator);
             SelectPerspective(0);
         }
 

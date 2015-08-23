@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using JobBrowserModule.Services;
+using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Definition;
 using Model.Entities.PostingFilter;
 using Presentation.WPF;
+using Presentation.WPF.Events;
 
 namespace JobBrowserModule.ViewModels
 {
@@ -57,7 +59,7 @@ namespace JobBrowserModule.ViewModels
 
     public class FilterPanelViewModel : ViewModelBase, IFilterPanelViewModel
     {
-        private readonly IReporter _aggregator;
+        private readonly EventAggregator _aggregator;
 
         public FilterPanelViewModel()
         {
@@ -78,17 +80,16 @@ namespace JobBrowserModule.ViewModels
             Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel>(){item});
         }
 
-        public FilterPanelViewModel(IReporter aggregator) : this()
+        public FilterPanelViewModel(EventAggregator aggregator) : this()
         {
             _aggregator = aggregator;
         }
 
         public void FilterChanged()
         {
-            var filterViewModels = Filters.Where(f => f.IsSelected);
-
-            if (_aggregator != null && _aggregator.FilterChanged != null) 
-                _aggregator.FilterChanged(filterViewModels.Where(f => f.IsSelected).ToList());
+            IEnumerable<Filter> filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
+            if (_aggregator != null)
+                _aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
         }
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }

@@ -109,7 +109,7 @@
             </Grid>
             <Grid Name="JobDownloaderContainer">
                 <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-                    <jobDownloaderModule:JobDownloaderView />
+                    <jobDownloaderModule:JobDownloaderView Name="JobDownloaderView"/>
                 </Border>
             </Grid>
         </Grid>

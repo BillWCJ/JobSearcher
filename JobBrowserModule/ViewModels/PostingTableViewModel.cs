@@ -5,8 +5,11 @@ using System.Linq;
 using System.Windows.Data;
 using Business.Manager;
 using JobBrowserModule.Services;
+using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Entities.JobMine;
+using Model.Entities.PostingFilter;
 using Presentation.WPF;
+using Presentation.WPF.Events;
 
 namespace JobBrowserModule.ViewModels
 {
@@ -14,7 +17,7 @@ namespace JobBrowserModule.ViewModels
     {
         ICollectionView JobPostings { get; }
         bool IsAllSelected { get; set; }
-        void FilterChanged(IList<FilterViewModel> filters);
+        void FilterChanged(IEnumerable<Filter> filters);
         void SelectedJobChanged(Job job);
         void AddSelectedJobsToShortList(string name);
         ObservableCollection<string> ShortListNames { get; set; } 
@@ -25,7 +28,7 @@ namespace JobBrowserModule.ViewModels
         public ICollectionView JobPostings { get; private set; }
         public bool IsAllSelected { get; set; }
 
-        public void FilterChanged(IList<FilterViewModel> filters)
+        public void FilterChanged(IEnumerable<Filter> filters)
         {
         }
 
@@ -43,8 +46,8 @@ namespace JobBrowserModule.ViewModels
     public class PostingTableViewModel : ViewModelBase, IPostingTableViewModel
     {
         private readonly ICollectionView _jobPostings;
-        private IList<FilterViewModel> _activeFilters = new List<FilterViewModel>();
-        private IReporter _aggregator;
+        private IEnumerable<Filter> _activeFilters = new List<Filter>();
+        private EventAggregator _aggregator;
         private bool _isAllSelected;
         protected JobReviewManager JobReviewManager;
 
@@ -52,9 +55,10 @@ namespace JobBrowserModule.ViewModels
         {
         }
 
-        public PostingTableViewModel(IReporter aggregator) : this()
+        public PostingTableViewModel(EventAggregator aggregator) : this()
         {
             _aggregator = aggregator;
+            _aggregator.GetEvent<FilterSelectionChangedEvent>().Subscribe(FilterChanged);
             JobReviewManager = new JobReviewManager();
             var jobs = JobSearcher.FindJobs();
             var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
@@ -89,7 +93,7 @@ namespace JobBrowserModule.ViewModels
             }
         }
 
-        public void FilterChanged(IList<FilterViewModel> filters)
+        public void FilterChanged(IEnumerable<Filter> filters)
         {
             _activeFilters = filters;
             JobPostings.Refresh();
@@ -97,9 +101,8 @@ namespace JobBrowserModule.ViewModels
 
         public void SelectedJobChanged(Job job)
         {
-            if (_aggregator.SelectedJobChanged == null)
-                return;
-            _aggregator.SelectedJobChanged(job);
+            if (_aggregator != null)
+                _aggregator.GetEvent<SelectedJobChangedEvent>().Publish(job);
         }
 
         public void AddSelectedJobsToShortList(string name)
