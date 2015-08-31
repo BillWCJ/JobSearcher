@@ -9,7 +9,21 @@ namespace JobBrowserModule.ViewModels
 {
     public class FilterViewModel : ViewModelBase
     {
-        public bool IsSelected { get; set; }
+        private bool _isSelected;
+
+        public bool IsSelected
+        {
+            get
+            {
+                return _isSelected;
+            }
+            set
+            {
+                _isSelected = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Filter Filter { get; set; }
         public override string ToString()
         {

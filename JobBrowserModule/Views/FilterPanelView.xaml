@@ -33,16 +33,16 @@
                       Background="Transparent"
                       ItemsSource="{Binding Path=Filters}">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn
+                <DataGridTemplateColumn
                         Width="Auto"
                         CanUserSort="True">
-                        <DataGridTemplateColumn.Header>
+                        <!--<DataGridTemplateColumn.Header>
                             <CheckBox IsChecked="{Binding Path=IsAllSelected, Mode=TwoWay}" />
-                        </DataGridTemplateColumn.Header>
+                        </DataGridTemplateColumn.Header>-->
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox Margin="4,0,0,0"
-                                          IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Mode=TwoWay}"
+                                          IsChecked="{Binding Path=DataContext.IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridRow}, Mode=TwoWay}"
                                           Checked="FilterSelectionChanged" Unchecked="FilterSelectionChanged">
                                 </CheckBox>
                             </DataTemplate>

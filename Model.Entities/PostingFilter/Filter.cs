@@ -28,7 +28,7 @@ namespace Model.Entities.PostingFilter
 
         public override string ToString()
         {
-            return Name + Environment.NewLine + Description;
+            return Name + " " + Environment.NewLine + Description;
         }
     }
 }

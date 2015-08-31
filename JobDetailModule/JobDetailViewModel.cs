@@ -9,33 +9,13 @@ using Presentation.WPF.Events;
 
 namespace JobDetailModule
 {
-    public class JobDetailViewModel : ViewModelBase
+    public class JobDetailViewModel : JobDetailViewModelBase
     {
-        private Job _currentJob;
-        private EventAggregator _aggregator;
+        public JobDetailViewModel() : base(new EventAggregator())
+        { }
 
-        public JobDetailViewModel() { }
-
-        public JobDetailViewModel(EventAggregator aggregator) : this()
-        {
-            _aggregator = aggregator;
-            _aggregator.GetEvent<SelectedJobChangedEvent>().Subscribe(JobChanged);
-        }
-
-        public Job CurrentJob
-        {
-            get
-            {
-                return _currentJob;
-            }
-            set
-            {
-                _currentJob = value;
-                OnPropertyChanged("CurrentJobString");
-                OnPropertyChanged("GoogleSearchUrl");
-                OnPropertyChanged("GoogleMapUrl");
-            }
-        }
+        public JobDetailViewModel(EventAggregator aggregator) : base (aggregator)
+        { }
 
         public string CurrentJobString
         {
@@ -45,10 +25,13 @@ namespace JobDetailModule
             }
         }
 
-        public void JobChanged(Job newJob)
+        protected override void NotifyPropertyChanged()
         {
-            CurrentJob = newJob;
+            OnPropertyChanged("CurrentJobString");
+            OnPropertyChanged("GoogleSearchUrl");
+            OnPropertyChanged("GoogleMapUrl");
         }
+
         public void AddSelectedJobToShortList(string name)
         {
             if (LocalShortListManager.AddJobToShortList(CurrentJob, name))

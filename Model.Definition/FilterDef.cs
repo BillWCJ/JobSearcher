@@ -7,10 +7,6 @@ using System.Threading.Tasks;
 
 namespace Model.Definition
 {
-    public class FilterDef
-    {
-    }
-
     public enum StringSearchTarget
     {
         [Description("Unknown (Please Pick a Search Target)")]

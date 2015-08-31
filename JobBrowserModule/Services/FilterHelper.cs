@@ -21,20 +21,20 @@ namespace JobBrowserModule.Services
                     case FilterCategory.StringSearch:
                         filterOperation = StringSearchOperation;
                         break;
-                    case FilterCategory.ValueFilter:
-                        filterOperation = ValueFilterOperation;
+                    case FilterCategory.DisciplineSelection:
+                        filterOperation = DisciplineSelectionOperation;
                         break;
                     case FilterCategory.LevelSelection:
-                        filterOperation = CategorySelectionOperation;
+                        filterOperation = LevelSelectionOperation;
+                        break;
+                    case FilterCategory.ValueFilter:
+                        filterOperation = ValueFilterOperation;
                         break;
                     case FilterCategory.LocationFilter:
                         filterOperation = LocationFilterOperation;
                         break;
                     case FilterCategory.ReviewFilter:
                         filterOperation = ReviewFilterOperation;
-                        break;
-                    case FilterCategory.DisciplineSelection:
-                        filterOperation = CustomFilterOperation;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("Does not Support Filter Category: " + filter.Category);
@@ -46,9 +46,15 @@ namespace JobBrowserModule.Services
             return true;
         }
 
-        private static bool CustomFilterOperation(JobPostingViewModel jobPosting, Filter filter)
+        private static bool DisciplineSelectionOperation(JobPostingViewModel jobPosting, Filter filter)
         {
-            return true;
+
+            bool isRightDiscipline = true;
+            if (filter.DisciplinesSearchTarget.Any())
+            {
+                isRightDiscipline = filter.DisciplinesSearchTarget.Any(discipline => jobPosting.Job.Disciplines.ContainDiscipline(discipline));
+            }
+            return isRightDiscipline;
         }
 
         private static bool ReviewFilterOperation(JobPostingViewModel jobPosting, Filter filter)
@@ -61,7 +67,7 @@ namespace JobBrowserModule.Services
             return true;
         }
 
-        private static bool CategorySelectionOperation(JobPostingViewModel jobPosting, Filter filter)
+        private static bool LevelSelectionOperation(JobPostingViewModel jobPosting, Filter filter)
         {
             bool isRightLevel = true;
             if (filter.IsJunior || filter.IsIntermediate || filter.IsSenior)
@@ -70,13 +76,7 @@ namespace JobBrowserModule.Services
                     || (filter.IsIntermediate && jobPosting.Job.Levels.IsIntermediate) 
                     || (filter.IsSenior && jobPosting.Job.Levels.IsSenior);
             }
-
-            bool isRightDiscipline = true;
-            if (filter.DisciplinesSearchTarget.Any())
-            {
-                isRightDiscipline = filter.DisciplinesSearchTarget.Any(discipline => jobPosting.Job.Disciplines.ContainDiscipline(discipline));
-            }
-            return isRightLevel && isRightDiscipline;
+            return isRightLevel;
         }
 
         private static bool ValueFilterOperation(JobPostingViewModel jobPosting, Filter filter)
@@ -125,7 +125,8 @@ namespace JobBrowserModule.Services
                         searchString = jobPosting.Job.ToString();
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException();
+                        searchString = string.Empty;
+                        break;
                 }
 
                 searchString = searchString.Replace("-\n", "").Replace("\n", "");

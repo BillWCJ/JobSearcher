@@ -85,15 +85,16 @@ namespace JobBrowserModule.ViewModels
             _aggregator = aggregator;
         }
 
+        public bool IsAllSelected { get; set; }
+
         public void FilterChanged()
         {
-            IEnumerable<Filter> filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
-            if (_aggregator != null)
-                _aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
+                    IEnumerable<Filter> filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
+                    if (_aggregator != null)
+                        _aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
         }
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }
-        public bool IsAllSelected { get; set; }
 
         public void AddFilter(FilterViewModel newFilter)
         {

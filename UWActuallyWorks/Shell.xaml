@@ -63,53 +63,65 @@
         </Border>
         <Grid Grid.Row="1">
             <Grid Name="JobBrowserContainer">
-                <xcad:DockingManager
-            AllowMixedOrientation="True"
-            BorderBrush="Black"
-            BorderThickness="1"
-            Theme="{Binding ElementName=_themeCombo, Path=SelectedItem.Tag}">
-                    <xcad:DockingManager.DocumentHeaderTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="{Binding IconSource}" Margin="0,0,4,0" />
-                                <TextBlock Text="{Binding Title}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </xcad:DockingManager.DocumentHeaderTemplate>
-                    <xcad:LayoutRoot x:Name="LayoutRoot">
-                        <xcad:LayoutRoot.LeftSide>
-                            <xcad:LayoutAnchorSide>
-                                <xcad:LayoutAnchorGroup>
-                                    <xcad:LayoutAnchorable ContentId="FilterPanelContentId" Title="Filter Panel"
-                                                   CanClose="False" AutoHideWidth="200" CanFloat="True">
-                                        <jobBrowerViews:FilterPanelView Name="FilterPanel" />
+                <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                    <xcad:DockingManager
+                        AllowMixedOrientation="True"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        Theme="{Binding ElementName=_themeCombo, Path=SelectedItem.Tag}">
+                        <xcad:DockingManager.DocumentHeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding IconSource}" Margin="0,0,4,0" />
+                                    <TextBlock Text="{Binding Title}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </xcad:DockingManager.DocumentHeaderTemplate>
+                        <xcad:LayoutRoot x:Name="LayoutRoot">
+                            <xcad:LayoutRoot.LeftSide>
+                                <xcad:LayoutAnchorSide>
+                                    <xcad:LayoutAnchorGroup>
+                                        <xcad:LayoutAnchorable ContentId="FilterPanelContentId" Title="Filter Panel"
+                                                               CanClose="False" AutoHideWidth="200" CanFloat="True">
+                                            <jobBrowerViews:FilterPanelView Name="FilterPanel" />
+                                        </xcad:LayoutAnchorable>
+                                    </xcad:LayoutAnchorGroup>
+                                </xcad:LayoutAnchorSide>
+                            </xcad:LayoutRoot.LeftSide>
+                            <xcad:LayoutPanel Orientation="Horizontal">
+                                <xcad:LayoutAnchorablePane DockWidth="*">
+                                    <xcad:LayoutAnchorable ContentId="JobPostingTableContentId"
+                                                           Title="Job Posting Table" CanClose="False"
+                                                           CanHide="False" CanFloat="False" CanAutoHide="False">
+                                        <jobBrowerViews:PostingTableView Name="JobPostingTable" />
                                     </xcad:LayoutAnchorable>
-                                </xcad:LayoutAnchorGroup>
-                            </xcad:LayoutAnchorSide>
-                        </xcad:LayoutRoot.LeftSide>
-                        <xcad:LayoutPanel Orientation="Horizontal">
-                            <xcad:LayoutAnchorablePane DockWidth="*">
-                                <xcad:LayoutAnchorable ContentId="JobPostingTableContentId" Title="Job Posting Table" CanClose="False"
-                                               CanHide="False" CanFloat="False" CanAutoHide="False">
-                                    <jobBrowerViews:PostingTableView Name="JobPostingTable" />
-                                </xcad:LayoutAnchorable>
-                            </xcad:LayoutAnchorablePane>
-                        </xcad:LayoutPanel>
-                        <xcad:LayoutRoot.RightSide>
-                            <xcad:LayoutAnchorSide>
-                                <xcad:LayoutAnchorGroup>
-                                    <xcad:LayoutAnchorable ContentId="JobDetailPanelContentId" Title="Job Detail Panel">
-                                        <jobDetailModule:JobDetailView Name="JobDetailPanel" />
-                                    </xcad:LayoutAnchorable>
-                                </xcad:LayoutAnchorGroup>
-                            </xcad:LayoutAnchorSide>
-                        </xcad:LayoutRoot.RightSide>
-                    </xcad:LayoutRoot>
-                </xcad:DockingManager>
+                                </xcad:LayoutAnchorablePane>
+                            </xcad:LayoutPanel>
+                            <xcad:LayoutRoot.RightSide>
+                                <xcad:LayoutAnchorSide>
+                                    <xcad:LayoutAnchorGroup>
+                                        <xcad:LayoutAnchorable ContentId="JobDetailPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                                               Title="Job Detail Panel">
+                                            <jobDetailModule:JobDetailView Name="JobDetailPanel" />
+                                        </xcad:LayoutAnchorable>
+                                        <xcad:LayoutAnchorable ContentId="GoogleSearchPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                                               Title="Google Search Panel [of employer]">
+                                            <jobDetailModule:GoogleSearchView Name="GoogleSearchPanel" />
+                                        </xcad:LayoutAnchorable>
+                                        <xcad:LayoutAnchorable ContentId="GoogleMapSearchPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                                               Title="Google Search Panel [of employer location]">
+                                            <jobDetailModule:GoogleMapSearchView Name="GoogleMapSearchPanel" />
+                                        </xcad:LayoutAnchorable>
+                                    </xcad:LayoutAnchorGroup>
+                                </xcad:LayoutAnchorSide>
+                            </xcad:LayoutRoot.RightSide>
+                        </xcad:LayoutRoot>
+                    </xcad:DockingManager>
+                </Border>
             </Grid>
             <Grid Name="JobDownloaderContainer">
                 <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-                    <jobDownloaderModule:JobDownloaderView Name="JobDownloaderView"/>
+                    <jobDownloaderModule:JobDownloaderView Name="JobDownloaderView" />
                 </Border>
             </Grid>
         </Grid>
