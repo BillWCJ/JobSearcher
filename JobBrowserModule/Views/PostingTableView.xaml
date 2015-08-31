@@ -113,6 +113,16 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Width="Auto"
+                    Header="#Opening"
+                    Binding="{Binding Job.NumberOfOpening}">
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                    Width="Auto"
+                    Header="#Applied"
+                    Binding="{Binding Job.NumberOfApplied}">
+                </DataGridTextColumn>
                 <DataGridTemplateColumn
                     Width="*"
                     Header="Details (Hover over text for tooltips and over more icon for job description)">

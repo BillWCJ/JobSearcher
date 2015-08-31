@@ -81,7 +81,7 @@
                             <xcad:LayoutRoot.LeftSide>
                                 <xcad:LayoutAnchorSide>
                                     <xcad:LayoutAnchorGroup>
-                                        <xcad:LayoutAnchorable ContentId="FilterPanelContentId" Title="Filter Panel"
+                                        <xcad:LayoutAnchorable ContentId="FilterPanelContentId" Title="Filters"
                                                                CanClose="False" AutoHideWidth="200" CanFloat="True">
                                             <jobBrowerViews:FilterPanelView Name="FilterPanel" />
                                         </xcad:LayoutAnchorable>
@@ -91,7 +91,7 @@
                             <xcad:LayoutPanel Orientation="Horizontal">
                                 <xcad:LayoutAnchorablePane DockWidth="*">
                                     <xcad:LayoutAnchorable ContentId="JobPostingTableContentId"
-                                                           Title="Job Posting Table" CanClose="False"
+                                                           Title="Job Postings" CanClose="False"
                                                            CanHide="False" CanFloat="False" CanAutoHide="False">
                                         <jobBrowerViews:PostingTableView Name="JobPostingTable" />
                                     </xcad:LayoutAnchorable>
@@ -101,15 +101,15 @@
                                 <xcad:LayoutAnchorSide>
                                     <xcad:LayoutAnchorGroup>
                                         <xcad:LayoutAnchorable ContentId="JobDetailPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
-                                                               Title="Job Detail Panel">
+                                                               Title="Job Detail">
                                             <jobDetailModule:JobDetailView Name="JobDetailPanel" />
                                         </xcad:LayoutAnchorable>
                                         <xcad:LayoutAnchorable ContentId="GoogleSearchPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
-                                                               Title="Google Search Panel [of employer]">
+                                                               Title="Google Search">
                                             <jobDetailModule:GoogleSearchView Name="GoogleSearchPanel" />
                                         </xcad:LayoutAnchorable>
                                         <xcad:LayoutAnchorable ContentId="GoogleMapSearchPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
-                                                               Title="Google Search Panel [of employer location]">
+                                                               Title="Google Map Search">
                                             <jobDetailModule:GoogleMapSearchView Name="GoogleMapSearchPanel" />
                                         </xcad:LayoutAnchorable>
                                     </xcad:LayoutAnchorGroup>
