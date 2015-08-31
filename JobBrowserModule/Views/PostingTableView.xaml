@@ -162,7 +162,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
+        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
             <Label Margin="5" Content="Add selected jobs to local short list (Enter in text box to add new short list):"></Label>
             <ComboBox Margin="5" ItemsSource="{Binding ShortListNames}" Name="ShortListComboBox"></ComboBox>
             <TextBox Margin="5" MinWidth="50" Name="ShortListTextBox"></TextBox>
@@ -170,7 +170,7 @@
                 <Image Height="15" Width="15" Source="{StaticResource AddIcon}"
                                            ToolTip="Add selected jobs to local short list" />
             </Button>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 
 </UserControl>

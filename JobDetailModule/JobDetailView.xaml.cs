@@ -28,10 +28,10 @@ namespace JobDetailModule
             InitializeComponent();
         }
 
-        private void AddSelectedJobToShortList(object sender, RoutedEventArgs e)
-        {
-            string name = string.IsNullOrWhiteSpace(ShortListTextBox.Text) ? ShortListComboBox.SelectionBoxItem.ToString() : ShortListTextBox.Text;
-            ViewModel.AddSelectedJobToShortList(name);
-        }
+        //private void AddSelectedJobToShortList(object sender, RoutedEventArgs e)
+        //{
+        //    string name = string.IsNullOrWhiteSpace(ShortListTextBox.Text) ? ShortListComboBox.SelectionBoxItem.ToString() : ShortListTextBox.Text;
+        //    ViewModel.AddSelectedJobToShortList(name);
+        //}
     }
 }
