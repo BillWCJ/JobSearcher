@@ -7,6 +7,17 @@ using System.Threading.Tasks;
 
 namespace Model.Definition
 {
+    public enum ValueSearchTarget
+    {
+        [Description("Unknown (Please Pick a Search Target)")]
+        Unknown = 0,
+        [Description("Number Of Openings")]
+        NumberOfOpenings,
+        [Description("Number Of Applied")]
+        NumberOfApplied
+    }
+
+
     public enum StringSearchTarget
     {
         [Description("Unknown (Please Pick a Search Target)")]

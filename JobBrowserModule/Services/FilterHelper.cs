@@ -37,7 +37,7 @@ namespace JobBrowserModule.Services
                         filterOperation = ReviewFilterOperation;
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException("Does not Support Filter Category: " + filter.Category);
+                        return false;
                 }
 
                 if (!filterOperation(jobPosting, filter))
@@ -81,7 +81,21 @@ namespace JobBrowserModule.Services
 
         private static bool ValueFilterOperation(JobPostingViewModel jobPosting, Filter filter)
         {
-            return true;
+            double valueToFilter;
+            switch (filter.ValueSearchSelectedItem)
+            {
+                case ValueSearchTarget.NumberOfOpenings:
+                    valueToFilter = jobPosting.Job.NumberOfOpening;
+                    break;
+                case ValueSearchTarget.NumberOfApplied:
+                    valueToFilter = jobPosting.Job.NumberOfApplied;
+                    break;
+                default:
+                    return false;
+            }
+            if (valueToFilter >= filter.LowerLimit && valueToFilter <= filter.UpperLimit)
+                return true;
+            return false;
         }
 
         private static bool StringSearchOperation(JobPostingViewModel jobPosting, Filter filter)
@@ -125,8 +139,7 @@ namespace JobBrowserModule.Services
                         searchString = jobPosting.Job.ToString();
                         break;
                     default:
-                        searchString = string.Empty;
-                        break;
+                        return false;
                 }
 
                 searchString = searchString.Replace("-\n", "").Replace("\n", "");

@@ -25,6 +25,9 @@ namespace Model.Entities.PostingFilter
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }
         public bool IsSenior { get; set; }
+        public ValueSearchTarget ValueSearchSelectedItem { get; set; }
+        public double LowerLimit { get; set; }
+        public double UpperLimit { get; set; }
 
         public override string ToString()
         {

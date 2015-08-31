@@ -22,6 +22,10 @@ namespace JobBrowserModule.ViewModels
         bool IsJunior { get; set; }
         bool IsIntermediate { get; set; }
         bool IsSenior { get; set; }
+        double LowerLimit { get; set; }
+        double UpperLimit { get; set; }
+        ValueSearchTarget ValueSearchSelectedItem { get; set; }
+
         void SaveChangeToBaseViewModel();
         string ErrorInInput();
     }
@@ -38,6 +42,12 @@ namespace JobBrowserModule.ViewModels
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }
         public bool IsSenior { get; set; }
+
+        public double LowerLimit { get; set; }
+
+        public double UpperLimit { get; set; }
+
+        public ValueSearchTarget ValueSearchSelectedItem { get; set; }
 
         public void SaveChangeToBaseViewModel()
         {
@@ -67,20 +77,27 @@ namespace JobBrowserModule.ViewModels
             _filterViewModel = viewModel;
             if (_filterViewModel != null)
             {
-                StringSearchTargets = new ObservableCollection<StringSearchTarget>(_filterViewModel.Filter.StringSearchTargets);
-                StringSearchValues = new ObservableCollection<string>(_filterViewModel.Filter.StringSearchValues);
-                DisciplineSearchTargets = new ObservableCollection<DisciplineEnum>(_filterViewModel.Filter.DisciplinesSearchTarget);
+                SelectedFilterCategory = _filterViewModel.Filter.Category;
                 Name = _filterViewModel.Filter.Name;
                 Description = _filterViewModel.Filter.Description;
+                StringSearchTargets = new ObservableCollection<StringSearchTarget>(_filterViewModel.Filter.StringSearchTargets);
+                StringSearchValues = new ObservableCollection<string>(_filterViewModel.Filter.StringSearchValues);
                 MatchCase = _filterViewModel.Filter.MatchCase;
+                DisciplineSearchTargets = new ObservableCollection<DisciplineEnum>(_filterViewModel.Filter.DisciplinesSearchTarget);
+                IsJunior = _filterViewModel.Filter.IsJunior;
+                IsIntermediate = _filterViewModel.Filter.IsIntermediate;
+                IsSenior = _filterViewModel.Filter.IsSenior;
+                ValueSearchSelectedItem = _filterViewModel.Filter.ValueSearchSelectedItem;
+                LowerLimit = _filterViewModel.Filter.LowerLimit;
+                UpperLimit = _filterViewModel.Filter.UpperLimit;
             }
             else
             {
+                SelectedFilterCategory = FilterCategory.StringSearch;
                 StringSearchTargets = new ObservableCollection<StringSearchTarget>();
                 StringSearchValues = new ObservableCollection<string>();
                 DisciplineSearchTargets = new ObservableCollection<DisciplineEnum>();
             }
-            SelectedFilterCategory = FilterCategory.StringSearch;
         }
 
         public ObservableCollection<StringSearchTarget> StringSearchTargets { get; set; }
@@ -94,14 +111,25 @@ namespace JobBrowserModule.ViewModels
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }
         public bool IsSenior { get; set; }
+        public double LowerLimit { get; set; }
+        public double UpperLimit { get; set; }
+        public ValueSearchTarget ValueSearchSelectedItem { get; set; }
 
         public void SaveChangeToBaseViewModel()
         {
-            _filterViewModel.Filter.StringSearchTargets = StringSearchTargets.ToList();
-            _filterViewModel.Filter.StringSearchValues = StringSearchValues.ToList();
             _filterViewModel.Filter.Name = Name;
             _filterViewModel.Filter.Description = Description;
+            _filterViewModel.Filter.Category = SelectedFilterCategory;
+            _filterViewModel.Filter.StringSearchTargets = StringSearchTargets.ToList();
+            _filterViewModel.Filter.StringSearchValues = StringSearchValues.ToList();
             _filterViewModel.Filter.MatchCase = MatchCase;
+            _filterViewModel.Filter.DisciplinesSearchTarget = DisciplineSearchTargets.ToList();
+            _filterViewModel.Filter.IsJunior = IsJunior;
+            _filterViewModel.Filter.IsIntermediate = IsIntermediate;
+            _filterViewModel.Filter.IsSenior = IsSenior;
+            _filterViewModel.Filter.ValueSearchSelectedItem = ValueSearchSelectedItem;
+            _filterViewModel.Filter.LowerLimit = LowerLimit;
+            _filterViewModel.Filter.UpperLimit = UpperLimit;
         }
 
         public string ErrorInInput()
