@@ -10,104 +10,136 @@
         <local:JobDownloaderViewModel />
     </UserControl.DataContext>
     <DockPanel Background="White">
-        <Grid DockPanel.Dock="Left" Width="500">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0" Margin="10">
-                    <Label Content="Username:" Margin="5" />
-                    <TextBox x:Name="UsernameTextBox" Margin="5" Text="{Binding UserName}" />
-                </StackPanel>
-                <StackPanel Grid.Column="1" Margin="10">
-                    <Label Content="Password:" Margin="5" />
-                    <PasswordBox x:Name="PasswordTextBox" Margin="5" PasswordChanged="PasswordChanged" />
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0" Margin="10">
-                    <Label Content="Term: (Same as Jobmine; Ex 1151)" Margin="5" />
-                    <TextBox x:Name="TermTextBox" Margin="5" Text="{Binding Term}" />
-                </StackPanel>
-                <StackPanel Grid.Column="1" Margin="10">
-                    <Label Content="Job Status:" Margin="5" />
-                    <ComboBox x:Name="JobStatusComboBox" Margin="5" SelectedIndex="{Binding JobStatusSelectionIndex}">
-                        <ComboBoxItem Content="Posted" />
-                        <ComboBoxItem Content="Application Available" />
-                        <ComboBoxItem Content="Cancelled" />
-                        <ComboBoxItem Content="Approved" />
-                    </ComboBox>
-                </StackPanel>
-            </Grid>
-            <StackPanel Grid.Row="2" Margin="10">
-                <RadioButton x:Name="DownloadToDbOptionRadioButton" Click="DownloadToDbOptionRadioButton_OnClick"
-                             Content="Download job and save/update into database" />
-                <Grid x:Name="DownloadToDbOptionInputGrid">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <CheckBox Grid.Row="0" Margin="5" IsChecked="{Binding SeedJobRating}"
-                              Content="Download job rating from RateMyCoopJob.com" />
-                    <CheckBox Grid.Row="1" Margin="5" IsChecked="{Binding SeedLocation}"
-                              Content="Download location data from Google Map Api" />
-                    <StackPanel Grid.Row="2" Orientation="Horizontal">
-                        <Label Margin="5" Content="Google Map Api keys:" />
-                        <Label Margin="5">
-                            <Hyperlink
-                                NavigateUri="http://stackoverflow.com/questions/22294128/how-can-i-get-google-map-api-v3-key"
-                                RequestNavigate="Hyperlink_RequestNavigate">
-                                How to get it?
-                            </Hyperlink>
-                        </Label>
+        <ScrollViewer>
+            <Grid DockPanel.Dock="Left" Width="500">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                           TextWrapping="Wrap">
+                    <Run Text="Before you start..." /><LineBreak />
+                    <Run
+                        Text="1.Please log onto Jobmine in order to verify that your credital is valid and that JobMine is online" />
+                    <LineBreak />
+                    <Run
+                        Text="2.Go to JobInquire page and set values as follows inorder to guarntee that the correct data is imported" />
+                    <LineBreak />
+                    <Run
+                        Text="3.Reset location filter, discipline filter, employer search, and job title search to empty" />
+                    <LineBreak />
+                    <Run Text="4.Select all levels including junior, intermediate, and senior" /><LineBreak />
+                    <Run Text="5.(optional) enter the correct term and job status"></Run>
+                </TextBlock>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="10">
+                        <Label Content="Username:" Margin="5" />
+                        <TextBox x:Name="UsernameTextBox" Margin="5" Text="{Binding UserName}" />
                     </StackPanel>
-                    <TextBox Grid.Row="3" Text="{Binding GoogleMapApiKeyString}"></TextBox>
-                    <Button Grid.Row="4" Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
-                            Content="DownLoad and save/update into database" />
-                    <Button Grid.Row="5" Margin="5" HorizontalAlignment="Right" Click="ImportJobToDbButton_OnClick"
-                            Content="Import and save/update into database (Selected directory must be exported JSON Files)" />
+                    <StackPanel Grid.Column="1" Margin="10">
+                        <Label Content="Password:" Margin="5" />
+                        <PasswordBox x:Name="PasswordTextBox" Margin="5" PasswordChanged="PasswordChanged" />
+                    </StackPanel>
                 </Grid>
-            </StackPanel>
-            <StackPanel Grid.Row="3" Margin="10">
-                <RadioButton x:Name="DownloadToLocalOptionRadioButton" Click="DownloadToLocalOptionRadioButton_OnClick"
-                             Content="Download job and save/export into local files" />
-                <Grid x:Name="DownloadToLocalOptionInputGrid">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" HorizontalAlignment="Left" Content="File location:" Margin="5" />
-                    <Button Grid.Row="0" Width="150" Margin="5" HorizontalAlignment="Right"
-                            Click="SelectFileLocationButton_OnClick"
-                            Content="Select file location" />
-                    <TextBox Grid.Row="1" x:Name="FileLocationTextBox" Margin="5" IsReadOnly="True"
-                             Text="{Binding FileLocation, Mode=TwoWay}" />
-                    <Button Grid.Row="2" Margin="5" HorizontalAlignment="Right" Click="ExportJob"
-                            Content="Export jobs from database (Requires database to be populated \ JSON format)" />
-                    <Button Grid.Row="3" Margin="5" HorizontalAlignment="Right" Click="DownloadToLocal"
-                            Content="DownLoad jobs (Directly from jobmine \ human readable format)" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="10">
+                        <Label Content="Term: (Same as Jobmine; Ex 1151)" Margin="5" />
+                        <TextBox x:Name="TermTextBox" Margin="5" Text="{Binding Term}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="10">
+                        <Label Content="Job Status:" Margin="5" />
+                        <ComboBox x:Name="JobStatusComboBox" Margin="5"
+                                  SelectedIndex="{Binding JobStatusSelectionIndex}">
+                            <ComboBoxItem Content="Posted" />
+                            <ComboBoxItem Content="Application Available" />
+                            <ComboBoxItem Content="Cancelled" />
+                            <ComboBoxItem Content="Approved" />
+                        </ComboBox>
+                    </StackPanel>
                 </Grid>
-            </StackPanel>
-            <TextBlock Grid.Row="4" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-        </Grid>
+                <StackPanel Grid.Row="3">
+                    <Label Margin="5" Content="Simple Operations" FontWeight="Bold"></Label>
+                    <Button Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
+                            Content="DownLoad jobs and save/update into database" />
+                    <Button Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
+                            Content="Update jobs table information into database (e.g. Number of applied)" />
+                    <Button Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
+                            Content="Delete All information in database (hard reset, incase things didn't work)" />
+                </StackPanel>
+                <StackPanel Grid.Row="4">
+                    <Label Margin="5" Content="Advance Stuff (Headache Includded)" FontWeight="Bold"></Label>
+                    <StackPanel Margin="10">
+                        <RadioButton x:Name="DownloadToDbOptionRadioButton"
+                                     Click="DownloadToDbOptionRadioButton_OnClick"
+                                     Content="Download job and save/update into database" />
+                        <Grid x:Name="DownloadToDbOptionInputGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <CheckBox Grid.Row="0" Margin="5" IsChecked="{Binding SeedJobRating}"
+                                      Content="Download job rating from RateMyCoopJob.com" />
+                            <CheckBox Grid.Row="1" Margin="5" IsChecked="{Binding SeedLocation}"
+                                      Content="Download location data from Google Map Api" />
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <Label Margin="5" Content="Google Map Api keys:" />
+                                <Label Margin="5">
+                                    <Hyperlink
+                                        NavigateUri="http://stackoverflow.com/questions/22294128/how-can-i-get-google-map-api-v3-key"
+                                        RequestNavigate="Hyperlink_RequestNavigate">
+                                        How to get it?
+                                    </Hyperlink>
+                                </Label>
+                            </StackPanel>
+                            <TextBox Grid.Row="3" Text="{Binding GoogleMapApiKeyString}"></TextBox>
+                            <Button Grid.Row="4" Margin="5" HorizontalAlignment="Right"
+                                    Click="DownloadToDbButton_OnClick"
+                                    Content="DownLoad and save/update into database" />
+                            <Button Grid.Row="5" Margin="5" HorizontalAlignment="Right"
+                                    Click="ImportJobToDbButton_OnClick"
+                                    Content="Import and save/update into database (Selected directory must be exported JSON Files)" />
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Margin="10">
+                        <RadioButton x:Name="DownloadToLocalOptionRadioButton"
+                                     Click="DownloadToLocalOptionRadioButton_OnClick"
+                                     Content="Download job and save/export into local files" />
+                        <Grid x:Name="DownloadToLocalOptionInputGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" HorizontalAlignment="Left" Content="File location:" Margin="5" />
+                            <Button Grid.Row="0" Width="150" Margin="5" HorizontalAlignment="Right"
+                                    Click="SelectFileLocationButton_OnClick"
+                                    Content="Select file location" />
+                            <TextBox Grid.Row="1" x:Name="FileLocationTextBox" Margin="5" IsReadOnly="True"
+                                     Text="{Binding FileLocation, Mode=TwoWay}" />
+                            <Button Grid.Row="2" Margin="5" HorizontalAlignment="Right" Click="ExportJob"
+                                    Content="Export jobs from database (Requires database to be populated \ JSON format)" />
+                            <Button Grid.Row="3" Margin="5" HorizontalAlignment="Right" Click="DownloadToLocal"
+                                    Content="DownLoad jobs (Directly from jobmine \ human readable format)" />
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </Grid></ScrollViewer>
         <Grid DockPanel.Dock="Right">
             <Grid Margin="10">
                 <Grid.RowDefinitions>
