@@ -33,7 +33,7 @@ namespace Common.Utility
 
         public static bool IsNullSpaceOrEmpty(this string value)
         {
-            if (string.IsNullOrEmpty(value) || value == "")
+            if (string.IsNullOrWhiteSpace(value) || value == "")
                 return true;
             return false;
         }

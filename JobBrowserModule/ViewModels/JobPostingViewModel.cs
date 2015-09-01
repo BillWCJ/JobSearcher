@@ -73,6 +73,15 @@ namespace JobBrowserModule.ViewModels
             Score = 0;
         }
 
+        
+        public string Details
+        {
+            get
+            {
+                return Job.Comment.IsNullSpaceOrEmpty() ? "No comments..." : Job.Comment;
+            }
+        }
+
         private string _shortString = null;
 
         public string ShortString
