@@ -41,6 +41,13 @@ namespace JobBrowserModule.ViewModels
         }
 
         public ObservableCollection<string> ShortListNames { get; set; }
+
+        public PostingTableViewModelMock()
+        {
+            var jobs = JobManager.FindJobs();
+            var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
+            JobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
+        }
     }
 
     public class PostingTableViewModel : ViewModelBase, IPostingTableViewModel
@@ -60,7 +67,7 @@ namespace JobBrowserModule.ViewModels
             _aggregator = aggregator;
             _aggregator.GetEvent<FilterSelectionChangedEvent>().Subscribe(FilterChanged);
             JobReviewManager = new JobReviewManager();
-            var jobs = JobSearcher.FindJobs();
+            var jobs = JobManager.FindJobs();
             var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
             _jobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
             _jobPostings.Filter += JobPostingFilter;

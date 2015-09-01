@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Common.Utility;
+using Data.EF.JseDb;
 using Model.Definition;
 using Model.Entities;
 using Model.Entities.JobMine;
@@ -9,6 +12,17 @@ namespace Business.Manager
 {
     public class JobManager
     {
+        public static List<Job> FindJobs()
+        {
+            using (var db = new JseDbContext())
+            {
+                var jobList = db.Jobs.Include(j => j.Levels).Include(j => j.Disciplines).Include(j => j.JobLocation).Include(j => j.Employer).ToList();
+                Console.WriteLine(jobList.Count);
+                return jobList;
+            }
+        }
+
+
         public static TermType GetTermDuration(Job job)
         {
             TermType value;

@@ -13,7 +13,9 @@
         <BitmapImage x:Key="LocationIcon" UriSource="../Icons/Location.png" />
         <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
     </UserControl.Resources>
-    
+    <UserControl.DataContext>
+        <viewModels:PostingTableViewModelMock />
+    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
