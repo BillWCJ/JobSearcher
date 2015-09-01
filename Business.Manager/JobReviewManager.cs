@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using Common.Utility;
 using Data.EF.JseDb;
 using Model.Entities.RateMyCoopJob;
 
@@ -62,7 +63,6 @@ namespace Business.Manager
                         employerNameTolerance = employerNameTolerance < 2 ? employerNameTolerance++ : employerNameTolerance;
                     if (anyEmployerMatch && !anyJobMatch)
                         jobTitelTolerance = jobTitelTolerance < 2 ? jobTitelTolerance++ : jobTitelTolerance;
-                    ;
                 }
                 returnlist = list.Select(jobReview => db.JobReviews.Include(j => j.EmployerReview).Include(j => j.JobRatings).FirstOrDefault(j => j.JobReviewId == jobReview.JobReviewId)).ToList();
             }
@@ -74,6 +74,26 @@ namespace Business.Manager
             string[] splits = toBeMatchedName.Split(' ', ',', '.', '-');
             int numSplitMatched = splits.Count(split => name.IndexOf(split, StringComparison.OrdinalIgnoreCase) > 0);
             return numSplitMatched >= (splits.Length - tolerance);
+        }
+
+        public static List<EmployerReview> GetEmployerReview(string employerName)
+        {
+            var returnlist = new List<EmployerReview>();
+            if (!employerName.IsNullSpaceOrEmpty())
+            {
+                using (var db = new JseDbContext())
+                {
+                    for (int tolerance = 0; !returnlist.Any() && tolerance < 5; tolerance++)
+                    {
+                        foreach (EmployerReview employerReview in db.EmployerReviews.Include(e => e.JobReviews))
+                        {
+                            if (IsSimilar(employerName, employerReview.Name, tolerance))
+                                returnlist.Add(employerReview);
+                        }
+                    }
+                }
+            }
+            return returnlist;
         }
     }
 }

@@ -112,6 +112,10 @@
                                                                Title="Google Map Search">
                                             <jobDetailModule:GoogleMapSearchView Name="GoogleMapSearchPanel" />
                                         </xcad:LayoutAnchorable>
+                                        <xcad:LayoutAnchorable ContentId="JobRatingPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                                               Title="Job Rating">
+                                            <jobDetailModule:JobRatingView Name="JobRatingPanel" />
+                                        </xcad:LayoutAnchorable>
                                     </xcad:LayoutAnchorGroup>
                                 </xcad:LayoutAnchorSide>
                             </xcad:LayoutRoot.RightSide>

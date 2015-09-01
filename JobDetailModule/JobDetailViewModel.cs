@@ -28,8 +28,6 @@ namespace JobDetailModule
         protected override void NotifyPropertyChanged()
         {
             OnPropertyChanged("CurrentJobString");
-            OnPropertyChanged("GoogleSearchUrl");
-            OnPropertyChanged("GoogleMapUrl");
         }
 
         public void AddSelectedJobToShortList(string name)

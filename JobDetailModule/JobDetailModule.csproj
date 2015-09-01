@@ -60,6 +60,10 @@
     </Compile>
     <Compile Include="JobDetailViewModel.cs" />
     <Compile Include="JobDetailViewModelBase.cs" />
+    <Compile Include="JobRatingView.xaml.cs">
+      <DependentUpon>JobRatingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JobRatingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebBrowserProperties.cs" />
   </ItemGroup>
@@ -73,6 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="JobDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JobRatingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

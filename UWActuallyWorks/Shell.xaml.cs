@@ -26,6 +26,7 @@ namespace UWActuallyWorks
             JobDetailPanel.ViewModel = new JobDetailViewModel(_aggregator);
             GoogleSearchPanel.ViewModel = new GoogleSearchViewModel(_aggregator);
             GoogleMapSearchPanel.ViewModel = new GoogleMapSearchViewModel(_aggregator);
+            JobRatingPanel.ViewModel = new JobRatingViewModel(_aggregator);
             SelectPerspective(0);
         }
 
