@@ -54,6 +54,10 @@ namespace JobDownloaderModule
         {
             _viewModel.DownloadAndSeedJobIntoDb();
         }
+        private void DeleteJobsFromDatabase_OnClick(object sender, RoutedEventArgs e)
+        {
+            _viewModel.DeleteJobsFromDatabase();
+        }
 
         private void DownloadToLocalOptionRadioButton_OnClick(object sender, RoutedEventArgs e)
         {

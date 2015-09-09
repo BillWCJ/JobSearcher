@@ -76,11 +76,11 @@
                 <GroupBox Grid.Row="3" Margin="5" Header="Simple Operations">
                     <StackPanel>
                         <Button Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
-                                Content="DownLoad jobs and save/update into database" />
+                                Content="DownLoad jobs and save into database" />
                         <Button Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
                                 Content="Update jobs table information into database (e.g. Number of applied)" />
-                        <Button Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"
-                                Content="Delete All information in database (hard reset, incase things didn't work)" />
+                        <Button Margin="5" HorizontalAlignment="Right" Click="DeleteJobsFromDatabase_OnClick"
+                                Content="Delete All information in database (remove cancelled job or incase things didn't work)" />
                         </StackPanel>
                 </GroupBox>
                 <GroupBox Grid.Row="4" Margin="5" Header="Advance Stuff (Headache Includded)">

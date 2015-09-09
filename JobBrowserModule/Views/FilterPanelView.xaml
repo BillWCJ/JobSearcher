@@ -60,7 +60,7 @@
                             <Button Click="AddFilterCLicked"
                                     Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                                 <Image Height="13" Width="13" Source="{StaticResource AddIcon}"
-                                       ToolTip="Open posting on JobMine" />
+                                       ToolTip="Add filter" />
                             </Button>
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
@@ -69,7 +69,7 @@
                                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}}"
                                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                                     <Image Height="15" Width="15" Source="{StaticResource EditIcon}"
-                                           ToolTip="Open posting on JobMine" />
+                                           ToolTip="Edit filter" />
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

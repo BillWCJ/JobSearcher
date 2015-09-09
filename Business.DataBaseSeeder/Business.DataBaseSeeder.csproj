@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseCleaner.cs" />
     <Compile Include="GoogleLocationSeeder.cs" />
     <Compile Include="JobMineInfoSeeder.cs" />
     <Compile Include="MasterSeeder.cs" />

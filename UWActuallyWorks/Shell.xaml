@@ -8,7 +8,7 @@
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:s="clr-namespace:System;assembly=mscorlib"
         Title="UWActuallyWorks" Height="768" Width="1366">
-    
+
     <Window.Resources>
         <BitmapImage x:Key="RefreshIcon" UriSource="/JobBrowserModule;Component/Icons/Sync.png" />
         <BitmapImage x:Key="HomeIcon" UriSource="/JobBrowserModule;Component/Icons/Home.png" />
@@ -16,15 +16,14 @@
         <BitmapImage x:Key="MapIcon" UriSource="/JobBrowserModule;Component/Icons/Location.png" />
         <BitmapImage x:Key="OptionsIcon" UriSource="/JobBrowserModule;Component/Icons/Gear.png" />
     </Window.Resources>
-    
-   
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-            <Grid >
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="*" />
@@ -35,29 +34,8 @@
                 </Label>
                 <TextBlock Grid.Column="1" Name="MessageTextBlock" Height="Auto" Width="Auto"></TextBlock>
                 <StackPanel Orientation="Horizontal" Grid.Column="2">
-                    <Button Name="RefreshButton" Height="Auto" Width="Auto" Margin="5" 
-                            Background="Transparent" Click="SelectJobDownloaderPerspective"
-                            BorderBrush="Transparent" BorderThickness="0">
-                        <Image Source="{StaticResource RefreshIcon}" />
-                    </Button>
-                    <Button Name="ImportDataPerspectiveButton" Margin="5"
-                            Background="Transparent" Click="SelectJobBrowserPerspective"
-                            BorderBrush="Transparent" BorderThickness="0">
-                        <Image Source="{StaticResource HomeIcon}" />
-                    </Button>
-                    <Button Name="JobPostingPerspectiveButton" Margin="5"
-                            Background="Transparent"
-                            BorderBrush="Transparent" BorderThickness="0">
-                        <Image Source="{StaticResource TableIcon}" />
-                    </Button>
-                    <Button Name="MapPerspectiveButton" Margin="5" Background="Transparent"
-                            BorderBrush="Transparent" BorderThickness="0">
-                        <Image Source="{StaticResource MapIcon}" />
-                    </Button>
-                    <Button Name="OptionsPerspectiveButton" Margin="5" Background="Transparent"
-                            BorderBrush="Transparent" BorderThickness="0">
-                        <Image Source="{StaticResource OptionsIcon}" />
-                    </Button>
+                    <Button Margin="2" Padding="3" Content="Import/Export Job Posting Data" Click="SelectJobDownloaderPerspective" FontSize="16" FontWeight="Bold"/>
+                    <Button Margin="2" Padding="3" Content="Browse Jobs" Click="SelectJobBrowserPerspective" FontSize="16" FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -100,19 +78,23 @@
                             <xcad:LayoutRoot.RightSide>
                                 <xcad:LayoutAnchorSide>
                                     <xcad:LayoutAnchorGroup>
-                                        <xcad:LayoutAnchorable ContentId="JobDetailPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                        <xcad:LayoutAnchorable ContentId="JobDetailPanelContentId"
+                                                               AutoHideMinWidth="500" AutoHideWidth="750"
                                                                Title="Job Detail">
                                             <jobDetailModule:JobDetailView Name="JobDetailPanel" />
                                         </xcad:LayoutAnchorable>
-                                        <xcad:LayoutAnchorable ContentId="GoogleSearchPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                        <xcad:LayoutAnchorable ContentId="GoogleSearchPanelContentId"
+                                                               AutoHideMinWidth="500" AutoHideWidth="750"
                                                                Title="Google Search">
                                             <jobDetailModule:GoogleSearchView Name="GoogleSearchPanel" />
                                         </xcad:LayoutAnchorable>
-                                        <xcad:LayoutAnchorable ContentId="GoogleMapSearchPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                        <xcad:LayoutAnchorable ContentId="GoogleMapSearchPanelContentId"
+                                                               AutoHideMinWidth="500" AutoHideWidth="750"
                                                                Title="Google Map Search">
                                             <jobDetailModule:GoogleMapSearchView Name="GoogleMapSearchPanel" />
                                         </xcad:LayoutAnchorable>
-                                        <xcad:LayoutAnchorable ContentId="JobRatingPanelContentId" AutoHideMinWidth="500" AutoHideWidth="750"
+                                        <xcad:LayoutAnchorable ContentId="JobRatingPanelContentId"
+                                                               AutoHideMinWidth="500" AutoHideWidth="750"
                                                                Title="Job Rating">
                                             <jobDetailModule:JobRatingView Name="JobRatingPanel" />
                                         </xcad:LayoutAnchorable>

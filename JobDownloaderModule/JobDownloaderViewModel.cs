@@ -215,5 +215,9 @@ namespace JobDownloaderModule
             }, Task.Factory.CancellationToken);
         }
 
+        public void DeleteJobsFromDatabase()
+        {
+            DatabaseCleaner.DeleteJobs(MessageCallBack);
+        }
     }
 }
