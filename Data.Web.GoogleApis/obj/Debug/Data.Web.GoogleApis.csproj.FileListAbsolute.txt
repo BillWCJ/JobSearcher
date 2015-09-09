@@ -27,5 +27,3 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.Google
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\obj\Debug\Data.Web.GoogleApis.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Common.Utility.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Common.Utility.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Data.Web.GoogleApis.dll.CodeAnalysisLog.xml
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Data.Web.GoogleApis.dll.lastcodeanalysissucceeded

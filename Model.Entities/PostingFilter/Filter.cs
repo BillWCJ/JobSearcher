@@ -28,6 +28,7 @@ namespace Model.Entities.PostingFilter
         public ValueSearchTarget ValueSearchSelectedItem { get; set; }
         public double LowerLimit { get; set; }
         public double UpperLimit { get; set; }
+        public bool IsAntiFilter { get; set; }
 
         public override string ToString()
         {

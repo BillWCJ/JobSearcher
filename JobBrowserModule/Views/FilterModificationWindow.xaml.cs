@@ -24,19 +24,9 @@ namespace JobBrowserModule.Views
 
         private void SaveOrEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            var errorInInput = ViewModel.ErrorInInput();
-            if (errorInInput == null)
-            {
-                ViewModel.SaveChangeToBaseViewModel();
-                SaveChangeCallBack();
-                Close();
-            }
-            DisplayError(errorInInput);
-        }
-
-        private void DisplayError(string errorInInput)
-        {
-            ErrorTextBox.Text = errorInInput;
+            ViewModel.SaveChangeToBaseViewModel();
+            SaveChangeCallBack();
+            Close();
         }
 
         private void Cancel_OnClick(object sender, RoutedEventArgs e)

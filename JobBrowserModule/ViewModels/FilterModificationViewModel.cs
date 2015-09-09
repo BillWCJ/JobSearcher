@@ -18,6 +18,7 @@ namespace JobBrowserModule.ViewModels
 
         string Name { get; set; }
         string Description { get; set; }
+        bool IsAntiFilter { get; set; }
         bool MatchCase { get; set; }
         bool IsJunior { get; set; }
         bool IsIntermediate { get; set; }
@@ -27,7 +28,6 @@ namespace JobBrowserModule.ViewModels
         ValueSearchTarget ValueSearchSelectedItem { get; set; }
 
         void SaveChangeToBaseViewModel();
-        string ErrorInInput();
     }
 
     public class FilterModificationViewModelMock : IFilterModificationViewModel
@@ -38,6 +38,7 @@ namespace JobBrowserModule.ViewModels
         public FilterCategory SelectedFilterCategory { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool IsAntiFilter { get; set; }
         public bool MatchCase { get; set; }
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }
@@ -49,6 +50,7 @@ namespace JobBrowserModule.ViewModels
 
         public ValueSearchTarget ValueSearchSelectedItem { get; set; }
 
+
         public void SaveChangeToBaseViewModel()
         {
         }
@@ -59,12 +61,6 @@ namespace JobBrowserModule.ViewModels
             StringSearchValues = new ObservableCollection<string>(new List<string>(){"Mech"});
             Name = "Mech";
             Description = "Mechanical";
-        }
-            
-
-        public string ErrorInInput()
-        {
-            return String.Empty;
         }
     }
 
@@ -80,6 +76,7 @@ namespace JobBrowserModule.ViewModels
                 SelectedFilterCategory = _filterViewModel.Filter.Category;
                 Name = _filterViewModel.Filter.Name;
                 Description = _filterViewModel.Filter.Description;
+                IsAntiFilter = _filterViewModel.Filter.IsAntiFilter;
                 StringSearchTargets = new ObservableCollection<StringSearchTarget>(_filterViewModel.Filter.StringSearchTargets);
                 StringSearchValues = new ObservableCollection<string>(_filterViewModel.Filter.StringSearchValues);
                 MatchCase = _filterViewModel.Filter.MatchCase;
@@ -107,6 +104,7 @@ namespace JobBrowserModule.ViewModels
         public Dictionary<FilterCategory, bool> FilterCategorySelection { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool IsAntiFilter { get; set; }
         public bool MatchCase { get; set; }
         public bool IsJunior { get; set; }
         public bool IsIntermediate { get; set; }
@@ -119,6 +117,7 @@ namespace JobBrowserModule.ViewModels
         {
             _filterViewModel.Filter.Name = Name;
             _filterViewModel.Filter.Description = Description;
+            _filterViewModel.Filter.IsAntiFilter = IsAntiFilter;
             _filterViewModel.Filter.Category = SelectedFilterCategory;
             _filterViewModel.Filter.StringSearchTargets = StringSearchTargets.ToList();
             _filterViewModel.Filter.StringSearchValues = StringSearchValues.ToList();
@@ -130,18 +129,6 @@ namespace JobBrowserModule.ViewModels
             _filterViewModel.Filter.ValueSearchSelectedItem = ValueSearchSelectedItem;
             _filterViewModel.Filter.LowerLimit = LowerLimit;
             _filterViewModel.Filter.UpperLimit = UpperLimit;
-        }
-
-        public string ErrorInInput()
-        {
-            var errors = string.Empty;
-            if (Name.IsNullSpaceOrEmpty())
-                errors += "Name is Empty";
-            if (!StringSearchTargets.Any())
-                errors += "Targets is Empty";
-            if (!StringSearchValues.Any())
-                errors += "Values is Empty";
-            return errors.IsNullSpaceOrEmpty() ? null : errors;
         }
     }
 }

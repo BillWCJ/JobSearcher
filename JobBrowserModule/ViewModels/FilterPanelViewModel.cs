@@ -104,11 +104,9 @@ namespace JobBrowserModule.ViewModels
 
         public void FilterModified(FilterViewModel modifiedFilter)
         {
-            if (modifiedFilter == null)
-                return;
-            int index = Filters.ToList().FindIndex(f => f.Filter.Id == modifiedFilter.Filter.Id);
-            Filters.RemoveAt(index);
-            Filters.Insert(index, modifiedFilter);
+            //save filter into db
+            modifiedFilter.FilterModified();
+            FilterChanged();
         }
     }
 }

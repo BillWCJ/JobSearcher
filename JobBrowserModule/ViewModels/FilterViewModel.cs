@@ -29,5 +29,10 @@ namespace JobBrowserModule.ViewModels
         {
             return Filter + " " + Filter.Category.GetDescription();
         }
+
+        public void FilterModified()
+        {
+            OnPropertyChanged("Filter");
+        }
     }
 }

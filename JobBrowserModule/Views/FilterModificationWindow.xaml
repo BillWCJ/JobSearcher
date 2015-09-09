@@ -51,7 +51,8 @@
                     <Label Width="Auto" Margin="5" Content="Name:" />
                     <TextBox Width="100" Margin="5" Text="{Binding Name, Mode=TwoWay}" />
                     <Label Width="Auto" Margin="5" Content="Short Description:" />
-                    <TextBox MinWidth="200" Margin="5" Text="{Binding Description, Mode=TwoWay}" />
+                    <TextBox MinWidth="150" Margin="5" Text="{Binding Description, Mode=TwoWay}" />
+                    <CheckBox Margin="10" Content="AntiFilter (Jobs that pass this filter will be filtered out)" IsChecked="{Binding IsAntiFilter, Mode=TwoWay}"></CheckBox>
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">

@@ -40,7 +40,9 @@ namespace JobBrowserModule.Services
                         return false;
                 }
 
-                if (!filterOperation(jobPosting, filter))
+                bool operationResult = filterOperation(jobPosting, filter);
+                bool passFilter = (operationResult && !filter.IsAntiFilter ) || (!operationResult && filter.IsAntiFilter);
+                if (!passFilter)
                     return false;
             }
             return true;
