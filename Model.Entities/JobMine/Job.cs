@@ -120,9 +120,9 @@ namespace Model.Entities.JobMine
             }
             else
             {
-                toString += Employer.Name + "                    " + JobTitle + "                    " + JobLocation.Region + Environment.NewLine;
-                toString += Disciplines + "                    " + Levels + Environment.NewLine;
-                toString += "Comment:" + Environment.NewLine + Comment + Environment.NewLine;
+                toString += Employer.Name + "           " + JobTitle + "            " + JobLocation.Region + Environment.NewLine;
+                toString += Disciplines + "         " + Levels + Environment.NewLine + Environment.NewLine;
+                toString += "Comment: " + Comment + Environment.NewLine + Environment.NewLine;
                 toString += "JobDescription:" + Environment.NewLine + JobDescription + Environment.NewLine + Environment.NewLine;
             }
 

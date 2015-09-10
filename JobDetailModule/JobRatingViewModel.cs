@@ -18,7 +18,7 @@ namespace JobDetailModule
         {
             get
             {
-                return _employerReviews ?? (_employerReviews = new ObservableCollection<EmployerReview>());
+                return _employerReviews ?? (_employerReviews = new ObservableCollection<EmployerReview>(JobReviewManager.GetEmployerReview("University of Waterloo")));
             }
             set
             {

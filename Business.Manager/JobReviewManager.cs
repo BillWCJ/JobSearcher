@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using Common.Utility;
 using Data.EF.JseDb;
@@ -72,27 +73,34 @@ namespace Business.Manager
         private static bool IsSimilar(string toBeMatchedName, string name, int tolerance = 0)
         {
             string[] splits = toBeMatchedName.Split(' ', ',', '.', '-');
-            int numSplitMatched = splits.Count(split => name.IndexOf(split, StringComparison.OrdinalIgnoreCase) > 0);
+            return IsSimilar(splits, name, tolerance);
+        }
+        private static bool IsSimilar(string[] splits, string name, int tolerance)
+        {
+            int numSplitMatched = splits.Count(split => name.IndexOf(split, StringComparison.OrdinalIgnoreCase) >= 0);
             return numSplitMatched >= (splits.Length - tolerance);
         }
 
         public static List<EmployerReview> GetEmployerReview(string employerName)
         {
             var returnlist = new List<EmployerReview>();
+            employerName = employerName.Trim(' ');
             if (!employerName.IsNullSpaceOrEmpty())
             {
+                string[] employerNameSplits = employerName.Split(' ', ',', '.', '-');
                 using (var db = new JseDbContext())
                 {
-                    for (int tolerance = 0; !returnlist.Any() && tolerance < 5; tolerance++)
+                    for (int tolerance = 0; !returnlist.Any() && tolerance < employerNameSplits.Count(); tolerance++)
                     {
-                        foreach (EmployerReview employerReview in db.EmployerReviews.Include(e => e.JobReviews))
+                        foreach (EmployerReview employerReview in db.EmployerReviews.Include(e => e.JobReviews.Select(j => j.JobRatings)))
                         {
-                            if (IsSimilar(employerName, employerReview.Name, tolerance))
+                            if (IsSimilar(employerNameSplits, employerReview.Name, tolerance))
                                 returnlist.Add(employerReview);
                         }
                     }
                 }
             }
+            returnlist.Sort((x, y) => String.CompareOrdinal(x.Name, y.Name));
             return returnlist;
         }
     }

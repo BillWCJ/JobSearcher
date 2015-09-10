@@ -89,9 +89,9 @@ namespace JobBrowserModule.ViewModels
 
         public void FilterChanged()
         {
-                    IEnumerable<Filter> filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
-                    if (_aggregator != null)
-                        _aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
+            IEnumerable<Filter> filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
+            if (_aggregator != null)
+                _aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
         }
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }
@@ -104,6 +104,8 @@ namespace JobBrowserModule.ViewModels
 
         public void FilterModified(FilterViewModel modifiedFilter)
         {
+            if (modifiedFilter == null)
+                return;
             //save filter into db
             modifiedFilter.FilterModified();
             FilterChanged();

@@ -3,13 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:JobDetailModule" x:Class="JobDetailModule.JobRatingView" 
+             xmlns:local="clr-namespace:JobDetailModule"
+             xmlns:rateMyCoopJob="clr-namespace:Model.Entities.RateMyCoopJob;assembly=Model.Entities"
+             x:Class="JobDetailModule.JobRatingView" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="768" d:DesignWidth="500">
     <UserControl.DataContext>
         <local:JobRatingViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <TreeView ItemsSource="{Binding GetEmployerReview}"/>
-    </Grid>
+        <TreeView
+            ItemsSource="{Binding EmployerReviews}"
+            AlternationCount="2">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type rateMyCoopJob:EmployerReview}"
+                                          ItemsSource="{Binding JobReviews}">
+                    <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14" TextTrimming="CharacterEllipsis" />
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type rateMyCoopJob:JobReview}"
+                                                  ItemsSource="{Binding JobRatings}">
+                            <Border Margin="5" BorderBrush="Gray" BorderThickness="2" CornerRadius="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding Title}"
+                                               FontWeight="Bold" VerticalAlignment="Center" />
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Location:" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Location}"
+                                               VerticalAlignment="Center" />
+                                    <Label Grid.Row="2" Grid.Column="0" Content="AverageRating:" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding AverageRating}"
+                                               VerticalAlignment="Center" />
+                                    <Label Grid.Row="3" Grid.Column="0" Content="AverageRating:" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding AverageRating}"
+                                               VerticalAlignment="Center" />
+                                    <Label Grid.Row="4" Grid.Column="0" Content="NumberOfReviews:" />
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding NumberOfReviews}"
+                                               VerticalAlignment="Center" />
+                                </Grid>
+                            </Border>
+                            <HierarchicalDataTemplate.ItemTemplate>
+                                <HierarchicalDataTemplate DataType="{x:Type rateMyCoopJob:JobRating}">
+                                    <Border Margin="5" BorderBrush="Gray" BorderThickness="2" CornerRadius="2">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="Rating:" />
+                                                <TextBlock Margin="5,0" Text="{Binding Rating}" VerticalAlignment="Center" />
+                                                <TextBlock Margin="5,0" Text="{Binding Salary}" VerticalAlignment="Center" />
+                                                <TextBlock Margin="5,0" Text="{Binding Date}" VerticalAlignment="Center" />
+                                            </StackPanel>
+                                            <TextBlock Margin="2" Text="{Binding Comment}" MaxWidth="500" VerticalAlignment="Center"
+                                                       TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </Border>
+                                </HierarchicalDataTemplate>
+                            </HierarchicalDataTemplate.ItemTemplate>
+                        </HierarchicalDataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView></Grid>
 </UserControl>

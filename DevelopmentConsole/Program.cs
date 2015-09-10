@@ -15,10 +15,11 @@ namespace DevelopmentConsole
     {
         private static void Main(string[] args)
         {
-            foreach (var msg in MasterSeeder.SeedAll("1155", JobStatus.Posted, new JseLocalRepo().GetAccount(), false, false, "ottawa"))
-            {
-                Console.WriteLine(msg);
-            }
+            //foreach (var msg in MasterSeeder.SeedAll("1155", JobStatus.Posted, new JseLocalRepo().GetAccount(), false, false, "ottawa"))
+            //{
+            //    Console.WriteLine(msg);
+            //}
+            RateMyCoopJobSeeder.SeedDb();
             Console.ReadKey();
         }
     }

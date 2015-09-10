@@ -37,26 +37,8 @@ namespace JobDetailModule
                 if (!ShortListNames.Contains(name))
                     ShortListNames.Add(name);
             }
-
         }
 
         public ObservableCollection<string> ShortListNames { get; set; }
-
-        public string GoogleSearchUrl
-        {
-            get
-            { 
-                return @"http://www.google.com/search?q=" + (CurrentJob == null ? "" : CurrentJob.Employer.Name);
-            }
-        }
-
-        public string GoogleMapUrl
-        {
-            get
-            {
-                //ie mode
-                return @"http://maps.google.com/?q=" + (CurrentJob == null ? "" : CurrentJob.Employer.Name + " " + CurrentJob.JobLocation.Region);
-            }
-        }
     }
 }
