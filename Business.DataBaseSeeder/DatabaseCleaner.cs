@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Data.EF.JseDb;
 using Model.Entities;
 using Model.Entities.JobMine;
+using Model.Entities.RateMyCoopJob;
 
 namespace Business.DataBaseSeeder
 {

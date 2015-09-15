@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.EF.JseDb.Configuration
 {

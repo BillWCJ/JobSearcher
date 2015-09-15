@@ -1,4 +1,5 @@
 ﻿using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.Contract.JseDb.Interface
 {

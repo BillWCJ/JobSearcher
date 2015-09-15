@@ -6,8 +6,8 @@ using System.Windows.Data;
 using Business.Manager;
 using JobBrowserModule.Services;
 using Microsoft.Practices.Prism.PubSubEvents;
+using Model.Entities;
 using Model.Entities.JobMine;
-using Model.Entities.PostingFilter;
 using Presentation.WPF;
 using Presentation.WPF.Events;
 
@@ -71,7 +71,7 @@ namespace JobBrowserModule.ViewModels
             var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
             _jobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
             _jobPostings.Filter += JobPostingFilter;
-            ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
+            //ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
         }
 
         public ICollectionView JobPostings

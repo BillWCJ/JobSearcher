@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using JobBrowserModule.Services;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Definition;
-using Model.Entities.PostingFilter;
+using Model.Entities;
 using Presentation.WPF;
 using Presentation.WPF.Events;
 
@@ -36,7 +36,7 @@ namespace JobBrowserModule.ViewModels
                         Name = "Mech",
                         Description = "Mechanical",
                         Category = FilterCategory.StringSearch,
-                        DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.EngMechatronics, DisciplineEnum.EngSoftware},
+                        DisciplinesSearchTargets = new List<DisciplineEnum> {DisciplineEnum.EngMechatronics, DisciplineEnum.EngSoftware},
                         MatchCase = true,
                         StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
                         StringSearchValues = new List<string> {"Solidworks", "Mech"}
@@ -71,7 +71,7 @@ namespace JobBrowserModule.ViewModels
                     Name = "Mech",
                     Description = "Mechanical",
                     Category = FilterCategory.StringSearch,
-                    DisciplinesSearchTarget = new List<DisciplineEnum> {DisciplineEnum.EngMechatronics, DisciplineEnum.EngSoftware},
+                    DisciplinesSearchTargets = new List<DisciplineEnum> {DisciplineEnum.EngMechatronics, DisciplineEnum.EngSoftware},
                     MatchCase = true,
                     StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
                     StringSearchValues = new List<string> {"Solidworks", "Mech"}

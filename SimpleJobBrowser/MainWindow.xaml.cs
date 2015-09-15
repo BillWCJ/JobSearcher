@@ -49,7 +49,7 @@ namespace SimpleJobBrowser
             }
 
             MainTextBox.Text = Jobs[Index].ToString("f");
-            SideTextBox.Text = Jobs[Index].Score.ToString("Score: 0 \n") + Jobs[Index].NumberOfOpening.ToString("NumberOfOpening: 0 \n");
+            //--SideTextBox.Text = Jobs[Index].Score.ToString("Score: 0 \n") + Jobs[Index].NumberOfOpening.ToString("NumberOfOpening: 0 \n");
             //IEnumerable<JobReview> review = JobReviewManager.GetJobReview(Jobs[Index].Id, Jobs[Index].Employer.Id);
             //string reviewMsg = review.Aggregate<JobReview, string>(null, (current, r) => current + r.ToString());
             //SideTextBox.Text = reviewMsg;

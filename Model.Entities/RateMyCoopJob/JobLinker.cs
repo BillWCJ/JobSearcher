@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using Model.Entities.JobMine;
-using Model.Entities.RateMyCoopJob;
 
-namespace Model.Entities
+namespace Model.Entities.RateMyCoopJob
 {
     public class JobLinker
     {

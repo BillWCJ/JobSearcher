@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -53,13 +54,14 @@ namespace Model.Entities.JobMine
             JobLocation.Jobs.Add(this);
             Levels = new Levels();
             Disciplines = new Disciplines();
+
         }
 
-        [NotMapped]
-        public int Score { get; set; }
-
+        //[NotMapped]
+        //public int Score { get; set; }
         public virtual Levels Levels { get; set; }
         public virtual Disciplines Disciplines { get; set; }
+        public virtual ICollection<LocalShortList> LocalShortList { get; set; }
 
         public string Comment { get; set; }
         public string JobDescription { get; set; }

@@ -20,9 +20,11 @@ namespace Data.EF.JseDb
             JobReviewRepo = new BaseRepository<JobReview>(DbContext);
             EmployerReviewRepo = new BaseRepository<EmployerReview>(DbContext);
             JobRatingRepo = new BaseRepository<JobRating>(DbContext);
-            WordRepo = new BaseRepository<Word>(DbContext);
-            SearchDictionaryRepo = new BaseRepository<SearchDictionary>(DbContext);
-            LocationOfInterestRepo = new BaseRepository<LocationOfInterest>(DbContext);
+            //WordRepo = new BaseRepository<Word>(DbContext);
+            //SearchDictionaryRepo = new BaseRepository<SearchDictionary>(DbContext);
+            //LocationOfInterestRepo = new BaseRepository<LocationOfInterest>(DbContext);
+            LocalShortListRepo = new BaseRepository<LocalShortList>(DbContext);
+            FilteRepo = new BaseRepository<Filter>(DbContext);
         }
 
         public JseDbContext DbContext { get; set; }
@@ -34,9 +36,11 @@ namespace Data.EF.JseDb
         public IBaseRepository<JobReview> JobReviewRepo { get; private set; }
         public IBaseRepository<EmployerReview> EmployerReviewRepo { get; private set; }
         public IBaseRepository<JobRating> JobRatingRepo { get; private set; }
-        public IBaseRepository<Word> WordRepo { get; private set; }
-        public IBaseRepository<SearchDictionary> SearchDictionaryRepo { get; private set; }
-        public IBaseRepository<LocationOfInterest> LocationOfInterestRepo { get; private set; }
+        //public IBaseRepository<Word> WordRepo { get; private set; }
+        //public IBaseRepository<SearchDictionary> SearchDictionaryRepo { get; private set; }
+        //public IBaseRepository<LocationOfInterest> LocationOfInterestRepo { get; private set; }
+        public IBaseRepository<LocalShortList> LocalShortListRepo { get; private set; }
+        public IBaseRepository<Filter> FilteRepo { get; private set; } 
 
         public void SaveChanges()
         {

@@ -80,7 +80,7 @@ namespace JobBrowserModule.ViewModels
                 StringSearchTargets = new ObservableCollection<StringSearchTarget>(_filterViewModel.Filter.StringSearchTargets);
                 StringSearchValues = new ObservableCollection<string>(_filterViewModel.Filter.StringSearchValues);
                 MatchCase = _filterViewModel.Filter.MatchCase;
-                DisciplineSearchTargets = new ObservableCollection<DisciplineEnum>(_filterViewModel.Filter.DisciplinesSearchTarget);
+                DisciplineSearchTargets = new ObservableCollection<DisciplineEnum>(_filterViewModel.Filter.DisciplinesSearchTargets);
                 IsJunior = _filterViewModel.Filter.IsJunior;
                 IsIntermediate = _filterViewModel.Filter.IsIntermediate;
                 IsSenior = _filterViewModel.Filter.IsSenior;
@@ -122,7 +122,7 @@ namespace JobBrowserModule.ViewModels
             _filterViewModel.Filter.StringSearchTargets = StringSearchTargets.ToList();
             _filterViewModel.Filter.StringSearchValues = StringSearchValues.ToList();
             _filterViewModel.Filter.MatchCase = MatchCase;
-            _filterViewModel.Filter.DisciplinesSearchTarget = DisciplineSearchTargets.ToList();
+            _filterViewModel.Filter.DisciplinesSearchTargets = DisciplineSearchTargets.ToList();
             _filterViewModel.Filter.IsJunior = IsJunior;
             _filterViewModel.Filter.IsIntermediate = IsIntermediate;
             _filterViewModel.Filter.IsSenior = IsSenior;

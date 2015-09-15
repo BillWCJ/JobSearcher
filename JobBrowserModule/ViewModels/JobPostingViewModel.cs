@@ -32,7 +32,7 @@ namespace JobBrowserModule.ViewModels
             }
         }
 
-        public int Score { get; private set; }
+        public int Score { get; set; }
 
         private string GetQualification()
         {

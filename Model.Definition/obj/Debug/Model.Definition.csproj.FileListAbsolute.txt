@@ -7,5 +7,3 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definitio
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\obj\Debug\Model.Definition.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\obj\Debug\Model.Definition.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\bin\Debug\Model.Definition.dll.CodeAnalysisLog.xml
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\bin\Debug\Model.Definition.dll.lastcodeanalysissucceeded

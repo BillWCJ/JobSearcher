@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using JobBrowserModule.ViewModels;
 using Model.Definition;
-using Model.Entities.PostingFilter;
+using Model.Entities;
 
 namespace JobBrowserModule.Views
 {

@@ -22,9 +22,9 @@ namespace Data.Contract.JseDb
         IDbSet<JobReview> JobReviews { get; set; }
         IDbSet<EmployerReview> EmployerReviews { get; set; }
         IDbSet<JobRating> JobRatings { get; set; }
-        IDbSet<Word> Words { get; set; }
-        IDbSet<SearchDictionary> SearchDictionaries { get; set; }
-        IDbSet<LocationOfInterest> LocationOfInterests { get; set; }
+        //IDbSet<Word> Words { get; set; }
+        //IDbSet<SearchDictionary> SearchDictionaries { get; set; }
+        //IDbSet<LocationOfInterest> LocationOfInterests { get; set; }
         Database Database { get; }
         DbChangeTracker ChangeTracker { get; }
         DbContextConfiguration Configuration { get; }

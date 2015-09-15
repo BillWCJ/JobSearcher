@@ -4,7 +4,7 @@ using System.Linq;
 using Common.Utility;
 using JobBrowserModule.ViewModels;
 using Model.Definition;
-using Model.Entities.PostingFilter;
+using Model.Entities;
 
 namespace JobBrowserModule.Services
 {
@@ -42,7 +42,10 @@ namespace JobBrowserModule.Services
 
                 bool operationResult = filterOperation(jobPosting, filter);
                 bool passFilter = (operationResult && !filter.IsAntiFilter ) || (!operationResult && filter.IsAntiFilter);
-                if (!passFilter)
+
+                if (passFilter)
+                    jobPosting.Score += filter.PointValue;
+                else 
                     return false;
             }
             return true;
@@ -52,9 +55,9 @@ namespace JobBrowserModule.Services
         {
 
             bool isRightDiscipline = true;
-            if (filter.DisciplinesSearchTarget.Any())
+            if (filter.DisciplinesSearchTargets.Any())
             {
-                isRightDiscipline = filter.DisciplinesSearchTarget.Any(discipline => jobPosting.Job.Disciplines.ContainDiscipline(discipline));
+                isRightDiscipline = filter.DisciplinesSearchTargets.Any(discipline => jobPosting.Job.Disciplines.ContainDiscipline(discipline));
             }
             return isRightDiscipline;
         }

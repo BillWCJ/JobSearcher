@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Common.Utility;
 using Model.Definition;
-using Model.Entities.PostingFilter;
+using Model.Entities;
 using Presentation.WPF;
 
 namespace JobBrowserModule.ViewModels

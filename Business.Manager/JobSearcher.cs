@@ -22,6 +22,7 @@ namespace Business.Manager
                 {
                     if (IsNotEightMonth(jobManager, j) && IsMyLevel(j.Levels) && IsRelatedDiscipline(j.Disciplines) )//&& IsNotQaJob(j))
                     {
+                        /*
                         j.Score = 0;
                         //location score
                         if (ContainWord(j.JobLocation.Region, "ottawa"))
@@ -66,7 +67,7 @@ namespace Business.Manager
                             j.Score += 10;
 
                         j.Score += 100 * j.NumberOfOpening/(1+j.NumberOfApplied);
-
+                        */
                         if(!j.AlreadyApplied)
                         jobList.Add(j);
                     }
@@ -79,12 +80,12 @@ namespace Business.Manager
 
         private static int SortByScore(Job x, Job y)
         {
-            if (x == null)
-                return 1;
-            if (y == null)
-                return -1;
-            if (x.Score >= y.Score)
-                return -1;
+            //if (x == null)
+            //    return 1;
+            //if (y == null)
+            //    return -1;
+            //if (x.Score >= y.Score)
+            //    return -1;
             return 1;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using Data.Contract.JseDb.Interface;
 using Model.Entities;
+using Model.Entities.JobMine;
 
 namespace Data.EF.JseDb.Repository
 {
