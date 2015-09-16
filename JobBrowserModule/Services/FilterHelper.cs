@@ -12,6 +12,8 @@ namespace JobBrowserModule.Services
     {
         public static bool IsPostingVisible(JobPostingViewModel jobPosting, IEnumerable<Filter> filters)
         {
+            jobPosting.Score = 0;
+
             foreach (Filter filter in filters)
             {
                 Func<JobPostingViewModel, Filter, bool> filterOperation = null;
@@ -43,10 +45,16 @@ namespace JobBrowserModule.Services
                 bool operationResult = filterOperation(jobPosting, filter);
                 bool passFilter = (operationResult && !filter.IsAntiFilter ) || (!operationResult && filter.IsAntiFilter);
 
-                if (passFilter)
-                    jobPosting.Score += filter.PointValue;
-                else 
-                    return false;
+                if (filter.PointValue != 0)
+                {
+                    if (passFilter)
+                        jobPosting.Score += filter.PointValue;
+                }
+                else
+                {
+                    if (!passFilter)
+                        return false;
+                }
             }
             return true;
         }
@@ -119,9 +127,9 @@ namespace JobBrowserModule.Services
                     case StringSearchTarget.EmployerName:
                         searchString = jobPosting.Job.Employer.Name;
                         break;
-                    case StringSearchTarget.FullAddress:
-                        searchString = jobPosting.Job.JobLocation.FullAddress;
-                        break;
+                    //case StringSearchTarget.FullAddress:
+                    //    searchString = jobPosting.Job.JobLocation.FullAddress;
+                    //    break;
                     case StringSearchTarget.Region:
                         searchString = jobPosting.Job.JobLocation.Region;
                         break;
@@ -147,7 +155,7 @@ namespace JobBrowserModule.Services
                         return false;
                 }
 
-                searchString = searchString.Replace("-\n", "").Replace("\n", "");
+                searchString = (searchString ?? String.Empty).Replace("-\n", "").Replace("\n", "");
                 if (searchString.IsNullSpaceOrEmpty())
                     continue;
                 if (filter.StringSearchValues.Any(value => searchString.IndexOf(value, culture) >= 0))

@@ -3,6 +3,7 @@ using Business.Manager;
 using JobBrowserModule.Services;
 using JobBrowserModule.ViewModels;
 using JobDetailModule;
+using JobDownloaderModule;
 using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace UWActuallyWorks
@@ -21,6 +22,7 @@ namespace UWActuallyWorks
                 BrowserEmulationManager.SetBrowserEmulationVersion();
             }
             InitializeComponent();
+            JobDownloaderView.ViewModel = new JobDownloaderViewModel(_aggregator);
             FilterPanel.ViewModel = new FilterPanelViewModel(_aggregator);
             JobPostingTable.ViewModel = new PostingTableViewModel(_aggregator);
             JobDetailPanel.ViewModel = new JobDetailViewModel(_aggregator);

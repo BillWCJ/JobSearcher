@@ -1,22 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Model.Entities;
 
 namespace Business.DataBaseSeeder
 {
     public class MasterSeeder
     {
-        public static IEnumerable<string> SeedAll(string term, string appsAvail, UserAccount account, bool seedCoopRating = true, bool seedLocation = true, string selectLocation = null)
+        public static void SeedAll(Action<string> messageCallBack, UserAccount account, string term, string appsAvail, bool seedCoopRating = false, bool linkJobReviews = false, bool seedLocation = false, string selectLocation = null)
         {
-            foreach (var msg in new JobMineInfoSeeder(account).SeedDb(term, appsAvail))
-                yield return msg;
-
-            if (seedCoopRating)
+            try
             {
-                RateMyCoopJobSeeder.SeedDb();
-                RateMyCoopJobLinker.SeedDb();
+                messageCallBack("Starting Database Seeding...");
+                JobMineInfoSeeder jobMineInfoSeeder = new JobMineInfoSeeder(account);
+                jobMineInfoSeeder.SeedDb(messageCallBack, term, appsAvail);
+
+                if (seedCoopRating)
+                    RateMyCoopJobSeeder.SeedDb(messageCallBack);
+                if(linkJobReviews)
+                    RateMyCoopJobLinker.SeedDb();
+                if (seedLocation)
+                    new GoogleLocationSeeder(account).SeedDb(selectLocation);
+                messageCallBack("Seeding completed");
             }
-            if (seedLocation)
-                new GoogleLocationSeeder(account).SeedDb(selectLocation);
+            catch (Exception e)
+            {
+                messageCallBack(e.Message);
+            }
         }
     }
 }

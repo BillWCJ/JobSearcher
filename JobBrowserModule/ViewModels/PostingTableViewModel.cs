@@ -52,7 +52,7 @@ namespace JobBrowserModule.ViewModels
 
     public class PostingTableViewModel : ViewModelBase, IPostingTableViewModel
     {
-        private readonly ICollectionView _jobPostings;
+        private ICollectionView _jobPostings;
         private IEnumerable<Filter> _activeFilters = new List<Filter>();
         private EventAggregator _aggregator;
         private bool _isAllSelected;
@@ -66,12 +66,18 @@ namespace JobBrowserModule.ViewModels
         {
             _aggregator = aggregator;
             _aggregator.GetEvent<FilterSelectionChangedEvent>().Subscribe(FilterChanged);
+            _aggregator.GetEvent<JobDownloadCompleted>().Subscribe((a) => PopulateTable());
+            PopulateTable();
+            //ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
+        }
+
+        private void PopulateTable()
+        {
             JobReviewManager = new JobReviewManager();
             var jobs = JobManager.FindJobs();
             var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
             _jobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
             _jobPostings.Filter += JobPostingFilter;
-            //ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
         }
 
         public ICollectionView JobPostings

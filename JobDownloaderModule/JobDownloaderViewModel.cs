@@ -10,9 +10,11 @@ using Business.Manager;
 using Data.Contract.JobMine;
 using Data.IO.Local;
 using Data.Web.JobMine;
+using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Definition;
 using Model.Entities;
 using Presentation.WPF;
+using Presentation.WPF.Events;
 
 namespace JobDownloaderModule
 {
@@ -27,6 +29,13 @@ namespace JobDownloaderModule
                 Dispatcher.CurrentDispatcher.Invoke(DispatcherPriority.Render, (Action<string>) (UpdateProgress), message);
             };
         }
+
+        public JobDownloaderViewModel(EventAggregator aggregator) : this()
+        {
+            _aggregator = aggregator;
+        }
+
+        private EventAggregator _aggregator;
         private readonly object _isDisplayingMessageLock = new object();
         private readonly object _isInProgressLock = new object();
 
@@ -42,6 +51,7 @@ namespace JobDownloaderModule
         public string GoogleMapApiKeyString { get; set; }
         private Action<string> MessageCallBack { get; set; }
         private string _progress = string.Empty;
+
         public string Progress
         {
             get
@@ -142,10 +152,8 @@ namespace JobDownloaderModule
                     if (acquired)
                     {
                         UserAccount account = new JseLocalRepo().GetAccount();
-                        foreach (var msg in MasterSeeder.SeedAll(Term, GetJobStatus(), account, false, false))
-                        {
-                            MessageCallBack(msg);
-                        }
+                        MasterSeeder.SeedAll(MessageCallBack, account, Term, GetJobStatus(), true);
+                        _aggregator.GetEvent<JobDownloadCompleted>().Publish(true);
                     }
                     else
                     {

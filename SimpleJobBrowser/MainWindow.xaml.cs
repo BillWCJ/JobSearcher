@@ -71,14 +71,14 @@ namespace SimpleJobBrowser
         {
             ThreadPool.QueueUserWorkItem(o =>
             {
-                Dispatcher.Invoke((() => MainTextBox.Text = ""));
-                Dispatcher.Invoke((() => SideTextBox.Text = ""));
-
-                foreach (string msg in MasterSeeder.SeedAll("1155", JobStatus.Posted, new JseLocalRepo().GetAccount(), true, true, "ottawa"))
+                Action<string> messageCallBack = (msg) =>
                 {
                     string message = msg + Environment.NewLine;
                     Dispatcher.Invoke((() => MainTextBox.AppendText(message)));
-                }
+                };
+                Dispatcher.Invoke((() => MainTextBox.Text = ""));
+                Dispatcher.Invoke((() => SideTextBox.Text = ""));
+                MasterSeeder.SeedAll(messageCallBack, new JseLocalRepo().GetAccount(), "1155", JobStatus.Posted, seedCoopRating: true, seedLocation: true, selectLocation: "ottawa");
             });
             SetUp();
         }

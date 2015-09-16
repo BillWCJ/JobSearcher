@@ -25,15 +25,22 @@ namespace JobDownloaderModule
     {
         private JobDownloaderViewModel _viewModel;
 
-        public JobDownloaderView()
+        public JobDownloaderViewModel ViewModel
         {
-            InitializeComponent(); 
-            _viewModel = this.DataContext as JobDownloaderViewModel;
-            if (_viewModel == null)
+            get
             {
-                _viewModel = new JobDownloaderViewModel();
+                return _viewModel ?? new JobDownloaderViewModel();
+            }
+            set
+            {
+                _viewModel = value;
                 this.DataContext = _viewModel;
             }
+        }
+
+        public JobDownloaderView()
+        {
+            InitializeComponent();
             SetDownloadOption(true);
         }
 
@@ -52,11 +59,11 @@ namespace JobDownloaderModule
 
         private void DownloadToDbButton_OnClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.DownloadAndSeedJobIntoDb();
+            ViewModel.DownloadAndSeedJobIntoDb();
         }
         private void DeleteJobsFromDatabase_OnClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.DeleteJobsFromDatabase();
+            ViewModel.DeleteJobsFromDatabase();
         }
 
         private void DownloadToLocalOptionRadioButton_OnClick(object sender, RoutedEventArgs e)
@@ -70,22 +77,22 @@ namespace JobDownloaderModule
             folderBrowserDialog.ShowDialog();
             string fileLocation = folderBrowserDialog.SelectedPath;
             fileLocation = fileLocation.TrimEnd(' ', '\\') + '\\';
-            _viewModel.FileLocation = fileLocation;
+            ViewModel.FileLocation = fileLocation;
         }
 
         private void ExportJob(object sender, RoutedEventArgs e)
         {
-            _viewModel.ExportFromDbToLocal();
+            ViewModel.ExportFromDbToLocal();
         }
 
         private void DownloadToLocal(object sender, RoutedEventArgs e)
         {
-            _viewModel.DownloadJobToLocal();
+            ViewModel.DownloadJobToLocal();
         }
 
         private void PasswordChanged(object sender, RoutedEventArgs e)
         {
-            _viewModel.Password = ((PasswordBox) sender).Password;
+            ViewModel.Password = ((PasswordBox) sender).Password;
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
@@ -96,7 +103,7 @@ namespace JobDownloaderModule
 
         private void ImportJobToDbButton_OnClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.ImportFromLocal();
+            ViewModel.ImportFromLocal();
         }
     }
 }

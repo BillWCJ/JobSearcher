@@ -24,18 +24,14 @@ namespace Model.Definition
         Unknown = 0,
         [Description("Employer Name")]
         EmployerName,
-        [Description("Full Address")]
-        FullAddress,
-        [Description("Region")]
+        //[Description("Full Address")]
+        //FullAddress,
+        [Description("Region & City (Correspond to region column)")]
         Region,
         [Description("Job Title")]
         JobTitle,
-        [Description("Number Of Openings")]
-        NumberOfOpening,
-        [Description("Number Of Applicants Applied")]
-        NumberOfApplied,
-        [Description("Last Date To Apply")]
-        LastDateToApply,
+        //[Description("Last Date To Apply")]
+        //LastDateToApply,
         [Description("Levels")]
         Levels,
         [Description("Disciplines")]

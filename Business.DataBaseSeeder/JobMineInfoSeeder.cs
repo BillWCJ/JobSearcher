@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Common.Utility;
 using Data.EF.JseDb;
 using Data.Web.JobMine;
 using Model.Entities;
@@ -16,15 +18,27 @@ namespace Business.DataBaseSeeder
 
         private UserAccount Account { get; set; }
 
-        public IEnumerable<string> SeedDb(string term, string appsAvail, int numberOfJobsToSeed = int.MaxValue)
+        public void SeedDb(Action<string> messageCallBack, string term, string appsAvail, int numberOfJobsToSeed = int.MaxValue)
         {
+            messageCallBack("Now downloading job posting information...");
             using (var db = new JseDbContext())
             {
-                yield return "Searching For Jobs";
+                messageCallBack("Searching For Jobs");
                 int numJobSeeded = 0, numJobUpdated = 0;
-                var jobMineRepo = new JobMineRepo(Account);
-                IEnumerable<JobOverView> jobOverViews = jobMineRepo.JobInquiry.GetJobOverViews(term, appsAvail).Take(numberOfJobsToSeed);
-                yield return "Number of Job Founded: " + jobOverViews.Count();
+                JobMineRepo jobMineRepo;
+                IEnumerable<JobOverView> jobOverViews = new List<JobOverView>();
+                try
+                {
+                    jobMineRepo = new JobMineRepo(Account);
+                    jobOverViews = jobMineRepo.JobInquiry.GetJobOverViews(term, appsAvail).Take(numberOfJobsToSeed);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error while getting job list, Please make sure all information has been entered correctly", e);
+                }
+
+                var numJob = jobOverViews.Count();
+                messageCallBack("Found {0} jobs. please wait around {1} minutes for download to complete".FormatString(numJob, (numJob + 59) / 60));
 
                 foreach (JobOverView jov in jobOverViews)
                 {
@@ -34,14 +48,15 @@ namespace Business.DataBaseSeeder
                     {
                         job = jobMineRepo.JobDetail.GetJob(jov);
                         SeedJobAndRelatedEntities(job, db);
-                        yield return "Job Seeded: " + ++numJobSeeded;
+                        //messageCallBack("Job Seeded: " + ++numJobSeeded);
                     }
                     else
                     {
                         UpdateJob(job, jov, db);
-                        yield return "Job Updated: " + ++numJobUpdated;
+                        //messageCallBack("Job Updated: " + ++numJobUpdated);
                     }
                 }
+                messageCallBack("Finished downloading job posting data");
             }
         }
 
