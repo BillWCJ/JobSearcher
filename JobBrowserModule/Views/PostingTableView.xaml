@@ -142,6 +142,11 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Width="Auto"
+                    Header="Score"
+                    Binding="{Binding Score}">
+                </DataGridTextColumn>
                 <DataGridTemplateColumn
                     Header="Browser"
                     Width="55"

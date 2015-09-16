@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using JobBrowserModule.Services;
+using Business.Manager;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Definition;
 using Model.Entities;
@@ -20,6 +17,7 @@ namespace JobBrowserModule.ViewModels
         void FilterChanged();
         void AddFilter(FilterViewModel newFilter);
         void FilterModified(FilterViewModel modifiedFilter);
+        void RemoveFilter(FilterViewModel filter);
     }
 
     internal class FilterPanelViewModelMock : ViewModelBase, IFilterPanelViewModel
@@ -44,15 +42,23 @@ namespace JobBrowserModule.ViewModels
                 }
             });
         }
+
         public void FilterChanged()
         {
         }
+
         public ObservableCollection<FilterViewModel> Filters { get; set; }
         public bool IsAllSelected { get; set; }
+
         public void AddFilter(FilterViewModel newFilter)
         {
         }
+
         public void FilterModified(FilterViewModel modifiedFilter)
+        {
+        }
+
+        public void RemoveFilter(FilterViewModel filter)
         {
         }
     }
@@ -63,21 +69,7 @@ namespace JobBrowserModule.ViewModels
 
         public FilterPanelViewModel()
         {
-            var item = new FilterViewModel
-            {
-                IsSelected = true,
-                Filter = new Filter
-                {
-                    Name = "Mech",
-                    Description = "Mechanical",
-                    Category = FilterCategory.StringSearch,
-                    DisciplinesSearchTargets = new List<DisciplineEnum> {DisciplineEnum.EngMechatronics, DisciplineEnum.EngSoftware},
-                    MatchCase = true,
-                    StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.JobDescription, StringSearchTarget.Disciplines},
-                    StringSearchValues = new List<string> {"Solidworks", "Mech"}
-                }
-            };
-            Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel>(){item});
+            Filters = new ObservableCollection<FilterViewModel>(FilterManager.GetFilters().Select(a => new FilterViewModel{Filter = a}));
         }
 
         public FilterPanelViewModel(EventAggregator aggregator) : this()
@@ -89,7 +81,7 @@ namespace JobBrowserModule.ViewModels
 
         public void FilterChanged()
         {
-            IEnumerable<Filter> filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
+            var filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
             if (_aggregator != null)
                 _aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
         }
@@ -98,16 +90,22 @@ namespace JobBrowserModule.ViewModels
 
         public void AddFilter(FilterViewModel newFilter)
         {
+            FilterManager.AddFilter(newFilter.Filter);
             Filters.Add(newFilter);
             OnPropertyChanged("Filters");
         }
 
         public void FilterModified(FilterViewModel modifiedFilter)
         {
-            if (modifiedFilter == null)
-                return;
-            //save filter into db
+            FilterManager.UpdateFilter(modifiedFilter.Filter);
             modifiedFilter.FilterModified();
+            FilterChanged();
+        }
+
+        public void RemoveFilter(FilterViewModel filter)
+        {
+            Filters.Remove(filter);
+            FilterManager.DeleteFilter(filter.Filter);
             FilterChanged();
         }
     }

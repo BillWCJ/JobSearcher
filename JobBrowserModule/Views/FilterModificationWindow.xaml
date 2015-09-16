@@ -6,7 +6,7 @@
     xmlns:converter="clr-namespace:Presentation.WPF.Converter;assembly=Presentation.WPF"
     xmlns:viewModels="clr-namespace:JobBrowserModule.ViewModels"
     x:Class="JobBrowserModule.Views.FilterModificationWindow"
-    Title="CreateFilterWindow" Height="300" Width="800" WindowStartupLocation="CenterOwner">
+    Title="CreateFilterWindow" Height="500" Width="800" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <BitmapImage x:Key="AddIcon" UriSource="../Icons/Add.png" />
         <BitmapImage x:Key="CloseIcon" UriSource="../Icons/Cross.png" />
@@ -42,17 +42,26 @@
     <Border Background="White" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="Auto" Margin="5" Content="Name:" />
-                    <TextBox Width="100" Margin="5" Text="{Binding Name, Mode=TwoWay}" />
-                    <Label Width="Auto" Margin="5" Content="Short Description:" />
-                    <TextBox MinWidth="150" Margin="5" Text="{Binding Description, Mode=TwoWay}" />
-                    <CheckBox Margin="10" Content="AntiFilter (Jobs that pass this filter will be filtered out)" IsChecked="{Binding IsAntiFilter, Mode=TwoWay}"></CheckBox>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="Auto" Margin="5" Content="Name:" />
+                        <TextBox Width="100" Margin="5" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Center"/>
+                        <Label Width="Auto" Margin="5" Content="Short Description:" />
+                        <TextBox MinWidth="150" Margin="5" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Center"/>
+                        <CheckBox Margin="5" Content="Anti-Filter (Jobs that pass this filter will be filtered out)"
+                                  IsChecked="{Binding IsAntiFilter, Mode=TwoWay}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Margin="5" Content="Score Filter (Jobs that pass will be awarded points specified, otherwise it will still be displayed)"
+                                  IsChecked="{Binding IsScoreFilter, Mode=TwoWay}" VerticalAlignment="Center"/>
+                        <Label Width="Auto" Margin="5" Content="Point Value:" />
+                        <TextBox MinWidth="50" Margin="5" Text="{Binding PointValue, Mode=TwoWay}" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" CornerRadius="5" Margin="5">
@@ -249,10 +258,12 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Margin="5" x:Name="ErrorTextBox" TextWrapping="Wrap"/>
-                    <Button Grid.Column="1" Width="75" Margin="5" Content="Cancel" Click="Cancel_OnClick" />
-                    <Button Grid.Column="2" Width="75" Margin="5" Content="Add/Save" Click="SaveOrEdit_OnClick" />
+                    <Button Grid.Column="1" Width="75" Margin="5" Content="Delete" Click="Delete_OnClick" />
+                    <Button Grid.Column="2" Width="75" Margin="5" Content="Cancel" Click="Cancel_OnClick" />
+                    <Button Grid.Column="3" Width="75" Margin="5" Content="Add/Save" Click="SaveOrEdit_OnClick" />
                 </Grid>
             </Border>
         </Grid>

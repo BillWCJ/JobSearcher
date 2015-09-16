@@ -42,30 +42,40 @@ namespace JobBrowserModule.Views
             var dataGridRow = button.CommandParameter as DataGridRow;
             if (dataGridRow == null) return;
             var filterViewModel = dataGridRow.Item as FilterViewModel;
-            var modifiedFilter = StartModifyingFilter(filterViewModel);
-            ViewModel.FilterModified(modifiedFilter);
+            StartModifyingFilter(filterViewModel);
 
         }
 
         private void AddFilterCLicked(object sender, RoutedEventArgs e)
         {
-            var newFilter = StartModifyingFilter(new FilterViewModel{Filter = new Filter()});
-            if (newFilter != null) ViewModel.AddFilter(newFilter);
+            StartModifyingFilter(null);
         }
 
-        private FilterViewModel StartModifyingFilter(FilterViewModel newFilter)
+        private void StartModifyingFilter(FilterViewModel filter)
         {
-            bool success = false;
-            var filterModificationWindow = new FilterModificationWindow(newFilter, () => success=true);
+            bool newFilter = (filter == null);
+            filter = filter ?? new FilterViewModel {Filter = new Filter()};
+            bool? result = false;
+            Action<bool?> callBack = (value) => result = value;
+            var filterModificationWindow = new FilterModificationWindow(filter, callBack);
             filterModificationWindow.WindowStyle = WindowStyle.None;
             filterModificationWindow.Background = Brushes.Transparent;
-            filterModificationWindow.ShowInTaskbar = false;
             filterModificationWindow.AllowsTransparency = true;
             filterModificationWindow.Owner = this.Parent as Window;
             filterModificationWindow.ShowDialog();
-            if (success)
-                return newFilter;
-            return null;
+
+            //result: true=save/update, false=cancel, null=delete 
+            if (result == true)
+            {
+                if (newFilter)
+                    ViewModel.AddFilter(filter);
+                else
+                    ViewModel.FilterModified(filter);
+            }
+            else if (result == null && !newFilter)
+            {
+                ViewModel.RemoveFilter(filter);
+            }
         }
 
         private void FilterSelectionChanged(object sender, RoutedEventArgs e)

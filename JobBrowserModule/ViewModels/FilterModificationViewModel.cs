@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Documents;
 using System.Windows.Input;
+using Business.Manager;
 using Common.Utility;
 using Model.Definition;
 
@@ -26,7 +27,8 @@ namespace JobBrowserModule.ViewModels
         double LowerLimit { get; set; }
         double UpperLimit { get; set; }
         ValueSearchTarget ValueSearchSelectedItem { get; set; }
-
+        bool IsScoreFilter { get; set; }
+        int PointValue { get; set; }
         void SaveChangeToBaseViewModel();
     }
 
@@ -50,6 +52,8 @@ namespace JobBrowserModule.ViewModels
 
         public ValueSearchTarget ValueSearchSelectedItem { get; set; }
 
+        public bool IsScoreFilter { get; set; }
+        public int PointValue { get; set; }
 
         public void SaveChangeToBaseViewModel()
         {
@@ -87,6 +91,8 @@ namespace JobBrowserModule.ViewModels
                 ValueSearchSelectedItem = _filterViewModel.Filter.ValueSearchSelectedItem;
                 LowerLimit = _filterViewModel.Filter.LowerLimit;
                 UpperLimit = _filterViewModel.Filter.UpperLimit;
+                PointValue = _filterViewModel.Filter.PointValue;
+                IsScoreFilter = PointValue != 0;
             }
             else
             {
@@ -112,6 +118,8 @@ namespace JobBrowserModule.ViewModels
         public double LowerLimit { get; set; }
         public double UpperLimit { get; set; }
         public ValueSearchTarget ValueSearchSelectedItem { get; set; }
+        public bool IsScoreFilter { get; set; }
+        public int PointValue { get; set; }
 
         public void SaveChangeToBaseViewModel()
         {
@@ -129,6 +137,7 @@ namespace JobBrowserModule.ViewModels
             _filterViewModel.Filter.ValueSearchSelectedItem = ValueSearchSelectedItem;
             _filterViewModel.Filter.LowerLimit = LowerLimit;
             _filterViewModel.Filter.UpperLimit = UpperLimit;
+            _filterViewModel.Filter.PointValue = IsScoreFilter ? PointValue : 0;
         }
     }
 }

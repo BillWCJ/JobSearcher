@@ -11,21 +11,21 @@ namespace JobBrowserModule.Views
     /// </summary>
     public partial class FilterModificationWindow : Window
     {
-        public FilterModificationWindow(FilterViewModel viewModel, Action saveChangeCallBack)
+        public FilterModificationWindow(FilterViewModel viewModel, Action<bool?> resultCallBack)
         {
             InitializeComponent();
             ViewModel = new FilterModificationViewModel(viewModel);
             DataContext = ViewModel;
-            SaveChangeCallBack = saveChangeCallBack;
+            ResultCallBack = resultCallBack;
         }
 
         private FilterModificationViewModel ViewModel { get; set; }
-        public Action SaveChangeCallBack { get; set; }
+        public Action<bool?> ResultCallBack { get; set; }
 
         private void SaveOrEdit_OnClick(object sender, RoutedEventArgs e)
         {
             ViewModel.SaveChangeToBaseViewModel();
-            SaveChangeCallBack();
+            ResultCallBack(true);
             Close();
         }
 
@@ -66,6 +66,12 @@ namespace JobBrowserModule.Views
         {
             var button = sender as Button;
             if (button != null) ViewModel.DisciplineSearchTargets.Remove((DisciplineEnum)Enum.Parse(typeof(DisciplineEnum), button.CommandParameter.ToString()));
+        }
+
+        private void Delete_OnClick(object sender, RoutedEventArgs e)
+        {
+            ResultCallBack(null);
+            Close();
         }
     }
 }
