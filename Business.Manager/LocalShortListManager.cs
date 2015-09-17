@@ -12,45 +12,56 @@ namespace Business.Manager
     {
         public static bool AddJobToShortList(Job job, string shortListName)
         {
-            //using (var db = new JseDbContext())
-            //{
-            //    try
-            //    {
-            //        var shortlist = db.JobShortLists.Include(s => s.Job).FirstOrDefault(j => j.Job.Id == job.Id && j.Data == shortListName);
-            //        if (shortlist != null)
-            //            return true;
-            //        db.JobShortLists.Add(new JobShortList
-            //        {
-            //            Job = job,
-            //            Data = shortListName
-            //        });
-            //        return db.SaveChanges() == 1;
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Trace.WriteLine(e);
-            //    }
-            //}
+            using (var db = new JseDbContext())
+            {
+                try
+                {
+                    var newJobToAdd = db.Jobs.FirstOrDefault(j => j.Id == job.Id);
+                    if (newJobToAdd == null)
+                        return false;
+
+                    var shortList = db.LocalShortLists.FirstOrDefault(s => s.Name.ToLower() == shortListName.ToLower());
+                    if (shortList == null)
+                    {
+                        shortList = new LocalShortList { Name = shortListName };
+                        db.LocalShortLists.Add(shortList);
+                    }
+                    shortList.Jobs.Add(newJobToAdd);
+                    return db.SaveChanges() > 0;
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine(e);
+                }
+            }
             return false;
         }
 
         public static bool RemoveJobFromShortList(int jobId, string shortListName)
         {
-            //using (var db = new JseDbContext())
-            //{
-            //    try
-            //    {
-            //        var shortlist = db.JobShortLists.Include(s => s.Job).FirstOrDefault(j => j.Job.Id == jobId && j.Data == shortListName);
-            //        if (shortlist == null)
-            //            return true;
-            //        db.JobShortLists.Remove(shortlist);
-            //        return db.SaveChanges() == 1;
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Trace.WriteLine(e);
-            //    }
-            //}
+            using (var db = new JseDbContext())
+            {
+                try
+                {
+                    var jobToRemove = db.Jobs.FirstOrDefault(j => j.Id == jobId);
+                    if (jobToRemove == null)
+                        return false;
+
+                    var shortList = db.LocalShortLists.FirstOrDefault(s => s.Name.ToLower() == shortListName.ToLower());
+                    if (shortList == null)
+                    {
+                        shortList = new LocalShortList { Name = shortListName };
+                        db.LocalShortLists.Add(shortList);
+                    }
+                    shortList.Jobs.Add(jobToRemove);
+
+                    return db.SaveChanges() > 0;
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine(e);
+                }
+            }
             return false;
         }
 

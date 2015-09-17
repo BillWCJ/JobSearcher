@@ -91,6 +91,7 @@ namespace JobBrowserModule.ViewModels
         {
             SearchOrCancelIcon = SearchIcon;
             SearchOrCancelIconToolTip = SearchIconToolTip;
+            SearchKeyWord = string.Empty;
         }
 
         public PostingTableViewModel(EventAggregator aggregator) : this()
