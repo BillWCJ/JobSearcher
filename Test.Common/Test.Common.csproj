@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="JobManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RateMyCoopJobTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\app.config" />

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:jobDetailModule="clr-namespace:JobDetailModule"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
              d:DesignHeight="768" d:DesignWidth="500">
 
@@ -16,8 +17,11 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Text="{Binding CurrentJobString, Mode=OneWay}" IsReadOnly="True"
-                 TextWrapping="Wrap" />
+        <xctk:RichTextBox Grid.Row="0" Text="{Binding CurrentJobString, Mode=OneWay}" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True" >
+            <xctk:RichTextBox.TextFormatter>
+                <xctk:RtfFormatter />
+            </xctk:RichTextBox.TextFormatter>
+        </xctk:RichTextBox>
         <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
             <Label Margin="5"
                    Content="Add to local short list (Enter in text box to add new short list):" />
