@@ -11,6 +11,7 @@
         <BitmapImage x:Key="WaterlooIcon" UriSource="../Icons/Waterloo.png" />
         <BitmapImage x:Key="GoogleIcon" UriSource="../Icons/Google.png" />
         <BitmapImage x:Key="LocationIcon" UriSource="../Icons/Location.png" />
+        <BitmapImage x:Key="SearchIcon" UriSource="../Icons/Search.png" />
     </UserControl.Resources>
     <UserControl.DataContext>
         <viewModels:PostingTableViewModelMock />
@@ -178,15 +179,27 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
-            <Label Margin="5" Content="Add selected jobs to local short list (Enter in text box to add new short list):"></Label>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
+            <Border Margin="5" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="100" VerticalAlignment="Center" Text="{Binding SearchKeyWord}"></TextBox>
+                    <Button Background="Transparent" BorderThickness="0" Click="KeyWordSearchToggled">
+                        <Image Height="15" Width="15" Source="{Binding SearchOrCancelIcon}"
+                                           ToolTip="{Binding SearchOrCancelIconToolTip}" />
+                    </Button>
+                </StackPanel>
+            </Border>
+            
+            <TextBlock Margin="5" Text="{Binding TableInfo}"></TextBlock>
+            
+            <!--<Label Margin="5" Content="Add selected jobs to local short list (Enter in text box to add new short list):"></Label>
             <ComboBox Margin="5" ItemsSource="{Binding ShortListNames}" Name="ShortListComboBox"></ComboBox>
             <TextBox Margin="5" MinWidth="50" Name="ShortListTextBox"></TextBox>
             <Button Margin="5" Background="Transparent" BorderThickness="0" Click="AddSelectedJobsToShortList">
                 <Image Height="15" Width="15" Source="{StaticResource AddIcon}"
                                            ToolTip="Add selected jobs to local short list" />
-            </Button>
-        </StackPanel>-->
+            </Button>-->
+        </StackPanel>
     </Grid>
 
 </UserControl>

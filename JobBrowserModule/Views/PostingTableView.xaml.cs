@@ -76,5 +76,9 @@ namespace JobBrowserModule.Views
         //    string name = string.IsNullOrWhiteSpace(ShortListTextBox.Text) ? ShortListComboBox.SelectionBoxItem.ToString() : ShortListTextBox.Text;
         //    ViewModel.AddSelectedJobsToShortList(name);
         //}
+        private void KeyWordSearchToggled(object sender, RoutedEventArgs e)
+        {
+            ViewModel.KeyWordSearchToggled();
+        }
     }
 }

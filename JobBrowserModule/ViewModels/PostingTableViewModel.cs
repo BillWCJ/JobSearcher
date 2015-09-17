@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
 using Business.Manager;
+using Common.Utility;
 using JobBrowserModule.Services;
 using Microsoft.Practices.Prism.PubSubEvents;
+using Model.Definition;
 using Model.Entities;
 using Model.Entities.JobMine;
 using Presentation.WPF;
@@ -20,7 +22,12 @@ namespace JobBrowserModule.ViewModels
         void FilterChanged(IEnumerable<Filter> filters);
         void SelectedJobChanged(Job job);
         void AddSelectedJobsToShortList(string name);
-        ObservableCollection<string> ShortListNames { get; set; } 
+        string SearchOrCancelIcon { get; }
+        string SearchOrCancelIconToolTip { get; }
+        string SearchKeyWord { get; set; }
+        string TableInfo { get; }
+        ObservableCollection<string> ShortListNames { get; set; }
+        void KeyWordSearchToggled();
     }
 
     internal class PostingTableViewModelMock : IPostingTableViewModel
@@ -41,6 +48,17 @@ namespace JobBrowserModule.ViewModels
         }
 
         public ObservableCollection<string> ShortListNames { get; set; }
+        public void KeyWordSearchToggled()
+        {
+        }
+
+        public string SearchOrCancelIcon { get; set; }
+
+        public string SearchOrCancelIconToolTip { get; set; }
+
+        public string SearchKeyWord { get; set; }
+
+        public string TableInfo { get; private set; }
 
         public PostingTableViewModelMock()
         {
@@ -58,8 +76,21 @@ namespace JobBrowserModule.ViewModels
         private bool _isAllSelected;
         protected JobReviewManager JobReviewManager;
 
+        private Filter _keyWordSearch = new Filter()
+        {
+            Category = FilterCategory.StringSearch,
+            StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.Job}
+        };
+
+        private const string SearchIcon = @"../Icons/Search.png";
+        private const string SearchIconToolTip = @"Search key word in all jobs";
+        private const string CancelIcon = @"../Icons/Cross.png";
+        private const string CancelIconToolTip = @"Remove search filter";
+
         public PostingTableViewModel()
         {
+            SearchOrCancelIcon = SearchIcon;
+            SearchOrCancelIconToolTip = SearchIconToolTip;
         }
 
         public PostingTableViewModel(EventAggregator aggregator) : this()
@@ -110,6 +141,7 @@ namespace JobBrowserModule.ViewModels
         {
             _activeFilters = filters;
             JobPostings.Refresh();
+            OnPropertyChanged("TableInfo");
         }
 
         public void SelectedJobChanged(Job job)
@@ -130,7 +162,42 @@ namespace JobBrowserModule.ViewModels
             }
         }
 
+        public string SearchOrCancelIcon { get; private set; }
+        public string SearchOrCancelIconToolTip { get; private set; }
+        public string SearchKeyWord { get; set; }
+
+        public string TableInfo
+        {
+            get
+            {
+                int count = JobPostings.Cast<object>().Count();
+                return "Number of jobs visible: {0}".FormatString(count);
+            }
+        }
+
         public ObservableCollection<string> ShortListNames { get; set; }
+        public void KeyWordSearchToggled()
+        {
+            var filters = _activeFilters.ToList();
+            if (SearchOrCancelIcon == CancelIcon)
+            {
+                filters.Remove(_keyWordSearch);
+                SearchOrCancelIcon = SearchIcon;
+                SearchOrCancelIconToolTip = SearchIconToolTip;
+                SearchKeyWord = "";
+            }
+            else
+            {
+                _keyWordSearch.StringSearchValues = new List<string>{SearchKeyWord};
+                filters.Add(_keyWordSearch);
+                SearchOrCancelIcon = CancelIcon;
+                SearchOrCancelIconToolTip = CancelIconToolTip;
+            }
+            FilterChanged(filters);
+            OnPropertyChanged("SearchOrCancelIcon");
+            OnPropertyChanged("SearchOrCancelIconToolTip");
+            OnPropertyChanged("SearchKeyWord");
+        }
 
         private bool JobPostingFilter(object item)
         {
