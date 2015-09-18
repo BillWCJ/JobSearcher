@@ -54,6 +54,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
+      <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
+      <Name>Data.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
+      <Project>{8BF3F9BB-8EA9-4EEF-BA16-F89FB067E7EF}</Project>
+      <Name>Data.IO.Local</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
       <Project>{07d1aea5-7872-4b29-93d6-73f8fdc63d33}</Project>
       <Name>Data.Web.JobMine</Name>

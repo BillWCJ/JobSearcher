@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using Common.Utility;
 using Data.Contract.JobMine.Interface;
 using Data.Web.JobMine.Common;
 using HtmlAgilityPack;
@@ -84,6 +85,74 @@ namespace Data.Web.JobMine.DataSource
         }
 
         private static ICookieEnabledWebClient Client { get; set; }
+
+
+        public bool AddJobToShortList(int jobId, string term, string jobStatus, string jobTitle, string employerName)
+        {
+            int numPages = FirstSearch;
+            string iCAction = IcAction.Search;
+            string iCsid = "";
+            int iCStateNum = 1;
+
+            for (int currentPageNum = 1; (numPages == FirstSearch) || currentPageNum <= numPages; currentPageNum++)
+            {
+                Trace.TraceInformation("GetJobOverViews Parsing Page " + currentPageNum);
+                var doc = new HtmlDocument();
+                SetInquiryData(Client, numPages, ref iCAction, ref iCsid, ref iCStateNum);
+
+                string jobinfo = GetJobinfo(Client, iCAction, term, iCsid, iCStateNum, jobStatus, jobTitle, employerName);
+                doc.LoadHtml(jobinfo);
+
+                if (iCAction == IcAction.Search)
+                    numPages = GetNumberOfPages(doc);
+
+                if (FindJobAndAddToShortListInCurrentPage(doc, jobId, iCStateNum, iCsid))
+                    return true;
+            }
+            return false;
+        }
+
+        private static bool FindJobAndAddToShortListInCurrentPage(HtmlDocument doc, int jobId, int iCStateNum, string iCsid)
+        {
+            HtmlNode thisTableNode = GetTableNode(doc);
+            for (int childIndex = FirstRowIndex, count = 0; (childIndex < thisTableNode.ChildNodes.Count); childIndex++)
+            {
+                HtmlNode row = thisTableNode.ChildNodes[childIndex];
+                if (row.Name == "tr")
+                {
+                    string thisJobId = GetConvertedNodeInnerHtml(row, ColumnPath.JobId, count);
+                    if (Convert.ToInt32(thisJobId) == jobId)
+                    {
+                        return AddToShortList(count, iCStateNum, iCsid);
+                    }
+                    count++;
+                }
+            }
+            return false;
+        }
+
+        private static bool AddToShortList(int count, int iCStateNum, string iCsid)
+        {
+            string iCAction = "UW_CO_SLIST_HL${0}".FormatString(count);
+            iCStateNum++;
+            const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";
+            NameValueCollection jobInquiryData = PostData.GetAddJobToShortListData(iCStateNum.ToString(CultureInfo.InvariantCulture),iCAction, iCsid);
+            byte[] values = Client.UploadValues(url, method, jobInquiryData);
+
+            var doc = new HtmlDocument();
+            doc.LoadHtml(Encoding.UTF8.GetString(values));
+            try
+            {
+                string innerHtml =
+                    doc.DocumentNode.SelectNodes("//div[@id='alertmsg']/span[@class='popupText']")[0].InnerHtml;
+                return innerHtml.Contains("The job has been added successfully.");
+            }
+            catch (Exception e)
+            {
+                Trace.TraceWarning(e.ToString());
+            }
+            return false;
+        }
 
         /// <summary>
         /// </summary>
@@ -190,10 +259,10 @@ namespace Data.Web.JobMine.DataSource
         }
 
         private static string GetJobinfo(ICookieEnabledWebClient client, string iCAction, string term, string iCsid,
-            int iCStateNum, string jobStatus)
+            int iCStateNum, string jobStatus, string jobTitle = null, string empolyerName = null)
         {
             const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";
-            NameValueCollection jobInquiryData = PostData.GetJobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus: jobStatus);
+            NameValueCollection jobInquiryData = PostData.GetJobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus, jobTitle, empolyerName);
             byte[] values = client.UploadValues(url, method, jobInquiryData);
             return Encoding.UTF8.GetString(values);
         }

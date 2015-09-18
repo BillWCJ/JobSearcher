@@ -58,5 +58,42 @@ namespace Data.Web.JobMine.Common
             };
             return searchData;
         }
+    
+        /// <summary>
+        ///     Return the JobInquiryData Navevaluecollection for post operation to JobMine JobInquiryPage
+        /// </summary>
+        public static NameValueCollection GetAddJobToShortListData(string iCStateNum, string iCAction, string iCsid, string jobTitle = null, string employerName = null)
+        {
+            var data = new NameValueCollection
+            {
+                {"ICAJAX", "1"},
+                {"ICNAVTYPEDROPDOWN", "0"},
+                {"ICType", "Panel"},
+                {"ICElementNum", "0"},
+                {"ICStateNum", iCStateNum},
+                {"ICAction", iCAction},
+                {"ICXPos", "0"},
+                {"ICYPos", "228"},
+                {"ResponsetoDiffFrame", "-1"},
+                {"TargetFrameName", "None"},
+                {"ICFocus", ""},
+                {"ICSaveWarningFilter", "0"},
+                {"ICChanged", "-1"},
+                {"ICResubmit", "0"},
+                {"ICSID", iCsid},
+                {"ICModalWidget", "0"},
+                {"ICZoomGrid", "0"},
+                {"ICZoomGridRt", "0"},
+                {"ICModalLongClosed", ""},
+                {"ICActionPrompt", "true"},
+                {"ICFind", ""},
+                {"ICAddCount", ""},
+                {"TYPE_COOP", "1"},
+                {"UW_CO_JOBSRCH_UW_CO_JOB_TITLE", jobTitle},
+                {"UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME", employerName},
+                {"UW_CO_JOBSRCH_UW_CO_LOCATION", ""}
+            };
+            return data;
+        }
     }
 }
