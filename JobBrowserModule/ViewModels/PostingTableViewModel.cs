@@ -98,7 +98,7 @@ namespace JobBrowserModule.ViewModels
         {
             _aggregator = aggregator;
             _aggregator.GetEvent<FilterSelectionChangedEvent>().Subscribe(FilterChanged);
-            _aggregator.GetEvent<JobDownloadCompleted>().Subscribe((a) => PopulateTable());
+            _aggregator.GetEvent<JobDownloadCompletedEvent>().Subscribe((a) => PopulateTable());
             PopulateTable();
             //ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
         }

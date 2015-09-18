@@ -9,7 +9,7 @@ namespace UWActuallyWorks
     {
         protected override DependencyObject CreateShell()
         {
-            return new Shell();
+            return new MainWindow();
         }
         protected override void InitializeShell()
         {

@@ -19,5 +19,6 @@ namespace Model.Definition
     {
         public const string DefaultFilePath = @"C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\";
         public const string JobMineBaseUrl = @"https://jobmine.ccol.uwaterloo.ca/";
+        public const string CurrentStatus = @"Current status:";
     }
 }

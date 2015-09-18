@@ -4,6 +4,7 @@ using System.Linq;
 using Common.Utility;
 using Data.EF.JseDb;
 using Data.Web.JobMine;
+using Model.Definition;
 using Model.Entities;
 using Model.Entities.JobMine;
 
@@ -48,14 +49,16 @@ namespace Business.DataBaseSeeder
                     {
                         job = jobMineRepo.JobDetail.GetJob(jov);
                         SeedJobAndRelatedEntities(job, db);
-                        //messageCallBack("Job Seeded: " + ++numJobSeeded);
+                        numJobSeeded++;
                     }
                     else
                     {
                         UpdateJob(job, jov, db);
-                        //messageCallBack("Job Updated: " + ++numJobUpdated);
+                        numJobUpdated++;
                     }
+                    messageCallBack(CommonDef.CurrentStatus + "Number of job seeded: {0}; updated: {1}; removed {2}".FormatString(numJobSeeded, numJobUpdated, 0));
                 }
+                messageCallBack(CommonDef.CurrentStatus);
                 messageCallBack("Finished downloading job posting data");
             }
         }

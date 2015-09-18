@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Data.Contract.JobMine.Interface;
+using Data.Web.JobMine.Common;
 using HtmlAgilityPack;
 using Model.Definition;
 using Model.Entities;
@@ -139,48 +140,6 @@ namespace Data.Web.JobMine.DataSource
             return jobIds;
         }
 
-        /// <summary>
-        ///     Return the JobInquiryData Navevaluecollection for post operation to JobMine JobInquiryPage
-        /// </summary>
-        public static NameValueCollection JobInquiryData(string iCStateNum, string iCAction, string iCsid, string term,
-            string jobStatus = "POST", string location = "", string discipline1 = "", string discipline2 = "", string discipline3 = "")
-        {
-            var searchData = new NameValueCollection
-            {
-                {"ICAJAX", "1"},
-                {"ICNAVTYPEDROPDOWN", "1"},
-                {"ICType", "Panel"},
-                {"ICElementNum", "0"},
-                {"ICStateNum", iCStateNum},
-                {"ICAction", iCAction},
-                {"ICXPos", "0"},
-                {"ICYPos", "110"},
-                {"ResponsetoDiffFrame", "-1"},
-                {"TargetFrameName", "None"},
-                {"ICFocus", ""},
-                {"ICSaveWarningFilter", "0"},
-                {"ICChanged", "-1"},
-                {"ICResubmit", "0"},
-                {"ICSID", iCsid},
-                {"ICModalWidget", "0"},
-                {"ICZoomGrid", "0"},
-                {"ICZoomGridRt", "0"},
-                {"ICModalLongClosed", ""},
-                {"ICActionPrompt", "false"},
-                {"ICFind", ""},
-                {"ICAddCount", ""},
-                {"UW_CO_JOBSRCH_UW_CO_WT_SESSION", term},
-                {"UW_CO_JOBSRCH_UW_CO_JOB_TITLE", ""},
-                {"UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME", ""},
-                {"UW_CO_JOBSRCH_UW_CO_LOCATION", location},
-                {"UW_CO_JOBSRCH_UW_CO_ADV_DISCP1", discipline1},
-                {"UW_CO_JOBSRCH_UW_CO_ADV_DISCP2", discipline2},
-                {"UW_CO_JOBSRCH_UW_CO_ADV_DISCP3", discipline3},
-                {"UW_CO_JOBSRCH_UW_CO_JS_JOBSTATUS", jobStatus}
-            };
-            return searchData;
-        }
-
         private static void SetInquiryData(ICookieEnabledWebClient client, int numPages, ref string iCAction, ref string iCsid, ref int iCStateNum)
         {
             var doc = new HtmlDocument();
@@ -234,7 +193,7 @@ namespace Data.Web.JobMine.DataSource
             int iCStateNum, string jobStatus)
         {
             const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";
-            NameValueCollection jobInquiryData = JobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus);
+            NameValueCollection jobInquiryData = PostData.GetJobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus: jobStatus);
             byte[] values = client.UploadValues(url, method, jobInquiryData);
             return Encoding.UTF8.GetString(values);
         }

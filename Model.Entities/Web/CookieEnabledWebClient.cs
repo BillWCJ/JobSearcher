@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Specialized;
 using System.Net;
+using System.Reflection;
 
 namespace Model.Entities.Web
 {
@@ -58,6 +60,45 @@ namespace Model.Entities.Web
                 (request as HttpWebRequest).UserAgent = UserAgent;
             }
             return request;
+        }
+
+        public CookieCollection GetAllCookies()
+        {
+            CookieCollection cookieCollection = new CookieCollection();
+
+            Hashtable table = (Hashtable)this.CookieContainer.GetType().InvokeMember("m_domainTable",
+                                                                            BindingFlags.NonPublic |
+                                                                            BindingFlags.GetField |
+                                                                            BindingFlags.Instance,
+                                                                            null,
+                                                                            this.CookieContainer,
+                                                                            new object[] { });
+
+            foreach (var tableKey in table.Keys)
+            {
+                String str_tableKey = (string)tableKey;
+
+                if (str_tableKey[0] == '.')
+                {
+                    str_tableKey = str_tableKey.Substring(1);
+                }
+
+                SortedList list = (SortedList)table[tableKey].GetType().InvokeMember("m_list",
+                                                                            BindingFlags.NonPublic |
+                                                                            BindingFlags.GetField |
+                                                                            BindingFlags.Instance,
+                                                                            null,
+                                                                            table[tableKey],
+                                                                            new object[] { });
+
+                foreach (var listKey in list.Keys)
+                {
+                    String url = "https://" + str_tableKey + (string)listKey;
+                    cookieCollection.Add(this.CookieContainer.GetCookies(new Uri(url)));
+                }
+            }
+
+            return cookieCollection;
         }
     }
 }

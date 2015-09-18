@@ -73,7 +73,7 @@ namespace Data.Web.JobMine.DataSource
             int iCStateNum, string jobStatus)
         {
             const string url = JobMineDef.JobInquiryUrlShortpsc, method = "POST";
-            NameValueCollection postData = PostData.GetJobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus);
+            NameValueCollection postData = PostData.GetJobInquiryData(iCStateNum.ToString(CultureInfo.InvariantCulture), iCAction, iCsid, term, jobStatus: jobStatus);
             return Encoding.UTF8.GetString(client.UploadValues(url, method, postData));
         }
 

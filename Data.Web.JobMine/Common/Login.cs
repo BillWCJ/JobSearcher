@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Net;
 using Model.Definition;
 using Model.Entities.Web;
 
@@ -21,7 +22,13 @@ namespace Data.Web.JobMine.Common
 
         public static bool IsLoggedIn(ICookieEnabledWebClient client)
         {
-            return client.CookieContainer.Count > 5;
+            var uri = new Uri(@"https://ccol.uwaterloo.ca/");
+            foreach (Cookie cookie in client.CookieContainer.GetCookies(uri))
+            {
+                if (cookie.Name == "PS_TOKEN")
+                    return true;
+            }
+            return false;
         }
 
         /// <summary>

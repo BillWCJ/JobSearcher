@@ -19,11 +19,9 @@ namespace Data.Web.JobMine.Common
         }
 
         /// <summary>
-        ///     Return the JobInquiryData for post operation to JobMine JobInquiryPage
+        ///     Return the JobInquiryData Navevaluecollection for post operation to JobMine JobInquiryPage
         /// </summary>
-        public static NameValueCollection GetJobInquiryData(string iCStateNum, string iCAction, string iCsid,
-            string term, string jobStatus = JobStatus.Posted, string location = null, string discipline1 = null,
-            string discipline2 = null, string discipline3 = null)
+        public static NameValueCollection GetJobInquiryData(string iCStateNum, string iCAction, string iCsid, string term, string jobStatus = JobStatus.Posted, string jobTitle = null, string employerName = null, string location = null, string discipline1 = null, string discipline2 = null, string discipline3 = null)
         {
             var searchData = new NameValueCollection
             {
@@ -50,8 +48,8 @@ namespace Data.Web.JobMine.Common
                 {"ICFind", ""},
                 {"ICAddCount", ""},
                 {"UW_CO_JOBSRCH_UW_CO_WT_SESSION", term},
-                {"UW_CO_JOBSRCH_UW_CO_JOB_TITLE", ""},
-                {"UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME", ""},
+                {"UW_CO_JOBSRCH_UW_CO_JOB_TITLE", jobTitle},
+                {"UW_CO_JOBSRCH_UW_CO_EMPLYR_NAME", employerName},
                 {"UW_CO_JOBSRCH_UW_CO_LOCATION", location},
                 {"UW_CO_JOBSRCH_UW_CO_ADV_DISCP1", discipline1},
                 {"UW_CO_JOBSRCH_UW_CO_ADV_DISCP2", discipline2},

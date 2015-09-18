@@ -27,6 +27,8 @@ namespace Model.Entities.Web
         /// </summary>
         string UserAgent { get; set; }
 
+        CookieCollection GetAllCookies();
+
         bool AllowReadStreamBuffering { get; set; }
         bool AllowWriteStreamBuffering { get; set; }
         Encoding Encoding { get; set; }

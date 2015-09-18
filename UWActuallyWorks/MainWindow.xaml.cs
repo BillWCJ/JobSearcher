@@ -5,17 +5,18 @@ using JobBrowserModule.ViewModels;
 using JobDetailModule;
 using JobDownloaderModule;
 using Microsoft.Practices.Prism.PubSubEvents;
+using Presentation.WPF.Events;
 
 namespace UWActuallyWorks
 {
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Shell : Window
+    public partial class MainWindow : Window
     {
         private readonly EventAggregator _aggregator = new EventAggregator();
 
-        public Shell()
+        public MainWindow()
         {
             if (!BrowserEmulationManager.IsBrowserEmulationSet())
             {
@@ -29,6 +30,8 @@ namespace UWActuallyWorks
             GoogleSearchPanel.ViewModel = new GoogleSearchViewModel(_aggregator);
             GoogleMapSearchPanel.ViewModel = new GoogleMapSearchViewModel(_aggregator);
             JobRatingPanel.ViewModel = new JobRatingViewModel(_aggregator);
+            this.DataContext = new MainWindowViewModel(_aggregator);
+
             SelectPerspective(0);
         }
 

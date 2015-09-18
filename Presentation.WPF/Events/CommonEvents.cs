@@ -12,5 +12,6 @@ namespace Presentation.WPF.Events
 {
     public class FilterSelectionChangedEvent : PubSubEvent<IEnumerable<Filter>> { }
     public class SelectedJobChangedEvent : PubSubEvent<Job> { }
-    public class JobDownloadCompleted : PubSubEvent<bool>{ }
+    public class JobDownloadCompletedEvent : PubSubEvent<bool>{ }
+    public class CurrentStatusMessageChangedEvent : PubSubEvent<string>{ }
 }

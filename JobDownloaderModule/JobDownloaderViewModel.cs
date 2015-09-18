@@ -1,7 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
@@ -62,10 +60,17 @@ namespace JobDownloaderModule
 
         private void UpdateProgress(string newMessage)
         {
-            lock (_isDisplayingMessageLock)
+            if (!newMessage.StartsWith(CommonDef.CurrentStatus))
             {
-                _progress += newMessage + Environment.NewLine;
-                OnPropertyChanged("Progress");
+                lock (_isDisplayingMessageLock)
+                {
+                    _progress += newMessage + Environment.NewLine;
+                    OnPropertyChanged("Progress");
+                }
+            }
+            else
+            {
+                _aggregator.GetEvent<CurrentStatusMessageChangedEvent>().Publish(newMessage.Replace(CommonDef.CurrentStatus, ""));
             }
         }
 
@@ -151,9 +156,8 @@ namespace JobDownloaderModule
                     acquired = Monitor.TryEnter(_isInProgressLock);
                     if (acquired)
                     {
-                        UserAccount account = new JseLocalRepo().GetAccount();
-                        MasterSeeder.SeedAll(MessageCallBack, account, Term, GetJobStatus(), true);
-                        _aggregator.GetEvent<JobDownloadCompleted>().Publish(true);
+                        MasterSeeder.SeedAll(MessageCallBack, new UserAccount(){JobMineUsername = UserName, JobMinePassword = Password}, Term, GetJobStatus(), true);
+                        _aggregator.GetEvent<JobDownloadCompletedEvent>().Publish(true);
                     }
                     else
                     {

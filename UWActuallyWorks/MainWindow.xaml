@@ -1,4 +1,4 @@
-﻿<Window x:Class="UWActuallyWorks.Shell"
+﻿<Window x:Class="UWActuallyWorks.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:jobBrowerViews="clr-namespace:JobBrowserModule.Views;assembly=JobBrowserModule"
@@ -7,7 +7,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:s="clr-namespace:System;assembly=mscorlib"
-        Title="UWActuallyWorks" Height="768" Width="1366">
+        Title="UwCoopJobFinder" Height="768" Width="1366">
 
     <Window.Resources>
         <BitmapImage x:Key="RefreshIcon" UriSource="/JobBrowserModule;Component/Icons/Sync.png" />
@@ -19,27 +19,10 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Name="CurrentPerspectiveLabel" Height="Auto" Width="130"
-                       HorizontalAlignment="Left" Margin="5">
-                </Label>
-                <TextBlock Grid.Column="1" Name="MessageTextBlock" Height="Auto" Width="Auto"></TextBlock>
-                <StackPanel Orientation="Horizontal" Grid.Column="2">
-                    <Button Margin="2" Padding="3" Content="Import/Export Job Posting Data" Click="SelectJobDownloaderPerspective" FontSize="16" FontWeight="Bold"/>
-                    <Button Margin="2" Padding="3" Content="Browse Jobs" Click="SelectJobBrowserPerspective" FontSize="16" FontWeight="Bold"/>
-                </StackPanel>
-            </Grid>
-        </Border>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0">
             <Grid Name="JobBrowserContainer">
                 <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
                     <xcad:DockingManager
@@ -111,5 +94,28 @@
                 </Border>
             </Grid>
         </Grid>
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Name="CurrentPerspectiveLabel" Height="Auto" Width="130"
+                       HorizontalAlignment="Left" Margin="5">
+                </Label>
+                <TextBlock Grid.Column="1" Name="MessageTextBlock" Height="Auto" Width="Auto"></TextBlock>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="StatusBar" Text="{Binding CurrentStatus}" ToolTip="{Binding CurrentStatus}"/>
+                    <Button Margin="5" Grid.Column="1" Content="Import/Export Job Posting Data" Click="SelectJobDownloaderPerspective" FontSize="16" FontWeight="Bold"/>
+                    <Button Margin="5" Grid.Column="2" Content="Browse Jobs" Click="SelectJobBrowserPerspective" FontSize="16" FontWeight="Bold"/>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
