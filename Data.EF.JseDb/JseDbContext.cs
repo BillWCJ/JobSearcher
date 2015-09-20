@@ -32,6 +32,8 @@ namespace Data.EF.JseDb
         public IDbSet<EmployerLinker> EmployerLinkers { get; set; }
         public IDbSet<LocalShortList> LocalShortLists { get; set; }
         public IDbSet<Filter> Filters { get; set; }
+        public IDbSet<UserAccount> UserAccount { get; set; } 
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -72,7 +72,6 @@ namespace JobBrowserModule.ViewModels
     {
         private ICollectionView _jobPostings;
         private IEnumerable<Filter> _activeFilters = new List<Filter>();
-        private EventAggregator _aggregator;
         private bool _isAllSelected;
         protected JobReviewManager JobReviewManager;
 
@@ -87,18 +86,19 @@ namespace JobBrowserModule.ViewModels
         private const string CancelIcon = @"../Icons/Cross.png";
         private const string CancelIconToolTip = @"Remove search filter";
 
-        public PostingTableViewModel()
+
+        private void SetUp()
         {
             SearchOrCancelIcon = SearchIcon;
             SearchOrCancelIconToolTip = SearchIconToolTip;
             SearchKeyWord = string.Empty;
         }
 
-        public PostingTableViewModel(EventAggregator aggregator) : this()
+        public PostingTableViewModel(EventAggregator aggregator) : base(aggregator)
         {
-            _aggregator = aggregator;
-            _aggregator.GetEvent<FilterSelectionChangedEvent>().Subscribe(FilterChanged);
-            _aggregator.GetEvent<JobDownloadCompletedEvent>().Subscribe((a) => PopulateTable());
+            SetUp();
+            Aggregator.GetEvent<FilterSelectionChangedEvent>().Subscribe(FilterChanged);
+            Aggregator.GetEvent<JobDownloadCompletedEvent>().Subscribe((a) => PopulateTable());
             PopulateTable();
             //ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
         }
@@ -147,8 +147,8 @@ namespace JobBrowserModule.ViewModels
 
         public void SelectedJobChanged(Job job)
         {
-            if (_aggregator != null)
-                _aggregator.GetEvent<SelectedJobChangedEvent>().Publish(job);
+            if (Aggregator != null)
+                Aggregator.GetEvent<SelectedJobChangedEvent>().Publish(job);
         }
 
         public void AddSelectedJobsToShortList(string name)

@@ -8,12 +8,11 @@ namespace JobDetailModule
     public abstract class JobDetailViewModelBase : ViewModelBase
     {
         protected Job _currentJob;
-        protected EventAggregator _aggregator;
 
-        protected JobDetailViewModelBase(EventAggregator aggregator)
+        protected JobDetailViewModelBase(EventAggregator aggregator) : base(aggregator)
         {
-            _aggregator = aggregator;
-            _aggregator.GetEvent<SelectedJobChangedEvent>().Subscribe(JobChanged);
+            Aggregator = aggregator;
+            Aggregator.GetEvent<SelectedJobChangedEvent>().Subscribe(JobChanged);
         }
 
         public Job CurrentJob

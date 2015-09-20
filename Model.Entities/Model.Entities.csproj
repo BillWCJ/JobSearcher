@@ -64,7 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchDictionary\SearchDictionary.cs" />
     <Compile Include="UserAccount.cs" />
-    <Compile Include="UtilityMethods.cs" />
     <Compile Include="SearchDictionary\Word.cs" />
     <Compile Include="Web\ICookieEnabledWebClient.cs" />
   </ItemGroup>

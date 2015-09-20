@@ -12,12 +12,10 @@ namespace UWActuallyWorks
     public class MainWindowViewModel : ViewModelBase
     {
         private string _currentStatus;
-        private EventAggregator _aggregator;
 
-        public MainWindowViewModel(EventAggregator aggregator)
+        public MainWindowViewModel(EventAggregator aggregator) : base(aggregator)
         {
-            _aggregator = aggregator;
-            _aggregator.GetEvent<CurrentStatusMessageChangedEvent>().Subscribe(UpdateStatusBar);
+            Aggregator.GetEvent<CurrentStatusMessageChangedEvent>().Subscribe(UpdateStatusBar);
             UpdateStatusBar("Welcome");
         }
 

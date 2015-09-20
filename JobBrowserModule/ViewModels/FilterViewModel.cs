@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common.Utility;
+using Microsoft.Practices.Prism.PubSubEvents;
 using Model.Definition;
 using Model.Entities;
 using Presentation.WPF;
@@ -33,6 +34,14 @@ namespace JobBrowserModule.ViewModels
         public void FilterModified()
         {
             OnPropertyChanged("Filter");
+        }
+
+        public FilterViewModel(EventAggregator aggregator) : base(aggregator)
+        {
+        }
+
+        public FilterViewModel() : base(new EventAggregator())
+        {
         }
     }
 }

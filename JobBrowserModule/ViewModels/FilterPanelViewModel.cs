@@ -22,7 +22,7 @@ namespace JobBrowserModule.ViewModels
 
     internal class FilterPanelViewModelMock : ViewModelBase, IFilterPanelViewModel
     {
-        public FilterPanelViewModelMock()
+        public FilterPanelViewModelMock() : base(new EventAggregator())
         {
             Filters = new ObservableCollection<FilterViewModel>(new List<FilterViewModel>
             {
@@ -65,16 +65,9 @@ namespace JobBrowserModule.ViewModels
 
     public class FilterPanelViewModel : ViewModelBase, IFilterPanelViewModel
     {
-        private readonly EventAggregator _aggregator;
-
-        public FilterPanelViewModel()
+        public FilterPanelViewModel(EventAggregator aggregator) : base(aggregator)
         {
-            Filters = new ObservableCollection<FilterViewModel>(FilterManager.GetFilters().Select(a => new FilterViewModel{Filter = a}));
-        }
-
-        public FilterPanelViewModel(EventAggregator aggregator) : this()
-        {
-            _aggregator = aggregator;
+            Filters = new ObservableCollection<FilterViewModel>(FilterManager.GetFilters().Select(a => new FilterViewModel {Filter = a}));
         }
 
         public bool IsAllSelected { get; set; }
@@ -82,8 +75,8 @@ namespace JobBrowserModule.ViewModels
         public void FilterChanged()
         {
             var filters = Filters.Where(f => f.IsSelected).Select(f => f.Filter);
-            if (_aggregator != null)
-                _aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
+            if (Aggregator != null)
+                Aggregator.GetEvent<FilterSelectionChangedEvent>().Publish(filters);
         }
 
         public ObservableCollection<FilterViewModel> Filters { get; set; }

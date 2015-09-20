@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Microsoft.Practices.Prism.PubSubEvents;
 using Presentation.WPF.Annotations;
 
 namespace Presentation.WPF
@@ -10,7 +11,13 @@ namespace Presentation.WPF
 
     public class ViewModelBase : IViewModelBase
     {
+        protected EventAggregator Aggregator;
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ViewModelBase(EventAggregator aggregator)
+        {
+            Aggregator = aggregator;
+        }
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

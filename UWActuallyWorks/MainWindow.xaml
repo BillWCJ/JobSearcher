@@ -19,10 +19,20 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBlock Margin="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="StatusBar" Text="{Binding CurrentStatus}" ToolTip="{Binding CurrentStatus}"/>
+                </Grid>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1">
             <Grid Name="JobBrowserContainer">
                 <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
                     <xcad:DockingManager
@@ -88,34 +98,6 @@
                     </xcad:DockingManager>
                 </Border>
             </Grid>
-            <Grid Name="JobDownloaderContainer">
-                <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-                    <jobDownloaderModule:JobDownloaderView Name="JobDownloaderView" />
-                </Border>
-            </Grid>
         </Grid>
-        <Border Grid.Row="1" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Name="CurrentPerspectiveLabel" Height="Auto" Width="130"
-                       HorizontalAlignment="Left" Margin="5">
-                </Label>
-                <TextBlock Grid.Column="1" Name="MessageTextBlock" Height="Auto" Width="Auto"></TextBlock>
-                <Grid Grid.Column="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Margin="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="StatusBar" Text="{Binding CurrentStatus}" ToolTip="{Binding CurrentStatus}"/>
-                    <Button Margin="5" Grid.Column="1" Content="Import/Export Job Posting Data" Click="SelectJobDownloaderPerspective" FontSize="16" FontWeight="Bold"/>
-                    <Button Margin="5" Grid.Column="2" Content="Browse Jobs" Click="SelectJobBrowserPerspective" FontSize="16" FontWeight="Bold"/>
-                </Grid>
-            </Grid>
-        </Border>
     </Grid>
 </Window>

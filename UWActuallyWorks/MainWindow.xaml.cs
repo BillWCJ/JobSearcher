@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 using Business.Manager;
 using JobBrowserModule.Services;
 using JobBrowserModule.ViewModels;
@@ -15,6 +16,8 @@ namespace UWActuallyWorks
     public partial class MainWindow : Window
     {
         private readonly EventAggregator _aggregator = new EventAggregator();
+        private readonly UserAccountManager _userAccountManager = new UserAccountManager();
+        private MainWindowViewModel ViewModel { get; set; }
 
         public MainWindow()
         {
@@ -23,48 +26,24 @@ namespace UWActuallyWorks
                 BrowserEmulationManager.SetBrowserEmulationVersion();
             }
             InitializeComponent();
-            JobDownloaderView.ViewModel = new JobDownloaderViewModel(_aggregator);
+            ViewModel = new MainWindowViewModel(_aggregator);
+            this.DataContext = ViewModel;
+
+            var window = new Window
+            {
+                Background = Brushes.Transparent,
+                Owner = this.Parent as Window,
+                Title = "UWCoopJobFinder - SignOn & Data Import & Export",
+                Content = new JobDownloaderView() {ViewModel = new JobDownloaderViewModel(_aggregator, _userAccountManager)}
+            };
+            window.ShowDialog();
+
             FilterPanel.ViewModel = new FilterPanelViewModel(_aggregator);
             JobPostingTable.ViewModel = new PostingTableViewModel(_aggregator);
             JobDetailPanel.ViewModel = new JobDetailViewModel(_aggregator);
             GoogleSearchPanel.ViewModel = new GoogleSearchViewModel(_aggregator);
             GoogleMapSearchPanel.ViewModel = new GoogleMapSearchViewModel(_aggregator);
             JobRatingPanel.ViewModel = new JobRatingViewModel(_aggregator);
-            this.DataContext = new MainWindowViewModel(_aggregator);
-
-            SelectPerspective(0);
-        }
-
-        private void SelectJobDownloaderPerspective(object sender, RoutedEventArgs e)
-        {
-            SelectPerspective(0);
-        }
-
-        private void SelectPerspective(int perspectiveIndex)
-        {
-            switch (perspectiveIndex)
-            {
-                case 0:
-                    JobBrowserContainer.Visibility = Visibility.Hidden;
-                    JobBrowserContainer.IsEnabled = false;
-                    JobDownloaderContainer.Visibility = Visibility.Visible;
-                    JobDownloaderContainer.IsEnabled = true;
-
-                    break;
-                case 1:
-                    JobBrowserContainer.Visibility = Visibility.Visible;
-                    JobBrowserContainer.IsEnabled = true;
-                    JobDownloaderContainer.Visibility = Visibility.Collapsed;
-                    JobDownloaderContainer.IsEnabled = false;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void SelectJobBrowserPerspective(object sender, RoutedEventArgs e)
-        {
-            SelectPerspective(1);
         }
     }
 }
