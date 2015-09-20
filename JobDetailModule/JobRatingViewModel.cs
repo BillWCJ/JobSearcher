@@ -13,16 +13,17 @@ namespace JobDetailModule
     public class JobRatingViewModel  : JobDetailViewModelBase
     {
         private ObservableCollection<EmployerReview> _employerReviews;
+        private static readonly ObservableCollection<EmployerReview> NoResultCollection = new ObservableCollection<EmployerReview>(new List<EmployerReview>{new EmployerReview{Name = "No Result"}});
 
         public ObservableCollection<EmployerReview> EmployerReviews
         {
             get
             {
-                return _employerReviews ?? (_employerReviews = new ObservableCollection<EmployerReview>(JobReviewManager.GetEmployerReview("University of Waterloo")));
+                return _employerReviews ?? (_employerReviews = NoResultCollection);
             }
             set
             {
-                _employerReviews = value;
+                _employerReviews = value.Count > 0 ? value : NoResultCollection;
                 OnPropertyChanged();
             }
         }

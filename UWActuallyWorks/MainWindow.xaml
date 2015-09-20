@@ -25,11 +25,11 @@
         <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <TextBlock Margin="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="StatusBar" Text="{Binding CurrentStatus}" ToolTip="{Binding CurrentStatus}"/>
-                </Grid>
+                <TextBlock Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Name="StatusBar" Text="{Binding CurrentStatus}" ToolTip="{Binding CurrentStatus}"/>
+                <Button Grid.Column="1" Margin="5" Content="SignOn, Import, and Export" Click="JobDownloadClick"></Button>
             </Grid>
         </Border>
         <Grid Grid.Row="1">

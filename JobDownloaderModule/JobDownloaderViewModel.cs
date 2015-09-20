@@ -255,6 +255,8 @@ namespace JobDownloaderModule
                     acquired = Monitor.TryEnter(_isInProgressLock);
                     if (acquired)
                     {
+                        CurrentStatus = "In Progress";
+                        OnPropertyChanged("CurrentStatus");
                         MasterSeeder.SeedAll(MessageCallBack, _userAccountManager.UserAccount, Term, _userAccountManager.UserAccount.JobStatus, true);
                         Aggregator.GetEvent<JobDownloadCompletedEvent>().Publish(true);
                     }
@@ -267,6 +269,8 @@ namespace JobDownloaderModule
                 {
                     if (acquired)
                         Monitor.Exit(_isInProgressLock);
+                    CurrentStatus = "";
+                    OnPropertyChanged("CurrentStatus");
                 }
             }, Task.Factory.CancellationToken);
         }

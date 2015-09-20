@@ -19,19 +19,26 @@ namespace JobBrowserModule.ViewModels
     {
         ICollectionView JobPostings { get; }
         bool IsAllSelected { get; set; }
-        void FilterChanged(IEnumerable<Filter> filters);
-        void SelectedJobChanged(Job job);
-        void AddSelectedJobsToShortList(string name);
         string SearchOrCancelIcon { get; }
         string SearchOrCancelIconToolTip { get; }
         string SearchKeyWord { get; set; }
         string TableInfo { get; }
         ObservableCollection<string> ShortListNames { get; set; }
+        void FilterChanged(IEnumerable<Filter> filters);
+        void SelectedJobChanged(Job job);
+        void AddSelectedJobsToShortList(string name);
         void KeyWordSearchToggled();
     }
 
     internal class PostingTableViewModelMock : IPostingTableViewModel
     {
+        public PostingTableViewModelMock()
+        {
+            var jobs = JobManager.FindJobs();
+            var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
+            JobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
+        }
+
         public ICollectionView JobPostings { get; private set; }
         public bool IsAllSelected { get; set; }
 
@@ -48,75 +55,55 @@ namespace JobBrowserModule.ViewModels
         }
 
         public ObservableCollection<string> ShortListNames { get; set; }
+
         public void KeyWordSearchToggled()
         {
         }
 
         public string SearchOrCancelIcon { get; set; }
-
         public string SearchOrCancelIconToolTip { get; set; }
-
         public string SearchKeyWord { get; set; }
-
         public string TableInfo { get; private set; }
-
-        public PostingTableViewModelMock()
-        {
-            var jobs = JobManager.FindJobs();
-            var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
-            JobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
-        }
     }
 
     public class PostingTableViewModel : ViewModelBase, IPostingTableViewModel
     {
-        private ICollectionView _jobPostings;
-        private IEnumerable<Filter> _activeFilters = new List<Filter>();
-        private bool _isAllSelected;
-        protected JobReviewManager JobReviewManager;
-
-        private Filter _keyWordSearch = new Filter()
-        {
-            Category = FilterCategory.StringSearch,
-            StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.Job}
-        };
-
         private const string SearchIcon = @"../Icons/Search.png";
         private const string SearchIconToolTip = @"Search key word in all jobs";
         private const string CancelIcon = @"../Icons/Cross.png";
         private const string CancelIconToolTip = @"Remove search filter";
 
+        private readonly Filter _keyWordSearch = new Filter
+        {
+            Category = FilterCategory.StringSearch,
+            StringSearchTargets = new List<StringSearchTarget> {StringSearchTarget.Job}
+        };
 
-        private void SetUp()
+        private IEnumerable<Filter> _activeFilters = new List<Filter>();
+        private bool _isAllSelected;
+        private ICollectionView _jobPostings;
+        protected JobReviewManager JobReviewManager;
+
+        public PostingTableViewModel(EventAggregator aggregator) : base(aggregator)
         {
             SearchOrCancelIcon = SearchIcon;
             SearchOrCancelIconToolTip = SearchIconToolTip;
             SearchKeyWord = string.Empty;
-        }
-
-        public PostingTableViewModel(EventAggregator aggregator) : base(aggregator)
-        {
-            SetUp();
             Aggregator.GetEvent<FilterSelectionChangedEvent>().Subscribe(FilterChanged);
-            Aggregator.GetEvent<JobDownloadCompletedEvent>().Subscribe((a) => PopulateTable());
+            Aggregator.GetEvent<JobDownloadCompletedEvent>().Subscribe(a => PopulateTable());
             PopulateTable();
-            //ShortListNames = new ObservableCollection<string>(LocalShortListManager.GetListOfShortListNames());
-        }
-
-        private void PopulateTable()
-        {
-            JobReviewManager = new JobReviewManager();
-            var jobs = JobManager.FindJobs();
-            var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
-            _jobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
-            _jobPostings.Filter += JobPostingFilter;
         }
 
         public ICollectionView JobPostings
         {
             get
             {
-                return _jobPostings;
+                return _jobPostings ?? (_jobPostings = CollectionViewSource.GetDefaultView(new List<JobPostingViewModel>()));
+            }
+            set
+            {
+                _jobPostings = value;
+                OnPropertyChanged();
             }
         }
 
@@ -157,7 +144,7 @@ namespace JobBrowserModule.ViewModels
             {
                 if (LocalShortListManager.AddJobToShortList(jobPostingViewModel.Job, name))
                 {
-                    if(!ShortListNames.Contains(name))
+                    if (!ShortListNames.Contains(name))
                         ShortListNames.Add(name);
                 }
             }
@@ -171,12 +158,13 @@ namespace JobBrowserModule.ViewModels
         {
             get
             {
-                int count = JobPostings.Cast<object>().Count();
+                var count = JobPostings.Cast<object>().Count();
                 return "Number of jobs visible: {0}".FormatString(count);
             }
         }
 
         public ObservableCollection<string> ShortListNames { get; set; }
+
         public void KeyWordSearchToggled()
         {
             var filters = _activeFilters.ToList();
@@ -189,7 +177,7 @@ namespace JobBrowserModule.ViewModels
             }
             else
             {
-                _keyWordSearch.StringSearchValues = new List<string>{SearchKeyWord};
+                _keyWordSearch.StringSearchValues = new List<string> {SearchKeyWord};
                 filters.Add(_keyWordSearch);
                 SearchOrCancelIcon = CancelIcon;
                 SearchOrCancelIconToolTip = CancelIconToolTip;
@@ -198,6 +186,15 @@ namespace JobBrowserModule.ViewModels
             OnPropertyChanged("SearchOrCancelIcon");
             OnPropertyChanged("SearchOrCancelIconToolTip");
             OnPropertyChanged("SearchKeyWord");
+        }
+
+        private void PopulateTable()
+        {
+            JobReviewManager = new JobReviewManager();
+            var jobs = JobManager.FindJobs();
+            var jobPostingViewModels = jobs.Select(job => new JobPostingViewModel(job));
+            JobPostings = CollectionViewSource.GetDefaultView(jobPostingViewModels);
+            JobPostings.Filter += JobPostingFilter;
         }
 
         private bool JobPostingFilter(object item)
