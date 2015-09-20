@@ -84,23 +84,30 @@ namespace Business.Manager
         public static List<EmployerReview> GetEmployerReview(string employerName)
         {
             var returnlist = new List<EmployerReview>();
-            employerName = employerName.Trim(' ');
-            if (!employerName.IsNullSpaceOrEmpty())
+            try
             {
-                string[] employerNameSplits = employerName.Split(' ', ',', '.', '-');
-                using (var db = new JseDbContext())
+                employerName = employerName.Trim(' ');
+                if (!employerName.IsNullSpaceOrEmpty())
                 {
-                    for (int tolerance = 0; !returnlist.Any() && tolerance < employerNameSplits.Count(); tolerance++)
+                    string[] employerNameSplits = employerName.Split(' ', ',', '.', '-');
+                    using (var db = new JseDbContext())
                     {
-                        foreach (EmployerReview employerReview in db.EmployerReviews.Include(e => e.JobReviews.Select(j => j.JobRatings)))
+                        for (int tolerance = 0; !returnlist.Any() && tolerance < employerNameSplits.Count(); tolerance++)
                         {
-                            if (IsSimilar(employerNameSplits, employerReview.Name, tolerance))
-                                returnlist.Add(employerReview);
+                            foreach (EmployerReview employerReview in db.EmployerReviews.Include(e => e.JobReviews.Select(j => j.JobRatings)))
+                            {
+                                if (IsSimilar(employerNameSplits, employerReview.Name, tolerance))
+                                    returnlist.Add(employerReview);
+                            }
                         }
                     }
                 }
+                returnlist.Sort((x, y) => String.CompareOrdinal(x.Name, y.Name));
             }
-            returnlist.Sort((x, y) => String.CompareOrdinal(x.Name, y.Name));
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
             return returnlist;
         }
     }

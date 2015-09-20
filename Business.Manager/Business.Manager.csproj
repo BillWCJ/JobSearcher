@@ -54,6 +54,7 @@
     <Compile Include="BrowserEmulationManager.cs" />
     <Compile Include="FilterManager.cs" />
     <Compile Include="JobManager.cs" />
+    <Compile Include="JobMineCommunicator.cs" />
     <Compile Include="JobReviewManager.cs" />
     <Compile Include="JobSearcher.cs" />
     <Compile Include="LocalDownloadManager.cs" />
@@ -77,6 +78,14 @@
     <ProjectReference Include="..\Data.EF.JseDb\Data.EF.JseDb.csproj">
       <Project>{5DC2F9DC-EAAD-425E-853A-5CDEB054F55F}</Project>
       <Name>Data.EF.JseDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.IO.Local\Data.IO.Local.csproj">
+      <Project>{8BF3F9BB-8EA9-4EEF-BA16-F89FB067E7EF}</Project>
+      <Name>Data.IO.Local</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Web.JobMine\Data.Web.JobMine.csproj">
+      <Project>{07D1AEA5-7872-4B29-93D6-73F8FDC63D33}</Project>
+      <Name>Data.Web.JobMine</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
       <Project>{62864846-7447-4600-B704-91831B872E3F}</Project>

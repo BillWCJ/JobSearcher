@@ -33,5 +33,9 @@ namespace JobDetailModule
         //    string name = string.IsNullOrWhiteSpace(ShortListTextBox.Text) ? ShortListComboBox.SelectionBoxItem.ToString() : ShortListTextBox.Text;
         //    ViewModel.AddSelectedJobToShortList(name);
         //}
+        private void AddCurrentJobToJobMineShortList(object sender, RoutedEventArgs e)
+        {
+            ViewModel.AddCurrentJobToJobMineShortList();
+        }
     }
 }

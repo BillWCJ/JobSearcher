@@ -22,8 +22,8 @@
                 <xctk:RtfFormatter />
             </xctk:RichTextBox.TextFormatter>
         </xctk:RichTextBox>
-        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
-            <Label Margin="5"
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
+            <!--<Label Margin="5"
                    Content="Add to local short list (Enter in text box to add new short list):" />
             <ComboBox Margin="5" ItemsSource="{Binding ShortListNames}" Name="ShortListComboBox" />
             <TextBox Margin="5" MinWidth="50" Name="ShortListTextBox" />
@@ -31,7 +31,9 @@
                     Click="AddSelectedJobToShortList">
                 <Image Height="15" Width="15"
                        ToolTip="Add selected jobs to local short list" />
+            </Button>-->
+            <Button Margin="5" Click="AddCurrentJobToJobMineShortList" Content="Add Current Job To JobMine Short List">
             </Button>
-        </StackPanel>-->
+        </StackPanel>
     </Grid>
 </UserControl>

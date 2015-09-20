@@ -38,13 +38,18 @@ namespace JobDetailModule
             OnPropertyChanged("CurrentJobString");
         }
 
-        public void AddSelectedJobToShortList(string name)
+        //public void AddSelectedJobToShortList(string name)
+        //{
+        //    if (LocalShortListManager.AddJobToShortList(CurrentJob, name))
+        //    {
+        //        if (!ShortListNames.Contains(name))
+        //            ShortListNames.Add(name);
+        //    }
+        //}
+
+        public void AddCurrentJobToJobMineShortList()
         {
-            if (LocalShortListManager.AddJobToShortList(CurrentJob, name))
-            {
-                if (!ShortListNames.Contains(name))
-                    ShortListNames.Add(name);
-            }
+            JobMineCommunicator.AddToShortList(CurrentJob);
         }
 
         public ObservableCollection<string> ShortListNames { get; set; }
