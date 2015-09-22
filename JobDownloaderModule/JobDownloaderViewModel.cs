@@ -247,6 +247,7 @@ namespace JobDownloaderModule
 
         public void DownloadAndSeedJobIntoDb()
         {
+            _userAccountManager.SaveAccount();
             Task.Factory.StartNew(() =>
             {
                 var acquired = false;

@@ -21,19 +21,40 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                           TextWrapping="Wrap" Text="{Binding BeginText}">
-                </TextBlock>
+                <Expander Grid.Row="0" Margin="5" Header="Before You Start...">
+                    <StackPanel>
+                        <TextBlock Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                   TextWrapping="Wrap" Text="{Binding BeginText}" />
+
+                        <TextBlock Margin="10" HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   TextWrapping="Wrap">
+                            <Run Text="Before you start..." /><LineBreak />
+                            <Run
+                                Text="1.Please log onto Jobmine in order to verify that your credital is valid and that JobMine is online" />
+                            <LineBreak />
+                            <Run
+                                Text="2.Go to JobInquire page and set values as follows inorder to guarntee that the correct data is imported" />
+                            <LineBreak />
+                            <Run
+                                Text="3.Reset location filter, discipline filter, employer search, and job title search to empty" />
+                            <LineBreak />
+                            <Run Text="4.Select all levels including junior, intermediate, and senior" />
+                            <LineBreak />
+                            <Run Text="5.(optional) enter the correct term and job status"></Run>
+                        </TextBlock>
+                    </StackPanel>
+                </Expander>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="10">
+                    <StackPanel Grid.Column="0">
                         <Label Content="Username:" Margin="5" />
                         <TextBox x:Name="UsernameTextBox" Margin="5" Text="{Binding UserName}" />
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Margin="10">
+                    <StackPanel Grid.Column="1">
                         <Label Content="Password:" Margin="5" />
                         <PasswordBox x:Name="PasswordTextBox" Margin="5" PasswordChanged="PasswordChanged" />
                     </StackPanel>
@@ -43,11 +64,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="10">
+                    <StackPanel Grid.Column="0">
                         <Label Content="Term: (Same as Jobmine; Ex 1151)" Margin="5" />
                         <TextBox x:Name="TermTextBox" Margin="5" Text="{Binding Term}" />
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Margin="10">
+                    <StackPanel Grid.Column="1">
                         <Label Content="Job Status:" Margin="5" />
                         <ComboBox x:Name="JobStatusComboBox" Margin="5"
                                   SelectedIndex="{Binding JobStatusSelectionIndex}">
@@ -58,21 +79,6 @@
                         </ComboBox>
                     </StackPanel>
                 </Grid>
-                <TextBlock Grid.Row="3" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                           TextWrapping="Wrap">
-                    <Run Text="Before you start..." /><LineBreak />
-                    <Run
-                        Text="1.Please log onto Jobmine in order to verify that your credital is valid and that JobMine is online" />
-                    <LineBreak />
-                    <Run
-                        Text="2.Go to JobInquire page and set values as follows inorder to guarntee that the correct data is imported" />
-                    <LineBreak />
-                    <Run
-                        Text="3.Reset location filter, discipline filter, employer search, and job title search to empty" />
-                    <LineBreak />
-                    <Run Text="4.Select all levels including junior, intermediate, and senior" /><LineBreak />
-                    <Run Text="5.(optional) enter the correct term and job status"></Run>
-                </TextBlock>
                 <GroupBox Grid.Row="4" Margin="5" Header="Simple Operations">
                     <StackPanel>
                         <Button Margin="5" HorizontalAlignment="Right" Click="DownloadToDbButton_OnClick"

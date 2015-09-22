@@ -90,7 +90,7 @@ namespace Model.Definition
         AllHealthInformatics = 81,
         [Description("All Info Tech (unspecified)")]
         AllInfoTechUnSpecified = 66,
-        [Description("CA-Chart Prof Acct (CPA)")]
+        [Description("All Chart Prof Acct (CPA)")]
         CaChartProfAcctCpa = 2,
         [Description("ENG MASTERS-Civil")]
         EngmastersCivil = 94,

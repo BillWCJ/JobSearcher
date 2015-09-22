@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Common.Utility;
 using Data.EF.JseDb;
@@ -25,7 +26,7 @@ namespace Business.DataBaseSeeder
             using (var db = new JseDbContext())
             {
                 messageCallBack("Searching For Jobs");
-                int numJobSeeded = 0, numJobUpdated = 0;
+                int numJobSeeded = 0, numJobUpdated = 0, numJobRemoved = 0;
                 JobMineRepo jobMineRepo;
                 IEnumerable<JobOverView> jobOverViews = new List<JobOverView>();
                 try
@@ -41,22 +42,48 @@ namespace Business.DataBaseSeeder
                 var numJob = jobOverViews.Count();
                 messageCallBack("Found {0} jobs. please wait around {1} minutes for download to complete".FormatString(numJob, (numJob + 59) / 60));
 
+                var dbJobIds = new HashSet<int>(db.Jobs.Select(j => j.Id));
+                var currentJobIds = jobOverViews.Select(j => j.Id);
+                var removedJobs = dbJobIds.Except(currentJobIds);
+
                 foreach (JobOverView jov in jobOverViews)
                 {
-                    var job = db.Jobs.FirstOrDefault(x => x.Id == jov.Id);
+                    try
+                    {
+                        if (dbJobIds.Contains(jov.Id))
+                        {
+                            var job = db.Jobs.Include(j => j.Levels).Include(j => j.Disciplines).Include(j => j.JobLocation).Include(j => j.Employer).FirstOrDefault(x => x.Id == jov.Id);
+                            UpdateJob(job, jov, db);
+                            numJobUpdated++;
+                        }
+                        else
+                        {
+                            var job = jobMineRepo.JobDetail.GetJob(jov);
+                            SeedJobAndRelatedEntities(job, db);
+                            numJobSeeded++;
+                        }
+                        messageCallBack(CommonDef.CurrentStatus + "Number of job seeded: {0}; updated: {1}; removed {2}".FormatString(numJobSeeded, numJobUpdated, numJobRemoved));
+                    }
+                    catch (Exception e)
+                    {
+                        messageCallBack("Error while seeding or updating job {0} : {1}".FormatString(jov.Id, e.Message));
+                    }
+                }
 
-                    if (job == null)
+                foreach (int jobId in removedJobs)
+                {
+                    try
                     {
-                        job = jobMineRepo.JobDetail.GetJob(jov);
-                        SeedJobAndRelatedEntities(job, db);
-                        numJobSeeded++;
+                        var job = db.Jobs.Include(j => j.Levels).Include(j => j.Disciplines).Include(j => j.JobLocation).Include(j => j.Employer).FirstOrDefault(x => x.Id == jobId);
+                        db.Jobs.Remove(job);
+                        db.SaveChanges();
+                        numJobRemoved++;
                     }
-                    else
+                    catch (Exception e)
                     {
-                        UpdateJob(job, jov, db);
-                        numJobUpdated++;
+                        messageCallBack("Error while removing job {0} : {1}".FormatString(jobId, e.Message));
                     }
-                    messageCallBack(CommonDef.CurrentStatus + "Number of job seeded: {0}; updated: {1}; removed {2}".FormatString(numJobSeeded, numJobUpdated, 0));
+                    messageCallBack(CommonDef.CurrentStatus + "Number of job seeded: {0}; updated: {1}; removed {2}".FormatString(numJobSeeded, numJobUpdated, numJobRemoved));
                 }
                 messageCallBack(CommonDef.CurrentStatus);
                 messageCallBack("Finished downloading job posting data");
@@ -68,6 +95,17 @@ namespace Business.DataBaseSeeder
             job.NumberOfApplied = jov.NumberOfApplied;
             job.AlreadyApplied = jov.AlreadyApplied;
             job.OnShortList = jov.OnShortList;
+
+            db.Jobs.Attach(job);
+            var entry = db.Entry(job);
+            entry.Property(e => e.NumberOfApplied).IsModified = true;
+            entry.Property(e => e.AlreadyApplied).IsModified = true;
+            entry.Property(e => e.OnShortList).IsModified = true;
+            //entry.Property(e => e.Disciplines).IsModified = false;
+            //entry.Property(e => e.Levels).IsModified = false;
+            //entry.Property(e => e.Employer).IsModified = false;
+            //entry.Property(e => e.JobLocation).IsModified = false;
+            //entry.Property(e => e.LocalShortList).IsModified = false;
             db.SaveChanges();
         }
 

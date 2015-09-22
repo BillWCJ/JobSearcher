@@ -20,9 +20,25 @@ namespace Business.Manager
                     if (UserAccount == null)
                     {
                         UserAccount = new UserAccount();
-                        db.UserAccount.AddOrUpdate(UserAccount);
+                        db.UserAccount.Add(UserAccount);
                         db.SaveChanges();
                     }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        public void SaveAccount()
+        {
+            try
+            {
+                using (var db = new JseDbContext())
+                {
+                    db.UserAccount.Attach(UserAccount);
+                    db.SaveChanges();
                 }
             }
             catch (Exception e)
