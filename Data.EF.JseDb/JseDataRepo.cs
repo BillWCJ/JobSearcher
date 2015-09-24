@@ -9,9 +9,9 @@ namespace Data.EF.JseDb
 {
     public class JseDataRepo : IJseDataRepo
     {
-        public JseDataRepo()
+        public JseDataRepo(JseDbContext dbContext)
         {
-            DbContext = new JseDbContext();
+            DbContext = dbContext;
             DisciplinesRepo = new DisciplinesRepo(DbContext);
             EmployerRepo = new EmployerRepo(DbContext);
             JobRepo = new JobRepo(DbContext);
@@ -27,7 +27,7 @@ namespace Data.EF.JseDb
             FilteRepo = new BaseRepository<Filter>(DbContext);
         }
 
-        public JseDbContext DbContext { get; set; }
+        public IJseDbContext DbContext { get; set; }
         public IDisciplinesRepo DisciplinesRepo { get; private set; }
         public IEmployerRepo EmployerRepo { get; private set; }
         public IJobRepo JobRepo { get; private set; }

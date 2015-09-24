@@ -14,9 +14,9 @@ namespace Model.Entities.Web
         /// <summary>
         ///     Initalizes a new instatnce of WebClientExtension.CookieEnabledWebClient
         /// </summary>
-        public CookieEnabledWebClient()
+        public CookieEnabledWebClient(CookieContainer cookieContainer = null)
         {
-            CookieContainer = new CookieContainer();
+            CookieContainer = cookieContainer ?? new CookieContainer();
             UserAgent = DefaultUserAgent;
         }
 

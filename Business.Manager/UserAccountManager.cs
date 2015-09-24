@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Data.Contract.Local;
@@ -38,6 +39,7 @@ namespace Business.Manager
                 using (var db = new JseDbContext())
                 {
                     db.UserAccount.Attach(UserAccount);
+                    db.Entry(UserAccount).State = EntityState.Modified;
                     db.SaveChanges();
                 }
             }

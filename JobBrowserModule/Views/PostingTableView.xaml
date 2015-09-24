@@ -134,6 +134,7 @@
                                 <TextBlock DockPanel.Dock="Left" Text="{Binding Details}"
                                            TextWrapping="WrapWithOverflow"
                                            TextTrimming="CharacterEllipsis"
+                                           ToolTipService.ShowDuration="300000"
                                            ToolTip="{Binding Job.JobDescription}"
                                            FontSize="8"
                                            HorizontalAlignment="Left"

@@ -12,7 +12,7 @@ using Model.Entities.SearchDictionary;
 
 namespace Data.Contract.JseDb
 {
-    public interface IJseDbContext
+    public interface IJseDbContext : IDbContext
     {
         IDbSet<Job> Jobs { get; set; }
         IDbSet<Employer> Employers { get; set; }
@@ -41,5 +41,15 @@ namespace Data.Contract.JseDb
         bool Equals(object obj);
         int GetHashCode();
         Type GetType();
+    }
+
+    public interface IDbContext : IDisposable
+    {
+        DbSet<TEntity> Set<TEntity>() where TEntity : class;
+        DbSet Set(Type entityType);
+        int SaveChanges();
+        IEnumerable<DbEntityValidationResult> GetValidationErrors();
+        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
+        DbEntityEntry Entry(object entity);
     }
 }

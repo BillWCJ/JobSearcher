@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using Data.EF.JseDb;
+using Data.Web.JobMine;
 using Model.Entities;
 
 namespace Business.DataBaseSeeder
 {
     public class MasterSeeder
     {
-        public static void SeedAll(Action<string> messageCallBack, UserAccount account, string term, string appsAvail, bool seedCoopRating = false, bool linkJobReviews = false, bool seedLocation = false, string selectLocation = null)
+        public static void SeedAll(Action<string> messageCallBack, UserAccount account, bool seedCoopRating = false, bool linkJobReviews = false, bool seedLocation = false, string selectLocation = null)
         {
-            try
-            {
+            //try
+            //{
+                var repo = new JseDataRepo(new JseDbContext());
                 messageCallBack("Starting Database Seeding...");
-                JobMineInfoSeeder jobMineInfoSeeder = new JobMineInfoSeeder(account);
-                jobMineInfoSeeder.SeedDb(messageCallBack, term, appsAvail);
+                JobMineInfoSeeder jobMineInfoSeeder = new JobMineInfoSeeder(account, new JobMineRepo(account));
+                jobMineInfoSeeder.SeedDb(messageCallBack, repo, account.Term, account.JobStatus);
 
                 if (seedCoopRating)
                     RateMyCoopJobSeeder.SeedDb(messageCallBack);
@@ -21,11 +24,11 @@ namespace Business.DataBaseSeeder
                 if (seedLocation)
                     new GoogleLocationSeeder(account).SeedDb(selectLocation);
                 messageCallBack("Seeding completed");
-            }
-            catch (Exception e)
-            {
-                messageCallBack(e.Message);
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    messageCallBack(e.Message);
+            //}
         }
     }
 }

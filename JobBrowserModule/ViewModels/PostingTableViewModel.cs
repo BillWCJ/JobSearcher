@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -128,7 +129,12 @@ namespace JobBrowserModule.ViewModels
         public void FilterChanged(IEnumerable<Filter> filters)
         {
             _activeFilters = filters;
-            JobPostings.Refresh();
+            System.Windows.Application.Current.Dispatcher.Invoke(
+                System.Windows.Threading.DispatcherPriority.Normal,
+                (Action) delegate()
+                {
+                    JobPostings.Refresh();
+                });
             OnPropertyChanged("TableInfo");
         }
 

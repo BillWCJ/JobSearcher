@@ -7,7 +7,7 @@ namespace Model.Entities
     public class UserAccount
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string JobMineUsername { get; set; }
         [NotMapped]
         public string JobMinePassword { get; set; }

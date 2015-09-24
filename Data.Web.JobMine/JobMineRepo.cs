@@ -15,8 +15,7 @@ namespace Data.Web.JobMine
             Client = Login.GetJobMineLoggedInWebClient(username, password);
             if (Client == null)
                 throw new ArgumentException("Unable to Login");
-            JobInquiry = new JobInquiry(Client);
-            JobDetail = new JobDetail(Client);
+            InitalizeRepos();
         }
 
         public JobMineRepo(UserAccount account)
@@ -26,17 +25,21 @@ namespace Data.Web.JobMine
 
         public JobMineRepo(ICookieEnabledWebClient client)
         {
-            //if (!Login.IsLoggedIn(client))
-                //throw new ArgumentException("Not Login");
+            if (!Login.IsLoggedIn(client))
+                throw new ArgumentException("Not Logged in");
             Client = client;
             JobInquiry = new JobInquiry(Client);
             JobDetail = new JobDetail(Client);
         }
 
         private ICookieEnabledWebClient Client { get; set; }
-
         public IJobInquiry JobInquiry { get; private set; }
-
         public IJobDetail JobDetail { get; private set; }
+
+        private void InitalizeRepos()
+        {
+            JobInquiry = new JobInquiry(Client);
+            JobDetail = new JobDetail(Client);
+        }
     }
 }

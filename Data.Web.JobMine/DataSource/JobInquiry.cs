@@ -166,7 +166,6 @@ namespace Data.Web.JobMine.DataSource
             string iCAction = IcAction.Search;
             string iCsid = "";
             int iCStateNum = 1;
-            var jobOverViews = new Queue<JobOverView>();
 
             for (int currentPageNum = 1; (numPages == FirstSearch) || currentPageNum <= numPages; currentPageNum++)
             {
@@ -180,9 +179,10 @@ namespace Data.Web.JobMine.DataSource
                 if (iCAction == IcAction.Search)
                     numPages = GetNumberOfPages(doc);
 
-                GetCurrentPageJobOverViews(doc, jobOverViews);
+                foreach (var jobOverView in GetCurrentPageJobOverViews(doc))
+                    yield return jobOverView;
             }
-            return jobOverViews;
+            yield return null;
         }
 
         public IEnumerable<string> GetJobIds(string term, string jobStatus)
@@ -227,8 +227,7 @@ namespace Data.Web.JobMine.DataSource
                 iCStateNum++;
         }
 
-        private static IEnumerable<JobOverView> GetCurrentPageJobOverViews(HtmlDocument doc,
-            Queue<JobOverView> jobOverViews)
+        private static IEnumerable<JobOverView> GetCurrentPageJobOverViews(HtmlDocument doc)
         {
             HtmlNode thisTableNode = GetTableNode(doc);
             for (int childIndex = FirstRowIndex, count = 0; (childIndex < thisTableNode.ChildNodes.Count); childIndex++)
@@ -237,11 +236,10 @@ namespace Data.Web.JobMine.DataSource
                 if (row.Name == "tr")
                 {
                     JobOverView thisJobOverView = GetJobOverView(row, count);
-                    jobOverViews.Enqueue(thisJobOverView);
+                    yield return thisJobOverView;
                     count++;
                 }
             }
-            return jobOverViews;
         }
 
         private static void GetCurrentPageJobIDs(HtmlDocument doc, Queue<string> jobIds)

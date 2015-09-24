@@ -8,6 +8,7 @@ using Business.Manager;
 using Data.EF.JseDb;
 using Data.IO.Local;
 using Model.Definition;
+using Model.Entities;
 using Model.Entities.JobMine;
 using Model.Entities.RateMyCoopJob;
 
@@ -78,7 +79,9 @@ namespace SimpleJobBrowser
                 };
                 Dispatcher.Invoke((() => MainTextBox.Text = ""));
                 Dispatcher.Invoke((() => SideTextBox.Text = ""));
-                MasterSeeder.SeedAll(messageCallBack, new JseLocalRepo().GetAccount(), "1155", JobStatus.Posted, seedCoopRating: true, seedLocation: true, selectLocation: "ottawa");
+                var userAccount = new JseLocalRepo().GetAccount();
+                throw new Exception("Changed");
+                //MasterSeeder.SeedAll(messageCallBack, userAccount, "1155", JobStatus.Posted, seedCoopRating: true, seedLocation: true, selectLocation: "ottawa");
             });
             SetUp();
         }

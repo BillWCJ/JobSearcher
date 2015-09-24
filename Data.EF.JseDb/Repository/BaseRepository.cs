@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
+using Data.Contract.JseDb;
 using Data.Contract.JseDb.Interface;
 
 namespace Data.EF.JseDb.Repository
@@ -11,7 +12,7 @@ namespace Data.EF.JseDb.Repository
     public class BaseRepository<TClass> : IBaseRepository<TClass>
         where TClass : class
     {
-        public BaseRepository(JseDbContext dbContext)
+        public BaseRepository(IJseDbContext dbContext)
         {
             if (dbContext == null)
                 throw new ArgumentNullException("dbContext");
@@ -20,7 +21,7 @@ namespace Data.EF.JseDb.Repository
             DbSet = DbContext.Set<TClass>();
         }
 
-        protected JseDbContext DbContext { get; set; }
+        protected IJseDbContext DbContext { get; set; }
         protected DbSet<TClass> DbSet { get; set; }
 
         public virtual IQueryable<TClass> GetAll()

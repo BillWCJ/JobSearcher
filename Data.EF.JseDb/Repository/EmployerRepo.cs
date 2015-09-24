@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Data.Contract.JseDb;
 using Data.Contract.JseDb.Interface;
 using Model.Entities.JobMine;
 
@@ -9,7 +10,7 @@ namespace Data.EF.JseDb.Repository
 {
     internal class EmployerRepo : BaseRepository<Employer>, IEmployerRepo
     {
-        public EmployerRepo(JseDbContext dbContext) : base(dbContext)
+        public EmployerRepo(IJseDbContext dbContext) : base(dbContext)
         {
         }
 

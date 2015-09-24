@@ -2,6 +2,7 @@
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using Data.Contract.JseDb;
 using Data.Contract.JseDb.Interface;
 using Model.Entities.JobMine;
 
@@ -9,7 +10,7 @@ namespace Data.EF.JseDb.Repository
 {
     public class DisciplinesRepo : BaseRepository<Disciplines>, IDisciplinesRepo
     {
-        public DisciplinesRepo(JseDbContext dbContext) : base(dbContext)
+        public DisciplinesRepo(IJseDbContext dbContext) : base(dbContext)
         {
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Data.Contract.JseDb;
 using Data.Contract.JseDb.Interface;
 using Model.Entities;
 using Model.Entities.JobMine;
@@ -7,7 +8,7 @@ namespace Data.EF.JseDb.Repository
 {
     public class LocationRepo : BaseRepository<JobLocation>, ILocationRepo
     {
-        public LocationRepo(JseDbContext dbContext) : base(dbContext)
+        public LocationRepo(IJseDbContext dbContext) : base(dbContext)
         {
         }
 

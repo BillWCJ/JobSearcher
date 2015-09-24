@@ -13,10 +13,14 @@ namespace Data.Web.JobMine.DataSource
 {
     public class JobDetail : IJobDetail
     {
+        CookieCollection _cookies;
         static ICookieEnabledWebClient Client { get; set; }
+        
+
         public JobDetail(ICookieEnabledWebClient client)
         {
             Client = client;
+            _cookies = Client.GetAllCookies();
         }
 
         private static Job GetJob(string htmlSource, string jobId) //todo: improve using html parsing
@@ -56,7 +60,10 @@ namespace Data.Web.JobMine.DataSource
         {
             string jobId = jov.IdString;
             string url = JobMineDef.JobDetailBaseUrl + jobId;
-            string htmlSource = Client.DownloadString(url);
+
+            CookieContainer cookieContainer = new CookieContainer();
+            cookieContainer.Add(_cookies);
+            string htmlSource = new CookieEnabledWebClient(cookieContainer).DownloadString(url);
             Job job = GetJob(htmlSource, jobId);
             job.Employer.UnitName = jov.Employer.UnitName;
             job.NumberOfOpening = jov.NumberOfOpening;

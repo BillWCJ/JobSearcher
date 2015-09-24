@@ -35,6 +35,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Business.DataBaseSeeder\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -54,6 +61,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.DataBaseSeeder\Business.DataBaseSeeder.csproj">
+      <Project>{1E5B0839-8910-4BB4-B317-F06AE676DDEE}</Project>
+      <Name>Business.DataBaseSeeder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data.Contract\Data.Contract.csproj">
       <Project>{07ADFCB0-30AA-4A1E-8C2D-0846A03FC831}</Project>
       <Name>Data.Contract</Name>
@@ -74,6 +85,10 @@
       <Project>{e807b758-858c-4f1a-a6b1-1fe220426450}</Project>
       <Name>Model.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -258,7 +258,7 @@ namespace JobDownloaderModule
                     {
                         CurrentStatus = "In Progress";
                         OnPropertyChanged("CurrentStatus");
-                        MasterSeeder.SeedAll(MessageCallBack, _userAccountManager.UserAccount, Term, _userAccountManager.UserAccount.JobStatus, true);
+                        MasterSeeder.SeedAll(MessageCallBack, _userAccountManager.UserAccount, true);
                         Aggregator.GetEvent<JobDownloadCompletedEvent>().Publish(true);
                     }
                     else
