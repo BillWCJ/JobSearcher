@@ -5,3 +5,14 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Entities\obj\Release\Model.Entities.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Entities\obj\Release\Model.Entities.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Entities\obj\Release\Model.Entities.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Model.Entities.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Model.Entities.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Common.Utility.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Model.Definition.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Newtonsoft.Json.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Common.Utility.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Model.Definition.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\bin\Release\Newtonsoft.Json.xml
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\obj\Release\Model.Entities.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\obj\Release\Model.Entities.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Entities\obj\Release\Model.Entities.pdb

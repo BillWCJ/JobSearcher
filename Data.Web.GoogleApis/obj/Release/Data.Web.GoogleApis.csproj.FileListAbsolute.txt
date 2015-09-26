@@ -11,3 +11,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\obj\Release\Data.Web.GoogleApis.pdb

@@ -10,3 +10,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.JobMine\obj\Release\Data.Web.JobMine.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.JobMine\obj\Release\Data.Web.JobMine.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Data.Web.JobMine\obj\Release\Data.Web.JobMine.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\obj\Release\Data.Web.JobMine.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\obj\Release\Data.Web.JobMine.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.JobMine\obj\Release\Data.Web.JobMine.pdb

@@ -3,3 +3,8 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Definition\obj\Release\Model.Definition.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Definition\obj\Release\Model.Definition.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhancer\Model.Definition\obj\Release\Model.Definition.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\bin\Release\Model.Definition.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\bin\Release\Model.Definition.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\obj\Release\Model.Definition.csprojResolveAssemblyReference.cache
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\obj\Release\Model.Definition.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Model.Definition\obj\Release\Model.Definition.pdb
