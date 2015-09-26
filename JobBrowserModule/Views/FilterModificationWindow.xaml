@@ -240,7 +240,7 @@
                                 <TextBox Margin="5" Grid.Row="1" Grid.Column="2" MinWidth="50" Text="{Binding LowerLimit, Mode=TwoWay}"></TextBox>
                             </Grid>
                         </StackPanel>
-                        <!--<RadioButton
+                        <RadioButton
                                 Content="{Binding Source={x:Static definition:FilterCategory.ReviewFilter}, Converter={StaticResource EnumDescriptionConverter}}"
                                 IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.ReviewFilter}}" />
                         <StackPanel
@@ -280,7 +280,7 @@
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
-                        </StackPanel>-->
+                        </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
             </Border>
