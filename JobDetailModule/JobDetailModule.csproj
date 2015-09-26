@@ -111,9 +111,17 @@
       <Project>{DAA00879-C4F6-4B71-808D-F36EC9485E2C}</Project>
       <Name>Business.Manager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.Utility\Common.Utility.csproj">
+      <Project>{C8806BC4-DF4E-455E-AEFF-C2DEEF16F1F4}</Project>
+      <Name>Common.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JobBrowserModule\JobBrowserModule.csproj">
       <Project>{5CFDE7E3-A01F-4879-A851-898794623C27}</Project>
       <Name>JobBrowserModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model.Definition\Model.Definition.csproj">
+      <Project>{62864846-7447-4600-B704-91831B872E3F}</Project>
+      <Name>Model.Definition</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Entities\Model.Entities.csproj">
       <Project>{E807B758-858C-4F1A-A6B1-1FE220426450}</Project>

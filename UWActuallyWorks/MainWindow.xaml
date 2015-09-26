@@ -19,22 +19,22 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+        <Border Grid.Row="0" BorderThickness="2" BorderBrush="DimGray" Margin="2" CornerRadius="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Name="StatusBar" Text="{Binding CurrentStatus}" ToolTip="{Binding CurrentStatus}"/>
-                <Button Grid.Column="1" Margin="5" Content="SignOn, Import, and Export" Click="JobDownloadClick"></Button>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="StatusBar" Text="{Binding CurrentStatus}" ToolTip="{Binding CurrentStatus}"/>
+                <Button Grid.Column="1" Margin="5,0" Content="SignOn, Import, and Export" Click="JobDownloadClick" BorderThickness="0" BorderBrush="Transparent" Background="Transparent"/>
             </Grid>
         </Border>
         <Grid Grid.Row="1">
             <Grid Name="JobBrowserContainer">
-                <Border BorderThickness="2" BorderBrush="DimGray" Margin="5" CornerRadius="2">
+                <Border BorderThickness="2" BorderBrush="DimGray" Margin="2" CornerRadius="2">
                     <xcad:DockingManager
                         AllowMixedOrientation="True"
                         BorderBrush="Black"

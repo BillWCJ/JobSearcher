@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using Business.Manager;
 using Common.Utility;
 using Model.Definition;
 using Model.Entities.JobMine;
+using Model.Entities.RateMyCoopJob;
 
 namespace JobBrowserModule.ViewModels
 {
@@ -16,7 +19,10 @@ namespace JobBrowserModule.ViewModels
         {
             Job = job;
             Duration = JobManager.GetTermDuration(Job).GetDescription();
+            //EmployerReviews = JobReviewManager.GetEmployerReview(this.Job.Employer.Name);
         }
+
+        public List<EmployerReview> EmployerReviews { get; set; }
 
         public Job Job { get; private set; }
         public bool IsSelected { get; set; }
@@ -67,12 +73,6 @@ namespace JobBrowserModule.ViewModels
             }
             return qualification == string.Empty ? null : qualification;
         }
-
-        private void GenerateScore()
-        {
-            Score = 0;
-        }
-
         
         public string Details
         {

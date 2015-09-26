@@ -22,6 +22,8 @@ namespace Model.Entities
         public string Description { get; set; }
         public bool IsAntiFilter { get; set; }
         public int PointValue { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsActivePointFilter { get; set; }
         public FilterCategory Category { get; set; }
 
         public ICollection<StringSearchTarget> StringSearchTargets { get; set; }
@@ -38,6 +40,12 @@ namespace Model.Entities
         public ValueSearchTarget ValueSearchSelectedItem { get; set; }
         public double LowerLimit { get; set; }
         public double UpperLimit { get; set; }
+
+        public TermType Duration { get; set; }
+
+        public int MaximumResult { get; set; }
+        public double LowerRatingLimit { get; set; }
+        public double UpperRatingLimit { get; set; }
 
         public string StringSearchTargetsSerialized
         {

@@ -333,7 +333,39 @@ namespace JobDownloaderModule
 
         public void DeleteJobsFromDatabase()
         {
-            DatabaseCleaner.DeleteJobs(MessageCallBack);
+            Task.Factory.StartNew(() =>
+            {
+                var acquired = false;
+                try
+                {
+                    acquired = Monitor.TryEnter(_isInProgressLock);
+                    if (acquired)
+                    {
+                        try
+                        {
+                            DatabaseCleaner.DeleteJobs(MessageCallBack);
+                        }
+                        catch (Exception ex)
+                        {
+                            Trace.TraceError(ex.ToString());
+                            MessageCallBack("A Major error occurred, Operation Aborted");
+                        }
+                    }
+                    else
+                    {
+                        MessageCallBack("An Operation is already in progress");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Trace.TraceError(e.ToString());
+                }
+                finally
+                {
+                    if (acquired)
+                        Monitor.Exit(_isInProgressLock);
+                }
+            }, Task.Factory.CancellationToken);
         }
     }
 }

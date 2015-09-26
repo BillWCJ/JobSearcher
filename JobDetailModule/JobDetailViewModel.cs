@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Business.Manager;
+using Common.Utility;
 using JobBrowserModule.ViewModels;
 using Microsoft.Practices.Prism.PubSubEvents;
+using Model.Definition;
 using Model.Entities.JobMine;
 using Presentation.WPF;
 using Presentation.WPF.Events;
@@ -11,11 +14,15 @@ namespace JobDetailModule
 {
     public class JobDetailViewModel : JobDetailViewModelBase
     {
+        private UserAccountManager _userAccountManager;
+
         public JobDetailViewModel() : base(new EventAggregator())
         { }
 
-        public JobDetailViewModel(EventAggregator aggregator) : base (aggregator)
-        { }
+        public JobDetailViewModel(EventAggregator aggregator, UserAccountManager userAccountManager) : base(aggregator)
+        {
+            this._userAccountManager = userAccountManager;
+        }
 
         public string CurrentJobString
         {
@@ -49,7 +56,19 @@ namespace JobDetailModule
 
         public void AddCurrentJobToJobMineShortList()
         {
-            JobMineCommunicator.AddToShortList(CurrentJob);
+            string jobstring = "Id: {0}, title: {1}, employer {2}".FormatString(CurrentJob.Id, CurrentJob.JobTitle, CurrentJob.Employer.Name);
+            Task.Factory.StartNew(() =>
+            {
+                if (JobMineCommunicator.AddToShortList(CurrentJob, _userAccountManager.UserAccount))
+                {
+                    Aggregator.GetEvent<CurrentStatusMessageChangedEvent>().Publish(CommonDef.CurrentStatus + "Successfully added to JobMine shortList. {0}".FormatString(jobstring));
+
+                }
+                else
+                {
+                    Aggregator.GetEvent<CurrentStatusMessageChangedEvent>().Publish(CommonDef.CurrentStatus + "Fail to Add to JobMine shortList. {0}".FormatString(jobstring));
+                }
+            });
         }
 
         public ObservableCollection<string> ShortListNames { get; set; }

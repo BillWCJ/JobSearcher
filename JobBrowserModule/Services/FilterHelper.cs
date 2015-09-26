@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using Common.Utility;
 using JobBrowserModule.ViewModels;
 using Model.Definition;
 using Model.Entities;
+using Model.Entities.RateMyCoopJob;
 
 namespace JobBrowserModule.Services
 {
@@ -32,8 +34,8 @@ namespace JobBrowserModule.Services
                     case FilterCategory.ValueFilter:
                         filterOperation = ValueFilterOperation;
                         break;
-                    case FilterCategory.LocationFilter:
-                        filterOperation = LocationFilterOperation;
+                    case FilterCategory.DurationFilter:
+                        filterOperation = DurationFilter;
                         break;
                     case FilterCategory.ReviewFilter:
                         filterOperation = ReviewFilterOperation;
@@ -61,7 +63,6 @@ namespace JobBrowserModule.Services
 
         private static bool DisciplineSelectionOperation(JobPostingViewModel jobPosting, Filter filter)
         {
-
             bool isRightDiscipline = true;
             if (filter.DisciplinesSearchTargets.Any())
             {
@@ -72,12 +73,29 @@ namespace JobBrowserModule.Services
 
         private static bool ReviewFilterOperation(JobPostingViewModel jobPosting, Filter filter)
         {
-            return true;
+            if (jobPosting.EmployerReviews.Any() && jobPosting.EmployerReviews.Count <= filter.MaximumResult)
+            {
+                double totalScore = 0;
+                int numReview = 0;
+                foreach (EmployerReview employerReview in jobPosting.EmployerReviews)
+                {
+                    foreach (JobReview jobReview in employerReview.JobReviews)
+                    {
+                        numReview++;
+                        totalScore += jobReview.AverageRating;
+                    }
+                }
+                double averageScore = totalScore/numReview;
+
+                if (averageScore >= filter.LowerRatingLimit && averageScore <= filter.UpperRatingLimit)
+                    return true;
+            }
+            return false;
         }
 
-        private static bool LocationFilterOperation(JobPostingViewModel jobPosting, Filter filter)
+        private static bool DurationFilter(JobPostingViewModel jobPosting, Filter filter)
         {
-            return true;
+            return jobPosting.Duration == filter.Duration.GetDescription();
         }
 
         private static bool LevelSelectionOperation(JobPostingViewModel jobPosting, Filter filter)

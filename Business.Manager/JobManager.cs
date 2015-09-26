@@ -67,7 +67,7 @@ namespace Business.Manager
                 isFourMonth = true;
             }
 
-            if (lowerCase.Contains("8 month") || lowerCase.Contains("8-month") || lowerCase.Contains("eight month"))
+            if (lowerCase.Contains("8 month") || lowerCase.Contains("8-month") || lowerCase.Contains("eight month") || lowerCase.Contains("2 work term") || lowerCase.Contains("2 term"))
             {
                 isEightMonth = true;
             }

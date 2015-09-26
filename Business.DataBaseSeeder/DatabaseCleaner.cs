@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Utility;
 using Data.EF.JseDb;
+using Model.Definition;
 using Model.Entities;
 using Model.Entities.JobMine;
 using Model.Entities.RateMyCoopJob;
@@ -16,6 +18,7 @@ namespace Business.DataBaseSeeder
         {
             using (var db = new JseDbContext())
             {
+                var repo = new JseDataRepo(db);
                 //remove job linker
                 messageCallBack("Starting to remove JobLinker");
                 foreach (JobLinker jobLinker in db.JobLinkers)
@@ -25,14 +28,18 @@ namespace Business.DataBaseSeeder
                 }
                 messageCallBack("Remove JobLinker complete");
                 messageCallBack("Starting to remove Jobs");
-                foreach (Job job in db.Jobs)
+                var jobIds = repo.JobRepo.GetJobIds();
+                int numJobDeleted = 0, totalNumJob = jobIds.Count();
+                foreach (var jobId in jobIds)
                 {
-                    db.Jobs.Remove(job);
-                    db.SaveChanges();
+                    repo.JobRepo.Delete(jobId);
+                    repo.SaveChanges();
+                    messageCallBack(CommonDef.CurrentStatus + "Deleted: {0}/{1} jobs".FormatString(++numJobDeleted, totalNumJob));
                 }
                 messageCallBack("Remove Jobs complete");
                 messageCallBack("Starting to remove employers");
-                foreach (Employer employer in db.Employers)
+                var employers = db.Employers.ToList();
+                foreach (Employer employer in employers)
                 {
                     db.Employers.Remove(employer);
                     db.SaveChanges();

@@ -134,8 +134,8 @@ namespace JobBrowserModule.ViewModels
                 (Action) delegate()
                 {
                     JobPostings.Refresh();
+                    OnPropertyChanged("TableInfo");
                 });
-            OnPropertyChanged("TableInfo");
         }
 
         public void SelectedJobChanged(Job job)

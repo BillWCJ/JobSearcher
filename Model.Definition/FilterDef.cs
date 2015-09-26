@@ -56,7 +56,7 @@ namespace Model.Definition
         ValueFilter,
         [Description("Review Filter (Beta - RateCoopJob.com Data)")]
         ReviewFilter,
-        [Description("Location Filter")]
-        LocationFilter
+        [Description("Duration Filter")]
+        DurationFilter
     }
 }

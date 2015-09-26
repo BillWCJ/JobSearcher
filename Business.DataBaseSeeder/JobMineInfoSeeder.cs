@@ -86,8 +86,6 @@ namespace Business.DataBaseSeeder
             progressInfo.IsAllJobFound = true;
             progressInfo.RemovedJobIds = progressInfo.DbJobIds.Except(progressInfo.CurrentJobIds).ToList();
 
-
-
             var getJobDetailTasks = new List<Task>();
 
             for (int i = 0; i < 5; i++)
@@ -137,6 +135,7 @@ namespace Business.DataBaseSeeder
                     lock (progressInfo.DbLock)
                     {
                         repo.JobRepo.Delete(jobId);
+                        repo.SaveChanges();
                     }
                     progressInfo.NumJobRemoved++;
                 }
@@ -148,7 +147,7 @@ namespace Business.DataBaseSeeder
             }
         }
 
-        private static void SeedJobToDb(IJseDataRepo db, ref JobMineInfoSeederProgressInfo progressInfo, Action<JobMineInfoSeederProgressInfo> currentSeedingProgressUpdate)
+        private static void SeedJobToDb(IJseDataRepo repo, ref JobMineInfoSeederProgressInfo progressInfo, Action<JobMineInfoSeederProgressInfo> currentSeedingProgressUpdate)
         {
             while (!progressInfo.IsAllJobRetrived || progressInfo.Jobs.Any())
             {
@@ -159,7 +158,7 @@ namespace Business.DataBaseSeeder
                 {
                     lock (progressInfo.DbLock)
                     {
-                        db.JobRepo.SeedJobAndRelatedEntities(job);
+                        repo.JobRepo.SeedJobAndRelatedEntities(job);
                     }
                     progressInfo.NumJobSeeded++;
                     currentSeedingProgressUpdate(progressInfo);
@@ -167,7 +166,7 @@ namespace Business.DataBaseSeeder
             }
         }
 
-        private static void UpdateJovToDb(ref JobMineInfoSeederProgressInfo progressInfo, IJseDataRepo db, Action<JobMineInfoSeederProgressInfo> currentSeedingProgressUpdate)
+        private static void UpdateJovToDb(ref JobMineInfoSeederProgressInfo progressInfo, IJseDataRepo repo, Action<JobMineInfoSeederProgressInfo> currentSeedingProgressUpdate)
         {
             while (!progressInfo.IsAllJobRetrived || progressInfo.ToBeUpdatedJobOverViews.Any())
             {
@@ -177,7 +176,7 @@ namespace Business.DataBaseSeeder
                 {
                     lock (progressInfo.DbLock)
                     {
-                        db.JobRepo.UpdateWithJov(jov);
+                        repo.JobRepo.UpdateWithJov(jov);
                     }
                     progressInfo.NumJobUpdated++;
                     currentSeedingProgressUpdate(progressInfo);

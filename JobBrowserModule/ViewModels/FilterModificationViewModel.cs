@@ -29,6 +29,10 @@ namespace JobBrowserModule.ViewModels
         ValueSearchTarget ValueSearchSelectedItem { get; set; }
         bool IsScoreFilter { get; set; }
         int PointValue { get; set; }
+        TermType DurationSelectedItem { get; set; }
+        double UpperRatingLimit { get; set; }
+        int MaximumReviews { get; set; }
+        double LowerRatingLimit { get; set; }
         void SaveChangeToBaseViewModel();
     }
 
@@ -54,6 +58,12 @@ namespace JobBrowserModule.ViewModels
 
         public bool IsScoreFilter { get; set; }
         public int PointValue { get; set; }
+
+        public TermType DurationSelectedItem { get; set; }
+
+        public double UpperRatingLimit { get; set; }
+        public int MaximumReviews { get; set; }
+        public double LowerRatingLimit { get; set; }
 
         public void SaveChangeToBaseViewModel()
         {
@@ -93,6 +103,10 @@ namespace JobBrowserModule.ViewModels
                 UpperLimit = _filterViewModel.Filter.UpperLimit;
                 PointValue = _filterViewModel.Filter.PointValue;
                 IsScoreFilter = PointValue != 0;
+                DurationSelectedItem = _filterViewModel.Filter.Duration;
+                UpperRatingLimit = _filterViewModel.Filter.UpperRatingLimit;
+                LowerRatingLimit = _filterViewModel.Filter.LowerRatingLimit;
+                MaximumReviews = _filterViewModel.Filter.MaximumResult;
             }
             else
             {
@@ -120,7 +134,10 @@ namespace JobBrowserModule.ViewModels
         public ValueSearchTarget ValueSearchSelectedItem { get; set; }
         public bool IsScoreFilter { get; set; }
         public int PointValue { get; set; }
-
+        public TermType DurationSelectedItem { get; set; }        
+        public double UpperRatingLimit { get; set; }
+        public int MaximumReviews { get; set; }
+        public double LowerRatingLimit { get; set; }
         public void SaveChangeToBaseViewModel()
         {
             _filterViewModel.Filter.Name = Name;
@@ -138,6 +155,11 @@ namespace JobBrowserModule.ViewModels
             _filterViewModel.Filter.LowerLimit = LowerLimit;
             _filterViewModel.Filter.UpperLimit = UpperLimit;
             _filterViewModel.Filter.PointValue = IsScoreFilter ? PointValue : 0;
+            _filterViewModel.Filter.Duration = DurationSelectedItem;
+            _filterViewModel.Filter.UpperRatingLimit = UpperRatingLimit;
+            _filterViewModel.Filter.LowerRatingLimit = LowerRatingLimit;
+            _filterViewModel.Filter.MaximumResult = MaximumReviews;
+
         }
     }
 }

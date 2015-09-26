@@ -32,11 +32,10 @@ namespace UWActuallyWorks
 
             FilterPanel.ViewModel = new FilterPanelViewModel(_aggregator);
             JobPostingTable.ViewModel = new PostingTableViewModel(_aggregator);
-            JobDetailPanel.ViewModel = new JobDetailViewModel(_aggregator);
+            JobDetailPanel.ViewModel = new JobDetailViewModel(_aggregator, _userAccountManager);
             GoogleSearchPanel.ViewModel = new GoogleSearchViewModel(_aggregator);
             GoogleMapSearchPanel.ViewModel = new GoogleMapSearchViewModel(_aggregator);
             JobRatingPanel.ViewModel = new JobRatingViewModel(_aggregator);
-
             _jobDownloaderView = new JobDownloaderView() { ViewModel = new JobDownloaderViewModel(_aggregator, _userAccountManager) };
             DisplayJobDownloaderWindow();
         }

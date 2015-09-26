@@ -23,6 +23,7 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\JobSearchEnhanc
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Business.DataBaseSeeder.dll.config
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Business.DataBaseSeeder.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Business.DataBaseSeeder.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Common.Utility.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Contract.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.EF.JseDb.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.IO.Local.dll
@@ -31,10 +32,10 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBa
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Definition.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Entities.dll
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Common.Utility.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\HtmlAgilityPack.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\FluentSharp.CoreLib.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Common.Utility.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Contract.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.EF.JseDb.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.IO.Local.pdb
@@ -43,7 +44,6 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBa
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Data.Web.RateMyCoopJob.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Model.Entities.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Common.Utility.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\HtmlAgilityPack.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Business.DataBaseSeeder\bin\Debug\Newtonsoft.Json.xml

@@ -123,7 +123,9 @@ namespace Data.Web.JobMine.DataSource
                     string thisJobId = GetConvertedNodeInnerHtml(row, ColumnPath.JobId, count);
                     if (Convert.ToInt32(thisJobId) == jobId)
                     {
-                        return AddToShortList(count, iCStateNum, iCsid);
+                        JobOverView thisJobOverView = GetJobOverView(row, count);
+                        if(!thisJobOverView.OnShortList)
+                            return AddToShortList(count, iCStateNum, iCsid);
                     }
                     count++;
                 }

@@ -31,6 +31,13 @@
                 <x:Type TypeName="definition:ValueSearchTarget" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <ObjectDataProvider MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}"
+                            x:Key="DurationSearchTarget">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="definition:TermType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
         <converter:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
         <converter:EnumDescriptionConverter x:Key="EnumDescriptionConverter" />
     </Window.Resources>
@@ -233,22 +240,47 @@
                                 <TextBox Margin="5" Grid.Row="1" Grid.Column="2" MinWidth="50" Text="{Binding LowerLimit, Mode=TwoWay}"></TextBox>
                             </Grid>
                         </StackPanel>
-                        <RadioButton
+                        <!--<RadioButton
                                 Content="{Binding Source={x:Static definition:FilterCategory.ReviewFilter}, Converter={StaticResource EnumDescriptionConverter}}"
                                 IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.ReviewFilter}}" />
                         <StackPanel
                             IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.ReviewFilter}}"
                             Margin="5" Height="Auto" Background="Transparent">
-                            <TextBox Text="Coming Soon"></TextBox>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="Upper Limit(Less than or equal to)"></Label>
+                                <Label Grid.Row="0" Grid.Column="1" Margin="5" Content="Maximum number of reviews (filter fail if this number reach)"></Label>
+                                <Label Grid.Row="0" Grid.Column="2" Margin="5" Content="Lower Limit(Greater than or equal to)"></Label>
+                                <TextBox Margin="5" Grid.Row="1" Grid.Column="0" MinWidth="50" Text="{Binding UpperRatingLimit, Mode=TwoWay}"></TextBox>
+                                <TextBox Margin="5" Grid.Row="1" Grid.Column="1" MinWidth="50" Text="{Binding MaximumReviews, Mode=TwoWay}"></TextBox>
+                                <TextBox Margin="5" Grid.Row="1" Grid.Column="2" MinWidth="50" Text="{Binding LowerRatingLimit, Mode=TwoWay}"></TextBox>
+                            </Grid>
                         </StackPanel>
                         <RadioButton
-                                Content="{Binding Source={x:Static definition:FilterCategory.LocationFilter}, Converter={StaticResource EnumDescriptionConverter}}"
-                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.LocationFilter}}" />
+                                Content="{Binding Source={x:Static definition:FilterCategory.DurationFilter}, Converter={StaticResource EnumDescriptionConverter}}"
+                                IsChecked="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.DurationFilter}}" />
                         <StackPanel
-                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.LocationFilter}}"
+                            IsEnabled="{Binding Path=SelectedFilterCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static definition:FilterCategory.DurationFilter}}"
                             Margin="5" Height="Auto" Background="Transparent">
-                            <TextBox Text="Coming Soon"></TextBox>
-                        </StackPanel>
+                            <Label Margin="5" Content="Term Type:"></Label>
+                            <ComboBox Margin="5"
+                                          ItemsSource="{Binding Source={StaticResource DurationSearchTarget}}"
+                                          SelectedItem="{Binding Path=DurationSelectedItem, Mode=TwoWay}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource EnumDescriptionConverter}}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>-->
                     </StackPanel>
                 </ScrollViewer>
             </Border>
