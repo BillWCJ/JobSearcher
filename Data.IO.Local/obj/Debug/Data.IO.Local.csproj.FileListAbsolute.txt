@@ -23,4 +23,3 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\o
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\obj\Debug\Data.IO.Local.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\obj\Debug\Data.IO.Local.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\EntityFramework.xml
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.IO.Local\bin\Debug\Newtonsoft.Json.xml
