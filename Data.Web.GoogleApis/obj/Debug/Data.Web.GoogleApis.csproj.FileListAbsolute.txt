@@ -24,8 +24,9 @@ C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.Google
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Data.EF.JseDb.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Model.Definition.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Model.Entities.pdb
-C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Newtonsoft.Json.xml
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Common.Utility.pdb
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\obj\Debug\Data.Web.GoogleApis.csprojResolveAssemblyReference.cache
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\obj\Debug\Data.Web.GoogleApis.dll
 C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\obj\Debug\Data.Web.GoogleApis.pdb
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\EntityFramework.xml
+C:\Users\BillWenChao\Dropbox\Software Projects\JobSearchEnhancer\Data.Web.GoogleApis\bin\Debug\Newtonsoft.Json.xml
