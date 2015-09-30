@@ -125,7 +125,10 @@ namespace Data.Web.JobMine.DataSource
                     {
                         JobOverView thisJobOverView = GetJobOverView(row, count);
                         if(!thisJobOverView.OnShortList)
-                            return AddToShortList(count, iCStateNum, iCsid);
+                        {
+                            var addSuccess = AddToShortList(count, iCStateNum, iCsid);
+                            return addSuccess;
+                        }
                     }
                     count++;
                 }

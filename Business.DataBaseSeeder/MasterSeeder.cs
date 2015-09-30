@@ -10,8 +10,8 @@ namespace Business.DataBaseSeeder
     {
         public static void SeedAll(Action<string> messageCallBack, UserAccount account, bool seedCoopRating = false, bool linkJobReviews = false, bool seedLocation = false, string selectLocation = null)
         {
-            //try
-            //{
+            try
+            {
                 var repo = new JseDataRepo(new JseDbContext());
                 messageCallBack("Starting Database Seeding...");
                 JobMineInfoSeeder jobMineInfoSeeder = new JobMineInfoSeeder(account, new JobMineRepo(account));
@@ -19,16 +19,16 @@ namespace Business.DataBaseSeeder
 
                 if (seedCoopRating)
                     RateMyCoopJobSeeder.SeedDb(messageCallBack);
-                if(linkJobReviews)
+                if (linkJobReviews)
                     RateMyCoopJobLinker.SeedDb();
                 if (seedLocation)
                     new GoogleLocationSeeder(account).SeedDb(selectLocation);
                 messageCallBack("Seeding completed");
-            //}
-            //catch (Exception e)
-            //{
-            //    messageCallBack(e.Message);
-            //}
+            }
+            catch (Exception e)
+            {
+                messageCallBack(e.Message);
+            }
         }
     }
 }

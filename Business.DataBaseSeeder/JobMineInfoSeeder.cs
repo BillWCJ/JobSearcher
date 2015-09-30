@@ -87,6 +87,7 @@ namespace Business.DataBaseSeeder
             progressInfo.RemovedJobIds = progressInfo.DbJobIds.Except(progressInfo.CurrentJobIds).ToList();
 
             var getJobDetailTasks = new List<Task>();
+            var updateJovTasks = new List<Task>();
 
             for (int i = 0; i < 5; i++)
             {
@@ -97,10 +98,14 @@ namespace Business.DataBaseSeeder
                 getJobDetailTasks.Add(getJobDetailTask);
             }
 
-            var updateJovToDbTask = Task.Factory.StartNew(() =>
+            for (int i = 0; i < 10; i++)
             {
-                UpdateJovToDb(ref progressInfo, repo, currentSeedingProgressUpdate);
-            }, Task.Factory.CancellationToken);
+                var updateJovToDbTask = Task.Factory.StartNew(() =>
+                {
+                    UpdateJovToDb(ref progressInfo, repo, currentSeedingProgressUpdate);
+                }, Task.Factory.CancellationToken);
+                updateJovTasks.Add(updateJovToDbTask);
+            }
 
             var seedJobToDbTask = Task.Factory.StartNew(() =>
             {
@@ -115,7 +120,7 @@ namespace Business.DataBaseSeeder
             Task.WaitAll(getJobDetailTasks.ToArray());
             progressInfo.IsAllJobRetrived = true;
 
-            updateJovToDbTask.Wait();
+            Task.WaitAll(updateJovTasks.ToArray());
             seedJobToDbTask.Wait();
             removeJobFromDbTask.Wait();
 

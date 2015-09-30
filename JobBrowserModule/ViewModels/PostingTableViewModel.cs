@@ -29,6 +29,8 @@ namespace JobBrowserModule.ViewModels
         void SelectedJobChanged(Job job);
         void AddSelectedJobsToShortList(string name);
         void KeyWordSearchToggled();
+        bool ShowOnlyShortListedJobs { get; set; }
+        void RefreshTable();
     }
 
     internal class PostingTableViewModelMock : IPostingTableViewModel
@@ -65,6 +67,11 @@ namespace JobBrowserModule.ViewModels
         public string SearchOrCancelIconToolTip { get; set; }
         public string SearchKeyWord { get; set; }
         public string TableInfo { get; private set; }
+        public bool ShowOnlyShortListedJobs { get; set; }
+
+        public void RefreshTable()
+        {
+        }
     }
 
     public class PostingTableViewModel : ViewModelBase, IPostingTableViewModel
@@ -129,6 +136,11 @@ namespace JobBrowserModule.ViewModels
         public void FilterChanged(IEnumerable<Filter> filters)
         {
             _activeFilters = filters;
+            RefreshTable();
+        }
+
+        public void RefreshTable()
+        {
             System.Windows.Application.Current.Dispatcher.Invoke(
                 System.Windows.Threading.DispatcherPriority.Normal,
                 (Action) delegate()
@@ -159,6 +171,7 @@ namespace JobBrowserModule.ViewModels
         public string SearchOrCancelIcon { get; private set; }
         public string SearchOrCancelIconToolTip { get; private set; }
         public string SearchKeyWord { get; set; }
+        public bool ShowOnlyShortListedJobs { get; set; }
 
         public string TableInfo
         {
@@ -207,6 +220,9 @@ namespace JobBrowserModule.ViewModels
         {
             var jobPosting = item as JobPostingViewModel;
             if (jobPosting == null)
+                return false;
+
+            if (ShowOnlyShortListedJobs && !jobPosting.Job.OnShortList)
                 return false;
 
             var isVisible = FilterHelper.IsPostingVisible(jobPosting, _activeFilters);

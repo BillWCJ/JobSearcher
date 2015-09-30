@@ -81,5 +81,10 @@ namespace JobBrowserModule.Views
         {
             ViewModel.KeyWordSearchToggled();
         }
+
+        private void ShowOnlyShortListedJobsToggled(object sender, RoutedEventArgs e)
+        {
+            ViewModel.RefreshTable();
+        }
     }
 }

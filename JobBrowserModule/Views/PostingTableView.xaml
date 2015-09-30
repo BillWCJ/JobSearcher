@@ -181,6 +181,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
+            <CheckBox Margin="5" Content="Only show jobs that are short listed on JobMine" IsChecked="{Binding ShowOnlyShortListedJobs, Mode=TwoWay}" Unchecked="ShowOnlyShortListedJobsToggled" Checked="ShowOnlyShortListedJobsToggled"></CheckBox>
             <Border Margin="5" BorderThickness="1" BorderBrush="Black" CornerRadius="1">
                 <StackPanel Orientation="Horizontal">
                     <TextBox Width="100" VerticalAlignment="Center" Text="{Binding SearchKeyWord}" BorderThickness="0"></TextBox>
