@@ -67,7 +67,7 @@ namespace Business.DataBaseSeeder
                     messageCallBack(CommonDef.CurrentStatus +
                                     "Found {0} jobs in total. {1} new jobs Added; {2} updated; {3} removed".FormatString(info.NumJobFound, info.NumJobSeeded, info.NumJobUpdated, info.NumJobRemoved));
 
-            messageCallBack("Searching For Jobs");
+            messageCallBack("Searching For Jobs...");
             foreach (var jov in _jobMineRepo.JobInquiry.GetJobOverViews(term, appsAvail).Take(numberOfJobsToSeed))
             {
                 if (jov != null)
@@ -89,6 +89,7 @@ namespace Business.DataBaseSeeder
             var getJobDetailTasks = new List<Task>();
             var updateJovTasks = new List<Task>();
 
+            messageCallBack("Downloading Jobs...");
             for (int i = 0; i < 5; i++)
             {
                 var getJobDetailTask = Task.Factory.StartNew(() =>

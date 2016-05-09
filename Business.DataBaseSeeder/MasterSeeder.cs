@@ -10,11 +10,14 @@ namespace Business.DataBaseSeeder
     {
         public static void SeedAll(Action<string> messageCallBack, UserAccount account, bool seedCoopRating = false, bool linkJobReviews = false, bool seedLocation = false, string selectLocation = null)
         {
+            messageCallBack("Starting Seeding Process");
             try
             {
                 var repo = new JseDataRepo(new JseDbContext());
-                messageCallBack("Starting Database Seeding...");
+                messageCallBack("Connected to Local Database...");
                 JobMineInfoSeeder jobMineInfoSeeder = new JobMineInfoSeeder(account, new JobMineRepo(account));
+                messageCallBack("Connected to Jobmine Data Source...");
+                messageCallBack("Starting to Search and seed Jobmine postings...");
                 jobMineInfoSeeder.SeedDb(messageCallBack, repo, account.Term, account.JobStatus);
 
                 if (seedCoopRating)
@@ -29,6 +32,7 @@ namespace Business.DataBaseSeeder
             {
                 messageCallBack(e.Message);
             }
+            messageCallBack("Exiting Seeding Process");
         }
     }
 }

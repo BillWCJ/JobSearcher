@@ -291,11 +291,17 @@ namespace Data.Web.JobMine.DataSource
                    !string.IsNullOrEmpty(jov.Employer.Name) && !string.IsNullOrEmpty(jov.JobLocation.Region);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <remarks>Safe Extract: doc.DocumentNode.SelectSingleNode("//table[@id='UW_CO_JOBRES_VW$scroll$0']");</remarks>
+        /// <returns></returns>
         private static HtmlNode GetTableNode(HtmlDocument doc)
         {
-            return
-                doc.DocumentNode.SelectSingleNode(
-                    "/page[1]/field[1]/tr[29]/td[2]/div[1]/table[1]/tr[2]/td[1]/table[1]/tr[1]/td[1]/table[1]");
+            return doc.DocumentNode.SelectSingleNode("//table[@class='PSLEVEL1GRID']");
+                //doc.DocumentNode.SelectSingleNode(
+                //    "/page[1]/field[1]/tr[29]/td[2]/div[1]/table[1]/tr[2]/td[1]/table[1]/tr[1]/td[1]/table[1]");
         }
 
         private static JobOverView GetJobOverView(HtmlNode row, int count)
@@ -360,10 +366,11 @@ namespace Data.Web.JobMine.DataSource
         /// </summary>
         /// <param name="doc">Current page in Html</param>
         /// <returns>string ICStateNum</returns>
-        /// <remarks>Safe Extraction: DocumentNode.SelectSingleNode("//input[@id='ICStateNum']").Attributes["value"].Value;</remarks>
+        /// <remarks>Safe Extraction: doc.DocumentNode.SelectSingleNode("//input[@id='ICStateNum']").Attributes["value"].Value;</remarks>
+        /// <remarks>Lazy Extraction: doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[3]").Attributes["value"].Value;</remarks>
         private static int GetIcStateNum(HtmlDocument doc)
         {
-            string iCStateNum = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[3]").Attributes["value"].Value;
+            string iCStateNum = doc.DocumentNode.SelectSingleNode("//input[@id='ICStateNum']").Attributes["value"].Value;
             return Convert.ToInt32(iCStateNum);
         }
 
@@ -372,10 +379,11 @@ namespace Data.Web.JobMine.DataSource
         /// </summary>
         /// <param name="doc">Current page in Html</param>
         /// <returns>string ICSID</returns>
-        /// <remarks>Safe Extraction: DocumentNode.SelectSingleNode("//input[@id='ICSID']").Attributes["value"].Value;</remarks>
+        /// <remarks>Safe Extraction: doc.DocumentNode.SelectSingleNode("//input[@id='ICSID']").Attributes["value"].Value;</remarks>
+        /// <remarks>Lazy Extraction: doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[13]").Attributes["value"].Value;</remarks>
         private static string GetIcsid(HtmlDocument doc)
         {
-            string iCsid = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[13]").Attributes["value"].Value;
+            string iCsid = doc.DocumentNode.SelectSingleNode("//input[@id='ICSID']").Attributes["value"].Value;
             return iCsid;
         }
 
